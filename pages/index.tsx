@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 
-import Landing from '../components/views/landing'
+import Landing from '@/components/views/landing'
 
 const Home: NextPage = () => {
     return <Landing />
