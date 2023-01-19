@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import { StyledMobileNav } from './Nav.styles'
 import Link from 'next/link'
 
-// import { BsInstagram, BsLinkedin } from 'react-icons/bs'
 import { MobileRoutes } from './routes'
+
+import { StyledMobileNav } from './Nav.styles'
+
 const MobileNav = () => {
     const [show, setShow] = useState<boolean>(false)
     const [stopScroll, setStopScroll] = useState<boolean>(false)

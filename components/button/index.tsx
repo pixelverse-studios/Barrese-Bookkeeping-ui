@@ -1,9 +1,9 @@
 import StyledButton from './Button.styles'
 type ButtonProps = {
-    value: string | number
+    label: string
 }
-const Button = ({ value }: ButtonProps) => {
-    return <StyledButton>{value}</StyledButton>
+const Button = ({ label }: ButtonProps) => {
+    return <StyledButton>{label}</StyledButton>
 }
 
 export default Button

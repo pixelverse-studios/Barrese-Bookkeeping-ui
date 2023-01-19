@@ -15,7 +15,11 @@ const Nav = () => {
         setShowMobileNav(breakpoint === MOBILE_BREAKPOINT)
     }, [breakpoint])
 
-    return <>{showMobileNav ? <MobileNav /> : <DesktopNav />}</>
+    if (showMobileNav) {
+        return <MobileNav />
+    }
+
+    return <DesktopNav />
 }
 
 export default Nav
