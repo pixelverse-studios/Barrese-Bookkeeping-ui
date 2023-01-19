@@ -1,28 +1,21 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
 
 import useBreakpointSize, {
     MOBILE_BREAKPOINT
-} from '../../utilities/hooks/useBreakpointSize'
-import { routes } from './routes'
+} from '@/utilities/hooks/useBreakpointSize'
 
-import Button from '../button'
-import StyledNav from './Nav.styles'
+import MobileNav from './MobileNav'
+import DesktopNav from './DesktopNav'
 
 const Nav = () => {
-    return (
-        <StyledNav>
-            <div className="logo">Barrese Bookkeeping</div>
-            <div className="navContent">
-                <ul className="navRoutes">
-                    {routes.map(item => {
-                        return <li>{item.label}</li>
-                    })}
-                </ul>
-                <Button value={'Contact'} />
-            </div>
-        </StyledNav>
-    )
+    const breakpoint = useBreakpointSize()
+    const [showMobileNav, setShowMobileNav] = useState<boolean>(false)
+
+    useEffect(() => {
+        setShowMobileNav(breakpoint === MOBILE_BREAKPOINT)
+    }, [breakpoint])
+
+    return <>{showMobileNav ? <MobileNav /> : <DesktopNav />}</>
 }
 
 export default Nav

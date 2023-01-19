@@ -3,6 +3,7 @@ const PageWrapper = ({ children }: { children: any }) => {
     return (
         <main>
             <Nav />
+            <div style={{ height: 10000, background: 'grey' }}></div>
         </main>
     )
 }

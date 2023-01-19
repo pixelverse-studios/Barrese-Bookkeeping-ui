@@ -1,18 +1,41 @@
 export const routes = [
     {
-        path: 'about',
+        path: '/about',
         label: 'About'
     },
     {
-        path: 'services',
+        path: '/services',
         label: 'Services'
     },
     {
-        path: 'blog',
+        path: '/blog',
         label: 'Blog'
     },
     {
-        path: 'contact',
+        path: '/faqs',
+        label: 'FAQs'
+    }
+]
+
+export const MobileRoutes = [
+    {
+        path: '/about',
+        label: 'About'
+    },
+    {
+        path: '/services',
+        label: 'Services'
+    },
+    {
+        path: '/blog',
+        label: 'Blog'
+    },
+    {
+        path: '/faqs',
+        label: 'FAQs'
+    },
+    {
+        path: '/contact',
         label: 'Contact'
     }
 ]
