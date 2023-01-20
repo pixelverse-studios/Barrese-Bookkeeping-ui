@@ -4,6 +4,7 @@ export const StyledCTASection = styled.section`
     width: 100%;
     padding: 90px 30px;
     position: relative;
+
     .imageHolder {
         width: 100%;
         position: absolute;
@@ -14,11 +15,13 @@ export const StyledCTASection = styled.section`
         z-index: 1;
         display: grid;
         place-items: center;
+
         img {
             outline: 15px solid white;
             border-radius: 50%;
         }
     }
+
     .content {
         position: relative;
         border: 3px solid black;
@@ -30,6 +33,7 @@ export const StyledCTASection = styled.section`
         h1 {
             font-size: 60px;
         }
+
         div {
             display: grid;
             place-items: center;
@@ -49,6 +53,7 @@ export const StyledCTASection = styled.section`
         z-index: 1;
         display: grid;
         place-items: center;
+
         button {
             outline: 20px solid white;
             padding: 1rem 2rem;
