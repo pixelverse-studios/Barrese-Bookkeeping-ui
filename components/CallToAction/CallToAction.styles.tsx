@@ -1,25 +1,19 @@
 import styled from '@emotion/styled'
 
-export const StyledCTASection = styled.section`
+export const StyledCallToAction = styled.section`
     width: 100%;
     padding: 90px 30px;
     position: relative;
 
-    .imageHolder {
-        width: 100%;
+    img {
         position: absolute;
         top: 15px;
         left: 0px;
         right: 0px;
         margin: auto;
         z-index: 1;
-        display: grid;
-        place-items: center;
-
-        img {
-            outline: 15px solid white;
-            border-radius: 50%;
-        }
+        outline: 15px solid white;
+        border-radius: 50%;
     }
 
     .content {
@@ -34,29 +28,22 @@ export const StyledCTASection = styled.section`
             font-size: 60px;
         }
 
-        div {
+        .subText {
             display: grid;
             place-items: center;
-            .subText {
-                font-size: 20px;
-            }
+            font-size: 20px;
         }
     }
 
-    .buttonHolder {
-        width: 100%;
+    button {
+        width: 10rem;
         position: absolute;
         bottom: 65px;
         left: 0px;
         right: 0px;
         margin: auto;
         z-index: 1;
-        display: grid;
-        place-items: center;
-
-        button {
-            outline: 20px solid white;
-            padding: 1rem 2rem;
-        }
+        outline: 20px solid white;
+        padding: 1rem 2rem;
     }
 `
