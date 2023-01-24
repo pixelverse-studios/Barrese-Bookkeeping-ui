@@ -39,4 +39,12 @@ export const StyledLanding = styled.section`
             column-gap: 1rem;
         }
     }
+
+    @media only screen and (max-width: 800px) {
+        .services {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 `
