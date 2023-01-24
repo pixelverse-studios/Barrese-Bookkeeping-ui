@@ -1,5 +1,10 @@
 :root {
     --nav-height: 4rem;
+    --footer-height: 25rem;
+    --footer-background: #414042;
+    --footer-font-color: white;
+
+    --mobile-breakpoint: 800px;
 }
 
 * {
