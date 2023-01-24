@@ -12,10 +12,12 @@ const PageWrapper = ({ children }: { children: any }) => {
 
     return (
         <StyledMain>
-            <Nav />
-            {children}
-            {currentRoute !== '/contact' && <CallToAction />}
-            <Footer />
+            <div>
+                <Nav />
+                {children}
+                {currentRoute !== '/contact' && <CallToAction />}
+                <Footer />
+            </div>
         </StyledMain>
     )
 }

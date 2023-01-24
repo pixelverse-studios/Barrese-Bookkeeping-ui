@@ -6,8 +6,8 @@ export const StyledFooter = styled.footer`
     height: fit-content;
     background-color: var(--footer-background);
     color: var(--footer-font-color);
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    justify-content: space-around;
 
     .left-footer {
         display: flex;

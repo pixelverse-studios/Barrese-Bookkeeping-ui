@@ -12,7 +12,7 @@ const Footer = () => {
                 </p>
             </div>
             <div className="center-footer">
-                <img src="https://via.placeholder.com/150" alt="" />
+                <img src="https://dummyimage.com/200x200/000/fff" alt="" />
             </div>
             <div className="right-footer">
                 <h1>Contact</h1>

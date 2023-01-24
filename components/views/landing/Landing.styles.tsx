@@ -23,4 +23,7 @@ export const StyledLanding = styled.section`
             text-align: center;
         }
     }
+    .image {
+        width: 100%;
+    }
 `

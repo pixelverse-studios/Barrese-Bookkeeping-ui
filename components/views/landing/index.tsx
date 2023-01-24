@@ -15,9 +15,8 @@ const Landing = () => {
                 </h2>
                 <Button label="Contact Us" />
             </div>
-
             <img
-                src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1652&q=80"
+                src="https://dummyimage.com/1600x400/000/fff"
                 alt="Landing Image"
                 className="image"
             />
