@@ -28,7 +28,7 @@ const Landing = () => {
     return (
         <StyledLanding>
             {/* Image Section */}
-            <div className="header">
+            <div className="hero">
                 <div className="overlay">
                     <div className="title-container">
                         <span>Outsourced</span>

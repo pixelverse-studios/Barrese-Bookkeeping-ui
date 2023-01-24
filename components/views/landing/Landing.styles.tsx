@@ -8,7 +8,7 @@ export const StyledLanding = styled.section`
     h1 {
         font-size: 4rem;
     }
-    .header {
+    .hero {
         position: relative;
         height: 60vh;
         width: 100vw;
