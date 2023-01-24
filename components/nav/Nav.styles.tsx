@@ -11,6 +11,7 @@ export const StyledNav = styled.nav`
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 9999;
     box-shadow: rgb(0 0 0 / 12%) 0 1px 3px;
     .navContent {
         display: flex;

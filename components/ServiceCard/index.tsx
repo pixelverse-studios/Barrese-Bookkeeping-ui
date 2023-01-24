@@ -13,6 +13,8 @@ const ServiceCard = ({
     return (
         <StyledServiceCard>
             <img src={imageSrc} alt="get alt" />
+            <h2>{cardTitle}</h2>
+            <p>{cardDescription}</p>
         </StyledServiceCard>
     )
 }
