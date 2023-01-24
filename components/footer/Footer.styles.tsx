@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 
 export const StyledFooter = styled.footer`
+    width: 100%;
     padding: 55px 40px;
     height: fit-content;
     background-color: var(--footer-background);

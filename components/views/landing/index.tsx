@@ -1,5 +1,7 @@
+import { StyledLanding } from './Landing.styles'
+
 const Landing = () => {
-    return <section></section>
+    return <StyledLanding>Hey</StyledLanding>
 }
 
 export default Landing
