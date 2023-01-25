@@ -4,17 +4,19 @@ import Nav from '../nav'
 import CallToAction from '../CallToAction'
 import Footer from '../footer'
 
+import { StyledMain } from './PageWrapper.styles'
+
 const PageWrapper = ({ children }: { children: any }) => {
     const router = useRouter()
     const currentRoute = router.pathname
 
     return (
-        <main>
+        <StyledMain>
             <Nav />
-            <div style={{ height: 1000, background: 'grey' }}></div>
-            {currentRoute !== '/contact' && <CallToAction />}
+            {children}
+            {currentRoute !== '/contact' ? <CallToAction /> : null}
             <Footer />
-        </main>
+        </StyledMain>
     )
 }
 

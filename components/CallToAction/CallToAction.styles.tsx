@@ -1,9 +1,11 @@
 import styled from '@emotion/styled'
 
 export const StyledCallToAction = styled.section`
-    width: 100%;
     padding: 90px 30px;
     position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
     img {
         position: absolute;
