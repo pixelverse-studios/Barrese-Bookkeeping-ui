@@ -2,39 +2,28 @@ import Button from '@/components/button'
 import ServiceData from './dummydata'
 import { StyledServices } from './Services.styles'
 const ServicesPage = () => {
+    const { pageH1, pageH2, description, offerings } = ServiceData
     return (
         <StyledServices>
-            <div className="broad-about">
-                <h1>Titie</h1>
-                <h2>Subtext</h2>
+            <div className="services-hero">
+                <h1>{pageH1}</h1>
+                <h2>{pageH2}</h2>
                 <hr />
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Optio doloribus quo explicabo soluta distinctio, odio
-                    deserunt eius deleniti adipisci asperiores enim. Qui quam,
-                    similique assumenda dignissimos corporis repellat
-                    perspiciatis quod odio laboriosam officiis temporibus
-                    dolores omnis debitis. Nihil itaque reiciendis voluptate
-                    beatae nemo quaerat animi impedit. Natus dicta rem odit,
-                    aliquid reprehenderit non nesciunt praesentium repellendus
-                    exercitationem. Amet labore distinctio minus reiciendis
-                    officia eius et laudantium. Voluptas iure officiis quidem
-                    commodi minus dolor illo placeat.
-                </p>
+                <p>{description}</p>
             </div>
-            <div className="details-about">
-                {ServiceData.map((item, index) => [
+            <div className="service-details">
+                {offerings.map((item, index) => [
                     <div className="detail-section">
-                        <img src={item.image} alt="icon" />
-                        <div className="detail-info">
+                        <img src={item.icon} alt="icon" />
+                        <div className="service-info">
                             <h1>{item.title}</h1>
-                            {item.subtext}
+                            <span>{item.description}</span>
                             <ul>
-                                {item.bulletPoints.map((item, index) => {
+                                {item.bullets.map((item, index) => {
                                     return <li>{item}</li>
                                 })}
                             </ul>
-                            <Button label={item.buttonLabel} />
+                            <Button label="Book lala" />
                         </div>
                     </div>
                 ])}

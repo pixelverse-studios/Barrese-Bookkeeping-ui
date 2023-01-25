@@ -10,7 +10,7 @@ export const StyledServices = styled.section`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    .broad-about {
+    .services-hero {
         padding: 2rem 5rem;
         text-align: center;
         p {
@@ -19,7 +19,7 @@ export const StyledServices = styled.section`
         }
     }
 
-    .details-about {
+    .service-details {
         padding: 2rem 5rem;
         background-color: #2e8b56c2;
         display: flex;
@@ -35,7 +35,7 @@ export const StyledServices = styled.section`
                 width: 150px;
             }
 
-            .detail-info {
+            .service-info {
                 border-left: 3px solid black;
                 padding-left: 2rem;
                 h1 {
