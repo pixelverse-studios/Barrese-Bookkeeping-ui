@@ -13,14 +13,14 @@ const ServicesPage = () => {
             </div>
             <div className="service-details">
                 {offerings.map((item, index) => [
-                    <div className="detail-section">
+                    <div className="detail-section" key={index}>
                         <img src={item.icon} alt="icon" />
                         <div className="service-info">
                             <h1>{item.title}</h1>
                             <span>{item.description}</span>
                             <ul>
                                 {item.bullets.map((item, index) => {
-                                    return <li>{item}</li>
+                                    return <li key={index}>{item}</li>
                                 })}
                             </ul>
                             <Button label="Book lala" />
