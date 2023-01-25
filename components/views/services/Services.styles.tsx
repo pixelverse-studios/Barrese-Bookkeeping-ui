@@ -49,7 +49,7 @@ export const StyledServices = styled.section`
                     display: grid;
                     grid-template-columns: repeat(
                         auto-fill,
-                        minmax(400px, 1fr)
+                        minmax(600px, 1fr)
                     );
                     grid-template-rows: repeat(auto-fill, minmax(10px, 1fr));
                     row-gap: 0.4rem;
