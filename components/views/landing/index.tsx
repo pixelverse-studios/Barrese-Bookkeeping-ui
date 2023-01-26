@@ -70,7 +70,7 @@ const Landing = () => {
                 <div className="services-container">
                     {ServiceData.map((data, index) => {
                         return (
-                            <div className="service">
+                            <div className="service" key={index}>
                                 <ServiceCard
                                     imageSrc={data.imageSrc}
                                     cardTitle={data.cardTitle}
