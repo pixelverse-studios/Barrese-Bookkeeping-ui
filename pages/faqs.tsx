@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
+import FAQPage from '@/components/views/faq'
 
 const FAQs: NextPage = () => {
-    return <div />
+    return <FAQPage />
 }
 
 export default FAQs
