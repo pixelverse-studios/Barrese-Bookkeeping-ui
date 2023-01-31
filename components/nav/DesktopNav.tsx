@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import useScrollPosition from '@/utilities/hooks/useScrollPosition'
 import { routes } from './routes'
 
+import Logo from '../../assets/images/BarreseBookkeeping.svg'
 import Button from '../button'
 import { StyledNav, TransparantStyledNav } from './Nav.styles'
 
@@ -16,8 +17,12 @@ const DesktopNav = () => {
     if (scrollPosition < NAV_TRANSITION_POINT) {
         return (
             <TransparantStyledNav>
-                <div className="logo">Barrese Bookkeeping</div>
                 <div className="navContent">
+                    <img
+                        className="logo"
+                        src={Logo.src}
+                        alt="Barrese Bookkeeping"
+                    />
                     <ul className="navRoutes">
                         {routes.map((item, index) => {
                             return (
@@ -41,12 +46,12 @@ const DesktopNav = () => {
                                 </li>
                             )
                         })}
+                        <Link href="/contact" legacyBehavior>
+                            <a>
+                                <Button label={'Contact'} />
+                            </a>
+                        </Link>
                     </ul>
-                    <Link href="/contact" legacyBehavior>
-                        <a>
-                            <Button label={'Contact'} />
-                        </a>
-                    </Link>
                 </div>
             </TransparantStyledNav>
         )
@@ -54,8 +59,12 @@ const DesktopNav = () => {
 
     return (
         <StyledNav>
-            <div className="logo">Barrese Bookkeeping</div>
             <div className="navContent">
+                <img
+                    className="logo"
+                    src={Logo.src}
+                    alt="Barrese Bookkeeping"
+                />
                 <ul className="navRoutes">
                     {routes.map((item, index) => {
                         return (
@@ -79,12 +88,12 @@ const DesktopNav = () => {
                             </li>
                         )
                     })}
+                    <Link href="/contact" legacyBehavior>
+                        <a>
+                            <Button label={'Contact'} />
+                        </a>
+                    </Link>
                 </ul>
-                <Link href="/contact" legacyBehavior>
-                    <a>
-                        <Button label={'Contact'} />
-                    </a>
-                </Link>
             </div>
         </StyledNav>
     )

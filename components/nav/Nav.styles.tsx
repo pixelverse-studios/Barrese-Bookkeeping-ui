@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 export const StyledNav = styled.nav`
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: var(--nav-height);
@@ -13,17 +13,24 @@ export const StyledNav = styled.nav`
     left: 0;
     z-index: 9999;
     box-shadow: rgb(0 0 0 / 12%) 0 1px 3px;
+
     .navContent {
         display: flex;
-        gap: 1rem;
+        column-gap: 1rem;
+        padding: 0 5rem;
+        width: var(--max-desktop-width);
         align-items: center;
+        justify-content: space-between;
+        align-content: center;
+
+        .logo {
+            width: 10rem;
+        }
+
         .navRoutes {
             display: flex;
-            gap: 1rem;
-
-            display: flex;
-            align-items: center;
-            column-gap: 1.5rem;
+            column-gap: 1rem;
+            align-items: flex-end;
 
             .navLinks {
                 display: inline-block;
@@ -73,7 +80,7 @@ export const StyledNav = styled.nav`
 
 export const TransparantStyledNav = styled.nav`
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: var(--nav-height);
@@ -82,19 +89,24 @@ export const TransparantStyledNav = styled.nav`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 9999;
 
     .navContent {
         display: flex;
-        gap: 1rem;
+        column-gap: 1rem;
+        padding: 0 5rem;
+        width: var(--max-desktop-width);
         align-items: center;
+        justify-content: space-between;
+        align-content: center;
+
+        .logo {
+            width: 10rem;
+        }
         .navRoutes {
             display: flex;
-            gap: 1rem;
-
-            display: flex;
-            align-items: center;
-            column-gap: 1.5rem;
+            column-gap: 1rem;
+            align-items: flex-end;
 
             .navLinks {
                 display: inline-block;
@@ -144,7 +156,7 @@ export const TransparantStyledNav = styled.nav`
 
 export const StyledMobileNav = styled.nav`
     .header {
-        position: absolute;
+        position: fixed;
         display: block;
         top: 0;
         left: 0;
@@ -178,7 +190,7 @@ export const StyledMobileNav = styled.nav`
                     height: 1px;
                     display: block;
                     position: relative;
-                    background: black;
+                    background: white;
                     transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
                     transition-delay: 0s;
                     &.topBar {
@@ -190,24 +202,21 @@ export const StyledMobileNav = styled.nav`
                 }
             }
         }
-        .icon {
-            display: inline-block;
+        .logo-container {
             position: absolute;
-            padding-top: 0.4rem;
-            left: 50%;
-            transform: translateX(-50%);
-            &.iconBag {
-                right: 0;
-                top: 0;
-                left: auto;
-                transform: translateX(0px);
-                transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
-                transition-delay: 0.65s;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 5px 0px;
+            background-color: var(--Accent-Dark);
+            .logo {
+                width: 8rem;
             }
         }
+
         ul.menu {
             position: relative;
-            padding: 0px 48px 0;
+            padding: 45px 48px 0;
             list-style: none;
             li.menuItem {
                 border-bottom: 1px solid #333;
@@ -237,7 +246,7 @@ export const StyledMobileNav = styled.nav`
         }
         &.menuOpened {
             height: 100%;
-            background-color: #000;
+            background-color: var(--Accent-Dark);
             transition: all 0.3s ease-in, background 0.5s ease-in;
 
             .burgerContainer {

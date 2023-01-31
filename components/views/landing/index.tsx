@@ -30,17 +30,19 @@ const Landing = () => {
             {/* Image Section */}
             <div className="hero">
                 <div className="overlay">
-                    <div className="title-container">
-                        <span>Outsourced</span>
-                        <span>Accounting</span>
-                        <span>Services</span>
-                    </div>
-                    <div className="subtitle-container">
-                        <span>For SF Bay Area</span>
-                        <span>Small Businesses</span>
-                    </div>
+                    <div className="overlay-text">
+                        <div className="title-container">
+                            <span>Outsourced</span>
+                            <span>Accounting</span>
+                            <span>Services</span>
+                        </div>
+                        <div className="subtitle-container">
+                            <span>For SF Bay Area</span>
+                            <span>Small Businesses</span>
+                        </div>
 
-                    <Button label="BOOK CONSULTACHE" />
+                        <Button label="BOOK CONSULTACHE" />
+                    </div>
                 </div>
             </div>
             {/* Service Section */}

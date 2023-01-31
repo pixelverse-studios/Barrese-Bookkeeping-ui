@@ -15,17 +15,24 @@ export const StyledLanding = styled.section`
         background: url('https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80')
             no-repeat center center/cover;
         .overlay {
-            position: absolute;
-            left: 15rem;
             background-color: #1a34a96c;
             height: 100%;
-            width: 520px;
+            width: 100%;
             color: white;
-            padding: 8rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+            .overlay-text {
+                width: var(--max-desktop-width);
+                padding: 0 5rem;
+                padding-top: var(--nav-height);
+            }
 
             .title-container {
                 display: flex;
                 flex-direction: column;
+                width: fit-content;
                 border-bottom: 3px solid white;
                 padding-bottom: 1rem;
                 span:nth-of-type(1) {
