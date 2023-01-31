@@ -4,7 +4,7 @@ const StyledButton = styled.button`
     padding: 10px 20px;
     text-transform: uppercase;
     background-color: var(--Secondary-accent-color);
-    border: 2px solid var(--Secondary-accent-color);
+    border: 2px solid var(--Primary-brand-color);
     border-radius: 5px;
     color: var(--Primary-brand-color);
     font-weight: 800;

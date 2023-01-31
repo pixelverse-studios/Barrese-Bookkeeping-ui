@@ -5,6 +5,7 @@ import useScrollPosition from '@/utilities/hooks/useScrollPosition'
 import { routes } from './routes'
 
 import Logo from '../../assets/images/BarreseBookkeeping.svg'
+import LogoWhite from '../../assets/images/BarreseBookkeeping-white.svg'
 import Button from '../button'
 import { StyledNav, TransparantStyledNav } from './Nav.styles'
 
@@ -20,7 +21,7 @@ const DesktopNav = () => {
                 <div className="navContent">
                     <img
                         className="logo"
-                        src={Logo.src}
+                        src={LogoWhite.src}
                         alt="Barrese Bookkeeping"
                     />
                     <ul className="navRoutes">
@@ -46,11 +47,8 @@ const DesktopNav = () => {
                                 </li>
                             )
                         })}
-                        <Link href="/contact" legacyBehavior>
-                            <a>
-                                <Button label={'Contact'} />
-                            </a>
-                        </Link>
+
+                        <Button label={'Contact'} route="/contact" />
                     </ul>
                 </div>
             </TransparantStyledNav>
@@ -88,11 +86,7 @@ const DesktopNav = () => {
                             </li>
                         )
                     })}
-                    <Link href="/contact" legacyBehavior>
-                        <a>
-                            <Button label={'Contact'} />
-                        </a>
-                    </Link>
+                    <Button label={'Contact'} route="/contact" />
                 </ul>
             </div>
         </StyledNav>

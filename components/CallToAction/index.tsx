@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-
+import Button from '../button'
 import { StyledCallToAction } from './CallToAction.styles'
 
 const CallToAction = () => {
@@ -14,12 +14,7 @@ const CallToAction = () => {
                     Your boii knows his shit so use a service.
                 </p>
             </div>
-            <button
-                onClick={() => {
-                    router.push('/contact')
-                }}>
-                CONTACT US
-            </button>
+            <Button route="/contact" label="Contact Us" />
         </StyledCallToAction>
     )
 }

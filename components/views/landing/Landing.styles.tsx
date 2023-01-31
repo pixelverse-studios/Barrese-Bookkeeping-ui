@@ -4,7 +4,6 @@ export const StyledLanding = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-
     h1 {
         font-size: 4rem;
     }
@@ -12,13 +11,16 @@ export const StyledLanding = styled.section`
         position: relative;
         height: 100vh;
         width: 100vw;
-        background: url('https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80')
-            no-repeat center center/cover;
+        background: linear-gradient(black, black),
+            url('https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80')
+                no-repeat center center/cover;
+        background-blend-mode: saturation;
+
         .overlay {
-            background-color: #1a34a96c;
+            background-color: var(--Secondary-opaque-color);
             height: 100%;
             width: 100%;
-            color: white;
+            color: var(--Off-brand-color);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -28,7 +30,6 @@ export const StyledLanding = styled.section`
                 padding: 0 5rem;
                 padding-top: var(--nav-height);
             }
-
             .title-container {
                 display: flex;
                 flex-direction: column;
@@ -61,14 +62,36 @@ export const StyledLanding = styled.section`
     }
 
     .services {
-        background-color: #3e00f7b8;
+        background-color: var(--Secondary-accent-color);
         width: 100%;
-        text-align: center;
-        padding: 5rem 0rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        padding: 3rem 0rem;
 
         .services-container {
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-between;
+            width: var(--max-desktop-width);
+            padding: 0 5rem;
+            padding-top: var(--nav-height);
         }
     }
+
+    @media only screen and (max-width: 800px) {
+        .services {
+            background-color: var(--Secondary-accent-color);
+            width: 100%;
+            text-align: center;
+            padding: 3rem 0rem;
+
+            .services-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    } ;
 `

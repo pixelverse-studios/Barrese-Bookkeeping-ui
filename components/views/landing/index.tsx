@@ -40,8 +40,7 @@ const Landing = () => {
                             <span>For SF Bay Area</span>
                             <span>Small Businesses</span>
                         </div>
-
-                        <Button label="BOOK CONSULTACHE" />
+                        <Button label="BOOK CONSULTACHE" route="/contact" />
                     </div>
                 </div>
             </div>
@@ -53,17 +52,16 @@ const Landing = () => {
                 <div className="services-container">
                     {ServiceData.map((data, index) => {
                         return (
-                            <div className="service" key={index}>
-                                <ServiceCard
-                                    imageSrc={data.imageSrc}
-                                    cardTitle={data.cardTitle}
-                                    cardDescription={data.cardDescription}
-                                />
-                            </div>
+                            <ServiceCard
+                                key={index}
+                                imageSrc={data.imageSrc}
+                                cardTitle={data.cardTitle}
+                                cardDescription={data.cardDescription}
+                            />
                         )
                     })}
                 </div>
-                <Button label="Services"></Button>
+                <Button label="Services" route="/services" />
             </div>
         </StyledLanding>
     )

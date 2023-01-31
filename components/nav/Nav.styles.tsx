@@ -7,7 +7,6 @@ export const StyledNav = styled.nav`
     width: 100%;
     height: var(--nav-height);
     background-color: white;
-    color: black;
     position: fixed;
     top: 0;
     left: 0;
@@ -44,7 +43,7 @@ export const StyledNav = styled.nav`
                 }
                 a,
                 a:hover {
-                    color: #000;
+                    color: var(--Primary-brand-color);
                     text-decoration: none;
                     cursor: pointer;
                 }
@@ -61,7 +60,7 @@ export const StyledNav = styled.nav`
             }
             .navLinks:hover:after {
                 width: 100%;
-                background: black;
+                background: var(--Primary-brand-color);
             }
         }
         li {
@@ -72,7 +71,7 @@ export const StyledNav = styled.nav`
                 margin: auto;
                 height: 3px;
                 width: 100%;
-                background: black;
+                background: var(--Primary-brand-color);
             }
         }
     }
