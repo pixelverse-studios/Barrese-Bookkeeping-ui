@@ -43,25 +43,6 @@ const Landing = () => {
                     <Button label="BOOK CONSULTACHE" />
                 </div>
             </div>
-            {/* About Section */}
-            <div className="about">
-                <h1>About</h1>
-                <h2>Barrese Bookeeping Services</h2>
-                <hr />
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Sit rem quod neque ipsa aperiam placeat, similique, vel
-                    iste, blanditiis enim ipsum hic. Voluptas ea inventore,
-                    vitae consequatur eaque commodi obcaecati. Lorem ipsum dolor
-                    sit amet consectetur, adipisicing elit. Blanditiis fuga
-                    sapiente cumque distinctio praesentium. Quis suscipit nobis
-                    tempora, impedit soluta recusandae ut optio omnis officia,
-                    autem sunt unde asperiores obcaecati?
-                </p>
-                <div className="button-container">
-                    <Button label="Meet The Team" />
-                </div>
-            </div>
             {/* Service Section */}
             <div className="services">
                 <h1>Outsourced Accounting</h1>

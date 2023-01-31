@@ -1,9 +1,14 @@
 :root {
+    --Light-Color: rgb(255, 255, 255);
+    --Primary-Dark: rgb(26, 57, 115);
+    --Primary-Light: rgb(36, 78, 157);
+    --Accent-Dark: rgb(155, 153, 149);
+    --Accent-Light: rgb(211, 199, 184);
+
     --nav-height: 4rem;
     --footer-height: 25rem;
     --footer-background: #414042;
     --footer-font-color: white;
-
     --mobile-breakpoint: 800px;
 }
 
@@ -44,7 +49,6 @@ h6 {
 }
 
 a {
-    color: inherit;
     text-decoration: none;
 }
 

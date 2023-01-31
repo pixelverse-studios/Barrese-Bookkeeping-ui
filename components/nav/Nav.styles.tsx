@@ -78,10 +78,11 @@ export const TransparantStyledNav = styled.nav`
     width: 100%;
     height: var(--nav-height);
     background-color: transparent;
-    color: black;
+    color: white;
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 999;
 
     .navContent {
         display: flex;
@@ -107,7 +108,7 @@ export const TransparantStyledNav = styled.nav`
                 }
                 a,
                 a:hover {
-                    color: #000;
+                    color: white;
                     text-decoration: none;
                     cursor: pointer;
                 }
@@ -124,7 +125,7 @@ export const TransparantStyledNav = styled.nav`
             }
             .navLinks:hover:after {
                 width: 100%;
-                background: black;
+                background: white;
             }
         }
         li {
@@ -135,7 +136,7 @@ export const TransparantStyledNav = styled.nav`
                 margin: auto;
                 height: 3px;
                 width: 100%;
-                background: black;
+                background: white;
             }
         }
     }

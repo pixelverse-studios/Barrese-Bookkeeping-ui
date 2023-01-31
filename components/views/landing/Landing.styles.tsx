@@ -10,7 +10,7 @@ export const StyledLanding = styled.section`
     }
     .hero {
         position: relative;
-        height: 60vh;
+        height: 100vh;
         width: 100vw;
         background: url('https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80')
             no-repeat center center/cover;
@@ -18,8 +18,8 @@ export const StyledLanding = styled.section`
             position: absolute;
             left: 15rem;
             background-color: #1a34a96c;
-            height: 60vh;
-            width: 400px;
+            height: 100%;
+            width: 520px;
             color: white;
             padding: 8rem 2rem;
 
@@ -50,23 +50,6 @@ export const StyledLanding = styled.section`
                     font-size: 1.8rem;
                 }
             }
-        }
-    }
-
-    .about {
-        text-align: center;
-        padding: 5rem 0rem;
-
-        p {
-            padding-top: 1rem;
-            text-align: center;
-            max-width: 980px;
-            margin: 0 auto 20px auto;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
         }
     }
 
