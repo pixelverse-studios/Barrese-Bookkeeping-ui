@@ -32,13 +32,13 @@ const Landing = () => {
                 <div className="overlay">
                     <div className="overlay-text">
                         <div className="title-container">
-                            <span>Outsourced</span>
-                            <span>Accounting</span>
-                            <span>Services</span>
+                            <h1>Outsourced</h1>
+                            <h1>Accounting</h1>
+                            <h2>Services</h2>
                         </div>
                         <div className="subtitle-container">
-                            <span>For SF Bay Area</span>
-                            <span>Small Businesses</span>
+                            <h3>For SF Bay Area</h3>
+                            <h3>Small Businesses</h3>
                         </div>
                         <Button label="BOOK CONSULTACHE" route="/contact" />
                     </div>

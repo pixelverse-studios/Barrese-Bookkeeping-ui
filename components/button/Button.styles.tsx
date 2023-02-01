@@ -3,10 +3,10 @@ import styled from '@emotion/styled'
 const StyledButton = styled.button`
     padding: 10px 20px;
     text-transform: uppercase;
-    background-color: var(--Secondary-accent-color);
-    border: 2px solid var(--Primary-brand-color);
+    background-color: var(--Secondary-brand-color);
+    border: 2px solid var(--Off-brand-color);
     border-radius: 5px;
-    color: var(--Primary-brand-color);
+    color: var(--Off-brand-color);
     font-weight: 800;
     transition: 0.3s ease-in-out;
 

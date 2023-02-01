@@ -27,7 +27,7 @@ export const StyledLanding = styled.section`
             align-content: center;
             .overlay-text {
                 width: var(--max-desktop-width);
-                padding: 0 5rem;
+                padding: var(--content-padding);
                 padding-top: var(--nav-height);
             }
             .title-container {
@@ -36,13 +36,11 @@ export const StyledLanding = styled.section`
                 width: fit-content;
                 border-bottom: 3px solid white;
                 padding-bottom: 1rem;
-                span:nth-of-type(1) {
-                    font-size: 4rem;
+                h1 {
+                    color: white;
                 }
-                span:nth-of-type(2) {
-                    font-size: 4rem;
-                }
-                span:nth-of-type(3) {
+
+                h2 {
                     font-size: 3rem;
                 }
             }
@@ -75,12 +73,12 @@ export const StyledLanding = styled.section`
             display: flex;
             justify-content: space-between;
             width: var(--max-desktop-width);
-            padding: 0 5rem;
+            padding: var(--content-padding);
             padding-top: var(--nav-height);
         }
     }
 
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 1350px) {
         .services {
             background-color: var(--Secondary-accent-color);
             width: 100%;

@@ -23,6 +23,9 @@ const DesktopNav = () => {
                         className="logo"
                         src={LogoWhite.src}
                         alt="Barrese Bookkeeping"
+                        onClick={() => {
+                            router.push('/')
+                        }}
                     />
                     <ul className="navRoutes">
                         {routes.map((item, index) => {
@@ -62,6 +65,9 @@ const DesktopNav = () => {
                     className="logo"
                     src={Logo.src}
                     alt="Barrese Bookkeeping"
+                    onClick={() => {
+                        router.push('/')
+                    }}
                 />
                 <ul className="navRoutes">
                     {routes.map((item, index) => {

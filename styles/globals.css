@@ -6,12 +6,13 @@
     --Secondary-accent-color: rgb(211, 199, 184);
     --Secondary-opaque-color: rgba(36, 78, 157, 0.5);
 
+    --content-padding: 0rem 10rem;
     --nav-height: 4rem;
     --footer-height: 25rem;
     --footer-background: var(--Primary-accent-color);
     --footer-font-color: var(--Primary-brand-color);
-    --mobile-breakpoint: 800px;
-    --max-desktop-width: 1720px;
+    --mobile-breakpoint: 1350px;
+    --max-desktop-width: 80vw;
 }
 
 @font-face {
@@ -40,16 +41,19 @@ body {
     overflow-x: hidden;
     font-family: Gordita, sans-serif;
     color: var(--Primary-brand-color);
+    overflow-x: hidden;
 }
 
-h1,
+h1 {
+    color: var(--Secondary-brand-color);
+    font-family: Street, sans-serif;
+}
 h2,
 h3,
 h4,
 h5,
 h6 {
-    color: var(--Secondary-brand-color);
-    font-family: Street, sans-serif;
+    font-family: Gordita, sans-serif;
 }
 
 a {

@@ -11,7 +11,7 @@ export const StyledFooter = styled.footer`
     .footer-content {
         display: flex;
         width: var(--max-desktop-width);
-        padding: 0 5rem;
+        padding: var(--content-padding);
         align-items: center;
         justify-content: space-between;
         align-content: center;

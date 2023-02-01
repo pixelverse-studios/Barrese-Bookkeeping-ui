@@ -16,21 +16,24 @@ export const StyledNav = styled.nav`
     .navContent {
         display: flex;
         column-gap: 1rem;
-        padding: 0 5rem;
+        padding: var(--content-padding);
         width: var(--max-desktop-width);
         align-items: center;
         justify-content: space-between;
         align-content: center;
 
         .logo {
-            width: 10rem;
+            width: 12rem;
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         .navRoutes {
             display: flex;
             column-gap: 1rem;
             align-items: flex-end;
-
+            font-size: 1.3rem;
             .navLinks {
                 display: inline-block;
                 position: relative;
@@ -65,6 +68,9 @@ export const StyledNav = styled.nav`
         }
         li {
             list-style-type: none;
+            .activeLink {
+                color: var(--Primary-brand-color);
+            }
             .activeLink:after {
                 content: '';
                 display: block;
@@ -93,20 +99,23 @@ export const TransparantStyledNav = styled.nav`
     .navContent {
         display: flex;
         column-gap: 1rem;
-        padding: 0 5rem;
+        padding: var(--content-padding);
         width: var(--max-desktop-width);
         align-items: center;
         justify-content: space-between;
         align-content: center;
 
         .logo {
-            width: 10rem;
+            width: 12rem;
+            &:hover {
+                cursor: pointer;
+            }
         }
         .navRoutes {
             display: flex;
             column-gap: 1rem;
             align-items: flex-end;
-
+            font-size: 1.3rem;
             .navLinks {
                 display: inline-block;
                 position: relative;
@@ -117,11 +126,18 @@ export const TransparantStyledNav = styled.nav`
                         cursor: pointer;
                     }
                 }
-                a,
-                a:hover {
+                a {
                     color: white;
-                    text-decoration: none;
-                    cursor: pointer;
+
+                    &:hover {
+                        color: white;
+                        text-decoration: none;
+                        cursor: pointer;
+                    }
+
+                    &:visited {
+                        color: white;
+                    }
                 }
             }
 
@@ -141,6 +157,9 @@ export const TransparantStyledNav = styled.nav`
         }
         li {
             list-style-type: none;
+            .activeLink {
+                color: white;
+            }
             .activeLink:after {
                 content: '';
                 display: block;
