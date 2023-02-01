@@ -5,6 +5,9 @@ const ServicesPage = () => {
     const { pageH1, pageH2, description, offerings } = ServiceData
     return (
         <StyledServices>
+            <div className="hero">
+                <div className="overlay" />
+            </div>
             <div className="services-hero">
                 <h1>{pageH1}</h1>
                 <h2>{pageH2}</h2>
@@ -23,7 +26,7 @@ const ServicesPage = () => {
                                     return <li key={index}>{item}</li>
                                 })}
                             </ul>
-                            <Button label="Book lala" />
+                            <Button label="Book lala" route="/contact" />
                         </div>
                     </div>
                 ])}
