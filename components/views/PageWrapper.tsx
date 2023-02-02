@@ -14,7 +14,9 @@ const PageWrapper = ({ children }: { children: any }) => {
         <StyledMain>
             <Nav />
             {children}
-            {currentRoute !== '/contact' ? <CallToAction /> : null}
+            {currentRoute !== '/contact' && currentRoute !== '/services' ? (
+                <CallToAction />
+            ) : null}
             <Footer />
         </StyledMain>
     )
