@@ -28,7 +28,6 @@ export const StyledAbout = styled.section`
 
     .about-container {
         width: 100%;
-        height: 70vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -57,6 +56,13 @@ export const StyledAbout = styled.section`
                         border-radius: 50%;
                     }
                 }
+            }
+        }
+
+        @media only screen and (max-width: 1350px) {
+            .about {
+                display: flex;
+                flex-direction: column;
             }
         }
     }
