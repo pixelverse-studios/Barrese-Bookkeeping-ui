@@ -181,6 +181,7 @@ export const StyledMobileNav = styled.nav`
         height: 50px;
         width: 100%;
         background: rgba(rgb(255, 255, 255), 0.8);
+        box-shadow: rgb(0 0 0 / 12%) 0 1px 3px;
         overflow: hidden;
         transition: all 0.5s ease-out, background 1s ease-out;
         transition-delay: 0.2s;
@@ -208,7 +209,7 @@ export const StyledMobileNav = styled.nav`
                     height: 1px;
                     display: block;
                     position: relative;
-                    background: white;
+                    background: var(--Primary-brand-color);
                     transition: all 0.3s cubic-bezier(0.4, 0.01, 0.165, 0.99);
                     transition-delay: 0s;
                     &.topBar {
@@ -226,7 +227,7 @@ export const StyledMobileNav = styled.nav`
             display: flex;
             justify-content: center;
             padding: 5px 0px;
-            background-color: var(--Accent-Dark);
+            background-color: var(--Off-brand-color);
             .logo {
                 width: 8rem;
             }
@@ -237,7 +238,7 @@ export const StyledMobileNav = styled.nav`
             padding: 45px 48px 0;
             list-style: none;
             li.menuItem {
-                border-bottom: 1px solid #333;
+                border-bottom: 1px solid var(--Primary-brand-color);
                 margin-top: 5px;
                 transform: scale(1.15) translateY(-30px);
                 opacity: 0;
@@ -251,7 +252,7 @@ export const StyledMobileNav = styled.nav`
                 a {
                     display: block;
                     position: relative;
-                    color: #fff;
+                    color: var(--Primary-brand-color);
                     font-family: 'Ek Mukta', sans-serif;
                     font-weight: 100;
                     text-decoration: none;
@@ -264,7 +265,7 @@ export const StyledMobileNav = styled.nav`
         }
         &.menuOpened {
             height: 100%;
-            background-color: var(--Accent-Dark);
+            background-color: var(--Secondary-accent-color);
             transition: all 0.3s ease-in, background 0.5s ease-in;
 
             .burgerContainer {
@@ -274,7 +275,6 @@ export const StyledMobileNav = styled.nav`
                 display: inline-block;
                 height: 50px;
                 width: 50px;
-                color: white;
 
                 transform: rotate(90deg);
                 .burger {
@@ -282,7 +282,7 @@ export const StyledMobileNav = styled.nav`
                         transition: all 0.4s
                             cubic-bezier(0.4, 0.01, 0.165, 0.99);
                         transition-delay: 0.2s;
-                        background: white;
+                        background: var(--Primary-brand-color);
 
                         &.topBar {
                             transform: translateY(4px) rotate(45deg);

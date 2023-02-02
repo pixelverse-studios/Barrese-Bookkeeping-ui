@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
+import useScrollPosition from '@/utilities/hooks/useScrollPosition'
+
 import { MobileRoutes } from './routes'
 import Logo from '../../assets/images/BarreseBookkeeping.svg'
+import LogoWhite from '../../assets/images/BarreseBookkeeping-white.svg'
 import { StyledMobileNav } from './Nav.styles'
 
+const NAV_TRANSITION_POINT = 10
 const MobileNav = () => {
     const [show, setShow] = useState<boolean>(false)
     const [stopScroll, setStopScroll] = useState<boolean>(false)
@@ -12,7 +16,7 @@ const MobileNav = () => {
         setShow(!show)
         setStopScroll(!stopScroll)
     }
-
+    const scrollPosition = useScrollPosition()
     useEffect(() => {
         if (stopScroll === true) {
             document.body.style.overflow = 'hidden'
