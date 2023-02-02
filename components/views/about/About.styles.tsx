@@ -69,6 +69,9 @@ export const StyledAbout = styled.section`
             .about {
                 display: flex;
                 flex-direction: column;
+                p {
+                    text-align: center;
+                }
             }
         }
     }
