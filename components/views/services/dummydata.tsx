@@ -43,9 +43,9 @@ const ServiceData = {
                 'Detail 1',
                 'Detail 2',
                 'Detail 3',
-                'Detail 4',
+                'Detsadfasail 4',
                 'Detail 5',
-                'Detail 6',
+                'Detasadfasdfsdzfafil 6',
                 'Detail 7'
             ]
         }

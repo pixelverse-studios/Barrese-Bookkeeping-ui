@@ -2,9 +2,9 @@
     --Off-brand-color: rgb(255, 255, 255);
     --Primary-brand-color: rgb(26, 57, 115);
     --Secondary-brand-color: rgb(36, 78, 157);
+    --Secondary-opaque-color: rgba(36, 78, 157, 0.5);
     --Primary-accent-color: rgb(155, 153, 149);
     --Secondary-accent-color: rgb(211, 199, 184);
-    --Secondary-opaque-color: rgba(36, 78, 157, 0.5);
 
     --content-padding: 0rem 10rem;
     --nav-height: 4rem;
@@ -66,6 +66,6 @@ hr {
     width: 15rem;
     margin: 0 auto;
     border: none;
-    border-bottom: 3px solid var(--Primary-accent-color);
+    border-bottom: 3px solid var(--Secondary-accent-color);
     position: relative;
 }
