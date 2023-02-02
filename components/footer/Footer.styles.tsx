@@ -31,27 +31,31 @@ export const StyledFooter = styled.footer`
                 column-gap: 1rem;
             }
         }
-
-        @media only screen and (max-width: 800px) {
-            display: grid;
-            grid-template-columns: 1fr;
-            row-gap: 2rem;
-            .left-footer {
+    }
+    @media only screen and (max-width: 1350px) {
+        display: flex;
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            width: var(--max-desktop-width);
+            padding: var(--content-padding);
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+        }
+        .contact {
+            width: 100%;
+            display: flex;
+            align-items: center !important;
+            .social-links {
                 width: 100%;
-                text-align: center;
                 display: flex;
                 justify-content: center;
-                align-items: center;
             }
-            .center-footer {
+            .copyright {
+                width: 100%;
                 display: flex;
                 justify-content: center;
-                align-items: center;
-            }
-            .right-footer {
-                display: flex;
-                justify-content: center;
-                align-items: center;
             }
         }
     }

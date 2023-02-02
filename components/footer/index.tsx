@@ -1,5 +1,6 @@
 import { StyledFooter } from './Footer.styles'
 import Logo from '../../assets/images/BarreseBookkeeping.svg'
+import { Instagram, Facebook, Twitter } from '@mui/icons-material/'
 
 const Footer = () => {
     return (
@@ -7,7 +8,6 @@ const Footer = () => {
             <div className="footer-content">
                 <img src={Logo.src} alt="" />
                 <div className="contact">
-                    <h1>Contact</h1>
                     <ul>
                         <li>Business Name</li>
                         <li>Address Line 1</li>
@@ -15,9 +15,9 @@ const Footer = () => {
                         <li>Phone Number</li>
                     </ul>
                     <div className="social-links">
-                        <div>Insta</div>
-                        <div>FB</div>
-                        <div>Twitter</div>
+                        <Instagram />
+                        <Facebook />
+                        <Twitter />
                     </div>
                     <span className="copyright">Copyright &copy;</span>
                 </div>

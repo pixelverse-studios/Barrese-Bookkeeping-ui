@@ -8,7 +8,7 @@
 
     --content-padding: 0rem 10rem;
     --nav-height: 4rem;
-    --footer-height: 25rem;
+    --footer-height: 15rem;
     --footer-background: var(--Primary-accent-color);
     --footer-font-color: var(--Primary-brand-color);
     --mobile-breakpoint: 1350px;
@@ -38,7 +38,6 @@
 html,
 body {
     max-width: 100vw;
-    overflow-x: hidden;
     font-family: Gordita, sans-serif;
     color: var(--Primary-brand-color);
     overflow-x: hidden;
