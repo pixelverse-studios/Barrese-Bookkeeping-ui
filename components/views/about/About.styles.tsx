@@ -47,6 +47,7 @@ export const StyledAbout = styled.section`
                 display: flex;
                 align-items: center;
                 column-gap: 1rem;
+                padding-top: 1rem;
                 .about-image-title {
                     display: flex;
                     flex-direction: column;

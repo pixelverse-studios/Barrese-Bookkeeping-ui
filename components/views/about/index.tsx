@@ -21,6 +21,7 @@ const AboutPage = () => {
                 <div className="content">
                     <h1>Meet the Man Behind the Books</h1>
                     <h2>Subheader</h2>
+                    <hr />
                     <div className="about">
                         <div className="about-image-title">
                             <img src={Headshot.src} alt="" />
