@@ -44,7 +44,7 @@ export const StyledAbout = styled.section`
 
             .about {
                 display: flex;
-                align-items: center;
+
                 column-gap: 1rem;
                 padding-top: 1rem;
                 .about-image-title {
@@ -52,9 +52,15 @@ export const StyledAbout = styled.section`
                     flex-direction: column;
                     align-items: center;
                     float: left;
+                    row-gap: 0.3rem;
                     img {
                         border-radius: 50%;
                     }
+                }
+
+                p {
+                    display: grid;
+                    place-items: center;
                 }
             }
         }

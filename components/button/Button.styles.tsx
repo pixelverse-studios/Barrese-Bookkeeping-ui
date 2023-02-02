@@ -16,6 +16,7 @@ const StyledButton = styled.button`
         border-radius: 5px;
         color: var(--Primary-brand-color);
         font-weight: 800;
+        cursor: pointer;
     }
 `
 
