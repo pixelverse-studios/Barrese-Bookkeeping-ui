@@ -1,16 +1,6 @@
 import { StyledAbout } from './About.styles'
 import Headshot from '../../../assets/images/Aj-Headshot.jpg'
 
-// about: {
-//     backgroundInfo: String,
-//     role: String,
-//     title: String,
-// },
-
-//     subHeader: String,
-//     header: String,
-//     heroImage: String
-//     profilePic: String,
 const AboutPage = () => {
     return (
         <StyledAbout>
