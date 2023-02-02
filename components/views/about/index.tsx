@@ -15,8 +15,8 @@ const AboutPage = () => {
                     <div className="about">
                         <div className="about-image-title">
                             <img src={Headshot.src} alt="" />
-                            <h3>Title</h3>
-                            <h3>Role</h3>
+                            <h3>Alan Barrese</h3>
+                            <h3>Founder & CEO</h3>
                         </div>
                         <p>
                             Lorem ipsum dolor, sit amet consectetur adipisicing
