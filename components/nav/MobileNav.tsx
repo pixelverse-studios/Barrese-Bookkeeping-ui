@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 
+import { useRouter } from 'next/router'
+
 import { MobileRoutes } from './routes'
+import Logo from '../../assets/images/BarreseBookkeeping.svg'
 
 import { StyledMobileNav } from './Nav.styles'
 
 const MobileNav = () => {
     const [show, setShow] = useState<boolean>(false)
     const [stopScroll, setStopScroll] = useState<boolean>(false)
+    const router = useRouter()
     const menuToggle = () => {
         setShow(!show)
         setStopScroll(!stopScroll)
@@ -24,13 +28,22 @@ const MobileNav = () => {
     return (
         <StyledMobileNav>
             <div className={show === true ? 'header menuOpened' : 'header'}>
+                <div className="logo-container">
+                    <img
+                        className="logo"
+                        src={Logo.src}
+                        alt="Barrese Bookkeeping"
+                        onClick={() => {
+                            router.push('/')
+                        }}
+                    />
+                </div>
                 <div className="burgerContainer" onClick={menuToggle}>
                     <div className="burger">
                         <div className="bar topBar"></div>
                         <div className="bar btmBar"></div>
                     </div>
                 </div>
-                <div className="icon iconApple">Barrese Bookkeeping</div>
                 <ul
                     className="menu"
                     style={{ display: `${show === true ? 'block' : 'none'}` }}>

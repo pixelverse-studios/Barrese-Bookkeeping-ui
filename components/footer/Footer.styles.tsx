@@ -2,59 +2,61 @@ import styled from '@emotion/styled'
 
 export const StyledFooter = styled.footer`
     width: 100%;
-    padding: 55px 40px;
-    height: fit-content;
+    padding: 5rem 0rem;
     background-color: var(--footer-background);
     color: var(--footer-font-color);
     display: flex;
-    justify-content: space-around;
-
-    .left-footer {
+    justify-content: center;
+    align-items: center;
+    .footer-content {
         display: flex;
-        flex-direction: column;
-        inline-size: 170px;
-        overflow-wrap: break-word;
-    }
-    .center-footer {
-        display: flex;
-        justify-content: center;
+        width: var(--max-desktop-width);
+        padding: var(--content-padding);
+        align-items: center;
+        justify-content: space-between;
+        align-content: center;
         img {
-            border-radius: 50%;
+            width: 15rem;
         }
-    }
-    .right-footer {
-        display: flex;
-        align-items: flex-end;
-        flex-direction: column;
-        ul {
-            list-style-type: none;
-        }
-        .social-links {
-            display: flex;
-            column-gap: 1rem;
-        }
-    }
 
-    @media only screen and (max-width: 800px) {
-        display: grid;
-        grid-template-columns: 1fr;
-        row-gap: 2rem;
-        .left-footer {
+        .contact {
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
+            ul {
+                list-style-type: none;
+            }
+            .social-links {
+                display: flex;
+                column-gap: 1rem;
+            }
+        }
+    }
+    @media only screen and (max-width: 1350px) {
+        display: flex;
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            width: var(--max-desktop-width);
+            padding: var(--content-padding);
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+        }
+        .contact {
             width: 100%;
-            text-align: center;
             display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .center-footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .right-footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            align-items: center !important;
+            .social-links {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            .copyright {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
         }
     }
 `

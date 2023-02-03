@@ -21,6 +21,9 @@ const FAQPage = () => {
 
     return (
         <StyledFAQ>
+            <div className="hero">
+                <div className="overlay" />
+            </div>
             <div className="FAQ-hero">
                 <h1>Title</h1>
                 <h2>Subtext</h2>

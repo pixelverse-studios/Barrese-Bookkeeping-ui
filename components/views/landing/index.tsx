@@ -30,36 +30,18 @@ const Landing = () => {
             {/* Image Section */}
             <div className="hero">
                 <div className="overlay">
-                    <div className="title-container">
-                        <span>Outsourced</span>
-                        <span>Accounting</span>
-                        <span>Services</span>
+                    <div className="overlay-text">
+                        <div className="title-container">
+                            <h1>Outsourced</h1>
+                            <h1>Accounting</h1>
+                            <h2>Services</h2>
+                        </div>
+                        <div className="subtitle-container">
+                            <h3>For SF Bay Area</h3>
+                            <h3>Small Businesses</h3>
+                        </div>
+                        <Button label="BOOK CONSULTACHE" route="/contact" />
                     </div>
-                    <div className="subtitle-container">
-                        <span>For SF Bay Area</span>
-                        <span>Small Businesses</span>
-                    </div>
-
-                    <Button label="BOOK CONSULTACHE" />
-                </div>
-            </div>
-            {/* About Section */}
-            <div className="about">
-                <h1>About</h1>
-                <h2>Barrese Bookeeping Services</h2>
-                <hr />
-                <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Sit rem quod neque ipsa aperiam placeat, similique, vel
-                    iste, blanditiis enim ipsum hic. Voluptas ea inventore,
-                    vitae consequatur eaque commodi obcaecati. Lorem ipsum dolor
-                    sit amet consectetur, adipisicing elit. Blanditiis fuga
-                    sapiente cumque distinctio praesentium. Quis suscipit nobis
-                    tempora, impedit soluta recusandae ut optio omnis officia,
-                    autem sunt unde asperiores obcaecati?
-                </p>
-                <div className="button-container">
-                    <Button label="Meet The Team" />
                 </div>
             </div>
             {/* Service Section */}
@@ -70,17 +52,16 @@ const Landing = () => {
                 <div className="services-container">
                     {ServiceData.map((data, index) => {
                         return (
-                            <div className="service" key={index}>
-                                <ServiceCard
-                                    imageSrc={data.imageSrc}
-                                    cardTitle={data.cardTitle}
-                                    cardDescription={data.cardDescription}
-                                />
-                            </div>
+                            <ServiceCard
+                                key={index}
+                                imageSrc={data.imageSrc}
+                                cardTitle={data.cardTitle}
+                                cardDescription={data.cardDescription}
+                            />
                         )
                     })}
                 </div>
-                <Button label="Services"></Button>
+                <Button label="Services" route="/services" />
             </div>
         </StyledLanding>
     )
