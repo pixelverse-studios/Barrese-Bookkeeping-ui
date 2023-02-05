@@ -24,8 +24,21 @@ export const StyledFAQ = styled.section`
             align-content: center;
         }
     }
-    .FAQ-hero {
-        text-align: center;
-        padding-bottom: 2rem;
+    .FAQ-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem 0rem;
+        .content {
+            width: var(--max-desktop-width);
+            padding: var(--content-padding);
+            display: flex;
+            flex-direction: column;
+            h1,
+            h2 {
+                text-align: center;
+            }
+        }
     }
 `

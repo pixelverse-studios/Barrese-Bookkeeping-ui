@@ -24,27 +24,29 @@ const FAQPage = () => {
             <div className="hero">
                 <div className="overlay" />
             </div>
-            <div className="FAQ-hero">
-                <h1>Title</h1>
-                <h2>Subtext</h2>
+            <div className="FAQ-container">
+                <div className="content">
+                    <h1>Title</h1>
+                    <h2>Subtext</h2>
+                    {DummyFAQs.map((item, index) => {
+                        return (
+                            <Accordion
+                                expanded={expanded === `panel${index}`}
+                                onChange={handleChange(`panel${index}`)}
+                                key={index}>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon />}
+                                    aria-controls="panella-content">
+                                    <Typography>{item.question}</Typography>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <Typography>{item.answer}</Typography>
+                                </AccordionDetails>
+                            </Accordion>
+                        )
+                    })}
+                </div>
             </div>
-            {DummyFAQs.map((item, index) => {
-                return (
-                    <Accordion
-                        expanded={expanded === `panel${index}`}
-                        onChange={handleChange(`panel${index}`)}
-                        key={index}>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panella-content">
-                            <Typography>{item.question}</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <Typography>{item.answer}</Typography>
-                        </AccordionDetails>
-                    </Accordion>
-                )
-            })}
         </StyledFAQ>
     )
 }
