@@ -5,7 +5,7 @@ export const StyledLanding = styled.section`
     flex-direction: column;
     align-items: center;
     h1 {
-        font-size: 4rem;
+        font-size: 6.4rem;
     }
     .hero {
         position: relative;
@@ -35,13 +35,13 @@ export const StyledLanding = styled.section`
                 flex-direction: column;
                 width: fit-content;
                 border-bottom: 3px solid white;
-                padding-bottom: 1rem;
+                padding-bottom: 1.6rem;
                 h1 {
-                    color: white;
+                    color: var(--Off-brand-color);
                 }
 
                 h2 {
-                    font-size: 3rem;
+                    font-size: 4.8rem;
                 }
             }
 
@@ -50,10 +50,10 @@ export const StyledLanding = styled.section`
                 flex-direction: column;
                 padding: 1rem 0rem;
                 span:nth-of-type(1) {
-                    font-size: 1.8rem;
+                    font-size: 2.08rem;
                 }
                 span:nth-of-type(2) {
-                    font-size: 1.8rem;
+                    font-size: 2.08rem;
                 }
             }
         }
@@ -68,7 +68,7 @@ export const StyledLanding = styled.section`
         align-items: center;
         justify-content: center;
         align-content: center;
-        padding: 3rem 0rem;
+        padding: 4.8rem 0rem;
 
         .services-container {
             display: flex;
@@ -84,7 +84,7 @@ export const StyledLanding = styled.section`
             background-color: var(--Secondary-accent-color);
             width: 100%;
             text-align: center;
-            padding: 3rem 0rem;
+            padding: 4.8rem 0rem;
 
             .services-container {
                 display: flex;

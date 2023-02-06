@@ -4,14 +4,14 @@ export const StyledServiceCard = styled.div`
     display: flex;
     flex-direction: column;
     text-align: center;
-    row-gap: 0.7rem;
-    padding: 3rem 0rem;
+    row-gap: 1.2rem;
+    padding: 4.8rem 0rem;
     color: var(--Primary-brand-color);
     img {
-        width: 250px;
-        height: 250px;
+        width: 25rem;
+        height: 25rem;
     }
     p {
-        max-width: 250px;
+        max-width: 25rem;
     }
 `

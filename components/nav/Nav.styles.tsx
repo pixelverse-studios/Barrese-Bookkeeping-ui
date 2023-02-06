@@ -6,7 +6,7 @@ export const StyledNav = styled.nav`
     align-items: center;
     width: 100%;
     height: var(--nav-height);
-    background-color: white;
+    background-color: var(--Off-brand-color);
     position: fixed;
     top: 0;
     left: 0;
@@ -15,7 +15,7 @@ export const StyledNav = styled.nav`
 
     .navContent {
         display: flex;
-        column-gap: 1rem;
+        column-gap: 1.6rem;
         padding: var(--content-padding);
         width: var(--max-desktop-width);
         align-items: center;
@@ -23,7 +23,7 @@ export const StyledNav = styled.nav`
         align-content: center;
 
         .logo {
-            width: 12rem;
+            width: 19.2rem;
             &:hover {
                 cursor: pointer;
             }
@@ -31,15 +31,15 @@ export const StyledNav = styled.nav`
 
         .navRoutes {
             display: flex;
-            column-gap: 1rem;
+            column-gap: 1.6rem;
             align-items: flex-end;
-            font-size: 1.3rem;
+            font-size: 2.08rem;
             .navLinks {
                 display: inline-block;
                 position: relative;
 
                 .socialIcons {
-                    font-size: 1.3rem;
+                    font-size: 2.08rem;
                     &:hover {
                         cursor: pointer;
                     }
@@ -56,7 +56,7 @@ export const StyledNav = styled.nav`
                 content: '';
                 display: block;
                 margin: auto;
-                height: 3px;
+                height: 0.3rem;
                 width: 0px;
                 background: transparent;
                 transition: width 0.5s ease, background-color 0.5s ease;
@@ -75,7 +75,7 @@ export const StyledNav = styled.nav`
                 content: '';
                 display: block;
                 margin: auto;
-                height: 3px;
+                height: 0.3rem;
                 width: 100%;
                 background: var(--Primary-brand-color);
             }
@@ -90,7 +90,7 @@ export const TransparantStyledNav = styled.nav`
     width: 100%;
     height: var(--nav-height);
     background-color: transparent;
-    color: white;
+    color: var(--Off-brand-color);
     position: fixed;
     top: 0;
     left: 0;
@@ -98,7 +98,7 @@ export const TransparantStyledNav = styled.nav`
 
     .navContent {
         display: flex;
-        column-gap: 1rem;
+        column-gap: 1.6rem;
         padding: var(--content-padding);
         width: var(--max-desktop-width);
         align-items: center;
@@ -106,37 +106,37 @@ export const TransparantStyledNav = styled.nav`
         align-content: center;
 
         .logo {
-            width: 12rem;
+            width: 19.2rem;
             &:hover {
                 cursor: pointer;
             }
         }
         .navRoutes {
             display: flex;
-            column-gap: 1rem;
+            column-gap: 1.6rem;
             align-items: flex-end;
-            font-size: 1.3rem;
+            font-size: 2.08rem;
             .navLinks {
                 display: inline-block;
                 position: relative;
 
                 .socialIcons {
-                    font-size: 1.3rem;
+                    font-size: 2.08rem;
                     &:hover {
                         cursor: pointer;
                     }
                 }
                 a {
-                    color: white;
+                    color: var(--Off-brand-color);
 
                     &:hover {
-                        color: white;
+                        color: var(--Off-brand-color);
                         text-decoration: none;
                         cursor: pointer;
                     }
 
                     &:visited {
-                        color: white;
+                        color: var(--Off-brand-color);
                     }
                 }
             }
@@ -145,28 +145,28 @@ export const TransparantStyledNav = styled.nav`
                 content: '';
                 display: block;
                 margin: auto;
-                height: 3px;
+                height: 0.3rem;
                 width: 0px;
                 background: transparent;
                 transition: width 0.5s ease, background-color 0.5s ease;
             }
             .navLinks:hover:after {
                 width: 100%;
-                background: white;
+                background: var(--Off-brand-color);
             }
         }
         li {
             list-style-type: none;
             .activeLink {
-                color: white;
+                color: var(--Off-brand-color);
             }
             .activeLink:after {
                 content: '';
                 display: block;
                 margin: auto;
-                height: 3px;
+                height: 0.3rem;
                 width: 100%;
-                background: white;
+                background: var(--Off-brand-color);
             }
         }
     }
@@ -178,7 +178,7 @@ export const StyledMobileNav = styled.nav`
         display: block;
         top: 0;
         left: 0;
-        height: 50px;
+        height: 5rem;
         width: 100%;
         background: rgba(rgb(255, 255, 255), 0.8);
         box-shadow: rgb(0 0 0 / 12%) 0 1px 3px;
@@ -226,20 +226,20 @@ export const StyledMobileNav = styled.nav`
             width: 100%;
             display: flex;
             justify-content: center;
-            padding: 5px 0px;
+            padding: 0.5rem 0;
             background-color: var(--Off-brand-color);
             .logo {
-                width: 8rem;
+                width: 12.8rem;
             }
         }
 
         ul.menu {
             position: relative;
-            padding: 45px 48px 0;
+            padding: 4.5rem 4.8rem 0;
             list-style: none;
             li.menuItem {
                 border-bottom: 1px solid var(--Primary-brand-color);
-                margin-top: 5px;
+                margin-top: 0.5rem;
                 transform: scale(1.15) translateY(-30px);
                 opacity: 0;
                 transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99),
@@ -256,7 +256,7 @@ export const StyledMobileNav = styled.nav`
                     font-family: 'Ek Mukta', sans-serif;
                     font-weight: 100;
                     text-decoration: none;
-                    font-size: 22px;
+                    font-size: 2.2rem;
                     line-height: 2.35;
                     font-weight: 200;
                     width: 100%;
