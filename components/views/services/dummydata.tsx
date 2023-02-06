@@ -1,5 +1,5 @@
 const ServiceData = {
-    pageH1: 'Title',
+    pageH1: 'Services',
     pageH2: 'Subtext',
     description:
         'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio doloribus quo explicabo soluta distinctio, odiodeserunt eius deleniti adipisci asperiores enim. Qui quam,similique assumenda dignissimos corporis repellatperspiciatis quod odio laboriosam officiis temporibus dolores omnis debitis. Nihil itaque reiciendis voluptate beatae nemo quaerat animi impedit. Natus dicta rem odit, aliquid reprehenderit non nesciunt praesentium repellendusexercitationem. Amet labore distinctio minus reiciendis officia eius et laudantium. Voluptas iure officiis quidem commodi minus dolor illo placeat.',

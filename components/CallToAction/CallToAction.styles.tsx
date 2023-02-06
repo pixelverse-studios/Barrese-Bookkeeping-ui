@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const StyledCallToAction = styled.section`
-    padding: 6rem 0rem;
+    padding: 9.6rem 0rem;
     position: relative;
     width: 100%;
     display: flex;
@@ -27,8 +27,8 @@ export const StyledCallToAction = styled.section`
             z-index: 1;
             outline: 10px solid white;
             border-radius: 50%;
-            height: 150px;
-            width: 150px;
+            height: 15rem;
+            width: 15rem;
         }
 
         .content {
@@ -36,7 +36,7 @@ export const StyledCallToAction = styled.section`
             border: 3px solid var(--Secondary-accent-color);
             width: 100%;
             min-width: fit-content;
-            padding: 6rem 0rem;
+            padding: 9.6rem 0rem;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -45,16 +45,16 @@ export const StyledCallToAction = styled.section`
             align-content: center;
             color: var(--Primary-brand-color);
             h1 {
-                font-size: 60px;
+                font-size: 6rem;
             }
 
             .subText {
-                font-size: 20px;
+                font-size: 2rem;
             }
         }
 
         button {
-            width: 10rem;
+            width: 16rem;
             position: absolute;
             bottom: 75px;
             left: 0px;
@@ -62,7 +62,7 @@ export const StyledCallToAction = styled.section`
             margin: auto;
             z-index: 1;
             outline: 10px solid white;
-            padding: 1rem 2rem;
+            padding: 1.6rem 3.2rem;
         }
     }
 `

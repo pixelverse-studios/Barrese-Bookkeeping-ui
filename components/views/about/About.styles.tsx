@@ -16,7 +16,7 @@ export const StyledAbout = styled.section`
         background-blend-mode: saturation;
         .overlay {
             background-color: var(--Secondary-opaque-color);
-            height: 100%;
+            height: 30vh;
             width: 100%;
             color: var(--Off-brand-color);
             display: flex;
@@ -31,7 +31,7 @@ export const StyledAbout = styled.section`
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 3rem 0rem;
+        padding: 4.8rem 0rem;
         .content {
             width: var(--max-desktop-width);
             padding: var(--content-padding);
@@ -39,20 +39,19 @@ export const StyledAbout = styled.section`
             flex-direction: column;
             align-items: center;
             h1 {
-                font-size: 60px;
+                font-size: 4rem;
             }
 
             .about {
                 display: flex;
-
-                column-gap: 1rem;
-                padding-top: 2rem;
+                column-gap: 1.6rem;
+                padding-top: 3.2rem;
                 .about-image-title {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     float: left;
-                    row-gap: 0.3rem;
+                    row-gap: 0.48rem;
                     img {
                         border-radius: 50%;
                     }

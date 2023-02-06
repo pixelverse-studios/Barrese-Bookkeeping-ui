@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 export const StyledFooter = styled.footer`
     width: 100%;
-    padding: 5rem 0rem;
+    padding: 8rem 0rem;
     background-color: var(--footer-background);
     color: var(--footer-font-color);
     display: flex;
@@ -16,7 +16,7 @@ export const StyledFooter = styled.footer`
         justify-content: space-between;
         align-content: center;
         img {
-            width: 15rem;
+            width: 24rem;
         }
 
         .contact {
@@ -28,7 +28,7 @@ export const StyledFooter = styled.footer`
             }
             .social-links {
                 display: flex;
-                column-gap: 1rem;
+                column-gap: 1.6rem;
             }
         }
     }

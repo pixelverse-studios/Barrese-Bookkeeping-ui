@@ -1,50 +1,44 @@
 import { useState } from 'react'
 import { StyledFAQ } from './FAQ.styles'
-import {
-    Accordion,
-    AccordionDetails,
-    AccordionSummary,
-    Typography
-} from '@mui/material'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 import DummyFAQs from './dummydata'
 
 const FAQPage = () => {
     const [expanded, setExpanded] = useState<string | false>(false)
 
-    const handleChange =
-        (panel: string) =>
-        (event: React.SyntheticEvent, isExpanded: boolean) => {
-            setExpanded(isExpanded ? panel : false)
-        }
+    const toggleAccordion = (selected: string) =>
+        setExpanded(selected === expanded ? false : selected)
 
     return (
         <StyledFAQ>
             <div className="hero">
                 <div className="overlay" />
             </div>
-            <div className="FAQ-hero">
-                <h1>Title</h1>
-                <h2>Subtext</h2>
+            <div className="FAQ-container">
+                <h1>FAQs</h1>
+                <h2>Frequently Asked Questions</h2>
+                <div className="accordion">
+                    {DummyFAQs.map((data, index) => {
+                        const currentFAQ = `accordion-button-${index}`
+                        return (
+                            <div className="accordion-item" key={index}>
+                                <button
+                                    onClick={() => toggleAccordion(currentFAQ)}
+                                    id={currentFAQ}
+                                    aria-expanded={currentFAQ === expanded}>
+                                    <span className="icon" aria-hidden="true" />
+                                    <span className="accordion-title">
+                                        {data.question}
+                                    </span>
+                                </button>
+                                <div className="accordion-content">
+                                    <p>{data.answer}</p>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
-            {DummyFAQs.map((item, index) => {
-                return (
-                    <Accordion
-                        expanded={expanded === `panel${index}`}
-                        onChange={handleChange(`panel${index}`)}
-                        key={index}>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                            aria-controls="panella-content">
-                            <Typography>{item.question}</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <Typography>{item.answer}</Typography>
-                        </AccordionDetails>
-                    </Accordion>
-                )
-            })}
         </StyledFAQ>
     )
 }

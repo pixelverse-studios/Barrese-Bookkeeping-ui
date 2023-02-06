@@ -6,8 +6,8 @@
     --Primary-accent-color: rgb(155, 153, 149);
     --Secondary-accent-color: rgb(211, 199, 184);
 
-    --content-padding: 0rem 10rem;
-    --nav-height: 4rem;
+    --content-padding: 0rem 16rem;
+    --nav-height: 6.4rem;
     --footer-height: 15rem;
     --footer-background: var(--Primary-accent-color);
     --footer-font-color: var(--Primary-brand-color);
@@ -35,17 +35,21 @@
     margin: 0;
 }
 
-html,
+html {
+    font-size: 62.5%;
+}
+
 body {
     max-width: 100vw;
     font-family: Gordita, sans-serif;
     color: var(--Primary-brand-color);
-    overflow-x: none;
+    overflow-x: hidden !important;
+    font-size: 1.6rem;
 }
 
 h1 {
     color: var(--Secondary-brand-color);
-    font-family: Street, sans-serif;
+    font-family: Gordita, sans-serif;
 }
 h2,
 h3,
@@ -61,8 +65,8 @@ a {
 
 hr {
     width: 0%;
-    padding-top: 1rem;
-    width: 15rem;
+    padding-top: 1.6rem;
+    width: 24rem;
     margin: 0 auto;
     border: none;
     border-bottom: 3px solid var(--Secondary-accent-color);
