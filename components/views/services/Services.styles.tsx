@@ -30,6 +30,9 @@ export const StyledServices = styled.section`
         display: flex;
         flex-direction: column;
         align-items: center;
+        h1 {
+            font-size: 40px;
+        }
 
         .services-hero {
             padding: 2rem 5rem;
@@ -80,7 +83,8 @@ export const StyledServices = styled.section`
                             minmax(10px, 1fr)
                         );
                         row-gap: 0.4rem;
-                        padding-bottom: 1rem;
+
+                        padding: 1rem 0rem;
                         li {
                             margin-left: 1.5rem;
                             ::before {

@@ -31,6 +31,12 @@ export const StyledFAQ = styled.section`
         flex-direction: column;
         align-items: center;
         padding: 3rem 0rem;
+        h1 {
+            font-size: 40px;
+        }
+        h2 {
+            font-size: 20px;
+        }
     }
 
     .accordion {
@@ -38,48 +44,47 @@ export const StyledFAQ = styled.section`
         padding: var(--content-padding);
         display: flex;
         flex-direction: column;
-
         .accordion-item {
             border-bottom: 1px solid var(--Secondary-accent-color);
+            button[aria-expanded='true'] {
+                border-bottom: 1px solid var(--Secondary-accent-color);
+            }
         }
-
         button {
             position: relative;
             display: block;
             text-align: left;
             width: 100%;
-            padding: 1rem 2rem;
+            padding: 1em 2rem;
             color: var(--Primary-brand-color);
-
+            font-size: 1.15rem;
+            font-weight: 400;
             border: none;
             background: none;
             outline: none;
             &:hover,
             &:focus {
                 cursor: pointer;
-                color: $blue;
                 &::after {
                     cursor: pointer;
-                    color: $blue;
-                    border: 1px solid $blue;
+                    border: 1px solid var(--Primary-brand-color);
                 }
             }
             .accordion-title {
-                padding: 1rem 1.5rem 1rem 0;
+                padding: 1em 1.5em 1em 0;
                 text-transform: uppercase;
-                font-size: 1.2rem;
             }
             .icon {
                 display: inline-block;
                 position: absolute;
-                top: 15px;
+                top: 18px;
                 left: 0;
                 width: 22px;
                 height: 22px;
                 border: 1px solid;
                 background-color: var(--off-brand-color);
                 color: var(--Secondary-accent-color);
-                transition: 0.5s ease-in-out;
+                transition: 0.4s linear;
                 &::before {
                     display: block;
                     position: absolute;
@@ -107,19 +112,17 @@ export const StyledFAQ = styled.section`
                 }
             }
         }
-
         button[aria-expanded='true'] {
             color: var(--Primary-brand-color);
             .icon {
-                background-color: var(--Primary-brand-color);
                 &::after {
                     width: 0;
                 }
             }
             + .accordion-content {
                 opacity: 1;
-                max-height: 10rem;
-                transition: all 200ms ease-in-out;
+                max-height: 9em;
+                transition: all 200ms linear;
                 will-change: opacity, max-height;
             }
         }
@@ -127,10 +130,12 @@ export const StyledFAQ = styled.section`
             opacity: 0;
             max-height: 0;
             overflow: hidden;
-            transition: opacity 200ms ease-in-out, max-height 200ms ease-in-out;
+            transition: opacity 200ms linear, max-height 200ms linear;
             will-change: opacity, max-height;
             p {
                 font-size: 1rem;
+                font-weight: 300;
+                margin: 2em 0;
             }
         }
     }

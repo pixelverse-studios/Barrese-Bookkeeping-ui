@@ -60,8 +60,9 @@ export const StyledLanding = styled.section`
     }
 
     .services {
-        background-color: var(--Secondary-accent-color);
+        background-color: var(--Off-brand-color);
         width: 100%;
+        height: calc(100vh - var(--nav-height));
         display: flex;
         flex-direction: column;
         align-items: center;

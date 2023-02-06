@@ -39,7 +39,7 @@ export const StyledAbout = styled.section`
             flex-direction: column;
             align-items: center;
             h1 {
-                font-size: 60px;
+                font-size: 40px;
             }
 
             .about {
