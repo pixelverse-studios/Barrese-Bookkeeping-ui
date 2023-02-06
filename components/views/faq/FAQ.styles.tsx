@@ -16,7 +16,7 @@ export const StyledFAQ = styled.section`
         .overlay {
             background-color: var(--Secondary-opaque-color);
             height: 30vh;
-            width: 100vw;
+            width: 100%;
             color: var(--Off-brand-color);
             display: flex;
             align-items: center;

@@ -34,7 +34,7 @@ export const StyledLanding = styled.section`
                 display: flex;
                 flex-direction: column;
                 width: fit-content;
-                border-bottom: 3px solid white;
+                border-bottom: 3px solid var(--Off-brand-color);
                 padding-bottom: 1.6rem;
                 h1 {
                     color: var(--Off-brand-color);
@@ -80,11 +80,26 @@ export const StyledLanding = styled.section`
     }
 
     @media only screen and (max-width: 1350px) {
+        .overlay {
+            display: flex;
+
+            .overlay-text {
+                display: flex;
+                align-content: center;
+                flex-direction: column;
+                align-items: flex-start;
+                height: 100%;
+                width: 100%;
+                justify-content: center;
+                padding-left: 2.6rem;
+            }
+        }
         .services {
             background-color: var(--Secondary-accent-color);
             width: 100%;
             text-align: center;
             padding: 4.8rem 0rem;
+            height: fit-content;
 
             .services-container {
                 display: flex;
