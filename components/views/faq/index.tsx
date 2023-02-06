@@ -1,31 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { StyledFAQ } from './FAQ.styles'
 
 import DummyFAQs from './dummydata'
 
 const FAQPage = () => {
     const [expanded, setExpanded] = useState<string | false>(false)
-    const [items, setItems] = useState<any>([])
 
-    useEffect(() => {
-        setItems(document.querySelectorAll('.accordion button'))
-    }, [])
+    const toggleAccordion = (selected: string) =>
+        setExpanded(selected === expanded ? false : selected)
 
-    function toggleAccordion(this: any) {
-        const itemToggle = this.getAttribute('aria-expanded')
-
-        for (var i = 0; i < items.length; i++) {
-            items[i].setAttribute('aria-expanded', 'false')
-        }
-
-        if (itemToggle == 'false') {
-            this.setAttribute('aria-expanded', 'true')
-        }
-    }
-
-    items.forEach((item: any) =>
-        item.addEventListener('click', toggleAccordion)
-    )
     return (
         <StyledFAQ>
             <div className="hero">
@@ -36,11 +19,13 @@ const FAQPage = () => {
                 <h2>Frequently Asked Questions</h2>
                 <div className="accordion">
                     {DummyFAQs.map((data, index) => {
+                        const currentFAQ = `accordion-button-${index}`
                         return (
                             <div className="accordion-item" key={index}>
                                 <button
-                                    id="accordion-button-1"
-                                    aria-expanded="false">
+                                    onClick={() => toggleAccordion(currentFAQ)}
+                                    id={currentFAQ}
+                                    aria-expanded={currentFAQ === expanded}>
                                     <span className="icon" aria-hidden="true" />
                                     <span className="accordion-title">
                                         {data.question}
