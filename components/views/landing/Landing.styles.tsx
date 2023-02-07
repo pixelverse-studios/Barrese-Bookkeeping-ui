@@ -96,6 +96,7 @@ export const StyledLanding = styled.section`
         justify-content: center;
         align-content: center;
         padding: 3rem 0rem;
+        scroll-margin-top: 2rem !important;
         h1 {
             font-size: 4.5rem;
         }

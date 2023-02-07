@@ -30,7 +30,6 @@ const Landing = () => {
     const scrollToService = () => {
         if (serviceRef.current)
             serviceRef.current.scrollIntoView({
-                block: 'center',
                 behavior: 'smooth'
             })
     }
