@@ -1,118 +1,136 @@
-import * as React from 'react'
-import Avatar from '@mui/material/Avatar'
-import Button from '@mui/material/Button'
-import CssBaseline from '@mui/material/CssBaseline'
-import TextField from '@mui/material/TextField'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Checkbox from '@mui/material/Checkbox'
-import Link from '@mui/material/Link'
-import Grid from '@mui/material/Grid'
-import Box from '@mui/material/Box'
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
-import Typography from '@mui/material/Typography'
-import Container from '@mui/material/Container'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { FormEvent } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+// import { useDispatch, useSelector } from 'react-redux'
+// import { useMutation } from '@apollo/client'
 
-function Copyright(props: any) {
-    return (
-        <Typography
-            variant="body2"
-            color="text.secondary"
-            align="center"
-            {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    )
+// import { setLoading, setProfile } from '../../../lib/redux/slices/user'
+// import {
+//     showBanner,
+//     showTechnicalDifficultiesBanner
+// } from '../../../lib/redux/slices/banner'
+// import { AppDispatch } from '../../../lib/redux/store'
+// import { LOGIN } from '../../../lib/gql/mutations/users'
+// import { JWT_SECRET } from '../../../utilities/constants'
+import { FormProps } from '@/utilities/types/formTypes'
+import useForm from '@/utilities/hooks/useForm'
+import FormValidations from '@/utilities/validations/forms'
+import { FormRow, TextField } from '@/components/form/'
+// import { FormRow, FormSubmitButton, TextField } from '@/components/form/'
+import { StyledAuthPage } from './AuthPage.styles'
+// import styles from './AuthPages.module.scss'
+
+const INITIAL_STATE = {
+    email: { value: '', error: '' },
+    password: { value: '', error: '' }
+} as FormProps
+
+const VALIDATIONS = {
+    email: FormValidations.validEmail,
+    password: FormValidations.validPassword
 }
 
-const theme = createTheme()
+const Login = () => {
+    // const dispatch = useDispatch<AppDispatch>()
+    // const router = useRouter()
 
-export default function SignIn() {
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    // const user = useSelector((state: any) => state.user)
+    const { form, handleChange, handleReset, isFormValid } = useForm(
+        INITIAL_STATE,
+        VALIDATIONS
+    )
+    const { email, password } = form
+
+    // const [login] = useMutation(LOGIN, {
+    //     onCompleted({ login: data }) {
+    //         if (data.__typename === 'Errors') {
+    //             dispatch(
+    //                 showBanner({
+    //                     message: data.message,
+    //                     type: data.__typename
+    //                 })
+    //             )
+    //         } else {
+    //             const profile = { ...data }
+    //             const token = data.token
+    //             localStorage.setItem(JWT_SECRET, token)
+
+    //             delete profile.__typename
+    //             delete profile.successType
+    //             delete profile.token
+    //             dispatch(setProfile(profile))
+    //             dispatch(
+    //                 showBanner({
+    //                     message: 'User logged in successfully',
+    //                     type: data.__typename
+    //                 })
+    //             )
+
+    //             handleReset()
+    //         }
+    //         dispatch(setLoading(false))
+    //         router.push('/dashboard')
+    //     },
+    //     onError(err: any) {
+    //         dispatch(setLoading(false))
+    //         dispatch(showTechnicalDifficultiesBanner())
+    //     },
+    //     variables: {
+    //         email: email.value,
+    //         password: password.value
+    //     }
+    // })
+
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        const data = new FormData(event.currentTarget)
-        console.log({
-            email: data.get('email'),
-            password: data.get('password')
-        })
+        // dispatch(setLoading(true))
+        // login()
+        console.log('login')
     }
 
     return (
-        <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <Box
-                    sx={{
-                        marginTop: 8,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center'
-                    }}>
-                    <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                        <LockOutlinedIcon />
-                    </Avatar>
-                    <Typography component="h1" variant="h5">
-                        Sign in
-                    </Typography>
-                    <Box
-                        component="form"
-                        onSubmit={handleSubmit}
-                        noValidate
-                        sx={{ mt: 1 }}>
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="email"
-                            label="Email Address"
-                            name="email"
-                            autoComplete="email"
-                            autoFocus
-                        />
-                        <TextField
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Password"
-                            type="password"
-                            id="password"
-                            autoComplete="current-password"
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox value="remember" color="primary" />
-                            }
-                            label="Remember me"
-                        />
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{ mt: 3, mb: 2 }}>
-                            Sign In
-                        </Button>
-                        <Grid container>
-                            <Grid item xs>
-                                <Link href="#" variant="body2">
-                                    Forgot password?
-                                </Link>
-                            </Grid>
-                            <Grid item>
-                                <Link href="#" variant="body2">
-                                    {"Don't have an account? Sign Up"}
-                                </Link>
-                            </Grid>
-                        </Grid>
-                    </Box>
-                </Box>
-                <Copyright sx={{ mt: 8, mb: 4 }} />
-            </Container>
-        </ThemeProvider>
+        <StyledAuthPage>
+            <div className="formContainer">
+                <h1 className="header">Login</h1>
+                <form onSubmit={handleSubmit}>
+                    <fieldset disabled={false}>
+                        {/* <fieldset disabled={user?.loading}> */}
+                        <FormRow>
+                            <TextField
+                                type="email"
+                                id="email"
+                                name="email"
+                                label="Enter email"
+                                field={email}
+                                onChange={handleChange}
+                            />
+                        </FormRow>
+                        <FormRow>
+                            <TextField
+                                type="password"
+                                id="password"
+                                name="password"
+                                label="Enter password"
+                                field={password}
+                                onChange={handleChange}
+                            />
+                        </FormRow>
+                        {/* <FormSubmitButton
+                            label="Submit"
+                            disabled={!isFormValid}
+                            loading={user.loading}
+                        /> */}
+                        <div className="option">
+                            <Link href="/password/forgot">
+                                Forgot Password?
+                                {/* <a className="forgotPw">Forgot Password ?</a> */}
+                            </Link>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </StyledAuthPage>
     )
 }
+
+export default Login
