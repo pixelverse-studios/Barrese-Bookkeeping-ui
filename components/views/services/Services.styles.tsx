@@ -31,46 +31,46 @@ export const StyledServices = styled.section`
         flex-direction: column;
         align-items: center;
         h1 {
-            font-size: 4rem;
+            font-size: 2.5rem;
         }
 
         .services-hero {
-            padding: 3.2rem 8rem;
+            padding: 2rem 5rem;
             text-align: center;
             p {
-                padding-top: 1.6rem;
-                max-width: 80rem;
+                padding-top: 1rem;
+                max-width: 50rem;
             }
         }
 
         .service-details {
-            padding: 3.2rem 8rem;
+            padding: 2rem 5rem;
             background-color: var(--Off-brand-color);
             display: flex;
             flex-direction: column;
-            row-gap: 6.4rem;
+            row-gap: 4rem;
 
             .detail-section {
                 display: flex;
-                column-gap: 3.2rem;
+                column-gap: 2rem;
                 align-items: center;
                 width: var(--max-desktop-width);
                 padding: var(--content-padding);
                 img {
-                    height: 15rem;
-                    width: 15rem;
+                    height: 9rem;
+                    width: 9rem;
                 }
 
                 .service-info {
                     border-left: 3px solid var(--Secondary-accent-color);
-                    padding-left: 3.2rem;
+                    padding-left: 2rem;
 
                     h1 {
-                        font-size: 4rem;
+                        font-size: 2.5rem;
                     }
 
                     ul {
-                        font-size: 1.6rem;
+                        font-size: 1rem;
                         list-style-type: none;
                         display: grid;
                         display: grid;
@@ -82,16 +82,16 @@ export const StyledServices = styled.section`
                             auto-fill,
                             minmax(10px, 1fr)
                         );
-                        row-gap: 0.64rem;
+                        row-gap: 0.4rem;
 
-                        padding: 1.6rem 0rem;
+                        padding: 1rem 0rem;
                         li {
-                            margin-left: 2.4rem;
+                            margin-left: 1.5rem;
                             ::before {
                                 content: '\\2713';
                                 color: var(--Secondary-accent-color);
-                                margin-left: -1.92rem;
-                                padding-right: 0.8rem;
+                                margin-left: -1.2rem;
+                                padding-right: 0.5rem;
                             }
                         }
                     }

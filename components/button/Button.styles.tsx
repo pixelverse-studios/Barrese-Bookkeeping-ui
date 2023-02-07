@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 const StyledButton = styled.button`
-    padding: 1rem 2rem;
+    padding: 0.625rem 1.25rem;
     text-transform: uppercase;
     background-color: var(--Secondary-brand-color);
     border: 2px solid var(--Off-brand-color);
