@@ -4,6 +4,7 @@ export const StyledLanding = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+
     h1 {
         font-size: 6.4rem;
     }
@@ -25,6 +26,31 @@ export const StyledLanding = styled.section`
             align-items: center;
             justify-content: center;
             align-content: center;
+            .downArrows {
+                position: absolute;
+                bottom: 4rem;
+                height: 50px;
+                width: 50px;
+                display: grid;
+                place-items: center;
+                cursor: pointer;
+                .arrow {
+                    display: inline-block;
+                    width: 50%;
+                    height: 50%;
+                    position: absolute;
+                    top: 0;
+                    border: solid #eee;
+                    border-width: 0 5px 5px 0;
+                    transform: rotate(45deg);
+                }
+                span:nth-of-type(2) {
+                    animation: down1 1.6s ease-in infinite;
+                }
+                span:nth-of-type(3) {
+                    animation: down2 1.6s ease-in infinite;
+                }
+            }
             .overlay-text {
                 width: var(--max-desktop-width);
                 padding: var(--content-padding);
@@ -70,6 +96,7 @@ export const StyledLanding = styled.section`
         justify-content: center;
         align-content: center;
         padding: 3rem 0rem;
+        scroll-margin-top: 2rem !important;
         h1 {
             font-size: 4.5rem;
         }
@@ -79,14 +106,13 @@ export const StyledLanding = styled.section`
             justify-content: space-between;
             width: var(--max-desktop-width);
             padding: var(--content-padding);
-            padding-top: var(--nav-height);
+            padding-top: 3rem;
         }
     }
 
     @media only screen and (max-width: 1350px) {
         .overlay {
             display: flex;
-
             .overlay-text {
                 display: flex;
                 align-content: center;
@@ -104,6 +130,7 @@ export const StyledLanding = styled.section`
             text-align: center;
             padding: 3rem 0rem;
             height: fit-content;
+            scroll-margin-top: 7rem;
 
             .services-container {
                 display: flex;
@@ -111,5 +138,19 @@ export const StyledLanding = styled.section`
                 align-items: center;
             }
         }
-    } ;
+    }
+
+    //animations
+    @keyframes down1 {
+        to {
+            opacity: 0;
+            top: 60%;
+        }
+    }
+    @keyframes down2 {
+        to {
+            opacity: 0;
+            top: 120%;
+        }
+    }
 `
