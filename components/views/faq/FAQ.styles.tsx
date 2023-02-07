@@ -30,12 +30,12 @@ export const StyledFAQ = styled.section`
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 4.8rem 0rem;
+        padding: 3rem 0rem;
         h1 {
-            font-size: 4rem;
+            font-size: 2.5;
         }
         h2 {
-            font-size: 2rem;
+            font-size: 1.25rem;
         }
     }
 
@@ -55,9 +55,9 @@ export const StyledFAQ = styled.section`
             display: block;
             text-align: left;
             width: 100%;
-            padding: 1.6em 3.2rem;
+            padding: 1rem 2rem;
             color: var(--Primary-brand-color);
-            font-size: 1.5rem;
+            font-size: 0.9rem;
             font-weight: 400;
             border: none;
             background: none;
@@ -71,13 +71,13 @@ export const StyledFAQ = styled.section`
                 }
             }
             .accordion-title {
-                padding: 1.6em 2.4em 1.6em 0;
+                padding: 1rem 1.5rem 1rem 0;
                 text-transform: uppercase;
             }
             .icon {
                 display: inline-block;
                 position: absolute;
-                top: 21px;
+                top: 12px;
                 left: 0;
                 width: 22px;
                 height: 22px;
@@ -133,7 +133,7 @@ export const StyledFAQ = styled.section`
             transition: opacity 200ms linear, max-height 200ms linear;
             will-change: opacity, max-height;
             p {
-                font-size: 1.6rem;
+                font-size: 1rem;
                 font-weight: 300;
                 margin: 2em 0;
             }

@@ -35,13 +35,14 @@ export const StyledLanding = styled.section`
                 flex-direction: column;
                 width: fit-content;
                 border-bottom: 3px solid var(--Off-brand-color);
-                padding-bottom: 1.6rem;
+                padding-bottom: 1rem;
                 h1 {
+                    font-size: 5rem;
                     color: var(--Off-brand-color);
                 }
 
                 h2 {
-                    font-size: 4.8rem;
+                    font-size: 3rem;
                 }
             }
 
@@ -50,10 +51,10 @@ export const StyledLanding = styled.section`
                 flex-direction: column;
                 padding: 1rem 0rem;
                 span:nth-of-type(1) {
-                    font-size: 2.08rem;
+                    font-size: 1.3rem;
                 }
                 span:nth-of-type(2) {
-                    font-size: 2.08rem;
+                    font-size: 1.3rem;
                 }
             }
         }
@@ -68,7 +69,10 @@ export const StyledLanding = styled.section`
         align-items: center;
         justify-content: center;
         align-content: center;
-        padding: 4.8rem 0rem;
+        padding: 3rem 0rem;
+        h1 {
+            font-size: 4.5rem;
+        }
 
         .services-container {
             display: flex;
@@ -91,14 +95,14 @@ export const StyledLanding = styled.section`
                 height: 100%;
                 width: 100%;
                 justify-content: center;
-                padding-left: 2.6rem;
+                padding-left: 1.6rem;
             }
         }
         .services {
             background-color: var(--Secondary-accent-color);
             width: 100%;
             text-align: center;
-            padding: 4.8rem 0rem;
+            padding: 3rem 0rem;
             height: fit-content;
 
             .services-container {
