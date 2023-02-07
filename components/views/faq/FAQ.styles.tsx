@@ -15,7 +15,7 @@ export const StyledFAQ = styled.section`
         background-blend-mode: saturation;
         .overlay {
             background-color: var(--Secondary-opaque-color);
-            height: 100%;
+            height: 30vh;
             width: 100%;
             color: var(--Off-brand-color);
             display: flex;
@@ -24,8 +24,119 @@ export const StyledFAQ = styled.section`
             align-content: center;
         }
     }
-    .FAQ-hero {
-        text-align: center;
-        padding-bottom: 2rem;
+
+    .FAQ-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 4.8rem 0rem;
+        h1 {
+            font-size: 4rem;
+        }
+        h2 {
+            font-size: 2rem;
+        }
+    }
+
+    .accordion {
+        width: var(--max-desktop-width);
+        padding: var(--content-padding);
+        display: flex;
+        flex-direction: column;
+        .accordion-item {
+            border-bottom: 1px solid var(--Secondary-accent-color);
+            button[aria-expanded='true'] {
+                border-bottom: 1px solid var(--Secondary-accent-color);
+            }
+        }
+        button {
+            position: relative;
+            display: block;
+            text-align: left;
+            width: 100%;
+            padding: 1.6em 3.2rem;
+            color: var(--Primary-brand-color);
+            font-size: 1.5rem;
+            font-weight: 400;
+            border: none;
+            background: none;
+            outline: none;
+            &:hover,
+            &:focus {
+                cursor: pointer;
+                &::after {
+                    cursor: pointer;
+                    border: 1px solid var(--Primary-brand-color);
+                }
+            }
+            .accordion-title {
+                padding: 1.6em 2.4em 1.6em 0;
+                text-transform: uppercase;
+            }
+            .icon {
+                display: inline-block;
+                position: absolute;
+                top: 21px;
+                left: 0;
+                width: 22px;
+                height: 22px;
+                border: 1px solid;
+                background-color: var(--off-brand-color);
+                color: var(--Secondary-accent-color);
+                transition: 0.4s linear;
+                &::before {
+                    display: block;
+                    position: absolute;
+                    content: '';
+                    top: 9px;
+                    left: 5px;
+                    width: 10px;
+                    height: 2px;
+                    background: currentColor;
+                }
+                &::after {
+                    display: block;
+                    position: absolute;
+                    content: '';
+                    top: 5px;
+                    left: 9px;
+                    width: 2px;
+                    height: 10px;
+                    background: currentColor;
+                }
+            }
+            &:hover {
+                .icon {
+                    background-color: var(--Primary-brand-color);
+                }
+            }
+        }
+        button[aria-expanded='true'] {
+            color: var(--Primary-brand-color);
+            .icon {
+                &::after {
+                    width: 0;
+                }
+            }
+            + .accordion-content {
+                opacity: 1;
+                max-height: 9em;
+                transition: all 200ms linear;
+                will-change: opacity, max-height;
+            }
+        }
+        .accordion-content {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 200ms linear, max-height 200ms linear;
+            will-change: opacity, max-height;
+            p {
+                font-size: 1.6rem;
+                font-weight: 300;
+                margin: 2em 0;
+            }
+        }
     }
 `

@@ -6,6 +6,13 @@ import Footer from '../footer'
 
 import { StyledMain } from './PageWrapper.styles'
 
+const noCallToActionPages = [
+    '/contact',
+    '/services',
+    '/login',
+    '/register',
+    '/reset-password'
+]
 const PageWrapper = ({ children }: { children: any }) => {
     const router = useRouter()
     const currentRoute = router.pathname
@@ -14,7 +21,7 @@ const PageWrapper = ({ children }: { children: any }) => {
         <StyledMain>
             <Nav />
             {children}
-            {currentRoute !== '/contact' && currentRoute !== '/services' ? (
+            {!noCallToActionPages.includes(currentRoute) ? (
                 <CallToAction />
             ) : null}
             <Footer />
