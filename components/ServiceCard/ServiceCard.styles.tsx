@@ -11,12 +11,11 @@ export const StyledServiceCard = styled.div`
         width: 15rem;
         height: 15rem;
     }
-    h2 {
-    }
+
     p {
         max-width: 15rem;
         padding: 1rem;
-        border-top: 2px solid var(--Secondary-accent-color);
+        border-top: solid var(--Secondary-accent-color);
         border-bottom: 2px solid var(--Secondary-accent-color);
     }
 `
