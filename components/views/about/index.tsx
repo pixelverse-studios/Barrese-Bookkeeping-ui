@@ -1,13 +1,14 @@
 import HeroImage from '@/components/HeroHeader'
 import Headshot from '../../../assets/images/Aj-Headshot.jpg'
+import { PageContainer } from '../PageContainer.styles'
 import { StyledAbout } from './About.styles'
 
 const AboutPage = () => {
     return (
-        <StyledAbout>
+        <PageContainer>
             <HeroImage url="https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80" />
-            <div className="about-container">
-                <div className="content">
+            <div className="container">
+                <StyledAbout>
                     <h1>Meet the Man Behind the Books</h1>
                     <h2>Subheader</h2>
                     <hr />
@@ -44,9 +45,9 @@ const AboutPage = () => {
                             Veritatis!
                         </p>
                     </div>
-                </div>
+                </StyledAbout>
             </div>
-        </StyledAbout>
+        </PageContainer>
     )
 }
 
