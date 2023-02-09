@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import Button from '@/components/button'
 import ServiceCard from '@/components/ServiceCard'
 
@@ -25,6 +26,13 @@ const ServiceData = [
 ]
 
 const Landing = () => {
+    const serviceRef = useRef<HTMLDivElement>(null)
+    const scrollToService = () => {
+        if (serviceRef.current)
+            serviceRef.current.scrollIntoView({
+                behavior: 'smooth'
+            })
+    }
     return (
         <StyledLanding>
             {/* Image Section */}
@@ -36,16 +44,22 @@ const Landing = () => {
                             <h1>Accounting</h1>
                             <h2>Services</h2>
                         </div>
+
                         <div className="subtitle-container">
                             <h3>For SF Bay Area</h3>
                             <h3>Small Businesses</h3>
                         </div>
                         <Button label="BOOK CONSULTACHE" route="/contact" />
                     </div>
+                    <div className="downArrows" onClick={scrollToService}>
+                        <span className="arrow" />
+                        <span className="arrow" />
+                        <span className="arrow" />
+                    </div>
                 </div>
             </div>
             {/* Service Section */}
-            <div className="services">
+            <div ref={serviceRef} className="services">
                 <h1>Outsourced Accounting</h1>
                 <h2>For Small Businesses</h2>
                 <hr />

@@ -31,7 +31,7 @@ export const StyledAbout = styled.section`
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 4.8rem 0rem;
+        padding: 3rem 0rem;
         .content {
             width: var(--max-desktop-width);
             padding: var(--content-padding);
@@ -39,19 +39,19 @@ export const StyledAbout = styled.section`
             flex-direction: column;
             align-items: center;
             h1 {
-                font-size: 4rem;
+                font-size: 2.5rem;
             }
 
             .about {
                 display: flex;
-                column-gap: 1.6rem;
-                padding-top: 3.2rem;
+                column-gap: 1rem;
+                padding-top: 2rem;
                 .about-image-title {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     float: left;
-                    row-gap: 0.48rem;
+                    row-gap: 0.3rem;
                     img {
                         border-radius: 50%;
                     }

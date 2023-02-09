@@ -18,7 +18,6 @@ import useForm from '@/utilities/hooks/useForm'
 import FormValidations from '@/utilities/validations/forms'
 import { FormRow, TextField } from '@/components/form/'
 import { StyledAuthPage } from './AuthPage.styles'
-// import styles from './AuthPages.module.scss'
 
 const INITIAL_STATE = {
     email: { value: '', error: '' },
@@ -69,7 +68,7 @@ const Login = () => {
                 handleReset()
             }
             dispatch(setLoading(false))
-            router.push('/dashboard')
+            // router.push('/dashboard')
         },
         onError(err: any) {
             dispatch(setLoading(false))
