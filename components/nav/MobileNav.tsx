@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { useRouter } from 'next/router'
 
-import { MobileRoutes } from './routes'
+import { navRoutes } from './routes'
 import Logo from '../../assets/images/BarreseBookkeeping.svg'
 
 import { StyledMobileNav } from './Nav.styles'
@@ -47,7 +47,7 @@ const MobileNav = () => {
                 <ul
                     className="menu"
                     style={{ display: `${show === true ? 'block' : 'none'}` }}>
-                    {MobileRoutes.map((item, index) => {
+                    {navRoutes.map((item, index) => {
                         return (
                             <li
                                 key={index}

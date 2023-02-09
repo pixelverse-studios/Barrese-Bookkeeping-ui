@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import useScrollPosition from '@/utilities/hooks/useScrollPosition'
-import { routes } from './routes'
+import { navRoutes } from './routes'
 
 import Logo from '../../assets/images/BarreseBookkeeping.svg'
 import LogoWhite from '../../assets/images/BarreseBookkeeping-white.svg'
@@ -28,7 +28,54 @@ const DesktopNav = () => {
                         }}
                     />
                     <ul className="navRoutes">
-                        {routes.map((item, index) => {
+                        {navRoutes.map((item, index) => {
+                            if (item.type === 'link') {
+                                return (
+                                    <li
+                                        key={index}
+                                        className={
+                                            currentPage === item.path
+                                                ? 'activeLink'
+                                                : 'navLinks'
+                                        }>
+                                        <Link href={item.path} legacyBehavior>
+                                            <a
+                                                className={
+                                                    currentPage === item.path
+                                                        ? 'activeLink'
+                                                        : ''
+                                                }>
+                                                {item.label}
+                                            </a>
+                                        </Link>
+                                    </li>
+                                )
+                            }
+                            return (
+                                <Button label={item.label} route={item.path} />
+                            )
+                        })}
+                        {/* // <Button label={'Contact'} route="/contact" /> */}
+                    </ul>
+                </div>
+            </TransparantStyledNav>
+        )
+    }
+
+    return (
+        <StyledNav>
+            <div className="navContent">
+                <img
+                    className="logo"
+                    src={Logo.src}
+                    alt="Barrese Bookkeeping"
+                    onClick={() => {
+                        router.push('/')
+                    }}
+                />
+                <ul className="navRoutes">
+                    {navRoutes.map((item, index) => {
+                        if (item.type === 'link') {
                             return (
                                 <li
                                     key={index}
@@ -49,50 +96,9 @@ const DesktopNav = () => {
                                     </Link>
                                 </li>
                             )
-                        })}
-
-                        <Button label={'Contact'} route="/contact" />
-                    </ul>
-                </div>
-            </TransparantStyledNav>
-        )
-    }
-
-    return (
-        <StyledNav>
-            <div className="navContent">
-                <img
-                    className="logo"
-                    src={Logo.src}
-                    alt="Barrese Bookkeeping"
-                    onClick={() => {
-                        router.push('/')
-                    }}
-                />
-                <ul className="navRoutes">
-                    {routes.map((item, index) => {
-                        return (
-                            <li
-                                key={index}
-                                className={
-                                    currentPage === item.path
-                                        ? 'activeLink'
-                                        : 'navLinks'
-                                }>
-                                <Link href={item.path} legacyBehavior>
-                                    <a
-                                        className={
-                                            currentPage === item.path
-                                                ? 'activeLink'
-                                                : ''
-                                        }>
-                                        {item.label}
-                                    </a>
-                                </Link>
-                            </li>
-                        )
+                        }
+                        return <Button label={item.label} route={item.path} />
                     })}
-                    <Button label={'Contact'} route="/contact" />
                 </ul>
             </div>
         </StyledNav>
