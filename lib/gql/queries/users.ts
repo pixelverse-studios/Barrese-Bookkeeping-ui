@@ -10,12 +10,6 @@ export const GET_LOGGED_IN_USER = gql`
                 firstName
                 lastName
                 token
-                devHours {
-                    date
-                    hoursLogged
-                    project
-                    projectPhase
-                }
             }
             ... on Errors {
                 type

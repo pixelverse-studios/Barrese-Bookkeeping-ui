@@ -5,43 +5,47 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useMutation } from '@apollo/client'
 import { LoadingButton } from '@mui/lab'
 
-import { setLoading, setProfile } from '../../../lib/redux/slices/user'
 import {
-    showBanner,
-    showTechnicalDifficultiesBanner
+    showTechnicalDifficultiesBanner,
+    showBanner
 } from '../../../lib/redux/slices/banner'
-import { AppDispatch } from '../../../lib/redux/store'
-import { LOGIN } from '../../../lib/gql/mutations/users'
+import useForm from '../../../utilities/hooks/useForm'
+import { TextField, FormRow } from '../../form'
+import { FormProps } from '../../../utilities/types/formTypes'
 import { JWT_SECRET } from '../../../utilities/constants'
-import { FormProps } from '@/utilities/types/formTypes'
-import useForm from '@/utilities/hooks/useForm'
-import FormValidations from '@/utilities/validations/forms'
-import { FormRow, TextField } from '@/components/form/'
-import { StyledAuthPage } from './AuthPage.styles'
+import FormValidations from '../../../utilities/validations/forms'
+import { AppDispatch } from '../../../lib/redux/store'
+import { REGISTER } from '../../../lib/gql/mutations/users'
+import { setLoading, setProfile } from '../../../lib/redux/slices/user'
+import styles from './AuthPages.module.scss'
 
 const INITIAL_STATE = {
+    firstName: { value: '', error: '' },
+    lastName: { value: '', error: '' },
     email: { value: '', error: '' },
     password: { value: '', error: '' }
 } as FormProps
 
 const VALIDATIONS = {
+    firstName: FormValidations.validAlphaString,
+    lastName: FormValidations.validAlphaString,
     email: FormValidations.validEmail,
     password: FormValidations.validPassword
 }
 
-const Login = () => {
+const Register = () => {
     const dispatch = useDispatch<AppDispatch>()
     const router = useRouter()
-
     const user = useSelector((state: any) => state.user)
     const { form, handleChange, handleReset, isFormValid } = useForm(
         INITIAL_STATE,
         VALIDATIONS
     )
-    const { email, password } = form
 
-    const [login] = useMutation(LOGIN, {
-        onCompleted({ login: data }) {
+    const { firstName, lastName, email, password } = form
+
+    const [register] = useMutation(REGISTER, {
+        onCompleted({ register: data }) {
             if (data.__typename === 'Errors') {
                 dispatch(
                     showBanner({
@@ -57,10 +61,11 @@ const Login = () => {
                 delete profile.__typename
                 delete profile.successType
                 delete profile.token
+
                 dispatch(setProfile(profile))
                 dispatch(
                     showBanner({
-                        message: 'User logged in successfully',
+                        message: 'User created in successfully',
                         type: data.__typename
                     })
                 )
@@ -76,41 +81,60 @@ const Login = () => {
         },
         variables: {
             email: email.value,
-            password: password.value
+            password: password.value,
+            firstName: firstName.value,
+            lastName: lastName.value
         }
     })
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-        console.log('submit')
         event.preventDefault()
         dispatch(setLoading(true))
-        login()
+        register()
     }
 
     return (
-        <StyledAuthPage>
-            <div className="formContainer">
-                <h1 className="header">Login</h1>
+        <div className={styles.content}>
+            <div className={styles.formContainer}>
+                <h1 className={styles.header}>Register</h1>
                 <form onSubmit={handleSubmit}>
                     <fieldset disabled={user?.loading}>
                         <FormRow>
                             <TextField
-                                type="email"
-                                id="email"
-                                name="email"
-                                label="Enter email"
-                                field={email}
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                label="First Name"
+                                field={firstName}
+                                onChange={handleChange}
+                            />
+                            <TextField
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                label="Last Name"
+                                field={lastName}
                                 onChange={handleChange}
                             />
                         </FormRow>
                         <FormRow>
                             <TextField
-                                type="password"
+                                field={email}
+                                type="email"
+                                id="email"
+                                name="email"
+                                label="Email"
+                                onChange={handleChange}
+                            />
+                        </FormRow>
+                        <FormRow>
+                            <TextField
                                 id="password"
                                 name="password"
-                                label="Enter password"
+                                label="Password"
                                 field={password}
                                 onChange={handleChange}
+                                type="password"
                             />
                         </FormRow>
                         <LoadingButton
@@ -120,16 +144,17 @@ const Login = () => {
                             variant="outlined">
                             Submit
                         </LoadingButton>
-                        <div className="option">
-                            <Link href="/password/forgot">
-                                Forgot Password?
+                        <div className={styles.option}>
+                            Already a user?
+                            <Link href="/login">
+                                <a className={styles.signIn}> Sign In</a>
                             </Link>
                         </div>
                     </fieldset>
                 </form>
             </div>
-        </StyledAuthPage>
+        </div>
     )
 }
 
-export default Login
+export default Register
