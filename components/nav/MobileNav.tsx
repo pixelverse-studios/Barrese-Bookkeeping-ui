@@ -35,6 +35,7 @@ const MobileNav = () => {
                         alt="Barrese Bookkeeping"
                         onClick={() => {
                             router.push('/')
+                            setShow(false)
                         }}
                     />
                 </div>

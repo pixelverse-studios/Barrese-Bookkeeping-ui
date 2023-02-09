@@ -228,9 +228,11 @@ export const StyledMobileNav = styled.nav`
             justify-content: center;
             padding: 0.3rem 0;
             background-color: var(--Off-brand-color);
+
             .logo {
                 width: 8rem;
                 cursor: pointer;
+                z-index: 1;
             }
         }
 
