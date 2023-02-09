@@ -38,7 +38,7 @@ export const StyledContact = styled.section`
             padding: var(--content-padding);
             display: grid;
             grid-template-columns: 1fr 2fr;
-            grid-template-rows: 1fr;
+
             .logo-container {
                 display: flex;
                 flex-direction: column;
@@ -53,10 +53,6 @@ export const StyledContact = styled.section`
 
     @media only screen and (max-width: 1350px) {
         .contact-container {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             padding: 0rem 1rem;
             height: fit-content;
             .content {
@@ -64,10 +60,8 @@ export const StyledContact = styled.section`
                 padding: 0rem;
                 display: grid;
                 grid-template-columns: 1fr;
-
+                grid-template-rows: 0.2fr 2fr;
                 .logo-container {
-                    display: flex;
-                    flex-direction: column;
                     align-items: center;
                     justify-content: flex-start;
                     img {
