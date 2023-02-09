@@ -230,6 +230,7 @@ export const StyledMobileNav = styled.nav`
             background-color: var(--Off-brand-color);
             .logo {
                 width: 8rem;
+                cursor: pointer;
             }
         }
 
