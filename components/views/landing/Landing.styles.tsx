@@ -1,10 +1,6 @@
 import styled from '@emotion/styled'
 
 export const StyledLanding = styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
     h1 {
         font-size: 6.4rem;
     }

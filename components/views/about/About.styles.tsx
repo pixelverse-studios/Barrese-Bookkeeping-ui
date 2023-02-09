@@ -1,10 +1,6 @@
 import styled from '@emotion/styled'
 
 export const StyledAbout = styled.section`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: var(--Off-brand-color);
     .about-container {
         width: 100%;
         display: flex;

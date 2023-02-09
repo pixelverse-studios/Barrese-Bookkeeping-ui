@@ -1,22 +1,9 @@
 import styled from '@emotion/styled'
 
 export const StyledFAQ = styled.section`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    .FAQ-container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 3rem 0rem;
-        h1 {
-            font-size: 2.5;
-        }
-        h2 {
-            font-size: 1.25rem;
-        }
+    text-align: center;
+    h1 {
+        font-size: 2.5rem;
     }
 
     .accordion {
@@ -104,6 +91,7 @@ export const StyledFAQ = styled.section`
                 max-height: 9em;
                 transition: all 200ms linear;
                 will-change: opacity, max-height;
+                text-align: start;
             }
         }
         .accordion-content {
