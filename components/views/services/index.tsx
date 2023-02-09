@@ -1,7 +1,7 @@
 import Button from '@/components/button'
 import HeroImage from '@/components/HeroHeader'
 import ServiceData from './dummydata'
-import { StyledPageContainer } from '../StyledPageContainer.styles'
+import { StyledPageContainer } from '../PageContainer.styles'
 import { StyledServices } from './Services.styles'
 
 const ServicesPage = () => {

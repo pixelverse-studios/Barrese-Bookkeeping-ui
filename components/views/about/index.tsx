@@ -1,6 +1,6 @@
 import HeroImage from '@/components/HeroHeader'
 import Headshot from '../../../assets/images/Aj-Headshot.jpg'
-import { StyledPageContainer } from '../StyledPageContainer.styles'
+import { StyledPageContainer } from '../PageContainer.styles'
 import { StyledAbout } from './About.styles'
 
 const AboutPage = () => {

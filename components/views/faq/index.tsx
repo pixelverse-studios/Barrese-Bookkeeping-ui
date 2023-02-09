@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import HeroImage from '@/components/HeroHeader'
 import { StyledFAQ } from './FAQ.styles'
-import { StyledPageContainer } from '../StyledPageContainer.styles'
+import { StyledPageContainer } from '../PageContainer.styles'
 
 import DummyFAQs from './dummydata'
 
