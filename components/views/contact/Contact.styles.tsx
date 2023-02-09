@@ -49,10 +49,8 @@ export const StyledContact = styled.section`
                 }
             }
         }
-    }
 
-    @media only screen and (max-width: 1350px) {
-        .contact-container {
+        @media only screen and (max-width: 1350px) {
             padding: 0rem 1rem;
             height: fit-content;
             .content {
