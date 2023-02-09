@@ -79,6 +79,19 @@ export const StyledLanding = styled.section`
                     font-size: 1.3rem;
                 }
             }
+            @media only screen and (max-width: 1350px) {
+                display: flex;
+                .overlay-text {
+                    display: flex;
+                    align-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    height: 100%;
+                    width: fit-content;
+                    justify-content: center;
+                    padding: 0;
+                }
+            }
         }
     }
 
@@ -104,24 +117,8 @@ export const StyledLanding = styled.section`
             padding: var(--content-padding);
             padding-top: 3rem;
         }
-    }
 
-    @media only screen and (max-width: 1350px) {
-        .overlay {
-            display: flex;
-            .overlay-text {
-                display: flex;
-                align-content: center;
-                flex-direction: column;
-                align-items: flex-start;
-                height: 100%;
-                width: 100%;
-                justify-content: center;
-                padding-left: 1.6rem;
-            }
-        }
-        .services {
-            background-color: var(--Secondary-accent-color);
+        @media only screen and (max-width: 1350px) {
             width: 100%;
             text-align: center;
             padding: 3rem 0rem;
