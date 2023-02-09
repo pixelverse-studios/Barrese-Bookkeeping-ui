@@ -1,8 +1,14 @@
+import styled from '@emotion/styled'
+
 import { StyledHeroImage } from './HeroHeader.styles'
 
-const HeroImage = () => {
+interface HeroProps {
+    url: string
+}
+
+const HeroImage = ({ url }: HeroProps) => {
     return (
-        <StyledHeroImage>
+        <StyledHeroImage url={url}>
             <div className="overlay" />
         </StyledHeroImage>
     )

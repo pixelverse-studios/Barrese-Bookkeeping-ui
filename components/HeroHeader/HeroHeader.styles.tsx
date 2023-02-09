@@ -1,11 +1,17 @@
 import styled from '@emotion/styled'
 
-export const StyledHeroImage = styled.div`
+interface Props {
+    url: string
+}
+
+export const StyledHeroImage = styled.div<Props>`
     position: relative;
     height: 30vh;
     width: 100vw;
     background: linear-gradient(black, black),
-        url('https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80')
+        ${props => `
+                url(${props.url})
+            `}
             no-repeat center center/cover;
     background-blend-mode: saturation;
     .overlay {

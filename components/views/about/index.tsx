@@ -5,7 +5,7 @@ import { StyledAbout } from './About.styles'
 const AboutPage = () => {
     return (
         <StyledAbout>
-            <HeroImage />
+            <HeroImage url="https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80" />
             <div className="about-container">
                 <div className="content">
                     <h1>Meet the Man Behind the Books</h1>

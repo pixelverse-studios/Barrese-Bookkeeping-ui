@@ -7,7 +7,7 @@ const ServicesPage = () => {
     const { pageH1, pageH2, description, offerings } = ServiceData
     return (
         <StyledServices>
-            <HeroImage />
+            <HeroImage url="https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80" />
             <div className="services-container">
                 <div className="services-hero">
                     <h1>{pageH1}</h1>
