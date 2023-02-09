@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import HeroImage from '@/components/HeroHeader'
 import { StyledFAQ } from './FAQ.styles'
-import { PageContainer } from '../PageContainer.styles'
+import { StyledPageContainer } from '../StyledPageContainer.styles'
 
 import DummyFAQs from './dummydata'
 
@@ -13,7 +13,7 @@ const FAQPage = () => {
         setExpanded(selected === expanded ? false : selected)
 
     return (
-        <PageContainer>
+        <StyledPageContainer>
             <HeroImage url="https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80" />
             <div className="container">
                 <StyledFAQ>
@@ -48,7 +48,7 @@ const FAQPage = () => {
                     </div>
                 </StyledFAQ>
             </div>
-        </PageContainer>
+        </StyledPageContainer>
     )
 }
 

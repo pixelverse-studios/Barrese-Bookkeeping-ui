@@ -1,13 +1,13 @@
 import Button from '@/components/button'
 import HeroImage from '@/components/HeroHeader'
 import ServiceData from './dummydata'
-import { PageContainer } from '../PageContainer.styles'
+import { StyledPageContainer } from '../StyledPageContainer.styles'
 import { StyledServices } from './Services.styles'
 
 const ServicesPage = () => {
     const { pageH1, pageH2, description, offerings } = ServiceData
     return (
-        <PageContainer>
+        <StyledPageContainer>
             <HeroImage url="https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80" />
             <div className="container">
                 <StyledServices>
@@ -41,7 +41,7 @@ const ServicesPage = () => {
                     </div>
                 </StyledServices>
             </div>
-        </PageContainer>
+        </StyledPageContainer>
     )
 }
 

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled'
 
-export const PageContainer = styled.section`
+export const StyledPageContainer = styled.section`
     display: flex;
     align-items: center;
     flex-direction: column;
