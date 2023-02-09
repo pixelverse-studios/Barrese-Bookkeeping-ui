@@ -1,12 +1,11 @@
-import { StyledAbout } from './About.styles'
+import HeroImage from '@/components/HeroHeader'
 import Headshot from '../../../assets/images/Aj-Headshot.jpg'
+import { StyledAbout } from './About.styles'
 
 const AboutPage = () => {
     return (
         <StyledAbout>
-            <div className="hero">
-                <div className="overlay" />
-            </div>
+            <HeroImage />
             <div className="about-container">
                 <div className="content">
                     <h1>Meet the Man Behind the Books</h1>

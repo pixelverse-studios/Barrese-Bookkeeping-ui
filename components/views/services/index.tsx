@@ -1,13 +1,13 @@
 import Button from '@/components/button'
-import ServiceData from './dummydata'
+import HeroImage from '@/components/HeroHeader'
 import { StyledServices } from './Services.styles'
+import ServiceData from './dummydata'
+
 const ServicesPage = () => {
     const { pageH1, pageH2, description, offerings } = ServiceData
     return (
         <StyledServices>
-            <div className="hero-image">
-                <div className="overlay" />
-            </div>
+            <HeroImage />
             <div className="services-container">
                 <div className="services-hero">
                     <h1>{pageH1}</h1>

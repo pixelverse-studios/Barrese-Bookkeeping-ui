@@ -1,4 +1,6 @@
 import { useState } from 'react'
+
+import HeroImage from '@/components/HeroHeader'
 import { StyledFAQ } from './FAQ.styles'
 
 import DummyFAQs from './dummydata'
@@ -11,9 +13,7 @@ const FAQPage = () => {
 
     return (
         <StyledFAQ>
-            <div className="hero">
-                <div className="overlay" />
-            </div>
+            <HeroImage />
             <div className="FAQ-container">
                 <h1>FAQs</h1>
                 <h2>Frequently Asked Questions</h2>

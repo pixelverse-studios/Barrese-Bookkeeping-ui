@@ -1,6 +1,8 @@
-import { StyledContact } from './Contact.styles'
 import { InlineWidget, useCalendlyEventListener } from 'react-calendly'
+
+import HeroImage from '@/components/HeroHeader'
 import Logo from '../../../assets/images/BarreseBookkeeping.svg'
+import { StyledContact } from './Contact.styles'
 
 const ContactPage = () => {
     const onEventScheduled = (e: any) => {
@@ -14,9 +16,7 @@ const ContactPage = () => {
 
     return (
         <StyledContact>
-            <div className="hero">
-                <div className="overlay" />
-            </div>
+            <HeroImage />
             <div className="contact-container" id="contact-container">
                 <div className="content">
                     <div className="logo-container">
