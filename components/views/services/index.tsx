@@ -23,6 +23,7 @@ const ServicesPage = () => {
                                 <img src={item.icon} alt="icon" />
                                 <div className="service-info">
                                     <h1>{item.title}</h1>
+
                                     <span className="description">
                                         {item.description}
                                     </span>

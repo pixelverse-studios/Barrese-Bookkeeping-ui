@@ -30,8 +30,10 @@ export const StyledAbout = styled.section`
             place-items: center;
         }
     }
-
     @media only screen and (max-width: 1350px) {
+        width: 100%;
+        padding: 0.5rem;
+        text-align: center;
         .about {
             display: flex;
             flex-direction: column;

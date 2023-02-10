@@ -6,11 +6,15 @@ export const StyledPageContainer = styled.section`
     flex-direction: column;
     width: 100%;
     .container {
-        width: min(100% - 4rem, 20rem);
+        width: 1800px;
         margin-inline: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 3rem 0rem;
+
+        @media only screen and (max-width: 1350px) {
+            width: 100%;
+        }
     }
 `

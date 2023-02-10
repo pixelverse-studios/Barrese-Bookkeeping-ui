@@ -92,6 +92,10 @@ export const StyledFAQ = styled.section`
                 transition: all 200ms linear;
                 will-change: opacity, max-height;
                 text-align: start;
+                @media only screen and (max-width: 1350px) {
+                    padding: 1rem 0;
+                    max-height: fit-content;
+                }
             }
         }
         .accordion-content {
@@ -100,11 +104,21 @@ export const StyledFAQ = styled.section`
             overflow: hidden;
             transition: opacity 200ms linear, max-height 200ms linear;
             will-change: opacity, max-height;
+
             p {
                 font-size: 1rem;
                 font-weight: 300;
-                margin: 2em 0;
+                margin: 2rem 0;
+                @media only screen and (max-width: 1350px) {
+                    margin: 0 0;
+                    text-align: start;
+                }
             }
+        }
+        @media only screen and (max-width: 1350px) {
+            width: 100%;
+            padding: 0.5rem;
+            text-align: center;
         }
     }
 `

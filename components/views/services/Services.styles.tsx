@@ -1,8 +1,8 @@
 import styled from '@emotion/styled'
 
 export const StyledServices = styled.section`
+    width: 100%;
     .services-hero {
-        padding: 0rem 5rem;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -24,13 +24,21 @@ export const StyledServices = styled.section`
         display: flex;
         flex-direction: column;
         row-gap: 4rem;
+        @media only screen and (max-width: 1350px) {
+            padding: 1rem;
+        }
 
         .detail-section {
             display: flex;
             column-gap: 2rem;
             align-items: center;
-            width: var(--max-desktop-width);
-            padding: var(--content-padding);
+            width: initial;
+            @media only screen and (max-width: 1350px) {
+                flex-direction: column;
+                row-gap: 1.6rem;
+                align-items: center;
+                padding: 0;
+            }
             img {
                 height: 9rem;
                 width: 9rem;
@@ -67,63 +75,43 @@ export const StyledServices = styled.section`
                         }
                     }
                 }
+                @media only screen and (max-width: 1350px) {
+                    border-top: 3px solid var(--Secondary-accent-color);
+                    border-left: 3px solid transparent;
+                    padding-left: 0;
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 1.6rem;
+                }
             }
         }
     }
 
     @media only screen and (max-width: 1350px) {
-        .detail-section {
-            display: flex;
-            flex-direction: column;
-            row-gap: 1.6rem;
-            align-items: center;
+        width: 100%;
+        padding: 0.5rem;
+        text-align: center;
 
-            width: var(--max-desktop-width);
-            padding: var(--content-padding);
-            img {
-                height: 15rem;
-                width: 15rem;
-            }
-
-            .service-info {
-                border-top: 3px solid var(--Secondary-accent-color);
-                border-left: 3px solid transparent !important;
-                padding-left: 0 !important;
-                display: flex;
-                flex-direction: column;
-                row-gap: 1.6rem;
-
-                h1 {
-                    text-align: center;
-                    font-size: 4rem;
-                }
-
-                .description {
-                    text-align: center;
-                }
-
-                ul {
-                    font-size: 1.6rem;
-                    list-style-type: none;
-                    display: grid;
-                    display: grid;
-                    justify-items: start;
-                    grid-template-columns: repeat(
-                        auto-fill,
-                        minmax(200px, 1fr)
-                    ) !important;
-                    grid-template-rows: repeat(auto-fill, minmax(20px, 1fr));
-                    row-gap: 0.64rem;
-                    padding-bottom: 2.56rem;
-                    li {
-                        margin-left: 2.4rem;
-                        ::before {
-                            content: '\\2713';
-                            color: var(--Secondary-accent-color);
-                            margin-left: -1.92rem;
-                            padding-right: 0.8rem;
-                        }
-                    }
+        ul {
+            font-size: 1.6rem;
+            list-style-type: none;
+            display: grid;
+            display: grid;
+            justify-items: start;
+            grid-template-columns: repeat(
+                auto-fill,
+                minmax(200px, 1fr)
+            ) !important;
+            grid-template-rows: repeat(auto-fill, minmax(20px, 1fr));
+            row-gap: 0.64rem;
+            padding-bottom: 2.56rem;
+            li {
+                margin-left: 2.4rem;
+                ::before {
+                    content: '\\2713';
+                    color: var(--Secondary-accent-color);
+                    margin-left: -1.92rem;
+                    padding-right: 0.8rem;
                 }
             }
         }
