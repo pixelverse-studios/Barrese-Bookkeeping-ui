@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-
 import { useRouter } from 'next/router'
 
-import { navRoutes } from './routes'
+import { NavRoutes, AuthNavItems } from './routes'
 import Logo from '../../assets/images/BarreseBookkeeping.svg'
-
 import { StyledMobileNav } from './Nav.styles'
+
+const { DASHBOARD } = AuthNavItems
 
 const MobileNav = () => {
     const [show, setShow] = useState<boolean>(false)
@@ -24,6 +24,8 @@ const MobileNav = () => {
             document.body.style.overflow = 'auto'
         }
     }, [stopScroll])
+
+    const isLoggedIn = true
 
     return (
         <StyledMobileNav>
@@ -47,30 +49,28 @@ const MobileNav = () => {
                 <ul
                     className="menu"
                     style={{ display: `${show === true ? 'block' : 'none'}` }}>
-                    {navRoutes.map((item, index) => {
-                        return (
-                            <li
-                                key={index}
-                                className="menuItem"
-                                onClick={menuToggle}>
-                                <Link href={item.path} legacyBehavior>
-                                    <a>{item.label}</a>
+                    {NavRoutes.map((item, index) => (
+                        <li
+                            key={index}
+                            className="menuItem"
+                            onClick={menuToggle}>
+                            <Link href={item.path} legacyBehavior>
+                                {item.label}
+                            </Link>
+                        </li>
+                    ))}
+                    {isLoggedIn ? (
+                        <>
+                            <li className="menuItem">
+                                <Link href={DASHBOARD.path}>
+                                    {DASHBOARD.label}
                                 </Link>
                             </li>
-                        )
-                    })}
-                    {/* <li className={styles.socialLinks}>
-                        <Link href="https://www.instagram.com/_evanyu/">
-                            <a>
-                                <BsInstagram className='socialIcons' />
-                            </a>
-                        </Link>
-                        <Link href="https://www.linkedin.com/in/eyu914/">
-                            <a>
-                                <BsLinkedin className='socialIcons' />
-                            </a>
-                        </Link>
-                    </li> */}
+                            <li className="menuItem">
+                                <span>Logout</span>
+                            </li>
+                        </>
+                    ) : null}
                 </ul>
             </div>
         </StyledMobileNav>

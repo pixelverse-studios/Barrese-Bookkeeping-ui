@@ -1,13 +1,66 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { Dashboard, Logout } from '@mui/icons-material'
 
 import useScrollPosition from '@/utilities/hooks/useScrollPosition'
-import { navRoutes } from './routes'
+import { NavRoutes, AuthNavItems } from './routes'
 
 import Logo from '../../assets/images/BarreseBookkeeping.svg'
 import LogoWhite from '../../assets/images/BarreseBookkeeping-white.svg'
 import Button from '../button'
 import { StyledNav, TransparantStyledNav } from './Nav.styles'
+
+const { DASHBOARD } = AuthNavItems
+
+const renderNavItems = (currentPage: string, isLoggedIn: boolean) => (
+    <ul className="navRoutes">
+        {NavRoutes.map((item, index) => {
+            if (item.type === 'link') {
+                return (
+                    <li
+                        key={index}
+                        className={
+                            currentPage === item.path
+                                ? 'activeLink'
+                                : 'navLinks'
+                        }>
+                        <Link
+                            href={item.path}
+                            legacyBehavior
+                            className={
+                                currentPage === item.path ? 'activeLink' : ''
+                            }>
+                            {item.label}
+                        </Link>
+                    </li>
+                )
+            }
+            return <Button label={item.label} route={item.path} />
+        })}
+        {isLoggedIn ? (
+            <>
+                <li
+                    className={
+                        currentPage === DASHBOARD.path
+                            ? 'activeLink'
+                            : 'navLinks'
+                    }>
+                    <Link
+                        className={
+                            currentPage === DASHBOARD.path ? 'activeLink' : ''
+                        }
+                        href={DASHBOARD.path}
+                        legacyBehavior>
+                        <Dashboard />
+                    </Link>
+                </li>
+                <li>
+                    <Logout />
+                </li>
+            </>
+        ) : null}
+    </ul>
+)
 
 const NAV_TRANSITION_POINT = 10
 const DesktopNav = () => {
@@ -27,36 +80,7 @@ const DesktopNav = () => {
                             router.push('/')
                         }}
                     />
-                    <ul className="navRoutes">
-                        {navRoutes.map((item, index) => {
-                            if (item.type === 'link') {
-                                return (
-                                    <li
-                                        key={index}
-                                        className={
-                                            currentPage === item.path
-                                                ? 'activeLink'
-                                                : 'navLinks'
-                                        }>
-                                        <Link href={item.path} legacyBehavior>
-                                            <a
-                                                className={
-                                                    currentPage === item.path
-                                                        ? 'activeLink'
-                                                        : ''
-                                                }>
-                                                {item.label}
-                                            </a>
-                                        </Link>
-                                    </li>
-                                )
-                            }
-                            return (
-                                <Button label={item.label} route={item.path} />
-                            )
-                        })}
-                        {/* // <Button label={'Contact'} route="/contact" /> */}
-                    </ul>
+                    {renderNavItems(currentPage, true)}
                 </div>
             </TransparantStyledNav>
         )
@@ -73,33 +97,7 @@ const DesktopNav = () => {
                         router.push('/')
                     }}
                 />
-                <ul className="navRoutes">
-                    {navRoutes.map((item, index) => {
-                        if (item.type === 'link') {
-                            return (
-                                <li
-                                    key={index}
-                                    className={
-                                        currentPage === item.path
-                                            ? 'activeLink'
-                                            : 'navLinks'
-                                    }>
-                                    <Link href={item.path} legacyBehavior>
-                                        <a
-                                            className={
-                                                currentPage === item.path
-                                                    ? 'activeLink'
-                                                    : ''
-                                            }>
-                                            {item.label}
-                                        </a>
-                                    </Link>
-                                </li>
-                            )
-                        }
-                        return <Button label={item.label} route={item.path} />
-                    })}
-                </ul>
+                {renderNavItems(currentPage, true)}
             </div>
         </StyledNav>
     )

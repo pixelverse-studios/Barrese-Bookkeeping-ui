@@ -1,4 +1,10 @@
-export const navRoutes = [
+interface RouteItem {
+    path: string
+    label: string
+    type: 'link' | 'button'
+}
+
+export const NavRoutes: RouteItem[] = [
     {
         path: '/about',
         label: 'About',
@@ -25,3 +31,14 @@ export const navRoutes = [
         type: 'button'
     }
 ]
+
+export const AuthNavItems = {
+    DASHBOARD: {
+        path: '/dashboard',
+        label: 'Dashboard'
+    },
+    LOGOUT: {
+        path: '',
+        label: 'Logout'
+    }
+}

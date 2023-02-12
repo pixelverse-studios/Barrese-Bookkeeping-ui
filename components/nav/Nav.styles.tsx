@@ -249,7 +249,8 @@ export const StyledMobileNav = styled.nav`
                         transition-delay: #{0.56 - ($i * 0.07)}s;
                     }
                 }
-                a {
+                a,
+                span {
                     display: block;
                     position: relative;
                     color: var(--Primary-brand-color);
@@ -260,6 +261,10 @@ export const StyledMobileNav = styled.nav`
                     line-height: 2.35;
                     font-weight: 200;
                     width: 100%;
+                }
+
+                span:hover {
+                    cursor: pointer;
                 }
             }
         }
