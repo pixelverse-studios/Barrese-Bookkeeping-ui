@@ -88,19 +88,6 @@ export const StyledLanding = styled.section`
                     }
                 }
             }
-            @media only screen and (max-width: 1350px) {
-                display: flex;
-                .overlay-text {
-                    display: flex;
-                    align-content: center;
-                    flex-direction: column;
-                    align-items: center;
-                    height: 100%;
-                    width: fit-content;
-                    justify-content: center;
-                    padding: 0;
-                }
-            }
         }
     }
 
@@ -130,19 +117,36 @@ export const StyledLanding = styled.section`
             padding: var(--content-padding);
             padding-top: 2rem;
         }
+    }
 
-        @media only screen and (max-width: 1350px) {
+    @media only screen and (max-width: 1350px) {
+        .hero {
+            .overlay {
+                display: flex;
+                .overlay-text {
+                    display: flex;
+                    align-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    height: 100%;
+                    width: fit-content;
+                    justify-content: center;
+                    padding: 0;
+                }
+            }
+        }
+        .services {
             width: 100%;
             text-align: center;
             padding: 3rem 0rem;
             height: fit-content;
             scroll-margin-top: 7rem;
+        }
 
-            .services-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+        .services-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     }
 
