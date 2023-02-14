@@ -1,10 +1,7 @@
 import styled from '@emotion/styled'
 
 export const StyledLanding = styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+    width: 100vw;
     h1 {
         font-size: 6.4rem;
     }
@@ -16,7 +13,7 @@ export const StyledLanding = styled.section`
             url('https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80')
                 no-repeat center center/cover;
         background-blend-mode: saturation;
-
+        margin: 0;
         .overlay {
             background-color: var(--Secondary-opaque-color);
             height: 100%;
@@ -70,17 +67,25 @@ export const StyledLanding = styled.section`
                 h2 {
                     font-size: 3rem;
                 }
+                @media only screen and (max-width: 750px) {
+                    h1 {
+                        font-size: 2.5rem;
+                    }
+                    h2 {
+                        font-size: 2rem;
+                    }
+                }
             }
 
             .subtitle-container {
                 display: flex;
                 flex-direction: column;
                 padding: 1rem 0rem;
-                span:nth-of-type(1) {
-                    font-size: 1.3rem;
-                }
-                span:nth-of-type(2) {
-                    font-size: 1.3rem;
+
+                @media only screen and (max-width: 750px) {
+                    h3 {
+                        font-size: 1rem;
+                    }
                 }
             }
         }
@@ -96,9 +101,13 @@ export const StyledLanding = styled.section`
         justify-content: center;
         align-content: center;
         padding: 3rem 0rem;
+        row-gap: 1rem;
         scroll-margin-top: 2rem !important;
         h1 {
             font-size: 4.5rem;
+            @media only screen and (max-width: 750px) {
+                font-size: 3rem;
+            }
         }
 
         .services-container {
@@ -106,37 +115,38 @@ export const StyledLanding = styled.section`
             justify-content: space-between;
             width: var(--max-desktop-width);
             padding: var(--content-padding);
-            padding-top: 3rem;
+            padding-top: 2rem;
         }
     }
 
     @media only screen and (max-width: 1350px) {
-        .overlay {
-            display: flex;
-            .overlay-text {
+        .hero {
+            .overlay {
                 display: flex;
-                align-content: center;
-                flex-direction: column;
-                align-items: flex-start;
-                height: 100%;
-                width: 100%;
-                justify-content: center;
-                padding-left: 1.6rem;
+                .overlay-text {
+                    display: flex;
+                    align-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    height: 100%;
+                    width: fit-content;
+                    justify-content: center;
+                    padding: 0;
+                }
             }
         }
         .services {
-            background-color: var(--Secondary-accent-color);
             width: 100%;
             text-align: center;
             padding: 3rem 0rem;
             height: fit-content;
             scroll-margin-top: 7rem;
+        }
 
-            .services-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+        .services-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     }
 

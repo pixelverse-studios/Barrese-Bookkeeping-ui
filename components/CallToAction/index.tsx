@@ -7,7 +7,7 @@ const CallToAction = () => {
 
     return (
         <StyledCallToAction>
-            <div className="footer-container">
+            <div className="container">
                 <img src="https://via.placeholder.com/150" alt="" />
                 <div className="content">
                     <h1>Book a Consultache</h1>

@@ -32,6 +32,10 @@ const MobileNav = () => {
         }
     }, [stopScroll])
 
+    const routeToHome = () => {
+        setShow(false)
+        router.push('/')
+    }
     const handleLogout = () => logout(dispatch, router)
 
     return (
@@ -42,9 +46,7 @@ const MobileNav = () => {
                         className="logo"
                         src={Logo.src}
                         alt="Barrese Bookkeeping"
-                        onClick={() => {
-                            router.push('/')
-                        }}
+                        onClick={routeToHome}
                     />
                 </div>
                 <div className="burgerContainer" onClick={menuToggle}>

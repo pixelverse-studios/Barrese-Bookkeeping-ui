@@ -1,42 +1,9 @@
 import styled from '@emotion/styled'
 
 export const StyledFAQ = styled.section`
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-
-    .hero {
-        position: relative;
-        height: 30vh;
-        width: 100vw;
-        background: linear-gradient(black, black),
-            url('https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80')
-                no-repeat center center/cover;
-        background-blend-mode: saturation;
-        .overlay {
-            background-color: var(--Secondary-opaque-color);
-            height: 30vh;
-            width: 100%;
-            color: var(--Off-brand-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            align-content: center;
-        }
-    }
-
-    .FAQ-container {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 3rem 0rem;
-        h1 {
-            font-size: 2.5;
-        }
-        h2 {
-            font-size: 1.25rem;
-        }
+    text-align: center;
+    h1 {
+        font-size: 2.5rem;
     }
 
     .accordion {
@@ -124,19 +91,35 @@ export const StyledFAQ = styled.section`
                 max-height: 9em;
                 transition: all 200ms linear;
                 will-change: opacity, max-height;
+                text-align: start;
+                @media only screen and (max-width: 1350px) {
+                    padding: 1rem 0;
+                    max-height: fit-content;
+                }
             }
         }
         .accordion-content {
+            text-align: start;
             opacity: 0;
             max-height: 0;
             overflow: hidden;
             transition: opacity 200ms linear, max-height 200ms linear;
             will-change: opacity, max-height;
+
             p {
                 font-size: 1rem;
                 font-weight: 300;
-                margin: 2em 0;
+                margin: 2rem 0;
+                @media only screen and (max-width: 1350px) {
+                    margin: 0 0;
+                    text-align: start;
+                }
             }
+        }
+        @media only screen and (max-width: 1350px) {
+            width: 100%;
+            padding: 0.5rem;
+            text-align: center;
         }
     }
 `

@@ -10,7 +10,7 @@ export const StyledCallToAction = styled.section`
     justify-content: center;
     align-content: center;
 
-    .footer-container {
+    .container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -63,6 +63,21 @@ export const StyledCallToAction = styled.section`
             z-index: 1;
             outline: 10px solid white;
             padding: 1rem 2rem;
+        }
+    }
+
+    @media only screen and (max-width: 750px) {
+        width: 100%;
+        .container {
+            .content {
+                h1 {
+                    font-size: 3rem;
+                    padding: 0 1.5rem;
+                }
+                .subText {
+                    font-size: 1rem;
+                }
+            }
         }
     }
 `

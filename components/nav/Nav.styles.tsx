@@ -194,7 +194,7 @@ export const StyledMobileNav = styled.nav`
         overflow: hidden;
         transition: all 0.5s ease-out, background 1s ease-out;
         transition-delay: 0.2s;
-        z-index: 1;
+        z-index: 2;
         .burgerContainer {
             position: absolute;
             right: 0;
@@ -237,8 +237,11 @@ export const StyledMobileNav = styled.nav`
             justify-content: center;
             padding: 0.3rem 0;
             background-color: var(--Off-brand-color);
+
             .logo {
                 width: 8rem;
+                cursor: pointer;
+                z-index: 1;
             }
         }
 

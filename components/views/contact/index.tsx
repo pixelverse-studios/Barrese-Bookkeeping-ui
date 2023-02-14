@@ -1,6 +1,8 @@
+import HeroImage from '@/components/HeroHeader'
+import Logo from '../../../assets/images/BarreseBookkeeping.svg'
+import { StyledPageContainer } from '../PageContainer.styles'
 import { StyledContact } from './Contact.styles'
 import { InlineWidget, useCalendlyEventListener } from 'react-calendly'
-import Logo from '../../../assets/images/BarreseBookkeeping.svg'
 
 const ContactPage = () => {
     const onEventScheduled = (e: any) => {
@@ -13,24 +15,24 @@ const ContactPage = () => {
     })
 
     return (
-        <StyledContact>
-            <div className="hero">
-                <div className="overlay" />
-            </div>
-            <div className="contact-container" id="contact-container">
-                <div className="content">
-                    <div className="logo-container">
-                        <img
-                            className="logo"
-                            src={Logo.src}
-                            alt="Barrese Bookkeeping"
-                        />
-                        <h2>Schedule a meeting today !</h2>
+        <StyledPageContainer>
+            <HeroImage url="https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80" />
+            <div className="container">
+                <StyledContact>
+                    <div className="content">
+                        <div className="logo-container">
+                            <img
+                                className="logo"
+                                src={Logo.src}
+                                alt="Barrese Bookkeeping"
+                            />
+                            <h2>Schedule a meeting today !</h2>
+                        </div>
+                        <InlineWidget url="https://calendly.com/barresebookkeeping" />
                     </div>
-                    <InlineWidget url="https://calendly.com/barresebookkeeping" />
-                </div>
+                </StyledContact>
             </div>
-        </StyledContact>
+        </StyledPageContainer>
     )
 }
 
