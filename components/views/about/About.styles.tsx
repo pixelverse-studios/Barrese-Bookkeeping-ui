@@ -42,4 +42,22 @@ export const StyledAbout = styled.section`
             }
         }
     }
+
+    @media only screen and (max-width: 750px) {
+        gap: 1rem;
+        h1 {
+            font-size: 2rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        .about {
+            row-gap: 1rem;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
 `
