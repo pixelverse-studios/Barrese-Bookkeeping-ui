@@ -10,7 +10,7 @@ export const StyledCallToAction = styled.section`
     justify-content: center;
     align-content: center;
 
-    .footer-container {
+    .container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -51,6 +51,15 @@ export const StyledCallToAction = styled.section`
             .subText {
                 font-size: 1.25rem;
             }
+            @media only screen and (max-width: 750px) {
+                h1 {
+                    font-size: 3rem;
+                    padding: 0 1.5rem;
+                }
+                .subText {
+                    font-size: 1rem;
+                }
+            }
         }
 
         button {
@@ -64,5 +73,9 @@ export const StyledCallToAction = styled.section`
             outline: 10px solid white;
             padding: 1rem 2rem;
         }
+    }
+
+    @media only screen and (max-width: 750px) {
+        width: 100%;
     }
 `
