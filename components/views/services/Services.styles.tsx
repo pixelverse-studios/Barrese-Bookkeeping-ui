@@ -37,7 +37,8 @@ export const StyledServices = styled.section`
                 flex-direction: column;
                 row-gap: 1.6rem;
                 align-items: center;
-                padding: 0;
+                padding: 0 0 1rem 0;
+                border-bottom: 3px solid var(--Secondary-accent-color);
             }
             img {
                 height: 9rem;
@@ -63,8 +64,7 @@ export const StyledServices = styled.section`
                     );
                     grid-template-rows: repeat(auto-fill, minmax(10px, 1fr));
                     row-gap: 0.4rem;
-
-                    padding: 1rem 0rem;
+                    padding: 0;
                     li {
                         margin-left: 1.5rem;
                         ::before {
@@ -76,12 +76,17 @@ export const StyledServices = styled.section`
                     }
                 }
                 @media only screen and (max-width: 1350px) {
-                    border-top: 3px solid var(--Secondary-accent-color);
                     border-left: 3px solid transparent;
-                    padding-left: 0;
+                    padding: 0;
                     display: flex;
                     flex-direction: column;
-                    row-gap: 1.6rem;
+                    row-gap: 1rem;
+
+                    h1 {
+                        border-bottom: 3px solid var(--Secondary-accent-color);
+                        padding: 0;
+                        margin: 0;
+                    }
                 }
             }
         }
