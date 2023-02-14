@@ -51,15 +51,6 @@ export const StyledCallToAction = styled.section`
             .subText {
                 font-size: 1.25rem;
             }
-            @media only screen and (max-width: 750px) {
-                h1 {
-                    font-size: 3rem;
-                    padding: 0 1.5rem;
-                }
-                .subText {
-                    font-size: 1rem;
-                }
-            }
         }
 
         button {
@@ -77,5 +68,16 @@ export const StyledCallToAction = styled.section`
 
     @media only screen and (max-width: 750px) {
         width: 100%;
+        .container {
+            .content {
+                h1 {
+                    font-size: 3rem;
+                    padding: 0 1.5rem;
+                }
+                .subText {
+                    font-size: 1rem;
+                }
+            }
+        }
     }
 `
