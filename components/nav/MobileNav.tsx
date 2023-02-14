@@ -25,6 +25,11 @@ const MobileNav = () => {
         }
     }, [stopScroll])
 
+    const route = (value: string) => {
+        setShow(false)
+        router.push(value)
+    }
+
     return (
         <StyledMobileNav>
             <div className={show === true ? 'header menuOpened' : 'header'}>
@@ -33,10 +38,7 @@ const MobileNav = () => {
                         className="logo"
                         src={Logo.src}
                         alt="Barrese Bookkeeping"
-                        onClick={() => {
-                            router.push('/')
-                            setShow(false)
-                        }}
+                        onClick={() => route('/')}
                     />
                 </div>
                 <div className="burgerContainer" onClick={menuToggle}>

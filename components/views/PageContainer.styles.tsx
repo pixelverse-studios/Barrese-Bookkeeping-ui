@@ -6,7 +6,7 @@ export const StyledPageContainer = styled.section`
     flex-direction: column;
     width: 100%;
     .container {
-        width: 1800px;
+        max-width: 1800px;
         margin-inline: auto;
         display: flex;
         flex-direction: column;
