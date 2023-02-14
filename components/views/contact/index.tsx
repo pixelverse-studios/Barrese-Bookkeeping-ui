@@ -1,9 +1,8 @@
-import { InlineWidget, useCalendlyEventListener } from 'react-calendly'
-
 import HeroImage from '@/components/HeroHeader'
 import Logo from '../../../assets/images/BarreseBookkeeping.svg'
 import { StyledPageContainer } from '../PageContainer.styles'
 import { StyledContact } from './Contact.styles'
+import { InlineWidget, useCalendlyEventListener } from 'react-calendly'
 
 const ContactPage = () => {
     const onEventScheduled = (e: any) => {

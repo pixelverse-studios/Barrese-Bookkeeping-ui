@@ -1,41 +1,44 @@
-export const routes = [
-    {
-        path: '/about',
-        label: 'About'
-    },
-    {
-        path: '/services',
-        label: 'Services'
-    },
-    {
-        path: '/blog',
-        label: 'Blog'
-    },
-    {
-        path: '/faqs',
-        label: 'FAQs'
-    }
-]
+interface RouteItem {
+    path: string
+    label: string
+    type: 'link' | 'button'
+}
 
-export const MobileRoutes = [
+export const NavRoutes: RouteItem[] = [
     {
         path: '/about',
-        label: 'About'
+        label: 'About',
+        type: 'link'
     },
     {
         path: '/services',
-        label: 'Services'
+        label: 'Services',
+        type: 'link'
     },
     {
         path: '/blog',
-        label: 'Blog'
+        label: 'Blog',
+        type: 'link'
     },
     {
         path: '/faqs',
-        label: 'FAQs'
+        label: 'FAQs',
+        type: 'link'
     },
     {
         path: '/contact',
-        label: 'Contact'
+        label: 'Contact',
+        type: 'button'
     }
 ]
+
+export const AuthNavItems = {
+    DASHBOARD: {
+        path: '/dashboard',
+        label: 'Dashboard'
+    },
+    LOGOUT: {
+        path: '',
+        label: 'Logout'
+    }
+}
