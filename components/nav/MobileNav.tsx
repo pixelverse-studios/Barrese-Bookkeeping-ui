@@ -46,7 +46,7 @@ const MobileNav = () => {
                         className="logo"
                         src={Logo.src}
                         alt="Barrese Bookkeeping"
-                        onClick={() => routeToHome()}
+                        onClick={routeToHome}
                     />
                 </div>
                 <div className="burgerContainer" onClick={menuToggle}>
