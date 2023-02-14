@@ -1,19 +1,111 @@
+import { useState } from 'react'
 import Link from 'next/link'
+import { useSelector, useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
+import { Dashboard, Logout, MoreVert } from '@mui/icons-material'
+import { Menu, MenuItem, IconButton } from '@mui/material'
+import { logout } from '@/lib/redux/slices/user'
 
 import useScrollPosition from '@/utilities/hooks/useScrollPosition'
-import { routes } from './routes'
+import { NavRoutes, AuthNavItems } from './routes'
 
 import Logo from '../../assets/images/BarreseBookkeeping.svg'
 import LogoWhite from '../../assets/images/BarreseBookkeeping-white.svg'
 import Button from '../button'
 import { StyledNav, TransparantStyledNav } from './Nav.styles'
 
+const { DASHBOARD } = AuthNavItems
+
+interface navItemProps {
+    currentPage: string
+    isLoggedIn: boolean
+    logout: any
+}
+
+const renderNavItems = ({ currentPage, isLoggedIn, logout }: navItemProps) => {
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+    const open = Boolean(anchorEl)
+
+    const handleMenuClose = () => {
+        setAnchorEl(null)
+    }
+
+    const handleMenuOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(event.currentTarget)
+    }
+
+    return (
+        <ul className="navRoutes">
+            {NavRoutes.map((item, index) => {
+                if (item.type === 'link') {
+                    return (
+                        <li
+                            key={index}
+                            className={
+                                currentPage === item.path
+                                    ? 'activeLink'
+                                    : 'navLinks'
+                            }>
+                            <Link
+                                href={item.path}
+                                legacyBehavior
+                                className={
+                                    currentPage === item.path
+                                        ? 'activeLink'
+                                        : ''
+                                }>
+                                {item.label}
+                            </Link>
+                        </li>
+                    )
+                }
+                return <Button label={item.label} route={item.path} />
+            })}
+            {isLoggedIn ? (
+                <>
+                    <IconButton onClick={handleMenuOpen}>
+                        <MoreVert className="authMenuToggle" />
+                    </IconButton>
+                    <Menu
+                        id="lock-menu"
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleMenuClose}
+                        MenuListProps={{
+                            'aria-labelledby': 'lock-button',
+                            role: 'listbox'
+                        }}>
+                        <Link href={DASHBOARD.path} legacyBehavior>
+                            <MenuItem
+                                className="authItem"
+                                selected={currentPage === DASHBOARD.path}>
+                                <Dashboard />
+                            </MenuItem>
+                        </Link>
+                        <MenuItem
+                            className="authItem"
+                            selected={false}
+                            onClick={logout}>
+                            <Logout />
+                        </MenuItem>
+                    </Menu>
+                </>
+            ) : null}
+        </ul>
+    )
+}
+
 const NAV_TRANSITION_POINT = 10
 const DesktopNav = () => {
+    const dispatch = useDispatch()
     const router = useRouter()
     const { pathname: currentPage } = router
+    const { email } = useSelector((state: any) => state.user.profile)
+    const isLoggedIn = Boolean(email)
+
     const scrollPosition = useScrollPosition()
+
+    const handleLogout = () => logout(dispatch, router)
 
     if (scrollPosition < NAV_TRANSITION_POINT) {
         return (
@@ -27,32 +119,11 @@ const DesktopNav = () => {
                             router.push('/')
                         }}
                     />
-                    <ul className="navRoutes">
-                        {routes.map((item, index) => {
-                            return (
-                                <li
-                                    key={index}
-                                    className={
-                                        currentPage === item.path
-                                            ? 'activeLink'
-                                            : 'navLinks'
-                                    }>
-                                    <Link href={item.path} legacyBehavior>
-                                        <a
-                                            className={
-                                                currentPage === item.path
-                                                    ? 'activeLink'
-                                                    : ''
-                                            }>
-                                            {item.label}
-                                        </a>
-                                    </Link>
-                                </li>
-                            )
-                        })}
-
-                        <Button label={'Contact'} route="/contact" />
-                    </ul>
+                    {renderNavItems({
+                        currentPage,
+                        isLoggedIn,
+                        logout: handleLogout
+                    })}
                 </div>
             </TransparantStyledNav>
         )
@@ -69,31 +140,11 @@ const DesktopNav = () => {
                         router.push('/')
                     }}
                 />
-                <ul className="navRoutes">
-                    {routes.map((item, index) => {
-                        return (
-                            <li
-                                key={index}
-                                className={
-                                    currentPage === item.path
-                                        ? 'activeLink'
-                                        : 'navLinks'
-                                }>
-                                <Link href={item.path} legacyBehavior>
-                                    <a
-                                        className={
-                                            currentPage === item.path
-                                                ? 'activeLink'
-                                                : ''
-                                        }>
-                                        {item.label}
-                                    </a>
-                                </Link>
-                            </li>
-                        )
-                    })}
-                    <Button label={'Contact'} route="/contact" />
-                </ul>
+                {renderNavItems({
+                    currentPage,
+                    isLoggedIn,
+                    logout: handleLogout
+                })}
             </div>
         </StyledNav>
     )

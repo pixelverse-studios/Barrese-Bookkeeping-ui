@@ -157,10 +157,11 @@ export const TransparantStyledNav = styled.nav`
         }
         li {
             list-style-type: none;
-            .activeLink {
+
+            &.activeLink a {
                 color: var(--Off-brand-color);
             }
-            .activeLink:after {
+            &.activeLink:after {
                 content: '';
                 display: block;
                 margin: auto;
@@ -168,6 +169,14 @@ export const TransparantStyledNav = styled.nav`
                 width: 100%;
                 background: var(--Off-brand-color);
             }
+        }
+
+        .authMenuToggle {
+            color: white;
+        }
+
+        .authItem > svg {
+            color: var(--Primary-brand-color);
         }
     }
 `
@@ -249,7 +258,8 @@ export const StyledMobileNav = styled.nav`
                         transition-delay: #{0.56 - ($i * 0.07)}s;
                     }
                 }
-                a {
+                a,
+                span {
                     display: block;
                     position: relative;
                     color: var(--Primary-brand-color);
@@ -260,6 +270,10 @@ export const StyledMobileNav = styled.nav`
                     line-height: 2.35;
                     font-weight: 200;
                     width: 100%;
+                }
+
+                span:hover {
+                    cursor: pointer;
                 }
             }
         }
