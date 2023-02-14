@@ -99,6 +99,7 @@ export const StyledFAQ = styled.section`
             }
         }
         .accordion-content {
+            text-align: start;
             opacity: 0;
             max-height: 0;
             overflow: hidden;
