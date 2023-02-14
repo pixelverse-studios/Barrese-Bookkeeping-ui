@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useSelector, useDispatch } from 'react-redux'
 import { useLazyQuery } from '@apollo/client'
+import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 import { JWT_SECRET, AUTH_PAGES } from '@/utilities/constants'
 import { GET_LOGGED_IN_USER } from '@/lib/gql/queries/users'
@@ -71,16 +72,25 @@ const PageWrapper = ({ children }: { children: any }) => {
 
     const currentRoute = router.pathname
 
+    const theme = createTheme({
+        palette: {
+            // mode,
+            // ...themeData
+        }
+    })
+
     return (
-        <StyledMain>
-            <Nav />
-            <Banner />
-            {children}
-            {!noCallToActionPages.includes(currentRoute) ? (
-                <CallToAction />
-            ) : null}
-            <Footer />
-        </StyledMain>
+        <ThemeProvider theme={theme}>
+            <StyledMain>
+                <Nav />
+                <Banner />
+                {children}
+                {!noCallToActionPages.includes(currentRoute) ? (
+                    <CallToAction />
+                ) : null}
+                <Footer />
+            </StyledMain>
+        </ThemeProvider>
     )
 }
 
