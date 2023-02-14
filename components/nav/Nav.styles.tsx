@@ -194,7 +194,7 @@ export const StyledMobileNav = styled.nav`
         overflow: hidden;
         transition: all 0.5s ease-out, background 1s ease-out;
         transition-delay: 0.2s;
-        z-index: 1;
+        z-index: 2;
         .burgerContainer {
             position: absolute;
             right: 0;

@@ -15,7 +15,7 @@ export const StyledServiceCard = styled.div`
     p {
         max-width: 15rem;
         padding: 1rem;
-        border-top: solid var(--Secondary-accent-color);
+        border-top: 2px solid var(--Secondary-accent-color);
         border-bottom: 2px solid var(--Secondary-accent-color);
     }
 `

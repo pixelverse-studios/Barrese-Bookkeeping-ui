@@ -13,7 +13,7 @@
     --footer-height: 15rem;
     --footer-background: var(--Primary-accent-color);
     --footer-font-color: var(--Primary-brand-color);
-    --mobile-breakpoint: 1350px;
+    --mobile-breakpoint: 750px;
     --max-desktop-width: 80vw;
 }
 
