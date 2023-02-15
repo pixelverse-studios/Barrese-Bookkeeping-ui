@@ -7,12 +7,12 @@ import useBreakpointSize, {
 import MobileNav from './MobileNav'
 import DesktopNav from './DesktopNav'
 
-const Nav = () => {
+const Nav = ({ forceMobileNav }: { forceMobileNav: boolean }) => {
     const breakpoint = useBreakpointSize()
     const [showMobileNav, setShowMobileNav] = useState<boolean>(false)
 
     useEffect(() => {
-        setShowMobileNav(breakpoint === MOBILE_BREAKPOINT)
+        setShowMobileNav(forceMobileNav ?? breakpoint === MOBILE_BREAKPOINT)
     }, [breakpoint])
 
     if (showMobileNav) {

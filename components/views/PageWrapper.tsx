@@ -4,7 +4,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useLazyQuery } from '@apollo/client'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
-import { JWT_SECRET, AUTH_PAGES } from '@/utilities/constants'
+import {
+    JWT_SECRET,
+    PROTECTED_PAGES,
+    AUTH_PAGES,
+    SUB_CTA_PAGES
+} from '@/utilities/constants'
 import { GET_LOGGED_IN_USER } from '@/lib/gql/queries/users'
 import { decodeCachedToken } from '@/utilities/token'
 import { setProfile } from '@/lib/redux/slices/user'
@@ -17,21 +22,17 @@ import Footer from '../footer'
 
 import { StyledMain } from './PageWrapper.styles'
 
-const noCallToActionPages = [
-    '/contact',
-    '/services',
-    '/login',
-    '/register',
-    '/reset-password'
-]
 const PageWrapper = ({ children }: { children: any }) => {
     const router = useRouter()
     const dispatch = useDispatch()
     const { profile } = useSelector((state: any) => state.user)
 
+    const basePath = router.pathname.split('/')[1]
+    const isPageIncluded = (pages: string[]) => pages.includes(basePath)
+
     const rerouteInvalidUser = () => {
-        const basePathname = router.pathname.split('/')[1]
-        const redirectToHome = AUTH_PAGES.includes(basePathname)
+        const redirectToHome = isPageIncluded(PROTECTED_PAGES)
+
         if (redirectToHome) {
             router.push('/')
         }
@@ -70,8 +71,6 @@ const PageWrapper = ({ children }: { children: any }) => {
         }
     }, [router])
 
-    const currentRoute = router.pathname
-
     const theme = createTheme({
         palette: {
             // mode,
@@ -79,15 +78,16 @@ const PageWrapper = ({ children }: { children: any }) => {
         }
     })
 
+    const showCTA = !isPageIncluded(SUB_CTA_PAGES)
+    const forceMobileNav = isPageIncluded(AUTH_PAGES)
+
     return (
         <ThemeProvider theme={theme}>
             <StyledMain>
-                <Nav />
+                <Nav forceMobileNav={forceMobileNav} />
                 <Banner />
                 {children}
-                {!noCallToActionPages.includes(currentRoute) ? (
-                    <CallToAction />
-                ) : null}
+                {showCTA ? <CallToAction /> : null}
                 <Footer />
             </StyledMain>
         </ThemeProvider>
