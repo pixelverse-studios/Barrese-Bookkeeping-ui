@@ -6,7 +6,7 @@ import { hideBanner } from '../../lib/redux/slices/banner'
 import StyledBanner from './Banner.styles'
 
 const ANIMATE_OUT_TIME = 1000
-const TIMEOUT = 6000
+const TIMEOUT = 600000
 const ANIMATE_IN_CLASS = 'animate__bounceInUp'
 const ANIMATE_OUT_CLASS = 'animate__bounceOutDown'
 
