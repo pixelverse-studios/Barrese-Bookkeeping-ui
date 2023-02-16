@@ -15,6 +15,13 @@
     --footer-font-color: var(--Primary-brand-color);
     --mobile-breakpoint: 750px;
     --max-desktop-width: 80vw;
+
+    --error-font: #ff4747;
+    --error-background: rgba(255, 71, 71, 0.95);
+    --error-banner: #ffa39e;
+    --success-background: rgba(114, 255, 71, 0.95);
+    --success-banner: #b7eb8f;
+    --success-font: #3a9e1cf2;
 }
 
 @font-face {

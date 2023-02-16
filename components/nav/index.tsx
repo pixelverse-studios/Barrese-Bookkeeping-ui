@@ -15,7 +15,7 @@ const Nav = ({ forceMobileNav }: { forceMobileNav: boolean }) => {
         setShowMobileNav(forceMobileNav ?? breakpoint === MOBILE_BREAKPOINT)
     }, [breakpoint])
 
-    if (showMobileNav) {
+    if (forceMobileNav || showMobileNav) {
         return <MobileNav />
     }
 
