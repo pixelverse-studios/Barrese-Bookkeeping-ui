@@ -12,10 +12,10 @@ const Nav = ({ forceMobileNav }: { forceMobileNav: boolean }) => {
     const [showMobileNav, setShowMobileNav] = useState<boolean>(false)
 
     useEffect(() => {
-        setShowMobileNav(forceMobileNav ?? breakpoint === MOBILE_BREAKPOINT)
+        setShowMobileNav(breakpoint === MOBILE_BREAKPOINT)
     }, [breakpoint])
 
-    if (showMobileNav) {
+    if (forceMobileNav || showMobileNav) {
         return <MobileNav />
     }
 
