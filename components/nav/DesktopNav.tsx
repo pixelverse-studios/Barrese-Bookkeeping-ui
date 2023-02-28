@@ -46,6 +46,7 @@ const renderNavItems = ({ currentPage, isLoggedIn, logout }: navItemProps) => {
                                     : 'navLinks'
                             }>
                             <Link
+                                key={item.path}
                                 href={item.path}
                                 legacyBehavior
                                 className={
