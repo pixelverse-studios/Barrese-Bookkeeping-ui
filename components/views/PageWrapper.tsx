@@ -14,7 +14,7 @@ import { GET_LOGGED_IN_USER } from '@/lib/gql/queries/users'
 import { decodeCachedToken } from '@/utilities/token'
 import { setProfile } from '@/lib/redux/slices/user'
 import { showBanner } from '@/lib/redux/slices/banner'
-
+import DashboardPage from './dashboard'
 import Nav from '../nav'
 import CallToAction from '../CallToAction'
 import Banner from '../banner'
@@ -80,15 +80,22 @@ const PageWrapper = ({ children }: { children: any }) => {
 
     const showCTA = !isPageIncluded(SUB_CTA_PAGES)
     const forceMobileNav = isPageIncluded(AUTH_PAGES)
+    const isOnDashboard = isPageIncluded(['dashboard'])
 
     return (
         <ThemeProvider theme={theme}>
             <StyledMain>
-                <Nav forceMobileNav={forceMobileNav} />
+                {isOnDashboard ? (
+                    <DashboardPage>{children}</DashboardPage>
+                ) : (
+                    <>
+                        <Nav forceMobileNav={forceMobileNav} />
+                        {children}
+                        {showCTA ? <CallToAction /> : null}
+                        <Footer />
+                    </>
+                )}
                 <Banner />
-                {children}
-                {showCTA ? <CallToAction /> : null}
-                <Footer />
             </StyledMain>
         </ThemeProvider>
     )

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { logout } from '@/lib/redux/slices/user'
 
+import useLogout from '@/utilities/hooks/useLogout'
 import { NavRoutes, AuthNavItems } from './routes'
 import Logo from '../../assets/images/BarreseBookkeeping.svg'
 import { StyledMobileNav } from './Nav.styles'
@@ -11,13 +11,13 @@ import { StyledMobileNav } from './Nav.styles'
 const { DASHBOARD } = AuthNavItems
 
 const MobileNav = () => {
-    const dispatch = useDispatch()
     const { email } = useSelector((state: any) => state.user.profile)
     const isLoggedIn = Boolean(email)
 
     const [show, setShow] = useState<boolean>(false)
     const [stopScroll, setStopScroll] = useState<boolean>(false)
     const router = useRouter()
+    const handleLogout = useLogout()
 
     const menuToggle = () => {
         setShow(!show)
@@ -36,7 +36,6 @@ const MobileNav = () => {
         setShow(false)
         router.push('/')
     }
-    const handleLogout = () => logout(dispatch, router)
 
     return (
         <StyledMobileNav>
