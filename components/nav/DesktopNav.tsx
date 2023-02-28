@@ -9,7 +9,7 @@ import useLogout from '@/utilities/hooks/useLogout'
 import useScrollPosition from '@/utilities/hooks/useScrollPosition'
 import { NavRoutes, AuthNavItems } from './routes'
 import Logo from '../../assets/images/BarreseBookkeeping.svg'
-import LogoWhite from '../../assets/images/BarreseBookkeeping-white.svg'
+import LogoWhiteNoBg from '../../assets/images/BarreseBookkeeping-white-nobg.svg'
 import Button from '../button'
 import { StyledNav, TransparantStyledNav } from './Nav.styles'
 
@@ -59,7 +59,13 @@ const renderNavItems = ({ currentPage, isLoggedIn, logout }: navItemProps) => {
                         </li>
                     )
                 }
-                return <Button label={item.label} route={item.path} />
+                return (
+                    <Button
+                        key={`${item.label}-button`}
+                        label={item.label}
+                        route={item.path}
+                    />
+                )
             })}
             {isLoggedIn ? (
                 <>
@@ -111,7 +117,8 @@ const DesktopNav = () => {
                 <div className="navContent">
                     <img
                         className="logo"
-                        src={LogoWhite.src}
+                        // src={LogoWhite.src}
+                        src={LogoWhiteNoBg.src}
                         alt="Barrese Bookkeeping"
                         onClick={() => {
                             router.push('/')
@@ -132,6 +139,7 @@ const DesktopNav = () => {
             <div className="navContent">
                 <img
                     className="logo"
+                    // src={Logo.src}
                     src={Logo.src}
                     alt="Barrese Bookkeeping"
                     onClick={() => {
