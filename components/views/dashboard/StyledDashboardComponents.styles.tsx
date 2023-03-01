@@ -14,6 +14,10 @@ export const StyledDashboardPage = styled.section`
 
         .dashboardContent {
             padding: 1rem;
+
+            h1 {
+                margin-bottom: 2rem;
+            }
         }
     }
 `

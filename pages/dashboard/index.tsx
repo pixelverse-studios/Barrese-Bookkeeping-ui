@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
+import UserProfile from '@/components/views/dashboard/userProfile'
 
 const DashboardPage: NextPage = () => {
-    return <div>dashboard users</div>
+    return <UserProfile />
 }
 
 export default DashboardPage
