@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useSelector, useDispatch } from 'react-redux'
-import { useLazyQuery } from '@apollo/client'
+import { useLazyQuery, useQuery } from '@apollo/client'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 import {
@@ -10,11 +10,13 @@ import {
     AUTH_PAGES,
     SUB_CTA_PAGES
 } from '@/utilities/constants'
-import { GET_LOGGED_IN_USER } from '@/lib/gql/queries/users'
 import { decodeCachedToken } from '@/utilities/token'
+import { GET_LOGGED_IN_USER } from '@/lib/gql/queries/users'
 import { setProfile } from '@/lib/redux/slices/user'
+import { GET_INITIAL_CMS } from '@/lib/gql/queries/cms'
+import { setCmsData, setLoading as setCmsLoading } from '@/lib/redux/slices/cms'
 import { showBanner } from '@/lib/redux/slices/banner'
-
+import DashboardPage from './dashboard'
 import Nav from '../nav'
 import CallToAction from '../CallToAction'
 import Banner from '../banner'
@@ -78,17 +80,51 @@ const PageWrapper = ({ children }: { children: any }) => {
         }
     })
 
+    const [getAllCmsContent] = useLazyQuery(GET_INITIAL_CMS, {
+        onCompleted({ getAllCmsContent: data }) {
+            const cms = { ...data }
+            delete cms.__typename
+            delete cms.successType
+
+            dispatch(setCmsData(cms))
+            dispatch(setCmsLoading(false))
+        },
+        onError(err: any) {
+            dispatch(
+                showBanner({
+                    type: 'Errors',
+                    message:
+                        'There was an issue getting site content. Please contact me at alan@barrsebookkeeping.com if this issue persists.'
+                })
+            )
+
+            dispatch(setCmsLoading(false))
+        }
+    })
+
+    useEffect(() => {
+        dispatch(setCmsLoading(true))
+        getAllCmsContent()
+    }, [])
+
     const showCTA = !isPageIncluded(SUB_CTA_PAGES)
     const forceMobileNav = isPageIncluded(AUTH_PAGES)
+    const isOnDashboard = isPageIncluded(['dashboard'])
 
     return (
         <ThemeProvider theme={theme}>
             <StyledMain>
-                <Nav forceMobileNav={forceMobileNav} />
+                {isOnDashboard ? (
+                    <DashboardPage>{children}</DashboardPage>
+                ) : (
+                    <>
+                        <Nav forceMobileNav={forceMobileNav} />
+                        {children}
+                        {showCTA ? <CallToAction /> : null}
+                        <Footer />
+                    </>
+                )}
                 <Banner />
-                {children}
-                {showCTA ? <CallToAction /> : null}
-                <Footer />
             </StyledMain>
         </ThemeProvider>
     )

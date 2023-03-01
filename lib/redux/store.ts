@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import userReducer from './slices/user'
 import bannerReducer from './slices/banner'
+import cmsReducer from './slices/cms'
 
 export const store = configureStore({
     reducer: {
         user: userReducer,
-        banner: bannerReducer
+        banner: bannerReducer,
+        cmsData: cmsReducer
     }
 })
 

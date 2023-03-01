@@ -95,6 +95,7 @@ export const TransparantStyledNav = styled.nav`
     top: 0;
     left: 0;
     z-index: 9999;
+    transition: 0.3s ease-in-out;
 
     .navContent {
         display: flex;

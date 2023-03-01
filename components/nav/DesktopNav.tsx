@@ -1,16 +1,15 @@
 import { useState } from 'react'
 import Link from 'next/link'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { Dashboard, Logout, MoreVert } from '@mui/icons-material'
 import { Menu, MenuItem, IconButton } from '@mui/material'
-import { logout } from '@/lib/redux/slices/user'
 
+import useLogout from '@/utilities/hooks/useLogout'
 import useScrollPosition from '@/utilities/hooks/useScrollPosition'
 import { NavRoutes, AuthNavItems } from './routes'
-
 import Logo from '../../assets/images/BarreseBookkeeping.svg'
-import LogoWhite from '../../assets/images/BarreseBookkeeping-white.svg'
+import LogoWhiteNoBg from '../../assets/images/BarreseBookkeeping-white-nobg.svg'
 import Button from '../button'
 import { StyledNav, TransparantStyledNav } from './Nav.styles'
 
@@ -47,6 +46,7 @@ const renderNavItems = ({ currentPage, isLoggedIn, logout }: navItemProps) => {
                                     : 'navLinks'
                             }>
                             <Link
+                                key={item.path}
                                 href={item.path}
                                 legacyBehavior
                                 className={
@@ -59,7 +59,13 @@ const renderNavItems = ({ currentPage, isLoggedIn, logout }: navItemProps) => {
                         </li>
                     )
                 }
-                return <Button label={item.label} route={item.path} />
+                return (
+                    <Button
+                        key={`${item.label}-button`}
+                        label={item.label}
+                        route={item.path}
+                    />
+                )
             })}
             {isLoggedIn ? (
                 <>
@@ -97,15 +103,13 @@ const renderNavItems = ({ currentPage, isLoggedIn, logout }: navItemProps) => {
 
 const NAV_TRANSITION_POINT = 10
 const DesktopNav = () => {
-    const dispatch = useDispatch()
     const router = useRouter()
     const { pathname: currentPage } = router
     const { email } = useSelector((state: any) => state.user.profile)
     const isLoggedIn = Boolean(email)
+    const handleLogout = useLogout()
 
     const scrollPosition = useScrollPosition()
-
-    const handleLogout = () => logout(dispatch, router)
 
     if (scrollPosition < NAV_TRANSITION_POINT) {
         return (
@@ -113,7 +117,8 @@ const DesktopNav = () => {
                 <div className="navContent">
                     <img
                         className="logo"
-                        src={LogoWhite.src}
+                        // src={LogoWhite.src}
+                        src={LogoWhiteNoBg.src}
                         alt="Barrese Bookkeeping"
                         onClick={() => {
                             router.push('/')
@@ -134,6 +139,7 @@ const DesktopNav = () => {
             <div className="navContent">
                 <img
                     className="logo"
+                    // src={Logo.src}
                     src={Logo.src}
                     alt="Barrese Bookkeeping"
                     onClick={() => {
