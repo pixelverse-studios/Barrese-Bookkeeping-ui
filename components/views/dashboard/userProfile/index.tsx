@@ -19,8 +19,7 @@ import { CLOUDINARY } from '@/utilities/constants'
 import PasswordResetForm from './PasswordResetForm'
 import {
     StyledUserProfile,
-    StyledProfileCard,
-    StyledProfileInfo
+    StyledProfileCard
 } from './StyledUserProfile.styles'
 
 const UserProfile = () => {
@@ -126,7 +125,6 @@ const UserProfile = () => {
                         />
                     </div>
                 </StyledProfileCard>
-                {/* <StyledProfileInfo>password edit form</StyledProfileInfo> */}
                 <PasswordResetForm />
             </div>
         </StyledUserProfile>
