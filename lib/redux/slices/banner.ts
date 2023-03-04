@@ -22,7 +22,7 @@ export const bannerSlice = createSlice({
                 payload: {
                     message: string
                     type: 'Errors' | 'Success'
-                    duration?: number
+                    duration?: string | null
                 }
             }
         ) => {

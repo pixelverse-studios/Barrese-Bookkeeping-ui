@@ -1,4 +1,12 @@
 import styled from '@emotion/styled'
+import { css } from '@emotion/react'
+
+const padding = `1.5rem`
+
+const CardStyles = css`
+    box-shadow: var(--card-box-shadow);
+    border-radius: var(--card-radius);
+`
 
 export const StyledUserProfile = styled.section`
     .userInfo {
@@ -9,12 +17,11 @@ export const StyledUserProfile = styled.section`
 `
 
 export const StyledProfileCard = styled.div`
-    padding: 1rem 0;
     display: grid;
     grid-template-rows: 1fr 5rem 3rem;
     grid-template-columns: 20rem;
-    box-shadow: var(--card-box-shadow);
-    border-radius: var(--card-radius);
+    padding: ${padding} 0;
+    ${CardStyles}
 
     img,
     .skelly {
@@ -28,7 +35,7 @@ export const StyledProfileCard = styled.div`
     }
 
     .info {
-        padding: 0 1rem;
+        padding: 0 ${padding};
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -37,7 +44,7 @@ export const StyledProfileCard = styled.div`
 
     .cardFooter {
         width: 100%;
-        padding: 0 1rem;
+        padding: 0 ${padding};
         padding-top: 0.8rem;
         display: flex;
         justify-content: center;
@@ -47,3 +54,23 @@ export const StyledProfileCard = styled.div`
 `
 
 export const StyledProfileInfo = styled.div``
+
+export const StyledPasswordResetForm = styled.form`
+    ${CardStyles}
+    padding: ${padding};
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+
+    .formContent {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: flex-start;
+
+        .submit {
+            width: 12rem;
+        }
+    }
+`

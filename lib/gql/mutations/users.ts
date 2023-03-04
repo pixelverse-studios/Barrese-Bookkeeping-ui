@@ -47,8 +47,26 @@ export const REGISTER = gql`
     }
 `
 export const RESET_PASSWORD = gql`
-    mutation updatePassword($newPassword: String!, $token: String!) {
-        updatePassword(newPassword: $newPassword, token: $token) {
+    mutation resetPassword($newPassword: String!, $token: String!) {
+        resetPassword(newPassword: $newPassword, token: $token) {
+            ... on UserSuccess {
+                _id
+                email
+                password
+                firstName
+                lastName
+                token
+            }
+            ... on Errors {
+                type
+                message
+            }
+        }
+    }
+`
+export const UPDATED_PASSWORD = gql`
+    mutation updatePassword($newPassword: String!) {
+        updatePassword(newPassword: $newPassword) {
             ... on UserSuccess {
                 _id
                 email

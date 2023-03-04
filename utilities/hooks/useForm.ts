@@ -1,4 +1,4 @@
-import { ChangeEventHandler, useReducer } from 'react'
+import { FormEvent, ChangeEventHandler, useReducer, useState } from 'react'
 import { FormProps, RegisterProps } from '../types/formTypes'
 
 const RESET = 'reset'
@@ -20,7 +20,6 @@ function reducer(state: FormProps, action: ActionState) {
         case RESET: {
             return action.payload
         }
-
         default:
             return state
     }
@@ -28,6 +27,7 @@ function reducer(state: FormProps, action: ActionState) {
 
 const useForm = (initialState: FormProps, validations: RegisterProps) => {
     const [form, dispatch] = useReducer(reducer, initialState)
+    const [formLoading, setFormLoading] = useState<boolean>(false)
 
     const handleImport = (payload: any) => dispatch({ type: IMPORT, payload })
 
@@ -46,13 +46,33 @@ const useForm = (initialState: FormProps, validations: RegisterProps) => {
         })
     }
 
-    const handleReset = () => dispatch({ type: RESET, payload: initialState })
+    const handleFormSubmit = (
+        event: FormEvent<HTMLFormElement>,
+        mutation: Function
+    ) => {
+        event.preventDefault()
+        setFormLoading(true)
+        mutation()
+    }
+
+    const handleReset = () => {
+        dispatch({ type: RESET, payload: initialState })
+    }
 
     const isFormValid = Object.keys(form).every(
         label => form[label].value && !form[label].error
     )
 
-    return { form, handleChange, handleReset, handleImport, isFormValid }
+    return {
+        form,
+        handleChange,
+        handleReset,
+        handleImport,
+        isFormValid,
+        formLoading,
+        setFormLoading,
+        handleFormSubmit
+    }
 }
 
 export default useForm

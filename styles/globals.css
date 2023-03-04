@@ -17,9 +17,8 @@
     --mobile-breakpoint: 750px;
     --max-desktop-width: 80vw;
 
-    --card-radius: 1.5rem;
-    --card-box-shadow: rgba(0, 0, 0, 0.04) 0px 5px 22px,
-        rgba(0, 0, 0, 0.03) 0px 0px 0px 0.5px;
+    --card-radius: 4px;
+    --card-box-shadow: 7px 7px 14px #bebebe, -7px -7px 14px #ffffff;
 
     --error-font: #ff4747;
     --error-background: rgba(255, 71, 71, 0.95);

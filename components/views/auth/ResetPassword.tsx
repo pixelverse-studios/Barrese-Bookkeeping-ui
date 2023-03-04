@@ -19,12 +19,12 @@ import { JWT_SECRET } from '@/utilities/constants'
 import { RESET_PASSWORD } from '@/lib/gql/mutations/users'
 import { StyledAuthPage } from './AuthPage.styles'
 
-const INITIAL_STATE = {
+export const INITIAL_PW_STATE = {
     newPassword: { value: '', error: '' },
     confirmPassword: { value: '', error: '' }
 } as FormProps
 
-const VALIDATIONS = {
+export const PW_VALIDATIONS = {
     newPassword: FormValidations.validPassword,
     confirmPassword: FormValidations.validPassword
 }
@@ -38,13 +38,13 @@ const ResetPassword = () => {
     const [isFormSubmitting, setIsFormSubmitting] = useState<boolean>(false)
 
     const { form, handleChange, isFormValid, handleReset } = useForm(
-        INITIAL_STATE,
-        VALIDATIONS
+        INITIAL_PW_STATE,
+        PW_VALIDATIONS
     )
     const { newPassword, confirmPassword } = form
 
-    const [updatePassword] = useMutation(RESET_PASSWORD, {
-        onCompleted({ updatePassword: data }) {
+    const [resetPassword] = useMutation(RESET_PASSWORD, {
+        onCompleted({ resetPassword: data }) {
             if (data.__typename === 'Errors') {
                 dispatch(
                     showBanner({
@@ -87,7 +87,7 @@ const ResetPassword = () => {
         event.preventDefault()
         setIsFormSubmitting(true)
         dispatch(setLoading(true))
-        updatePassword()
+        resetPassword()
     }
 
     const handlePasswordUpdate = (e: any) => {

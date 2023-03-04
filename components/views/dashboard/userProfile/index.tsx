@@ -16,6 +16,7 @@ import {
     CloudinaryCreationProps
 } from '@/utilities/fileConversion'
 import { CLOUDINARY } from '@/utilities/constants'
+import PasswordResetForm from './PasswordResetForm'
 import {
     StyledUserProfile,
     StyledProfileCard,
@@ -125,7 +126,8 @@ const UserProfile = () => {
                         />
                     </div>
                 </StyledProfileCard>
-                <StyledProfileInfo>password edit form</StyledProfileInfo>
+                {/* <StyledProfileInfo>password edit form</StyledProfileInfo> */}
+                <PasswordResetForm />
             </div>
         </StyledUserProfile>
     )
