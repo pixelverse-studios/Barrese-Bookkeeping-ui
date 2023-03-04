@@ -16,7 +16,16 @@ export const bannerSlice = createSlice({
     name: 'banner',
     initialState,
     reducers: {
-        showBanner: (state, action) => {
+        showBanner: (
+            state: any,
+            action: {
+                payload: {
+                    message: string
+                    type: 'Errors' | 'Success'
+                    duration?: number
+                }
+            }
+        ) => {
             state.show = true
             state.message = action.payload.message
             state.type = action.payload.type

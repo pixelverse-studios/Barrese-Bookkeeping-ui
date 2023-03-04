@@ -8,3 +8,10 @@ export const SUB_CTA_PAGES = [
     'register',
     'password'
 ]
+export const CLOUDINARY = {
+    UPLOAD_URL:
+        'https://api.cloudinary.com/v1_1/ezpzcoding-cloudinary/image/upload',
+    PRESET: 'barresebookkeeping',
+    OVERRIDE_KEY: 'filename_override',
+    PUBLIC_URL: 'https://res.cloudinary.com/ezpzcoding-cloudinary'
+}

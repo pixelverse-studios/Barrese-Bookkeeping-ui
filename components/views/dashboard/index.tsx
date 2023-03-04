@@ -23,7 +23,13 @@ const DashboardPage = ({ children }: { children: any }) => {
     if (!about?.profilePic) {
         return <span>...loading</span>
     }
-    console.log(about)
+
+    const pageHeader =
+        dashboard?.find(
+            (page: { route: string; label: string }) =>
+                page.route === currentPage
+        )?.label || ''
+
     return (
         <StyledDashboardPage>
             <StyledDashboardSideNav>
@@ -36,7 +42,7 @@ const DashboardPage = ({ children }: { children: any }) => {
                 </div>
                 <ul>
                     {dashboard?.map(
-                        (page: { label: string; route: string }) => (
+                        (page: { route: string; label: string }) => (
                             <li
                                 key={page.label}
                                 className={
@@ -59,7 +65,10 @@ const DashboardPage = ({ children }: { children: any }) => {
                     </IconButton>
                     <Avatar alt="profile-pic" src={about.profilePic} />
                 </StyledDashboardHeader>
-                <div className="dashboardContent">{children}</div>
+                <div className="dashboardContent">
+                    <h1>{pageHeader}</h1>
+                    {children}
+                </div>
             </div>
         </StyledDashboardPage>
     )
