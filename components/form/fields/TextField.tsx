@@ -32,7 +32,6 @@ const TextField = ({
     disabled
 }: StringFieldProps) => {
     const [showPassword, setShowPassword] = useState<boolean>(false)
-
     const handleMouseDownPassword = (
         event: React.MouseEvent<HTMLButtonElement>
     ) => {
@@ -49,6 +48,7 @@ const TextField = ({
                     error={field.error ? true : false}
                     variant="outlined"
                     type={showPassword ? 'text' : 'password'}
+                    value={field.value}
                     id={id}
                     name={name}
                     onChange={onChange}
@@ -96,6 +96,7 @@ const TextField = ({
                 aria-describedby={id}
                 label={label}
                 title={label}
+                value={field.value}
             />
             <FormHelperText id={id}>{field.error}</FormHelperText>
         </FormControl>
