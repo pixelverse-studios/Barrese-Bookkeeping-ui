@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useSelector, useDispatch } from 'react-redux'
-import { useLazyQuery, useQuery } from '@apollo/client'
+import { useLazyQuery } from '@apollo/client'
 import { ThemeProvider, createTheme } from '@mui/material/styles'
 
 import {
@@ -14,7 +14,22 @@ import { decodeCachedToken } from '@/utilities/token'
 import { GET_LOGGED_IN_USER } from '@/lib/gql/queries/users'
 import { setProfile } from '@/lib/redux/slices/user'
 import { GET_INITIAL_CMS } from '@/lib/gql/queries/cms'
-import { setCmsData, setLoading as setCmsLoading } from '@/lib/redux/slices/cms'
+import {
+    setCmsData,
+    setLoading as setCmsLoading,
+    CMS_LABELS
+} from '@/lib/redux/slices/cms'
+import {
+    setCmsId,
+    setCallToAction,
+    setAbout,
+    setDashboardRoutes,
+    setFaqs,
+    setFooter,
+    setLanding,
+    setNewsletterRecords,
+    setNewsletterUsers
+} from '@/lib/redux/slices/exports'
 import { showBanner } from '@/lib/redux/slices/banner'
 import DashboardPage from './dashboard'
 import Nav from '../nav'
@@ -87,7 +102,39 @@ const PageWrapper = ({ children }: { children: any }) => {
             delete cms.successType
 
             dispatch(setCmsData(cms))
-            dispatch(setCmsLoading(false))
+
+            const { DASHBOARD, ABOUT, CTA, FAQS, FOOTER, LANDING, NEWSLETTER } =
+                CMS_LABELS
+            for (const [key, value] of Object.entries(cms) as any) {
+                switch (key) {
+                    case DASHBOARD:
+                        dispatch(setDashboardRoutes(value))
+                        break
+                    case ABOUT:
+                        dispatch(setAbout(value))
+                        break
+                    case CTA:
+                        dispatch(setCallToAction(value))
+                        break
+                    case FAQS:
+                        dispatch(setFaqs(value))
+                        break
+                    case FOOTER:
+                        dispatch(setFooter(value))
+                        break
+                    case LANDING:
+                        dispatch(setLanding(value))
+                        break
+                    case NEWSLETTER:
+                        console.log(value)
+                        dispatch(setNewsletterRecords(value.records))
+                        dispatch(setNewsletterUsers(value.users))
+                        break
+                    default:
+                        break
+                }
+            }
+            // dispatch(setCmsId(cms._id))
         },
         onError(err: any) {
             dispatch(
