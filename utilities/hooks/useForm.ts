@@ -29,7 +29,19 @@ const useForm = (initialState: FormProps, validations: RegisterProps) => {
     const [form, dispatch] = useReducer(reducer, initialState)
     const [formLoading, setFormLoading] = useState<boolean>(false)
 
-    const handleImport = (payload: any) => dispatch({ type: IMPORT, payload })
+    const handleImport = (payload: any) => {
+        type importDataTypes = {
+            [key: string]: any
+        }
+        const formattedData: importDataTypes = {}
+        for (const [key, value] of Object.entries(payload)) {
+            formattedData[key] = { value, error: '' }
+        }
+        dispatch({ type: IMPORT, payload: formattedData })
+    }
+
+    const handleNonFormEventChange = (data: any, name: string) =>
+        dispatch({ type: UPDATE, payload: { name, value: data, error: '' } })
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
         let { value, name } = event.target
@@ -66,6 +78,7 @@ const useForm = (initialState: FormProps, validations: RegisterProps) => {
     return {
         form,
         handleChange,
+        handleNonFormEventChange,
         handleReset,
         handleImport,
         isFormValid,

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useMutation } from '@apollo/client'
-import axios from 'axios'
 import { Skeleton } from '@mui/material'
 
 import { EDIT_ABOUT } from '@/lib/gql/mutations/cms'
@@ -12,10 +11,9 @@ import {
 } from '@/lib/redux/slices/banner'
 import { FileUpload } from '@/components/form'
 import {
-    createCloudinaryFormData,
-    CloudinaryCreationProps
+    CloudinaryCreationProps,
+    onImageUpload
 } from '@/utilities/fileConversion'
-import { CLOUDINARY } from '@/utilities/constants'
 import PasswordResetForm from './PasswordResetForm'
 import {
     StyledUserProfile,
@@ -66,28 +64,22 @@ const UserProfile = () => {
     }: CloudinaryCreationProps) => {
         setLoading(true)
         try {
-            const form = createCloudinaryFormData({
+            const profilePic = await onImageUpload({
+                context: 'about-profilePic',
                 base64,
-                filename,
-                context: 'about-profilePic'
-            })
-            const res = await axios.post(CLOUDINARY.UPLOAD_URL, form, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
+                filename
             })
 
             editAbout({
                 variables: {
                     cmsId: _id,
                     input: {
-                        profilePic: `${CLOUDINARY.PUBLIC_URL}/${res.data.public_id}`
+                        profilePic
                     }
                 }
             })
             return true
         } catch (error) {
-            console.log(error)
             setLoading(false)
             dispatch(
                 showBanner({
@@ -104,25 +96,20 @@ const UserProfile = () => {
         <StyledUserProfile>
             <div className="userInfo">
                 <StyledProfileCard>
-                    {loading ? (
-                        <Skeleton className="skelly" variant="circular" />
-                    ) : (
-                        <img src={profilePic} alt="profile-pic" />
-                    )}
+                    <div>
+                        <FileUpload
+                            loading={loading}
+                            name="profilePic"
+                            id="profilePic"
+                            onUpload={onProfilePicUpload}
+                            value={profilePic}
+                        />
+                    </div>
                     <div className="info">
                         <h4>{email}</h4>
                         <span>
                             {firstName} {lastName}
                         </span>
-                    </div>
-                    <div className="cardFooter">
-                        <FileUpload
-                            loading={loading}
-                            label="Upload Picture"
-                            name="profilePic"
-                            id="profilePic"
-                            onUpload={onProfilePicUpload}
-                        />
                     </div>
                 </StyledProfileCard>
                 <PasswordResetForm />

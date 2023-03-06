@@ -1,12 +1,6 @@
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
 
-const padding = `1.5rem`
-
-const CardStyles = css`
-    box-shadow: var(--card-box-shadow);
-    border-radius: var(--card-radius);
-`
+import CardStyles from '@/styles/components/StyledCard'
 
 export const StyledUserProfile = styled.section`
     .userInfo {
@@ -17,34 +11,22 @@ export const StyledUserProfile = styled.section`
 `
 
 export const StyledProfileCard = styled.div`
-    display: grid;
-    grid-template-rows: 1fr 5rem 3rem;
-    grid-template-columns: 20rem;
-    padding: ${padding} 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     ${CardStyles}
 
-    img,
-    .skelly {
-        width: 65%;
-        border-radius: 50%;
-        margin: auto;
-    }
-
-    .skelly {
-        height: 13rem;
-    }
-
     .info {
-        padding: 0 ${padding};
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
+        gap: 1rem;
     }
 
     .cardFooter {
         width: 100%;
-        padding: 0 ${padding};
+        padding: 0 var(--card-padding);
         padding-top: 0.8rem;
         display: flex;
         justify-content: center;
@@ -53,11 +35,8 @@ export const StyledProfileCard = styled.div`
     }
 `
 
-export const StyledProfileInfo = styled.div``
-
 export const StyledPasswordResetForm = styled.form`
     ${CardStyles}
-    padding: ${padding};
     display: flex;
     flex-direction: column;
     gap: 1rem;

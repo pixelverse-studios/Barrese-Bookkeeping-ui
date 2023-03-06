@@ -1,11 +1,27 @@
 import styled from '@emotion/styled'
 
+import CardStyles from '@/styles/components/StyledCard'
+
 export const StyledFileUpload = styled.div`
     width: 100%;
-    height: 2rem;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
+    gap: 1rem;
+    position: relative;
+
+    img,
+    .skelly {
+        width: 65%;
+        border-radius: 50%;
+        margin: auto;
+        border: 6px solid #f8f8f8;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .skelly {
+        height: 13rem;
+    }
 
     input {
         width: 0.1px;
@@ -19,6 +35,25 @@ export const StyledFileUpload = styled.div`
     label {
         cursor: pointer;
         z-index: 2;
+        cursor: pointer;
+        position: absolute;
+        right: 3rem;
+        top: 1rem;
+        border-radius: 50%;
+        height: 2.5rem;
+        width: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border: 1px solid transparent;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+            background: #f1f1f1;
+            border-color: #d6d6d6;
+        }
     }
 
     .fileName {
@@ -31,16 +66,20 @@ export const StyledFileUpload = styled.div`
         padding-top: 3px;
     }
 
-    svg {
-        z-index: 3;
-        cursor: pointer;
+    .actionButtons {
+        display: flex;
 
-        &.upload:hover {
-            color: var(--success-font);
-        }
+        svg {
+            z-index: 3;
+            cursor: pointer;
 
-        &.delete:hover {
-            color: var(--error-font);
+            &.upload:hover {
+                color: var(--success-font);
+            }
+
+            &.delete:hover {
+                color: var(--error-font);
+            }
         }
     }
 `

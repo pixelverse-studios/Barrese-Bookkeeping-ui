@@ -1,7 +1,9 @@
+import axios from 'axios'
 import { format } from 'date-fns'
+
 import { CLOUDINARY } from './constants'
 
-const { PRESET, OVERRIDE_KEY } = CLOUDINARY
+const { PRESET, OVERRIDE_KEY, PUBLIC_URL } = CLOUDINARY
 
 export const convertFileToBase64 = (file: any) => {
     const base64 = new Promise((resolve, reject) => {
@@ -35,4 +37,27 @@ export const createCloudinaryFormData = ({
     form.append('upload_preset', PRESET)
 
     return form
+}
+
+export const onImageUpload = async ({
+    context,
+    base64,
+    filename
+}: CloudinaryCreationProps) => {
+    try {
+        const form = createCloudinaryFormData({
+            base64,
+            filename,
+            context
+        })
+        const res = await axios.post(CLOUDINARY.UPLOAD_URL, form, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+
+        return `${CLOUDINARY.PUBLIC_URL}/${res.data.public_id}`
+    } catch (error) {
+        throw error
+    }
 }
