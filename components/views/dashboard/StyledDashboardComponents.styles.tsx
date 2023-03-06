@@ -36,6 +36,7 @@ export const StyledDashboardSideNav = styled.nav`
 
         img {
             width: 12rem;
+            cursor: pointer;
         }
     }
 

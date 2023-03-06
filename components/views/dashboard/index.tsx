@@ -13,7 +13,6 @@ import {
 import LogoWhiteNoBg from '@/assets/images/BarreseBookkeeping-white-nobg.svg'
 
 const DashboardPage = ({ children }: { children: any }) => {
-    // const { dashboard, about } = useSelector((state: any) => state.cmsData.cms)
     const { routes } = useSelector((state: any) => state.dashboard)
     const { profilePic } = useSelector((state: any) => state.about)
 
@@ -37,6 +36,7 @@ const DashboardPage = ({ children }: { children: any }) => {
             <StyledDashboardSideNav>
                 <div className="navHeader">
                     <img
+                        onClick={() => router.push('/')}
                         className="logo"
                         src={LogoWhiteNoBg.src}
                         alt="Barrese Bookkeeping"
