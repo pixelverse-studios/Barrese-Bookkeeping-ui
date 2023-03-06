@@ -14,12 +14,9 @@ import { decodeCachedToken } from '@/utilities/token'
 import { GET_LOGGED_IN_USER } from '@/lib/gql/queries/users'
 import { setProfile } from '@/lib/redux/slices/user'
 import { GET_INITIAL_CMS } from '@/lib/gql/queries/cms'
+import { CMS_LABELS } from '@/lib/redux/slices/cms'
 import {
-    setCmsData,
-    setLoading as setCmsLoading,
-    CMS_LABELS
-} from '@/lib/redux/slices/cms'
-import {
+    setCmsLoading,
     setCmsId,
     setCallToAction,
     setAbout,
@@ -101,8 +98,6 @@ const PageWrapper = ({ children }: { children: any }) => {
             delete cms.__typename
             delete cms.successType
 
-            dispatch(setCmsData(cms))
-
             const { DASHBOARD, ABOUT, CTA, FAQS, FOOTER, LANDING, NEWSLETTER } =
                 CMS_LABELS
             for (const [key, value] of Object.entries(cms) as any) {
@@ -126,7 +121,6 @@ const PageWrapper = ({ children }: { children: any }) => {
                         dispatch(setLanding(value))
                         break
                     case NEWSLETTER:
-                        console.log(value)
                         dispatch(setNewsletterRecords(value.records))
                         dispatch(setNewsletterUsers(value.users))
                         break
@@ -134,7 +128,8 @@ const PageWrapper = ({ children }: { children: any }) => {
                         break
                 }
             }
-            // dispatch(setCmsId(cms._id))
+            dispatch(setCmsId(cms._id))
+            dispatch(setCmsLoading(false))
         },
         onError(err: any) {
             dispatch(

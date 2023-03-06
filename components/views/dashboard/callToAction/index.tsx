@@ -34,10 +34,10 @@ const VALIDATIONS = {
 
 const CallToAction = () => {
     const dispatch = useDispatch()
-    const {
-        _id,
-        callToAction: { image, heading, description, buttonLabel }
-    } = useSelector((state: any) => state.cmsData?.cms)
+    const { id } = useSelector((state: any) => state.cmsData)
+    const { image, heading, description, buttonLabel } = useSelector(
+        (state: any) => state.callToAction
+    )
 
     const {
         form,

@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useMutation } from '@apollo/client'
-import { Skeleton } from '@mui/material'
 
 import { EDIT_ABOUT } from '@/lib/gql/mutations/cms'
-import { setCmsData } from '@/lib/redux/slices/cms'
+import { setAbout } from '@/lib/redux/slices/exports'
 import {
     showBanner,
     showTechnicalDifficultiesBanner
@@ -23,10 +22,8 @@ import {
 const UserProfile = () => {
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(false)
-    const {
-        about: { profilePic },
-        _id
-    } = useSelector((state: any) => state?.cmsData?.cms)
+    const { id } = useSelector((state: any) => state?.cmsData)
+    const { profilePic } = useSelector((state: any) => state.about)
     const {
         profile: { email, firstName, lastName }
     } = useSelector((state: any) => state?.user)
@@ -41,7 +38,10 @@ const UserProfile = () => {
                     })
                 )
             } else {
-                dispatch(setCmsData(data))
+                const newAboutData = { ...data.about }
+                delete newAboutData.__typename
+
+                dispatch(setAbout(newAboutData))
                 dispatch(
                     showBanner({
                         message: 'Your profile picture has been updated.',
@@ -72,7 +72,7 @@ const UserProfile = () => {
 
             editAbout({
                 variables: {
-                    cmsId: _id,
+                    cmsId: id,
                     input: {
                         profilePic
                     }

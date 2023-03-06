@@ -13,19 +13,21 @@ import {
 import LogoWhiteNoBg from '@/assets/images/BarreseBookkeeping-white-nobg.svg'
 
 const DashboardPage = ({ children }: { children: any }) => {
-    const { dashboard, about } = useSelector((state: any) => state.cmsData.cms)
+    // const { dashboard, about } = useSelector((state: any) => state.cmsData.cms)
+    const { routes } = useSelector((state: any) => state.dashboard)
+    const { profilePic } = useSelector((state: any) => state.about)
 
     const router = useRouter()
 
     const handleLogout = useLogout()
     const currentPage = router.pathname
 
-    if (!about?.profilePic) {
+    if (!profilePic) {
         return <span>...loading</span>
     }
 
     const pageHeader =
-        dashboard?.find(
+        routes?.find(
             (page: { route: string; label: string }) =>
                 page.route === currentPage
         )?.label || ''
@@ -41,21 +43,19 @@ const DashboardPage = ({ children }: { children: any }) => {
                     />
                 </div>
                 <ul>
-                    {dashboard?.map(
-                        (page: { route: string; label: string }) => (
-                            <li
-                                key={page.label}
-                                className={
-                                    page.route === currentPage
-                                        ? 'active'
-                                        : 'inactive'
-                                }>
-                                <Link key={page.route} href={page.route}>
-                                    {page.label}
-                                </Link>
-                            </li>
-                        )
-                    )}
+                    {routes?.map((page: { route: string; label: string }) => (
+                        <li
+                            key={page.label}
+                            className={
+                                page.route === currentPage
+                                    ? 'active'
+                                    : 'inactive'
+                            }>
+                            <Link key={page.route} href={page.route}>
+                                {page.label}
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </StyledDashboardSideNav>
             <div className="dashboardMain">
@@ -63,7 +63,7 @@ const DashboardPage = ({ children }: { children: any }) => {
                     <IconButton onClick={handleLogout}>
                         <Logout />
                     </IconButton>
-                    <Avatar alt="profile-pic" src={about.profilePic} />
+                    <Avatar alt="profile-pic" src={profilePic} />
                 </StyledDashboardHeader>
                 <div className="dashboardContent">
                     <h1>{pageHeader}</h1>
