@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react'
+import { FormEvent, useState, useEffect } from 'react'
 import { LoadingButton } from '@mui/lab'
 import { Button } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
 import { useMutation } from '@apollo/client'
 
+import { EDIT_CTA } from '@/lib/gql/mutations/cms'
+import { setCallToAction } from '@/lib/redux/slices/exports'
 import {
     showBanner,
-    hideBanner,
     showTechnicalDifficultiesBanner
 } from '@/lib/redux/slices/banner'
 import {
@@ -27,9 +28,9 @@ const INITIAL_STATE = {
 
 const VALIDATIONS = {
     image: FormValidations.validAlphaNumeric,
-    heading: FormValidations.validAlphaNumeric,
-    description: FormValidations.validAlphaNumeric,
-    buttonLabel: FormValidations.validAlphaNumeric
+    heading: FormValidations.validAlphaNumericWithSpaces,
+    description: FormValidations.validAlphaNumericSpacesSpecials,
+    buttonLabel: FormValidations.validAlphaNumericWithSpaces
 }
 
 const CallToAction = () => {
@@ -71,7 +72,6 @@ const CallToAction = () => {
                 filename
             })
 
-            console.log('ctaImage: ', ctaImage)
             handleNonFormEventChange(ctaImage, 'image')
             setImgLoading(false)
             return true
@@ -89,10 +89,52 @@ const CallToAction = () => {
         }
     }
 
-    const onFormSubmit = async () => {}
+    const [editCallToAction] = useMutation(EDIT_CTA, {
+        onCompleted({ editCallToAction: data }) {
+            if (data.__typename === 'Errors') {
+                dispatch(
+                    showBanner({
+                        message: data.message,
+                        type: data.__typename
+                    })
+                )
+            } else {
+                const cta = { ...data.callToAction }
+
+                delete cta.__typename
+                delete cta.successType
+
+                dispatch(setCallToAction(cta))
+
+                dispatch(
+                    showBanner({
+                        message: 'Call To Action has been updated!',
+                        type: data.__typename
+                    })
+                )
+            }
+            setFormLoading(false)
+        },
+        onError(err: any) {
+            setFormLoading(false)
+            dispatch(showTechnicalDifficultiesBanner())
+        },
+        variables: {
+            cmsId: id,
+            input: {
+                image: form.image.value,
+                heading: form.heading.value,
+                description: form.description.value,
+                buttonLabel: form.buttonLabel.value
+            }
+        }
+    })
 
     return (
-        <StyledCtaForm>
+        <StyledCtaForm
+            onSubmit={(event: FormEvent<HTMLFormElement>) =>
+                handleFormSubmit(event, editCallToAction)
+            }>
             <StyledCtaUploadPic>
                 <FileUpload
                     loading={imgLoading}
@@ -114,6 +156,15 @@ const CallToAction = () => {
                         onChange={handleChange}
                         disabled={formLoading}
                     />
+                    <TextField
+                        field={form.buttonLabel}
+                        type="text"
+                        id="buttonLabel"
+                        name="buttonLabel"
+                        label="Button Label"
+                        onChange={handleChange}
+                        disabled={formLoading}
+                    />
                 </FormRow>
                 <FormRow>
                     <TextField
@@ -122,17 +173,6 @@ const CallToAction = () => {
                         id="description"
                         name="description"
                         label="Description"
-                        onChange={handleChange}
-                        disabled={formLoading}
-                    />
-                </FormRow>
-                <FormRow>
-                    <TextField
-                        field={form.buttonLabel}
-                        type="text"
-                        id="buttonLabel"
-                        name="buttonLabel"
-                        label="Button Label"
                         onChange={handleChange}
                         disabled={formLoading}
                     />

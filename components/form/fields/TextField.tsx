@@ -91,6 +91,7 @@ const TextField = ({
                 type={type === 'textarea' ? 'text' : type}
                 id={id}
                 name={name}
+                rows={4}
                 onChange={onChange}
                 disabled={disabled}
                 aria-describedby={id}
