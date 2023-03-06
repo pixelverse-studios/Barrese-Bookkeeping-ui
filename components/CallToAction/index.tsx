@@ -1,21 +1,22 @@
-import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
+
 import Button from '../button'
 import { StyledCallToAction } from './CallToAction.styles'
 
 const CallToAction = () => {
-    const router = useRouter()
+    const { image, heading, description, buttonLabel } = useSelector(
+        (state: any) => state.callToAction
+    )
 
     return (
         <StyledCallToAction>
             <div className="container">
-                <img src="https://via.placeholder.com/150" alt="" />
+                <img src={image} alt="callToActionImage" />
                 <div className="content">
-                    <h1>Book a Consultache</h1>
-                    <p className="subText">
-                        Your boii knows his shit so use a service.
-                    </p>
+                    <h1>{heading}</h1>
+                    <p className="subText">{description}</p>
                 </div>
-                <Button route="/contact" label="Contact Us" />
+                <Button route="/contact" label={buttonLabel} />
             </div>
         </StyledCallToAction>
     )
