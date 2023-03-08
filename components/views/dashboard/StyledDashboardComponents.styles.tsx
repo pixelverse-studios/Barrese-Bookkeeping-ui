@@ -14,10 +14,11 @@ export const StyledDashboardPage = styled.section`
 
         .dashboardContent {
             padding: 1rem;
-
-            h1 {
-                margin-bottom: 2rem;
-            }
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 1400px;
+            width: 100% #000;
         }
     }
 `
@@ -35,6 +36,7 @@ export const StyledDashboardSideNav = styled.nav`
 
         img {
             width: 12rem;
+            cursor: pointer;
         }
     }
 

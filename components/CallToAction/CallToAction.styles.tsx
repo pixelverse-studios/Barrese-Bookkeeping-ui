@@ -18,6 +18,7 @@ export const StyledCallToAction = styled.section`
         align-content: center;
         width: var(--max-desktop-width);
         padding: var(--content-padding);
+
         img {
             position: absolute;
             top: 25px;
@@ -29,6 +30,8 @@ export const StyledCallToAction = styled.section`
             border-radius: 50%;
             height: 9.375rem;
             width: 9.375rem;
+            border: 1px solid transparent;
+            box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
         }
 
         .content {

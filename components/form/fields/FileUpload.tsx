@@ -1,16 +1,18 @@
-import { useState } from 'react'
-import { Delete, CloudUpload } from '@mui/icons-material'
+import { useEffect, useState } from 'react'
+import { Delete, CloudUpload, Edit } from '@mui/icons-material'
+import { Skeleton } from '@mui/material'
 
 import { InlineLoader } from '@/components/loader'
 import { convertFileToBase64 } from '@/utilities/fileConversion'
 import { StyledFileUpload } from './Formfield.styles'
 
 interface FieldProps {
-    label: string
     id: string
     name: string
     onUpload: Function
     loading: boolean
+    value: string
+    clearValue?: Function
 }
 
 interface FileProps {
@@ -20,23 +22,38 @@ interface FileProps {
     type: string
 }
 
-const FileUpload = ({ label, id, name, onUpload, loading }: FieldProps) => {
+const FileUpload = ({
+    id,
+    name,
+    onUpload,
+    loading,
+    value,
+    clearValue
+}: FieldProps) => {
     const [file, setFile] = useState<FileProps | null>(null)
-    const [image, setImage] = useState<string | null>(null)
+    const [preview, setPreview] = useState<string | null>(null)
+
+    useEffect(() => {}, [])
 
     const onFieldUpdate = (e: any) => {
         if (loading) return
         setFile(e.target.files[0])
+
+        const reader = new FileReader()
+
+        reader.onload = function (e: any) {
+            setPreview(e.target.result)
+        }
+
+        reader.readAsDataURL(e.target.files[0])
     }
 
     const onUploadClick = async () => {
         if (loading) return
         const base64 = await convertFileToBase64(file)
-        setImage(base64)
 
         const success = await onUpload({ base64, filename: file?.name })
         if (success) {
-            setImage(null)
             setFile(null)
         }
     }
@@ -44,10 +61,18 @@ const FileUpload = ({ label, id, name, onUpload, loading }: FieldProps) => {
     const onDeleteClick = () => {
         if (loading) return
         setFile(null)
+        setPreview(null)
+
+        if (clearValue) clearValue()
     }
 
     return (
         <StyledFileUpload>
+            {preview || value ? (
+                <img src={preview || value} alt="current-img-value" />
+            ) : (
+                <Skeleton className="skelly" variant="circular" />
+            )}
             <input
                 type="file"
                 accept="image/png, image/jpg, image/jpeg, image/svg"
@@ -57,13 +82,11 @@ const FileUpload = ({ label, id, name, onUpload, loading }: FieldProps) => {
             />
             {file != null ? (
                 <>
-                    <label className="fileName" htmlFor={id}>
-                        {file.name}
-                    </label>
+                    <span className="fileName">{file.name}</span>
                     {loading ? (
                         <InlineLoader />
                     ) : (
-                        <>
+                        <div className="actionButtons">
                             <CloudUpload
                                 className="upload"
                                 onClick={onUploadClick}
@@ -72,12 +95,13 @@ const FileUpload = ({ label, id, name, onUpload, loading }: FieldProps) => {
                                 className="delete"
                                 onClick={onDeleteClick}
                             />
-                        </>
+                        </div>
                     )}
                 </>
-            ) : (
-                <label htmlFor={id}>{label}</label>
-            )}
+            ) : null}
+            <label htmlFor={id}>
+                <Edit />
+            </label>
         </StyledFileUpload>
     )
 }

@@ -49,6 +49,7 @@ const Login = () => {
                         type: data.__typename
                     })
                 )
+                dispatch(setLoading(false))
             } else {
                 const profile = { ...data }
                 const token = data.token
@@ -66,9 +67,9 @@ const Login = () => {
                 )
 
                 handleReset()
+                dispatch(setLoading(false))
+                router.push('/dashboard')
             }
-            dispatch(setLoading(false))
-            router.push('/dashboard')
         },
         onError(err: any) {
             dispatch(setLoading(false))

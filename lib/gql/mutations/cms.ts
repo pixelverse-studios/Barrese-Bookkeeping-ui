@@ -4,7 +4,6 @@ export const EDIT_ABOUT = gql`
     mutation editAbout($cmsId: ID!, $input: InputAboutFields) {
         editAbout(cmsID: $cmsId, input: $input) {
             ... on CmsFields {
-                _id
                 about {
                     profilePic
                     backgroundInfo
@@ -14,88 +13,28 @@ export const EDIT_ABOUT = gql`
                     subHeader
                     heroImage
                 }
-                landing {
-                    heroImage
-                    heroBannerH1
-                    heroBannerH2
-                    subtext
+            }
+            ... on Errors {
+                type
+                message
+                errors {
+                    field
+                    message
                 }
+            }
+        }
+    }
+`
+
+export const EDIT_CTA = gql`
+    mutation editCallToAction($cmsId: ID!, $input: InputCallToActionFields) {
+        editCallToAction(cmsID: $cmsId, input: $input) {
+            ... on CmsFields {
                 callToAction {
                     image
                     heading
                     description
                     buttonLabel
-                }
-                footer {
-                    contactLinks {
-                        _id
-                        icon
-                        link
-                        title
-                    }
-                }
-                services {
-                    pageH1
-                    pageH2
-                    description
-                    heroImage
-                    offerings {
-                        _id
-                        icon
-                        title
-                        description
-                        bullets
-                    }
-                }
-                faqs {
-                    pageH1
-                    pageH2
-                    heroImage
-                    qAndA {
-                        _id
-                        question
-                        answer
-                    }
-                }
-                blog {
-                    pageH1
-                    pageH2
-                    heroImage
-                    blogs {
-                        _id
-                        thumbnail
-                        image
-                        title
-                        recap
-                        content
-                        createdAt
-                    }
-                }
-                dashboard {
-                    route
-                    label
-                }
-                newsletter {
-                    users {
-                        _id
-                        email
-                        firstName
-                        lastName
-                        createdAt
-                        updatedAt
-                        subscribed
-                    }
-                    records {
-                        _id
-                        participants {
-                            email
-                            firstName
-                            lastName
-                        }
-                        emailBody
-                        subjectLine
-                        sentAt
-                    }
                 }
             }
             ... on Errors {

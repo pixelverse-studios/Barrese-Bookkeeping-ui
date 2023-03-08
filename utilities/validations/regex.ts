@@ -1,6 +1,7 @@
 export const VALID_ALPHA_STRING = /^[A-Za-z]+$/
 export const VALID_ALPHA_NUMERIC = /^[0-9a-zA-Z]+$/
 export const VALID_ALPHA_NUMERIC_WITH_SPACES = /^[a-zA-Z0-9 ]*$/
+export const VALID_ALPHA_NUMERIC_SPACES_SPECIALS = /^[ A-Za-z0-9 _@.,/#&+-]*$/
 export const VALID_EMAIL =
     /^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$/
 export const VALID_PASSWORD =

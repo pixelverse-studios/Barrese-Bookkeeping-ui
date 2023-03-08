@@ -1,21 +1,18 @@
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useMutation } from '@apollo/client'
-import axios from 'axios'
-import { Skeleton } from '@mui/material'
 
 import { EDIT_ABOUT } from '@/lib/gql/mutations/cms'
-import { setCmsData } from '@/lib/redux/slices/cms'
+import { setAbout } from '@/lib/redux/slices/exports'
 import {
     showBanner,
     showTechnicalDifficultiesBanner
 } from '@/lib/redux/slices/banner'
 import { FileUpload } from '@/components/form'
 import {
-    createCloudinaryFormData,
-    CloudinaryCreationProps
+    CloudinaryCreationProps,
+    onImageUpload
 } from '@/utilities/fileConversion'
-import { CLOUDINARY } from '@/utilities/constants'
 import PasswordResetForm from './PasswordResetForm'
 import {
     StyledUserProfile,
@@ -25,10 +22,8 @@ import {
 const UserProfile = () => {
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(false)
-    const {
-        about: { profilePic },
-        _id
-    } = useSelector((state: any) => state?.cmsData?.cms)
+    const { id } = useSelector((state: any) => state?.cmsData)
+    const { profilePic } = useSelector((state: any) => state.about)
     const {
         profile: { email, firstName, lastName }
     } = useSelector((state: any) => state?.user)
@@ -43,7 +38,10 @@ const UserProfile = () => {
                     })
                 )
             } else {
-                dispatch(setCmsData(data))
+                const newAboutData = { ...data.about }
+                delete newAboutData.__typename
+
+                dispatch(setAbout(newAboutData))
                 dispatch(
                     showBanner({
                         message: 'Your profile picture has been updated.',
@@ -66,28 +64,22 @@ const UserProfile = () => {
     }: CloudinaryCreationProps) => {
         setLoading(true)
         try {
-            const form = createCloudinaryFormData({
+            const profilePic = await onImageUpload({
+                context: 'about-profilePic',
                 base64,
-                filename,
-                context: 'about-profilePic'
-            })
-            const res = await axios.post(CLOUDINARY.UPLOAD_URL, form, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
+                filename
             })
 
             editAbout({
                 variables: {
-                    cmsId: _id,
+                    cmsId: id,
                     input: {
-                        profilePic: `${CLOUDINARY.PUBLIC_URL}/${res.data.public_id}`
+                        profilePic
                     }
                 }
             })
             return true
         } catch (error) {
-            console.log(error)
             setLoading(false)
             dispatch(
                 showBanner({
@@ -104,25 +96,20 @@ const UserProfile = () => {
         <StyledUserProfile>
             <div className="userInfo">
                 <StyledProfileCard>
-                    {loading ? (
-                        <Skeleton className="skelly" variant="circular" />
-                    ) : (
-                        <img src={profilePic} alt="profile-pic" />
-                    )}
+                    <div>
+                        <FileUpload
+                            loading={loading}
+                            name="profilePic"
+                            id="profilePic"
+                            onUpload={onProfilePicUpload}
+                            value={profilePic}
+                        />
+                    </div>
                     <div className="info">
                         <h4>{email}</h4>
                         <span>
                             {firstName} {lastName}
                         </span>
-                    </div>
-                    <div className="cardFooter">
-                        <FileUpload
-                            loading={loading}
-                            label="Upload Picture"
-                            name="profilePic"
-                            id="profilePic"
-                            onUpload={onProfilePicUpload}
-                        />
                     </div>
                 </StyledProfileCard>
                 <PasswordResetForm />

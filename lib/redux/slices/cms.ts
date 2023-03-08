@@ -1,17 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+export const CMS_LABELS = {
+    DASHBOARD: 'dashboard',
+    ABOUT: 'about',
+    CTA: 'callToAction',
+    FAQS: 'faqs',
+    FOOTER: 'footer',
+    LANDING: 'landing',
+    NEWSLETTER: 'newsletter'
+}
+
 export const intialCmsState = {
-    cms: {
-        _id: '',
-        dashboard: null,
-        about: null,
-        callToAction: null,
-        faqs: null,
-        footer: null,
-        landing: null,
-        newsletter: null,
-        services: null
-    },
+    id: '',
     loading: false
 }
 
@@ -19,18 +19,15 @@ export const cmsSlice = createSlice({
     name: 'cmsData',
     initialState: intialCmsState,
     reducers: {
-        setCmsData: (state, action) => {
+        setCmsId: (state, action) => {
             state.loading = false
-            state.cms = action.payload
+            state.id = action.payload
         },
         setLoading: (state, action) => {
             state.loading = action.payload
-        },
-        removeCmsData: state => {
-            state.cms = intialCmsState.cms
         }
     }
 })
 
-export const { setCmsData, setLoading, removeCmsData } = cmsSlice.actions
+export const { setLoading, setCmsId } = cmsSlice.actions
 export default cmsSlice.reducer

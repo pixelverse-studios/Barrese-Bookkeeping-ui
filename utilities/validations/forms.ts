@@ -1,11 +1,11 @@
-import { isAfter } from 'date-fns'
 import {
     VALID_EMAIL,
     VALID_ALPHA_STRING,
     VALID_ALPHA_NUMERIC,
     VALID_PASSWORD,
     VALID_ALPHA_NUMERIC_WITH_SPACES,
-    VALID_FLOATS
+    VALID_FLOATS,
+    VALID_ALPHA_NUMERIC_SPACES_SPECIALS
 } from './regex'
 
 const validEmail = {
@@ -33,6 +33,12 @@ const validAlphaNumericWithSpaces = {
     message: 'Field can only contain alpha numeric characters & spaces'
 }
 
+const validAlphaNumericSpacesSpecials = {
+    test: (value: string) => VALID_ALPHA_NUMERIC_SPACES_SPECIALS.test(value),
+    message:
+        'Field can contain alpha numeric and special characters, as well as spaces.'
+}
+
 const validPassword = {
     test: (value: string) => VALID_PASSWORD.test(value),
     message:
@@ -44,6 +50,7 @@ const FormValidations = {
     validAlphaString,
     validAlphaNumeric,
     validAlphaNumericWithSpaces,
+    validAlphaNumericSpacesSpecials,
     validPassword,
     validFloat
 }

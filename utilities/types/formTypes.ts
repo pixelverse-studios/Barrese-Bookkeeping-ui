@@ -43,10 +43,6 @@ interface ResetPasswordProps {
     confirmPassword: stringInputType
 }
 
-interface UpdateProjectTitleProps {
-    projectTitle: stringInputType
-}
-
 interface ResetValidationProps {
     [newPassword: string]: validationType
     confirmPassword: validationType
@@ -60,8 +56,11 @@ interface ForgotValidationProps {
     [email: string]: validationType
 }
 
-interface ProjectPhaseProps {
-    updatedCostEstimate: numberInputType
+interface CtaFormProps {
+    [image: string]: stringInputType
+    heading: stringInputType
+    description: stringInputType
+    buttonLabel: stringInputType
 }
 
 export type RegisterProps =
@@ -75,5 +74,4 @@ export type FormProps =
     | LoginFormProps
     | ResetPasswordProps
     | ForgotPasswordProps
-    | UpdateProjectTitleProps
-    | ProjectPhaseProps
+    | CtaFormProps
