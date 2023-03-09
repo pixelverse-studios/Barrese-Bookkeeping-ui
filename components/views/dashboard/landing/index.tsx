@@ -96,8 +96,52 @@ const Landing = () => {
         handleReset()
     }
 
+    const [editLanding] = useMutation(EDIT_LANDING, {
+        onCompleted({ editLanding: data }) {
+            if (data.__typename === 'Errors') {
+                dispatch(
+                    showBanner({
+                        message: data.message,
+                        type: data.__typename
+                    })
+                )
+            } else {
+                const cta = { ...data.callToAction }
+
+                delete cta.__typename
+                delete cta.successType
+
+                dispatch(setLanding(cta))
+
+                dispatch(
+                    showBanner({
+                        message: 'Landing PAge has been updated!',
+                        type: data.__typename
+                    })
+                )
+            }
+            setFormLoading(false)
+        },
+        onError(err: any) {
+            setFormLoading(false)
+            dispatch(showTechnicalDifficultiesBanner())
+        },
+        variables: {
+            cmsId: id,
+            input: {
+                heroImage: form.heroImage.value,
+                heroBannerH1: form.heroBannerH1.value,
+                heroBannerH2: form.heroBannerH2.value,
+                subtext: form.subtext.value
+            }
+        }
+    })
+
     return (
-        <StyledLandingWidgtForm>
+        <StyledLandingWidgtForm
+            onSubmit={(event: FormEvent<HTMLFormElement>) =>
+                handleFormSubmit(event, editLanding)
+            }>
             <FileUpload
                 loading={imgLoading}
                 name="profilePic"

@@ -118,6 +118,7 @@ const PageWrapper = ({ children }: { children: any }) => {
                         dispatch(setFooter(value))
                         break
                     case LANDING:
+                        console.log(value)
                         dispatch(setLanding(value))
                         break
                     case NEWSLETTER:
