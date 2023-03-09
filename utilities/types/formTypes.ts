@@ -63,6 +63,13 @@ interface CtaFormProps {
     buttonLabel: stringInputType
 }
 
+interface LandingFormProps {
+    [heroImage: string]: stringInputType
+    heroBannerH1: stringInputType
+    heroBannerH2: stringInputType
+    subtext: stringInputType
+}
+
 export type RegisterProps =
     | RegisterValidationProps
     | LoginValidationProps
@@ -75,3 +82,4 @@ export type FormProps =
     | ResetPasswordProps
     | ForgotPasswordProps
     | CtaFormProps
+    | LandingFormProps

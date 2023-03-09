@@ -1,7 +1,9 @@
 import type { NextPage } from 'next'
 
+import Landing from '@/components/views/dashboard/landing'
+
 const DashboardLandingPage: NextPage = () => {
-    return <div>dashboard landing</div>
+    return <Landing />
 }
 
 export default DashboardLandingPage

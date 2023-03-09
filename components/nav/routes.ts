@@ -15,11 +15,11 @@ export const NavRoutes: RouteItem[] = [
         label: 'Services',
         type: 'link'
     },
-    {
-        path: '/blog',
-        label: 'Blog',
-        type: 'link'
-    },
+    // {
+    //     path: '/blog',
+    //     label: 'Blog',
+    //     type: 'link'
+    // },
     {
         path: '/faqs',
         label: 'FAQs',

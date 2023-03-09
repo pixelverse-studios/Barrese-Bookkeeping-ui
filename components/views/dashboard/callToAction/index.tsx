@@ -17,7 +17,7 @@ import {
 import { FormRow, TextField, FileUpload } from '@/components/form'
 import FormValidations from '@/utilities/validations/forms'
 import useForm from '@/utilities/hooks/useForm'
-import { StyledCtaForm, StyledCtaFields, StyledCtaUploadPic } from './StyledCTA'
+import { StyledCtaForm, StyledCtaFields } from './StyledCTAWidget'
 
 const INITIAL_STATE = {
     image: { value: '', error: '' },
@@ -33,7 +33,7 @@ const VALIDATIONS = {
     buttonLabel: FormValidations.validAlphaNumericWithSpaces
 }
 
-const CallToAction = () => {
+const CallToActionWidget = () => {
     const dispatch = useDispatch()
     const { id } = useSelector((state: any) => state.cmsData)
     const { image, heading, description, buttonLabel } = useSelector(
@@ -135,16 +135,14 @@ const CallToAction = () => {
             onSubmit={(event: FormEvent<HTMLFormElement>) =>
                 handleFormSubmit(event, editCallToAction)
             }>
-            <StyledCtaUploadPic>
-                <FileUpload
-                    loading={imgLoading}
-                    name="profilePic"
-                    id="profilePic"
-                    onUpload={handleImageUpload}
-                    value={form.image.value}
-                    clearValue={handleImageClear}
-                />
-            </StyledCtaUploadPic>
+            <FileUpload
+                loading={imgLoading}
+                name="profilePic"
+                id="profilePic"
+                onUpload={handleImageUpload}
+                value={form.image.value}
+                clearValue={handleImageClear}
+            />
             <StyledCtaFields>
                 <FormRow>
                     <TextField
@@ -195,4 +193,4 @@ const CallToAction = () => {
     )
 }
 
-export default CallToAction
+export default CallToActionWidget

@@ -14,6 +14,7 @@
     --footer-height: 15rem;
     --footer-background: var(--Primary-accent-color);
     --footer-font-color: var(--Primary-brand-color);
+    --max-content-width: 1000px;
     --mobile-breakpoint: 750px;
     --max-desktop-width: 80vw;
 
@@ -56,6 +57,7 @@ body {
     font-family: Gordita, sans-serif;
     color: var(--Primary-brand-color);
     overflow-x: hidden !important;
+    /* background-color: #e0e0e0; */
 }
 
 h1 {

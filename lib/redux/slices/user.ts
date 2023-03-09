@@ -2,10 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { ProfileProps } from '@/utilities/types/userTypes'
 import { JWT_SECRET } from '@/utilities/constants'
-import { removeCmsData } from './cms'
 
 export const logout = (dispatch: Function, router: any) => {
-    dispatch(removeCmsData())
     dispatch(removeProfile())
     router.push('/')
     localStorage.removeItem(JWT_SECRET)
