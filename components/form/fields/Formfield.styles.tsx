@@ -12,7 +12,6 @@ export const StyledFileUpload = styled.div`
 
     img,
     .skelly {
-        /* width: 65%; */
         border-radius: 50%;
         margin: auto;
         border: 6px solid #f8f8f8;
@@ -20,10 +19,6 @@ export const StyledFileUpload = styled.div`
         height: 13rem;
         object-fit: contain;
     }
-
-    /* .skelly {
-        height: 13rem;
-    } */
 
     input {
         width: 0.1px;
