@@ -21,6 +21,8 @@ import {
     StyledLandingWidgtForm,
     StyledLandingFields
 } from './StyledLandingWidget'
+import { StyledUploadContainer } from '@/components/form/fields/Formfield.styles'
+import { ButtonRow } from '@/components/form/Row.styles'
 
 const INITIAL_STATE = {
     heroImage: { value: '', error: '' },
@@ -142,14 +144,16 @@ const Landing = () => {
             onSubmit={(event: FormEvent<HTMLFormElement>) =>
                 handleFormSubmit(event, editLanding)
             }>
-            <FileUpload
-                loading={imgLoading}
-                name="profilePic"
-                id="profilePic"
-                onUpload={handleImageUpload}
-                value={form.heroImage.value}
-                clearValue={handleImageClear}
-            />
+            <StyledUploadContainer>
+                <FileUpload
+                    loading={imgLoading}
+                    name="profilePic"
+                    id="profilePic"
+                    onUpload={handleImageUpload}
+                    value={form.heroImage.value}
+                    clearValue={handleImageClear}
+                />
+            </StyledUploadContainer>
             <StyledLandingFields>
                 <TextField
                     field={form.heroBannerH1}
@@ -179,7 +183,7 @@ const Landing = () => {
                     disabled={formLoading}
                 />
             </StyledLandingFields>
-            <FormRow>
+            <ButtonRow>
                 <LoadingButton
                     type="submit"
                     loading={formLoading}
@@ -191,7 +195,7 @@ const Landing = () => {
                 <Button onClick={onResetClick} variant="outlined" color="error">
                     Reset
                 </Button>
-            </FormRow>
+            </ButtonRow>
         </StyledLandingWidgtForm>
     )
 }

@@ -18,6 +18,8 @@ import { FormRow, TextField, FileUpload } from '@/components/form'
 import FormValidations from '@/utilities/validations/forms'
 import useForm from '@/utilities/hooks/useForm'
 import { StyledCtaForm, StyledCtaFields } from './StyledCTAWidget'
+import { StyledUploadContainer } from '@/components/form/fields/Formfield.styles'
+import { ButtonRow } from '@/components/form/Row.styles'
 
 const INITIAL_STATE = {
     image: { value: '', error: '' },
@@ -135,14 +137,16 @@ const CallToActionWidget = () => {
             onSubmit={(event: FormEvent<HTMLFormElement>) =>
                 handleFormSubmit(event, editCallToAction)
             }>
-            <FileUpload
-                loading={imgLoading}
-                name="profilePic"
-                id="profilePic"
-                onUpload={handleImageUpload}
-                value={form.image.value}
-                clearValue={handleImageClear}
-            />
+            <StyledUploadContainer>
+                <FileUpload
+                    loading={imgLoading}
+                    name="profilePic"
+                    id="profilePic"
+                    onUpload={handleImageUpload}
+                    value={form.image.value}
+                    clearValue={handleImageClear}
+                />
+            </StyledUploadContainer>
             <StyledCtaFields>
                 <FormRow>
                     <TextField
@@ -176,7 +180,7 @@ const CallToActionWidget = () => {
                     />
                 </FormRow>
             </StyledCtaFields>
-            <FormRow>
+            <ButtonRow>
                 <LoadingButton
                     type="submit"
                     loading={formLoading}
@@ -188,7 +192,7 @@ const CallToActionWidget = () => {
                 <Button onClick={handleReset} variant="outlined" color="error">
                     Reset
                 </Button>
-            </FormRow>
+            </ButtonRow>
         </StyledCtaForm>
     )
 }
