@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import { logout } from '@/lib/redux/slices/user'
 
-const useLogout = () => {
+const useLogout: Function = () => {
     const dispatch = useDispatch()
     const router = useRouter()
 

@@ -4,8 +4,8 @@ import { Button } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
 import { useMutation } from '@apollo/client'
 
-import { EDIT_CTA } from '@/lib/gql/mutations/cms'
-import { setCallToAction } from '@/lib/redux/slices/exports'
+import { EDIT_LANDING } from '@/lib/gql/mutations/cms'
+import { setLanding } from '@/lib/redux/slices/landing'
 import {
     showBanner,
     showTechnicalDifficultiesBanner
@@ -17,27 +17,30 @@ import {
 import { FormRow, TextField, FileUpload } from '@/components/form'
 import FormValidations from '@/utilities/validations/forms'
 import useForm from '@/utilities/hooks/useForm'
-import { StyledCtaForm, StyledCtaFields } from './StyledCTAWidget'
+import {
+    StyledLandingWidgtForm,
+    StyledLandingFields
+} from './StyledLandingWidget'
 
 const INITIAL_STATE = {
-    image: { value: '', error: '' },
-    heading: { value: '', error: '' },
-    description: { value: '', error: '' },
-    buttonLabel: { value: '', error: '' }
+    heroImage: { value: '', error: '' },
+    heroBannerH1: { value: '', error: '' },
+    heroBannerH2: { value: '', error: '' },
+    subtext: { value: '', error: '' }
 }
 
 const VALIDATIONS = {
-    image: FormValidations.validAlphaNumeric,
-    heading: FormValidations.validAlphaNumericWithSpaces,
-    description: FormValidations.validAlphaNumericSpacesSpecials,
-    buttonLabel: FormValidations.validAlphaNumericWithSpaces
+    heroImage: FormValidations.validAlphaNumeric,
+    heroBannerH1: FormValidations.validAlphaNumericSpacesSpecials,
+    heroBannerH2: FormValidations.validAlphaNumericSpacesSpecials,
+    subtext: FormValidations.validAlphaNumericSpacesSpecials
 }
 
-const CallToActionWidget = () => {
+const Landing = () => {
     const dispatch = useDispatch()
     const { id } = useSelector((state: any) => state.cmsData)
-    const { image, heading, description, buttonLabel } = useSelector(
-        (state: any) => state.callToAction
+    const { heroImage, heroBannerH1, heroBannerH2, subtext } = useSelector(
+        (state: any) => state.landing
     )
 
     const {
@@ -53,12 +56,10 @@ const CallToActionWidget = () => {
     } = useForm(INITIAL_STATE, VALIDATIONS)
 
     useEffect(() => {
-        handleImport({ image, heading, description, buttonLabel })
+        handleImport({ heroImage, heroBannerH1, heroBannerH2, subtext })
     }, [])
 
     const [imgLoading, setImgLoading] = useState<boolean>(false)
-
-    const handleImageClear = () => handleNonFormEventChange(image, 'image')
 
     const handleImageUpload = async ({
         base64,
@@ -66,13 +67,13 @@ const CallToActionWidget = () => {
     }: CloudinaryCreationProps) => {
         setImgLoading(true)
         try {
-            const ctaImage = await onImageUpload({
-                context: 'cta-image',
+            const newHero = await onImageUpload({
+                context: 'landing-hero',
                 base64,
                 filename
             })
 
-            handleNonFormEventChange(ctaImage, 'image')
+            handleNonFormEventChange(newHero, 'heroImage')
             setImgLoading(false)
             return true
         } catch (error) {
@@ -89,8 +90,14 @@ const CallToActionWidget = () => {
         }
     }
 
-    const [editCallToAction] = useMutation(EDIT_CTA, {
-        onCompleted({ editCallToAction: data }) {
+    const handleImageClear = () => handleNonFormEventChange(null, 'heroImage')
+    const onResetClick = () => {
+        handleImageClear()
+        handleReset()
+    }
+
+    const [editLanding] = useMutation(EDIT_LANDING, {
+        onCompleted({ editLanding: data }) {
             if (data.__typename === 'Errors') {
                 dispatch(
                     showBanner({
@@ -99,16 +106,16 @@ const CallToActionWidget = () => {
                     })
                 )
             } else {
-                const cta = { ...data.callToAction }
+                const landing = { ...data.landing }
 
-                delete cta.__typename
-                delete cta.successType
+                delete landing.__typename
+                delete landing.successType
 
-                dispatch(setCallToAction(cta))
+                dispatch(setLanding(landing))
 
                 dispatch(
                     showBanner({
-                        message: 'Call To Action has been updated!',
+                        message: 'Landing PAge has been updated!',
                         type: data.__typename
                     })
                 )
@@ -122,60 +129,56 @@ const CallToActionWidget = () => {
         variables: {
             cmsId: id,
             input: {
-                image: form.image.value,
-                heading: form.heading.value,
-                description: form.description.value,
-                buttonLabel: form.buttonLabel.value
+                heroImage: form.heroImage.value,
+                heroBannerH1: form.heroBannerH1.value,
+                heroBannerH2: form.heroBannerH2.value,
+                subtext: form.subtext.value
             }
         }
     })
 
     return (
-        <StyledCtaForm
+        <StyledLandingWidgtForm
             onSubmit={(event: FormEvent<HTMLFormElement>) =>
-                handleFormSubmit(event, editCallToAction)
+                handleFormSubmit(event, editLanding)
             }>
             <FileUpload
                 loading={imgLoading}
                 name="profilePic"
                 id="profilePic"
                 onUpload={handleImageUpload}
-                value={form.image.value}
+                value={form.heroImage.value}
                 clearValue={handleImageClear}
             />
-            <StyledCtaFields>
-                <FormRow>
-                    <TextField
-                        field={form.heading}
-                        type="text"
-                        id="heading"
-                        name="heading"
-                        label="Header"
-                        onChange={handleChange}
-                        disabled={formLoading}
-                    />
-                    <TextField
-                        field={form.buttonLabel}
-                        type="text"
-                        id="buttonLabel"
-                        name="buttonLabel"
-                        label="Button Label"
-                        onChange={handleChange}
-                        disabled={formLoading}
-                    />
-                </FormRow>
-                <FormRow>
-                    <TextField
-                        field={form.description}
-                        type="textarea"
-                        id="description"
-                        name="description"
-                        label="Description"
-                        onChange={handleChange}
-                        disabled={formLoading}
-                    />
-                </FormRow>
-            </StyledCtaFields>
+            <StyledLandingFields>
+                <TextField
+                    field={form.heroBannerH1}
+                    type="text"
+                    id="heroBannerH1"
+                    name="heroBannerH1"
+                    label="Primary Hero Banner"
+                    onChange={handleChange}
+                    disabled={formLoading}
+                />
+                <TextField
+                    field={form.heroBannerH2}
+                    type="text"
+                    id="heroBannerH2"
+                    name="heroBannerH2"
+                    label="Secondary Hero Banner"
+                    onChange={handleChange}
+                    disabled={formLoading}
+                />
+                <TextField
+                    field={form.subtext}
+                    type="text"
+                    id="subtext"
+                    name="subtext"
+                    label="Subtext"
+                    onChange={handleChange}
+                    disabled={formLoading}
+                />
+            </StyledLandingFields>
             <FormRow>
                 <LoadingButton
                     type="submit"
@@ -185,12 +188,12 @@ const CallToActionWidget = () => {
                     variant="outlined">
                     Submit
                 </LoadingButton>
-                <Button onClick={handleReset} variant="outlined" color="error">
+                <Button onClick={onResetClick} variant="outlined" color="error">
                     Reset
                 </Button>
             </FormRow>
-        </StyledCtaForm>
+        </StyledLandingWidgtForm>
     )
 }
 
-export default CallToActionWidget
+export default Landing

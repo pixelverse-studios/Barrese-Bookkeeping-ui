@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 
-import CallToAction from '@/components/views/dashboard/callToAction'
+import CallToActionWidget from '@/components/views/dashboard/callToAction'
 
 const DashboardCtaPage: NextPage = () => {
-    return <CallToAction />
+    return <CallToActionWidget />
 }
 
 export default DashboardCtaPage

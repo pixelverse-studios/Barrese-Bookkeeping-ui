@@ -13,11 +13,11 @@ export const StyledDashboardPage = styled.section`
         grid-gap: 1rem 0;
 
         .dashboardContent {
+            max-width: var(--max-content-width);
             padding: 1rem;
             display: flex;
             flex-direction: column;
             gap: 2rem;
-            max-width: 1400px;
             width: 100% #000;
         }
     }

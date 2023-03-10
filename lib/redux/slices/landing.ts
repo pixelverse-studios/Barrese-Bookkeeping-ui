@@ -1,7 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export const initialState = {
-    contactLinks: null
+    heroImage: '',
+    heroBannerH1: '',
+    heroBannerH2: '',
+    subtext: ''
 }
 
 export const landingSlice = createSlice({
@@ -9,7 +12,10 @@ export const landingSlice = createSlice({
     initialState,
     reducers: {
         setLanding: (state, { payload }) => {
-            state.contactLinks = payload
+            state.heroImage = payload.heroImage
+            state.heroBannerH1 = payload.heroBannerH1
+            state.heroBannerH2 = payload.heroBannerH2
+            state.subtext = payload.subtext
         }
     }
 })

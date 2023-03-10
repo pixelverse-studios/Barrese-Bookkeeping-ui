@@ -12,15 +12,12 @@ export const StyledFileUpload = styled.div`
 
     img,
     .skelly {
-        width: 65%;
         border-radius: 50%;
         margin: auto;
         border: 6px solid #f8f8f8;
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-    }
-
-    .skelly {
         height: 13rem;
+        object-fit: contain;
     }
 
     input {
@@ -57,6 +54,7 @@ export const StyledFileUpload = styled.div`
     }
 
     .fileName {
+        height: 100%;
         line-height: 24px;
         font-size: 0.9rem;
         overflow: hidden;

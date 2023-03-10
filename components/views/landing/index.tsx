@@ -1,4 +1,6 @@
 import { useRef } from 'react'
+import { useSelector } from 'react-redux'
+
 import Button from '@/components/button'
 import ServiceCard from '@/components/ServiceCard'
 
@@ -26,6 +28,10 @@ const ServiceData = [
 ]
 
 const Landing = () => {
+    const { heroImage, heroBannerH1, heroBannerH2, subtext } = useSelector(
+        (state: any) => state.landing
+    )
+    const { buttonLabel } = useSelector((state: any) => state.callToAction)
     const serviceRef = useRef<HTMLDivElement>(null)
     const scrollToService = () => {
         if (serviceRef.current)
@@ -34,22 +40,18 @@ const Landing = () => {
             })
     }
     return (
-        <StyledLanding>
-            {/* Image Section */}
+        <StyledLanding backgroundImg={heroImage}>
             <div className="hero">
                 <div className="overlay">
                     <div className="overlay-text">
                         <div className="title-container">
-                            <h1>Outsourced</h1>
-                            <h1>Accounting</h1>
-                            <h2>Services</h2>
+                            <h1>{heroBannerH1}</h1>
+                            <h2>{heroBannerH2}</h2>
                         </div>
-
                         <div className="subtitle-container">
-                            <h3>For SF Bay Area</h3>
-                            <h3>Small Businesses</h3>
+                            <h3>{subtext}</h3>
                         </div>
-                        <Button label="BOOK CONSULTACHE" route="/contact" />
+                        <Button label={buttonLabel} route="/contact" />
                     </div>
                     <div className="downArrows" onClick={scrollToService}>
                         <span className="arrow" />
@@ -58,7 +60,6 @@ const Landing = () => {
                     </div>
                 </div>
             </div>
-            {/* Service Section */}
             <div ref={serviceRef} className="services">
                 <h1>Outsourced Accounting</h1>
                 <h2>For Small Businesses</h2>
