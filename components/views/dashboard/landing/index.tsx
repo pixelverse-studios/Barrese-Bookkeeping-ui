@@ -106,12 +106,12 @@ const Landing = () => {
                     })
                 )
             } else {
-                const cta = { ...data.callToAction }
+                const landing = { ...data.landing }
 
-                delete cta.__typename
-                delete cta.successType
+                delete landing.__typename
+                delete landing.successType
 
-                dispatch(setLanding(cta))
+                dispatch(setLanding(landing))
 
                 dispatch(
                     showBanner({
