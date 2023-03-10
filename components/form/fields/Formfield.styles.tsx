@@ -12,17 +12,18 @@ export const StyledFileUpload = styled.div`
 
     img,
     .skelly {
-        width: 65%;
+        /* width: 65%; */
         border-radius: 50%;
         margin: auto;
         border: 6px solid #f8f8f8;
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-        min-height: 13rem;
+        height: 13rem;
+        object-fit: contain;
     }
 
-    .skelly {
+    /* .skelly {
         height: 13rem;
-    }
+    } */
 
     input {
         width: 0.1px;

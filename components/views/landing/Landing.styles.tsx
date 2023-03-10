@@ -1,6 +1,10 @@
 import styled from '@emotion/styled'
 
-export const StyledLanding = styled.section`
+type LandingPageTypes = {
+    backgroundImg: string
+}
+
+export const StyledLanding = styled.section<LandingPageTypes>`
     width: 100vw;
     h1 {
         font-size: 6.4rem;
@@ -9,11 +13,11 @@ export const StyledLanding = styled.section`
         position: relative;
         height: 100vh;
         width: 100vw;
-        background: linear-gradient(black, black),
-            url('https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80')
-                no-repeat center center/cover;
+        background: ${props => `url(${props.backgroundImg})`};
+        background-size: cover;
         background-blend-mode: saturation;
         margin: 0;
+
         .overlay {
             background-color: var(--Secondary-opaque-color);
             height: 100%;
@@ -23,6 +27,7 @@ export const StyledLanding = styled.section`
             align-items: center;
             justify-content: center;
             align-content: center;
+
             .downArrows {
                 position: absolute;
                 bottom: 4rem;
@@ -31,6 +36,7 @@ export const StyledLanding = styled.section`
                 display: grid;
                 place-items: center;
                 cursor: pointer;
+
                 .arrow {
                     display: inline-block;
                     width: 50%;
@@ -41,24 +47,35 @@ export const StyledLanding = styled.section`
                     border-width: 0 5px 5px 0;
                     transform: rotate(45deg);
                 }
+
                 span:nth-of-type(2) {
                     animation: down1 1.6s ease-in infinite;
                 }
+
                 span:nth-of-type(3) {
                     animation: down2 1.6s ease-in infinite;
                 }
             }
+
             .overlay-text {
                 width: var(--max-desktop-width);
                 padding: var(--content-padding);
                 padding-top: var(--nav-height);
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                button {
+                    width: 10rem;
+                }
             }
+
             .title-container {
                 display: flex;
                 flex-direction: column;
                 width: fit-content;
                 border-bottom: 3px solid var(--Off-brand-color);
-                padding-bottom: 1rem;
+
                 h1 {
                     font-size: 5rem;
                     color: var(--Off-brand-color);
@@ -67,10 +84,12 @@ export const StyledLanding = styled.section`
                 h2 {
                     font-size: 3rem;
                 }
+
                 @media only screen and (max-width: 750px) {
                     h1 {
                         font-size: 2.5rem;
                     }
+
                     h2 {
                         font-size: 2rem;
                     }
@@ -121,18 +140,14 @@ export const StyledLanding = styled.section`
 
     @media only screen and (max-width: 1350px) {
         .hero {
-            .overlay {
+            .overlay-text {
                 display: flex;
-                .overlay-text {
-                    display: flex;
-                    align-content: center;
-                    flex-direction: column;
-                    align-items: center;
-                    height: 100%;
-                    width: fit-content;
-                    justify-content: center;
-                    padding: 0;
-                }
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: fit-content;
+                gap: 1rem;
             }
         }
         .services {

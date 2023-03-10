@@ -33,7 +33,7 @@ const VALIDATIONS = {
     heroImage: FormValidations.validAlphaNumeric,
     heroBannerH1: FormValidations.validAlphaNumericSpacesSpecials,
     heroBannerH2: FormValidations.validAlphaNumericSpacesSpecials,
-    subtext: FormValidations.validAlphaNumericWithSpaces
+    subtext: FormValidations.validAlphaNumericSpacesSpecials
 }
 
 const Landing = () => {
