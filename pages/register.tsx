@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 
-import Login from '@/components/views/auth/Login'
+import Register from '@/components/views/auth/Register'
 
 const RegisterPage: NextPage = () => {
-    return <div>register</div>
+    return <Register />
 }
 
 export default RegisterPage
