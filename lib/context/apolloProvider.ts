@@ -6,7 +6,7 @@ import { JWT_SECRET } from '@/utilities/constants'
 const URI =
     process.env.NODE_ENV === 'development'
         ? 'http://localhost:5001/graphql'
-        : 'TODO'
+        : 'https://bbk-xbcx2.ondigitalocean.app/graphql'
 const httpLink = new HttpLink({ uri: URI })
 const authLink = setContext((_, { headers }) => {
     const token = localStorage.getItem(JWT_SECRET)
