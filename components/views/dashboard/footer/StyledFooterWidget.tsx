@@ -39,7 +39,9 @@ export const StyledFooterFields = styled.div<FooterFieldsTypes>`
 
 export const StyledFooterField = styled.div`
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+
+    align-items: center;
     gap: 1.5rem;
 
     span {

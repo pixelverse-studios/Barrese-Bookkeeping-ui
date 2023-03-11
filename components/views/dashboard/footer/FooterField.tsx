@@ -6,7 +6,8 @@ import {
     Instagram,
     Facebook,
     Reddit,
-    QuestionMark
+    QuestionMark,
+    Delete
 } from '@mui/icons-material'
 import {
     TextField as MuiTextField,
@@ -90,11 +91,11 @@ const FooterField = ({
             </AccordionSummary>
             <AccordionDetails>
                 <StyledFooterField color={currentItem.color}>
-                    {isCurrentlyExpanded ? (
+                    {/* {isCurrentlyExpanded ? (
                         <span>Edit your {title} URL</span>
                     ) : (
                         ''
-                    )}
+                    )} */}
                     <div className="inputs">
                         <SocialMediaDropdown value={title} />
                         <TextField
@@ -106,6 +107,7 @@ const FooterField = ({
                             onChange={() => console.log('skr')}
                         />
                     </div>
+                    <Delete className="deleteItem" />
                 </StyledFooterField>
             </AccordionDetails>
         </Accordion>
