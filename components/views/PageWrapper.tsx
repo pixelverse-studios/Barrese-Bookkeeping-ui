@@ -115,7 +115,7 @@ const PageWrapper = ({ children }: { children: any }) => {
                         dispatch(setFaqs(value))
                         break
                     case FOOTER:
-                        dispatch(setFooter(value))
+                        dispatch(setFooter(value.contactLinks))
                         break
                     case LANDING:
                         dispatch(setLanding(value))

@@ -1,7 +1,9 @@
 import type { NextPage } from 'next'
 
+import FooterWidget from '@/components/views/dashboard/footer'
+
 const DashboardFooterPage: NextPage = () => {
-    return <div>dashboard footer</div>
+    return <FooterWidget />
 }
 
 export default DashboardFooterPage
