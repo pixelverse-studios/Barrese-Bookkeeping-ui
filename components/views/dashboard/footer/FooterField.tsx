@@ -22,7 +22,7 @@ import { TextField } from '@/components/form'
 
 import { StyledFooterField } from './StyledFooterWidget'
 
-const iconOptions = [
+export const footerOptions = [
     { icon: <Email className="email" />, value: 'Email', className: 'email' },
     {
         icon: <Facebook className="facebook" />,
@@ -70,7 +70,7 @@ const SocialMediaDropdown = ({
         onChange={onChange}
         value={value}
         label="Icon">
-        {iconOptions.map(option => (
+        {footerOptions.map(option => (
             <MenuItem
                 key={option.value}
                 value={option.value}
@@ -105,7 +105,9 @@ const FooterField = ({
     handleDelete
 }: FooterFieldProps) => {
     const isCurrentlyExpanded = expanded.includes(id)
-    const currentItem = iconOptions.filter(item => item.value === title)[0] as {
+    const currentItem = footerOptions.filter(
+        item => item.value === title
+    )[0] as {
         icon: any
         value: string
         className: string
