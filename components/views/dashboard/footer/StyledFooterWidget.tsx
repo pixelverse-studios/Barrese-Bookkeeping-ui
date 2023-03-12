@@ -26,14 +26,11 @@ export const StyledFooterFields = styled.div`
         display: flex;
         gap: 0.5rem;
         align-items: center;
+        cursor: pointer;
 
         svg {
             font-size: 1.5rem;
             color: var(--success-font);
-
-            &:hover {
-                cursor: pointer;
-            }
         }
 
         p {
@@ -59,7 +56,6 @@ export const StyledFooterField = styled.div`
 
             svg {
                 font-size: 2rem;
-                /* color: ${props => props.color || '#000'}; */
             }
 
             span {

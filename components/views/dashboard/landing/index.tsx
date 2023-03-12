@@ -21,11 +21,8 @@ import {
     StyledLandingWidgtForm,
     StyledLandingFields
 } from './StyledLandingWidget'
-<<<<<<< HEAD
 import { StyledUploadContainer } from '@/components/form/fields/Formfield.styles'
 import { ButtonRow } from '@/components/form/Row.styles'
-=======
->>>>>>> main
 
 const INITIAL_STATE = {
     heroImage: { value: '', error: '' },

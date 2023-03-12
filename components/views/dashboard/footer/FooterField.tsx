@@ -88,10 +88,11 @@ interface IconProps {
 }
 
 interface FooterFieldProps extends IconProps {
-    handleExpand: Function
-    expanded: number[]
     id: number
+    expanded: number[]
+    handleExpand: Function
     handleFormChange: Function
+    handleDelete: Function
 }
 
 const FooterField = ({
@@ -100,7 +101,8 @@ const FooterField = ({
     id,
     handleExpand,
     expanded,
-    handleFormChange
+    handleFormChange,
+    handleDelete
 }: FooterFieldProps) => {
     const isCurrentlyExpanded = expanded.includes(id)
     const currentItem = iconOptions.filter(item => item.value === title)[0] as {
@@ -151,7 +153,10 @@ const FooterField = ({
                             onChange={onLinkChange}
                         />
                     </div>
-                    <Delete className="deleteItem" />
+                    <Delete
+                        className="deleteItem"
+                        onClick={() => handleDelete(id)}
+                    />
                 </AccordionDetails>
             </Accordion>
         </StyledFooterField>

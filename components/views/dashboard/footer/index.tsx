@@ -1,10 +1,25 @@
-import { useState, useEffect, SyntheticEvent, ChangeEvent } from 'react'
+import {
+    useState,
+    useEffect,
+    SyntheticEvent,
+    ChangeEvent,
+    FormEvent
+} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { LoadingButton } from '@mui/lab'
 import { Switch } from '@mui/material'
 import { AddCircle } from '@mui/icons-material'
+import { useMutation } from '@apollo/client'
 
+import { EDIT_FOOTER } from '@/lib/gql/mutations/cms'
+import { setFooter } from '@/lib/redux/slices/footer'
+import {
+    showBanner,
+    showTechnicalDifficultiesBanner
+} from '@/lib/redux/slices/banner'
 import FooterField from './FooterField'
 import { StyledFooterForm, StyledFooterFields } from './StyledFooterWidget'
+import { ButtonRow } from '@/components/form/Row.styles'
 
 interface contactLinkType {
     icon: any
@@ -23,6 +38,7 @@ const FooterWidget = () => {
     const { id } = useSelector((state: any) => state.cmsData)
     const { contactLinks } = useSelector((state: any) => state.footer)
 
+    const [formLoading, setFormLoading] = useState<boolean>(false)
     const [form, setForm] = useState<contactLinkType[]>([])
 
     useEffect(() => {
@@ -64,7 +80,8 @@ const FooterWidget = () => {
         newForm.push(newContactType)
         setForm(newForm)
 
-        setExpanded([...expanded, expanded.length + 1])
+        const newExpanded = [...expanded, expanded.length + 1]
+        setExpanded(newExpanded)
     }
 
     const handleFormChange = ({
@@ -96,51 +113,106 @@ const FooterWidget = () => {
     }
 
     const handleDelete = (id: number) => {
-        const formCopy = [...form]
-        delete formCopy[id]
-        setForm()
+        const editedForm = [...form]
+        editedForm.splice(id, 1)
+        setForm(editedForm)
+
+        setExpanded([...expanded].filter(item => item !== id))
+    }
+
+    const [editFooter] = useMutation(EDIT_FOOTER, {
+        onCompleted({ editFooter: data }) {
+            if (data.__typename === 'Errors') {
+                dispatch(
+                    showBanner({
+                        message: data.message,
+                        type: data.__typename
+                    })
+                )
+            } else {
+                const footer = { ...data.footer }
+
+                delete footer.__typename
+                delete footer.successType
+
+                dispatch(setFooter(footer.contactLinks))
+
+                dispatch(
+                    showBanner({
+                        message: 'Footer has been updated!',
+                        type: data.__typename
+                    })
+                )
+            }
+            setFormLoading(false)
+        },
+        onError(err: any) {
+            setFormLoading(false)
+            dispatch(showTechnicalDifficultiesBanner())
+        }
+    })
+
+    const onFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        setFormLoading(true)
+        const payload = form.map(item => ({
+            link: item.link,
+            icon: item.icon,
+            title: item.title
+        }))
+
+        await editFooter({
+            variables: {
+                cmsId: id,
+                input: {
+                    contactLinks: payload
+                }
+            }
+        })
+        setFormLoading(false)
+        setExpandAll(false)
+        setExpanded([])
     }
 
     return (
-        <StyledFooterForm>
+        <StyledFooterForm onSubmit={onFormSubmit}>
             <div className="formHeader">
                 <h4>Contact & Social Media Links</h4>
                 <Switch checked={expandAll} onChange={handleCheckAll} />
             </div>
             <StyledFooterFields>
-                {form?.length
-                    ? form.map(
-                          (
-                              {
-                                  icon,
-                                  link,
-                                  title
-                              }: {
-                                  icon: string
-                                  link: string
-                                  title: string
-                              },
-                              key
-                          ) => (
+                <>
+                    {form?.length
+                        ? form.map((item, key): {} => (
                               <FooterField
                                   key={key}
                                   id={key}
-                                  icon={icon}
-                                  link={link}
-                                  title={title}
+                                  icon={item.icon}
+                                  link={item.link}
+                                  title={item.title}
                                   expanded={expanded}
                                   handleExpand={handleExpand}
                                   handleFormChange={handleFormChange}
                                   handleDelete={handleDelete}
                               />
-                          )
-                      )
-                    : null}
-                <div className="addItem">
-                    <AddCircle onClick={handleAddNewField} />
+                          ))
+                        : null}
+                </>
+                <div onClick={handleAddNewField} className="addItem">
+                    <AddCircle />
                     <p>Add a new contact or social media item</p>
                 </div>
             </StyledFooterFields>
+            <ButtonRow>
+                <LoadingButton
+                    type="submit"
+                    loading={formLoading}
+                    disabled={false}
+                    className="submit"
+                    variant="outlined">
+                    Submit
+                </LoadingButton>
+            </ButtonRow>
         </StyledFooterForm>
     )
 }
