@@ -20,9 +20,14 @@ export const StyledFileUpload = styled.div`
         margin: auto;
         border: 6px solid #f8f8f8;
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
         width: 14rem;
         height: 14rem;
         object-fit: fill;
+=======
+        height: 13rem;
+        object-fit: contain;
+>>>>>>> UI-1.0
     }
 
     input {
