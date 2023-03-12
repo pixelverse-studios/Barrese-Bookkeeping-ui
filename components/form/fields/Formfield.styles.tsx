@@ -50,7 +50,7 @@ export const StyledFileUpload = styled.div`
         background-color: white;
         border: 1px solid transparent;
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
-        transition: 0.2s ease-in-out;
+        transition: var(--transition);
 
         &:hover {
             background: #f1f1f1;

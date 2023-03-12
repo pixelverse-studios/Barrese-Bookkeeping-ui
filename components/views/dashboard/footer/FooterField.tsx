@@ -7,7 +7,8 @@ import {
     Facebook,
     Reddit,
     QuestionMark,
-    Delete
+    Delete,
+    Edit
 } from '@mui/icons-material'
 import {
     TextField as MuiTextField,
@@ -22,35 +23,59 @@ import { TextField } from '@/components/form'
 import { StyledFooterField } from './StyledFooterWidget'
 
 const iconOptions = [
-    { icon: <Email />, value: 'Email' },
-    { icon: <Facebook />, value: 'Facebook', color: '#4267B2' },
+    { icon: <Email className="email" />, value: 'Email', className: 'email' },
     {
-        icon: <Instagram />,
-        value: 'Instagram',
-        color: 'radial-gradient(circle at 50% 100%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);'
+        icon: <Facebook className="facebook" />,
+        value: 'Facebook',
+        className: 'facebook'
     },
-    { icon: <LinkedIn />, value: 'LinkedIn', color: '#0077b5' },
-    { icon: <Reddit />, value: 'Reddit', color: '#FF5700' },
-    { icon: <Twitter />, value: 'Twitter', color: '#1DA1F2' },
-    { icon: <QuestionMark />, value: 'New Icon' }
+    {
+        icon: <Instagram className="instagram" />,
+        value: 'Instagram',
+        className: 'instagram'
+    },
+    {
+        icon: <LinkedIn className="linkedin" />,
+        value: 'LinkedIn',
+        className: 'linkedin'
+    },
+    {
+        icon: <Reddit className="reddit" />,
+        value: 'Reddit',
+        className: 'reddit'
+    },
+    {
+        icon: <Twitter className="twitter" />,
+        value: 'Twitter',
+        className: 'twitter'
+    },
+    {
+        icon: <QuestionMark className="newIcon" />,
+        value: 'New Icon',
+        className: 'newIcon'
+    }
 ]
 
-// const getIcon: ReactNode | any = (title: string) => {
-//     const match = iconOptions.filter(icon => icon.value === title)
-//     if (match?.length) {
-//         return match[0].icon
-//     }
-
-//     console.log(title)
-//     return <QuestionMark />
-// }
-
-const SocialMediaDropdown = ({ value }: { value: string }) => (
-    <MuiTextField id="newSocialMedia" select value={value} label="Icon">
+const SocialMediaDropdown = ({
+    value,
+    onChange
+}: {
+    value: string
+    onChange: any
+}) => (
+    <MuiTextField
+        id="newSocialMedia"
+        className="selectIcon"
+        select
+        onChange={onChange}
+        value={value}
+        label="Icon">
         {iconOptions.map(option => (
-            <MenuItem key={option.value} value={option.value}>
+            <MenuItem
+                key={option.value}
+                value={option.value}
+                className={option.className}>
                 {option.icon}
-                {/* {getIcon(option.value)} */}
             </MenuItem>
         ))}
     </MuiTextField>
@@ -64,53 +89,72 @@ interface IconProps {
 
 interface FooterFieldProps extends IconProps {
     handleExpand: Function
-    expanded: string[]
+    expanded: number[]
+    id: number
+    handleFormChange: Function
 }
 
 const FooterField = ({
-    icon,
     link,
     title,
+    id,
     handleExpand,
-    expanded
+    expanded,
+    handleFormChange
 }: FooterFieldProps) => {
-    const isCurrentlyExpanded = expanded.includes(title)
+    const isCurrentlyExpanded = expanded.includes(id)
     const currentItem = iconOptions.filter(item => item.value === title)[0] as {
         icon: any
         value: string
-        color: string
+        className: string
     }
+    const currentId = `${title}-${id}`
+
+    const onIconChange = (e: any) =>
+        handleFormChange({
+            newValue: e.target.value,
+            type: 'icon',
+            id
+        })
+
+    const onLinkChange = (e: any) =>
+        handleFormChange({
+            newValue: e.target.value,
+            type: 'link',
+            id
+        })
 
     return (
-        <Accordion
-            expanded={isCurrentlyExpanded}
-            disableGutters
-            onChange={handleExpand(title)}>
-            <AccordionSummary className="accordianSummary">
-                {currentItem.icon}
-            </AccordionSummary>
-            <AccordionDetails>
-                <StyledFooterField color={currentItem.color}>
-                    {/* {isCurrentlyExpanded ? (
-                        <span>Edit your {title} URL</span>
-                    ) : (
-                        ''
-                    )} */}
+        <StyledFooterField>
+            <Accordion
+                expanded={isCurrentlyExpanded}
+                onChange={handleExpand(id)}>
+                <AccordionSummary
+                    className={`accordianSummary ${currentItem.className}`}>
+                    {currentItem.icon}
+                </AccordionSummary>
+                <AccordionDetails className="accordianDetails">
                     <div className="inputs">
-                        <SocialMediaDropdown value={title} />
+                        <SocialMediaDropdown
+                            value={title}
+                            onChange={onIconChange}
+                        />
                         <TextField
-                            field={{ value: '', error: '' }}
-                            id={title}
+                            field={{
+                                value: link,
+                                error: !link ? 'Link must be provided' : ''
+                            }}
+                            id={currentId}
                             name={title.toLowerCase()}
                             label={title}
                             type="text"
-                            onChange={() => console.log('skr')}
+                            onChange={onLinkChange}
                         />
                     </div>
                     <Delete className="deleteItem" />
-                </StyledFooterField>
-            </AccordionDetails>
-        </Accordion>
+                </AccordionDetails>
+            </Accordion>
+        </StyledFooterField>
     )
 }
 

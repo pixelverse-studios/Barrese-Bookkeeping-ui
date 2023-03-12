@@ -15,23 +15,28 @@ export const StyledFooterForm = styled.form`
         align-items: center;
     }
 `
-interface FooterFieldsTypes {
-    color: string
-}
-export const StyledFooterFields = styled.div<FooterFieldsTypes>`
-    .accordianSummary > .MuiAccordionSummary-content {
+
+export const StyledFooterFields = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .addItem {
+        margin-top: 1rem;
         display: flex;
-        gap: 2rem;
+        gap: 0.5rem;
         align-items: center;
 
         svg {
-            font-size: 2rem;
-            color: ${props => props.color || '#000'};
+            font-size: 1.5rem;
+            color: var(--success-font);
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
-        span {
-            font-size: 1rem;
-            font-weight: 600;
+        p {
             margin-top: 3px;
         }
     }
@@ -39,17 +44,92 @@ export const StyledFooterFields = styled.div<FooterFieldsTypes>`
 
 export const StyledFooterField = styled.div`
     display: flex;
-    justify-content: space-between;
+    width: 100%;
 
-    align-items: center;
-    gap: 1.5rem;
+    .MuiAccordion-root {
+        width: 100%;
+    }
+    .accordianSummary {
+        width: 100%;
 
-    span {
-        font-size: 1rem;
-        font-weight: 600;
-        margin-top: 3px;
+        .MuiAccordionSummary-content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+
+            svg {
+                font-size: 2rem;
+                /* color: ${props => props.color || '#000'}; */
+            }
+
+            span {
+                font-size: 1rem;
+                font-weight: 600;
+                margin-top: 3px;
+            }
+        }
     }
 
-    .inputs {
+    .accordianDetails {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .inputs {
+            & > div {
+                margin-right: 1rem;
+            }
+
+            .selectIcon {
+                .MuiSelect-select {
+                    padding: 0.8rem;
+                    padding-right: 24px;
+                }
+            }
+        }
+
+        .deleteItem {
+            cursor: pointer;
+            transition: var(--transition);
+            color: gray;
+
+            &:hover {
+                color: var(--error-font);
+            }
+        }
+    }
+
+    .instagram svg {
+        background: radial-gradient(
+            circle at 50% 100%,
+            #fdf497 0%,
+            #fdf497 5%,
+            #fd5949 45%,
+            #d6249f 60%,
+            #285aeb 90%
+        );
+        color: white;
+        border-radius: 5px;
+    }
+
+    .email svg,
+    .newIcon svg {
+        color: gray;
+    }
+
+    .facebook svg {
+        color: #4267b2;
+    }
+
+    .linkedin svg {
+        color: #0077b5;
+    }
+
+    .reddit svg {
+        color: #ff5700;
+    }
+
+    .twitter svg {
+        color: #1da1f2;
     }
 `

@@ -29,6 +29,8 @@
     --success-background: rgba(114, 255, 71, 0.95);
     --success-banner: #b7eb8f;
     --success-font: #3a9e1cf2;
+
+    --transition: 0.25s ease-in-out;
 }
 
 @font-face {

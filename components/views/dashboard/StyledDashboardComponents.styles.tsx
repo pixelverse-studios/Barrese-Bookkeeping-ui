@@ -47,7 +47,7 @@ export const StyledDashboardSideNav = styled.nav`
             margin: 1.5rem 0;
 
             a {
-                transition: 0.2s ease-in-out;
+                transition: var(--transition);
                 color: var(--Primary-accent-color);
 
                 &:hover {

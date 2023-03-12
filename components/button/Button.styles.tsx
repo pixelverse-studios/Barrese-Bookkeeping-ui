@@ -8,7 +8,7 @@ const StyledButton = styled.button`
     border-radius: 5px;
     color: var(--Off-brand-color);
     font-weight: 800;
-    transition: 0.3s ease-in-out;
+    transition: var(--transition);
 
     &:hover {
         background-color: var(--Primary-accent-color);
