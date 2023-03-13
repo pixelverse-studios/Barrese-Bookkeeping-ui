@@ -4,7 +4,6 @@ import CardStyles from '@/styles/components/StyledCard'
 
 export const StyledUploadContainer = styled.div`
     ${CardStyles}
-
     display: flex;
     flex-direction: column;
     gap: 1rem;
