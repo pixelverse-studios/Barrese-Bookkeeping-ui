@@ -17,7 +17,7 @@ import FormValidations from '../../../utilities/validations/forms'
 import { AppDispatch } from '../../../lib/redux/store'
 import { REGISTER } from '../../../lib/gql/mutations/users'
 import { setLoading, setProfile } from '../../../lib/redux/slices/user'
-import styles from './AuthPages.module.scss'
+import { StyledAuthPage } from './AuthPage.styles'
 
 const INITIAL_STATE = {
     firstName: { value: '', error: '' },
@@ -94,9 +94,9 @@ const Register = () => {
     }
 
     return (
-        <div className={styles.content}>
-            <div className={styles.formContainer}>
-                <h1 className={styles.header}>Register</h1>
+        <StyledAuthPage>
+            <div className="formContainer">
+                <h1 className="header">Register</h1>
                 <form onSubmit={handleSubmit}>
                     <fieldset disabled={user?.loading}>
                         <FormRow>
@@ -144,16 +144,13 @@ const Register = () => {
                             variant="outlined">
                             Submit
                         </LoadingButton>
-                        <div className={styles.option}>
-                            Already a user?
-                            <Link href="/login">
-                                <a className={styles.signIn}> Sign In</a>
-                            </Link>
+                        <div className="option">
+                            Already a user? <Link href="/login">Sign In</Link>
                         </div>
                     </fieldset>
                 </form>
             </div>
-        </div>
+        </StyledAuthPage>
     )
 }
 

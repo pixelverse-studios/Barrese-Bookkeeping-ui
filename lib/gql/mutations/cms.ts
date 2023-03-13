@@ -71,3 +71,19 @@ export const EDIT_LANDING = gql`
         }
     }
 `
+
+export const EDIT_FOOTER = gql`
+    mutation editFooter($cmsId: ID!, $input: InputFooterFields) {
+        editFooter(cmsID: $cmsId, input: $input) {
+            ... on CmsFields {
+                footer {
+                    contactLinks {
+                        icon
+                        link
+                        title
+                    }
+                }
+            }
+        }
+    }
+`

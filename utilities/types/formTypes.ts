@@ -70,6 +70,10 @@ interface LandingFormProps {
     subtext: stringInputType
 }
 
+interface FooterProps {
+    [contactLinks: string]: stringInputType
+}
+
 export type RegisterProps =
     | RegisterValidationProps
     | LoginValidationProps
@@ -83,3 +87,4 @@ export type FormProps =
     | ForgotPasswordProps
     | CtaFormProps
     | LandingFormProps
+    | FooterProps

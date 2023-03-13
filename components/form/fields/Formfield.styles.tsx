@@ -2,6 +2,10 @@ import styled from '@emotion/styled'
 
 import CardStyles from '@/styles/components/StyledCard'
 
+export const StyledUploadContainer = styled.div`
+    ${CardStyles}
+`
+
 export const StyledFileUpload = styled.div`
     width: 100%;
     display: flex;
@@ -16,8 +20,14 @@ export const StyledFileUpload = styled.div`
         margin: auto;
         border: 6px solid #f8f8f8;
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
+        width: 14rem;
+        height: 14rem;
+        object-fit: fill;
+=======
         height: 13rem;
         object-fit: contain;
+>>>>>>> UI-1.0
     }
 
     input {
@@ -45,7 +55,7 @@ export const StyledFileUpload = styled.div`
         background-color: white;
         border: 1px solid transparent;
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
-        transition: 0.2s ease-in-out;
+        transition: var(--transition);
 
         &:hover {
             background: #f1f1f1;

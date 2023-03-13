@@ -1,0 +1,33 @@
+.MuiSvgIcon-root.instagram {
+    background: radial-gradient(
+        circle at 50% 100%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285aeb 90%
+    );
+    color: white;
+    border-radius: 5px;
+}
+
+.MuiSvgIcon-root.email,
+.MuiSvgIcon-root.newIcon {
+    color: gray;
+}
+
+.MuiSvgIcon-root.facebook {
+    color: #4267b2;
+}
+
+.MuiSvgIcon-root.linkedin {
+    color: #0077b5;
+}
+
+.MuiSvgIcon-root.reddit {
+    color: #ff5700;
+}
+
+.MuiSvgIcon-root.twitter {
+    color: #1da1f2;
+}

@@ -26,7 +26,7 @@ const ContactPage = () => {
                                 src={Logo.src}
                                 alt="Barrese Bookkeeping"
                             />
-                            <h2>Schedule a meeting today !</h2>
+                            <h2>Schedule a meeting today!</h2>
                         </div>
                         <InlineWidget url="https://calendly.com/barresebookkeeping" />
                     </div>
