@@ -19,17 +19,20 @@ const Footer = () => {
                         <li>Phone Number</li>
                     </ul>
                     <div className="social-links">
-                        {contactLinks.map((item: any) => {
+                        {contactLinks?.map((item: any) => {
                             const currentIcon = footerOptions.find(
                                 option => option.value === item.title
                             )
                             const icon = currentIcon?.icon
                             return (
-                                <a href={item?.link} target="_blank">
+                                <a
+                                    key={item.link}
+                                    href={item?.link}
+                                    target="_blank">
                                     {icon}
                                 </a>
                             )
-                        })}
+                        }) ?? null}
                     </div>
                     <span className="copyright">Copyright &copy;</span>
                 </div>
