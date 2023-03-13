@@ -22,6 +22,9 @@ export const StyledAbout = styled.section`
             row-gap: 0.3rem;
             img {
                 border-radius: 50%;
+                min-height: 15rem;
+                max-height: 25rem;
+                height: 100%;
             }
         }
 
