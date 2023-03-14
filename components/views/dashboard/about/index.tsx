@@ -45,7 +45,7 @@ const AboutWidget = () => {
     const dispatch = useDispatch()
     const { id } = useSelector((state: any) => state.cmsData)
     const { backgroundInfo, role, title, header, subHeader, heroImage } =
-        useSelector((state: any) => state.callToAction)
+        useSelector((state: any) => state.about)
 
     const {
         form,

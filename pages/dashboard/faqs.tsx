@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
+import FaqsWidget from '@/components/views/dashboard/faqs'
 
 const DashboardFAQsPage: NextPage = () => {
-    return <div>dashboard FAQs</div>
+    return <FaqsWidget />
 }
 
 export default DashboardFAQsPage

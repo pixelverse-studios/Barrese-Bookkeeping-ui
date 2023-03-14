@@ -2,8 +2,11 @@ import styled from '@emotion/styled'
 
 import CardStyles from '@/styles/components/StyledCard'
 
-export const StyledUploadContainer = styled.div`
-    ${CardStyles}
+interface UploadContainerProps {
+    disableCardStyles?: boolean
+}
+export const StyledUploadContainer = styled.div<UploadContainerProps>`
+    ${props => (props.disableCardStyles ? null : CardStyles)}
 
     display: flex;
     flex-direction: column;

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 import HeroImage from '@/components/HeroHeader'
 import { StyledFAQ } from './FAQ.styles'
@@ -7,6 +8,9 @@ import { StyledPageContainer } from '../PageContainer.styles'
 import DummyFAQs from './dummydata'
 
 const FAQPage = () => {
+    const { pageH1, pageH2, heroImage } = useSelector(
+        (state: any) => state.faqs
+    )
     const [expanded, setExpanded] = useState<string | false>(false)
 
     const toggleAccordion = (selected: string) =>
@@ -14,11 +18,11 @@ const FAQPage = () => {
 
     return (
         <StyledPageContainer>
-            <HeroImage url="https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80" />
+            <HeroImage url={heroImage} />
             <div className="container">
                 <StyledFAQ>
-                    <h1>FAQs</h1>
-                    <h2>Frequently Asked Questions</h2>
+                    <h1>{pageH1}</h1>
+                    <h2>{pageH2}</h2>
                     <hr />
                     <div className="accordion">
                         {DummyFAQs.map((data, index) => {
