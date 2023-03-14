@@ -5,10 +5,8 @@ import HeroImage from '@/components/HeroHeader'
 import { StyledFAQ } from './FAQ.styles'
 import { StyledPageContainer } from '../PageContainer.styles'
 
-import DummyFAQs from './dummydata'
-
 const FAQPage = () => {
-    const { pageH1, pageH2, heroImage } = useSelector(
+    const { pageH1, pageH2, heroImage, qAndA } = useSelector(
         (state: any) => state.faqs
     )
     const [expanded, setExpanded] = useState<string | false>(false)
@@ -25,7 +23,7 @@ const FAQPage = () => {
                     <h2>{pageH2}</h2>
                     <hr />
                     <div className="accordion">
-                        {DummyFAQs.map((data, index) => {
+                        {qAndA.map((data: any, index: any) => {
                             const currentFAQ = `accordion-button-${index}`
                             return (
                                 <div className="accordion-item" key={index}>

@@ -95,27 +95,23 @@ const FaqContentForm = () => {
 
     const [editFaqContent] = useMutation(EDIT_FAQ_CONTENT, {
         onCompleted({ editFaqContent: data }) {
-            try {
-                if (data.__typename === 'Errors') {
-                    dispatch(
-                        showBanner({
-                            message: data.message,
-                            type: data.__typename
-                        })
-                    )
-                } else {
-                    const newFaqContent = { ...data.faqs }
-                    delete newFaqContent.__typename
-                    dispatch(setFaqs(newFaqContent))
-                    dispatch(
-                        showBanner({
-                            message: 'FAQ content has been updated.',
-                            type: data.__typename
-                        })
-                    )
-                }
-            } catch (error) {
-                console.log(error)
+            if (data.__typename === 'Errors') {
+                dispatch(
+                    showBanner({
+                        message: data.message,
+                        type: data.__typename
+                    })
+                )
+            } else {
+                const newFaqContent = { ...data.faqs }
+                delete newFaqContent.__typename
+                dispatch(setFaqs(newFaqContent))
+                dispatch(
+                    showBanner({
+                        message: 'FAQ content has been updated.',
+                        type: data.__typename
+                    })
+                )
             }
 
             setFormLoading(false)
@@ -139,6 +135,7 @@ const FaqContentForm = () => {
             onSubmit={(event: FormEvent<HTMLFormElement>) =>
                 handleFormSubmit(event, editFaqContent)
             }>
+            <h3>FAQ Page Content</h3>
             <div className="formContent">
                 <StyledUploadContainer disableCardStyles>
                     <FileUpload

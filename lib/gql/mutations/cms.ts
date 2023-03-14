@@ -168,3 +168,30 @@ export const CREATE_FAQ_ITEM = gql`
         }
     }
 `
+
+export const DELETE_FAQ_ITEM = gql`
+    mutation deleteFaqItem($faqId: ID!, $cmsId: ID!) {
+        deleteFaqItem(faqID: $faqId, cmsID: $cmsId) {
+            ... on CmsFields {
+                faqs {
+                    pageH1
+                    pageH2
+                    heroImage
+                    qAndA {
+                        _id
+                        question
+                        answer
+                    }
+                }
+            }
+            ... on Errors {
+                type
+                message
+                errors {
+                    field
+                    message
+                }
+            }
+        }
+    }
+`

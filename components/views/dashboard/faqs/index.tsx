@@ -1,12 +1,12 @@
 import FaqContentForm from './FaqContentForm'
-import FaqItem from './FaqItem'
+import FaqItems from './FaqItems'
 import { StyledFaqsContainer } from './StyledFAQsWidget'
 
 const FaqsWidget = () => {
     return (
         <StyledFaqsContainer>
             <FaqContentForm />
-            <FaqItem />
+            <FaqItems />
         </StyledFaqsContainer>
     )
 }
