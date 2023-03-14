@@ -139,37 +139,41 @@ const FaqContentForm = () => {
             onSubmit={(event: FormEvent<HTMLFormElement>) =>
                 handleFormSubmit(event, editFaqContent)
             }>
-            <StyledUploadContainer disableCardStyles>
-                <FileUpload
-                    loading={imgLoading}
-                    name="heroImage"
-                    id="heroImage"
-                    onUpload={handleImageUpload}
-                    value={form.heroImage.value}
-                    clearValue={handleImageClear}
-                />
-            </StyledUploadContainer>
-            <div className="inputs">
-                <FormRow>
-                    <TextField
-                        field={form.pageH1}
-                        type="text"
-                        id="pageH1"
-                        name="pageH1"
-                        label="Page Header"
-                        onChange={handleChange}
-                        disabled={formLoading}
+            <div className="formContent">
+                <StyledUploadContainer disableCardStyles>
+                    <FileUpload
+                        loading={imgLoading}
+                        name="heroImage"
+                        id="heroImage"
+                        onUpload={handleImageUpload}
+                        value={form.heroImage.value}
+                        clearValue={handleImageClear}
                     />
-                    <TextField
-                        field={form.pageH2}
-                        type="text"
-                        id="pageH2"
-                        name="pageH2"
-                        label="Secondary Page Header"
-                        onChange={handleChange}
-                        disabled={formLoading}
-                    />
-                </FormRow>
+                </StyledUploadContainer>
+                <div className="inputs">
+                    <FormRow>
+                        <TextField
+                            field={form.pageH1}
+                            type="text"
+                            id="pageH1"
+                            name="pageH1"
+                            label="Page Header"
+                            onChange={handleChange}
+                            disabled={formLoading}
+                        />
+                    </FormRow>
+                    <FormRow>
+                        <TextField
+                            field={form.pageH2}
+                            type="text"
+                            id="pageH2"
+                            name="pageH2"
+                            label="Secondary Page Header"
+                            onChange={handleChange}
+                            disabled={formLoading}
+                        />
+                    </FormRow>
+                </div>
             </div>
             <ButtonRow>
                 <LoadingButton

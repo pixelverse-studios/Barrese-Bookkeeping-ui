@@ -11,6 +11,7 @@ export const StyledUploadContainer = styled.div<UploadContainerProps>`
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 20rem;
 
     h4 {
         text-align: center;
