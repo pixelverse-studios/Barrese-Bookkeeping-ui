@@ -6,32 +6,13 @@ import ServiceCard from '@/components/ServiceCard'
 
 import { StyledLanding } from './Landing.styles'
 
-const ServiceData = [
-    {
-        imageSrc: 'https://dummyimage.com/450x600/000/fff',
-        cardTitle: 'Service 1',
-        cardDescription:
-            'Service 1 Description of how we are going to do stuff or what this service actually does maybe ?'
-    },
-    {
-        imageSrc: 'https://dummyimage.com/450x600/000/fff',
-        cardTitle: 'Service 2',
-        cardDescription:
-            'Service 2 Description of how we are going to do stuff or what this service actually does maybe ?'
-    },
-    {
-        imageSrc: 'https://dummyimage.com/450x600/000/fff',
-        cardTitle: 'Service 3',
-        cardDescription:
-            'Service 3 Description of how we are going to do stuff or what this service actually does maybe ?'
-    }
-]
-
 const Landing = () => {
     const { heroImage, heroBannerH1, heroBannerH2, subtext } = useSelector(
         (state: any) => state.landing
     )
     const { buttonLabel } = useSelector((state: any) => state.callToAction)
+    const { offerings } = useSelector((state: any) => state.services)
+
     const serviceRef = useRef<HTMLDivElement>(null)
     const scrollToService = () => {
         if (serviceRef.current)
@@ -65,13 +46,13 @@ const Landing = () => {
                 <h2>For Small Businesses</h2>
                 <hr />
                 <div className="services-container">
-                    {ServiceData.map((data, index) => {
+                    {offerings.map((data: any, index: number) => {
                         return (
                             <ServiceCard
                                 key={index}
-                                imageSrc={data.imageSrc}
-                                cardTitle={data.cardTitle}
-                                cardDescription={data.cardDescription}
+                                imageSrc={data.icon}
+                                cardTitle={data.title}
+                                cardDescription={data.description}
                             />
                         )
                     })}
