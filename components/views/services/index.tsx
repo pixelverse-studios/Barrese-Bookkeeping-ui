@@ -21,31 +21,37 @@ const ServicesPage = () => {
                         <p>{description}</p>
                     </div>
                     <div className="service-details">
-                        {offerings.map((offering: any, index: number) => [
-                            <div className="detail-section" key={index}>
-                                <img src={offering.icon} alt="icon" />
-                                <div className="service-info">
-                                    <h1>{offering.title}</h1>
+                        {offerings?.length ? (
+                            offerings.map((offering: any, index: number) => [
+                                <div className="detail-section" key={index}>
+                                    <img src={offering.icon} alt="icon" />
+                                    <div className="service-info">
+                                        <h1>{offering.title}</h1>
 
-                                    <span className="description">
-                                        {offering.description}
-                                    </span>
-                                    <ul>
-                                        {offering.bullets.map(
-                                            (item: any, index: number) => {
-                                                return (
-                                                    <li key={index}>{item}</li>
-                                                )
-                                            }
-                                        )}
-                                    </ul>
-                                    <Button
-                                        label="Book lala"
-                                        route="/contact"
-                                    />
+                                        <span className="description">
+                                            {offering.description}
+                                        </span>
+                                        <ul>
+                                            {offering.bullets.map(
+                                                (item: any, index: number) => {
+                                                    return (
+                                                        <li key={index}>
+                                                            {item}
+                                                        </li>
+                                                    )
+                                                }
+                                            )}
+                                        </ul>
+                                        <Button
+                                            label="Book lala"
+                                            route="/contact"
+                                        />
+                                    </div>
                                 </div>
-                            </div>
-                        ])}
+                            ])
+                        ) : (
+                            <div>No service offerings available</div>
+                        )}
                     </div>
                 </StyledServices>
             </div>
