@@ -23,30 +23,36 @@ const FAQPage = () => {
                     <h2>{pageH2}</h2>
                     <hr />
                     <div className="accordion">
-                        {qAndA.map((data: any, index: any) => {
-                            const currentFAQ = `accordion-button-${index}`
-                            return (
-                                <div className="accordion-item" key={index}>
-                                    <button
-                                        onClick={() =>
-                                            toggleAccordion(currentFAQ)
-                                        }
-                                        id={currentFAQ}
-                                        aria-expanded={currentFAQ === expanded}>
-                                        <span
-                                            className="icon"
-                                            aria-hidden="true"
-                                        />
-                                        <span className="accordion-title">
-                                            {data.question}
-                                        </span>
-                                    </button>
-                                    <div className="accordion-content">
-                                        <p>{data.answer}</p>
+                        {qAndA?.length ? (
+                            qAndA.map((data: any, index: any) => {
+                                const currentFAQ = `accordion-button-${index}`
+                                return (
+                                    <div className="accordion-item" key={index}>
+                                        <button
+                                            onClick={() =>
+                                                toggleAccordion(currentFAQ)
+                                            }
+                                            id={currentFAQ}
+                                            aria-expanded={
+                                                currentFAQ === expanded
+                                            }>
+                                            <span
+                                                className="icon"
+                                                aria-hidden="true"
+                                            />
+                                            <span className="accordion-title">
+                                                {data.question}
+                                            </span>
+                                        </button>
+                                        <div className="accordion-content">
+                                            <p>{data.answer}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            )
-                        })}
+                                )
+                            })
+                        ) : (
+                            <div>No FAQs available at this time.</div>
+                        )}
                     </div>
                 </StyledFAQ>
             </div>

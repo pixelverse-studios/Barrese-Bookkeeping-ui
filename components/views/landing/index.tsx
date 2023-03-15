@@ -46,16 +46,20 @@ const Landing = () => {
                 <h2>For Small Businesses</h2>
                 <hr />
                 <div className="services-container">
-                    {offerings.map((data: any, index: number) => {
-                        return (
-                            <ServiceCard
-                                key={index}
-                                imageSrc={data.icon}
-                                cardTitle={data.title}
-                                cardDescription={data.description}
-                            />
-                        )
-                    })}
+                    {offerings?.length ? (
+                        offerings.map((data: any, index: number) => {
+                            return (
+                                <ServiceCard
+                                    key={index}
+                                    imageSrc={data.icon}
+                                    cardTitle={data.title}
+                                    cardDescription={data.description}
+                                />
+                            )
+                        })
+                    ) : (
+                        <div>No service offerings available at this time.</div>
+                    )}
                 </div>
                 <Button label="Services" route="/services" />
             </div>
