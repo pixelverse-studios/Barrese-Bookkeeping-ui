@@ -121,6 +121,7 @@ const PageWrapper = ({ children }: { children: any }) => {
                         dispatch(setCallToAction(value))
                         break
                     case FAQS:
+                        console.log(value)
                         dispatch(setFaqs(value))
                         break
                     case FOOTER:
