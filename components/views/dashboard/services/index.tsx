@@ -1,5 +1,5 @@
 import ServiceContentForm from './ServiceContentForm'
-import ServiceItems from './ServiceItems'
+import ServiceItems from './ServiceOfferings'
 import { StyledServicesContainer } from './StyledServicesWidget'
 
 const ServicesWidget = () => {

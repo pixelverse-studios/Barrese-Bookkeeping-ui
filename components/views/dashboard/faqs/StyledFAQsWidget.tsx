@@ -45,7 +45,7 @@ export const StyledFaqItems = styled.section`
 
     .items {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(6rem, 1fr));
         grid-gap: 1rem;
 
         @media screen and (max-width: 1200px) {

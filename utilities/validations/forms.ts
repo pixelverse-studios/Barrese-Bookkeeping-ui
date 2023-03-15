@@ -50,6 +50,11 @@ const validArrayData = {
     message: 'Field must have at least 1 item.'
 }
 
+const validImage = {
+    test: (value: string) => !!value,
+    message: 'Image URL is required.'
+}
+
 const FormValidations = {
     validEmail,
     validAlphaString,
@@ -58,6 +63,7 @@ const FormValidations = {
     validAlphaNumericSpacesSpecials,
     validPassword,
     validFloat,
-    validArrayData
+    validArrayData,
+    validImage
 }
 export default FormValidations

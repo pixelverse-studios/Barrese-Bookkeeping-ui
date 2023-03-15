@@ -40,8 +40,18 @@ const useForm = (initialState: FormProps, validations: RegisterProps) => {
         dispatch({ type: IMPORT, payload: formattedData })
     }
 
-    const handleNonFormEventChange = (data: any, name: string) =>
-        dispatch({ type: UPDATE, payload: { name, value: data, error: '' } })
+    const handleNonFormEventChange = (data: any, name: string) => {
+        const hasValidation = validations[name]?.message
+
+        dispatch({
+            type: UPDATE,
+            payload: {
+                name,
+                value: data,
+                error: hasValidation ? !validations[name].test(data) : ''
+            }
+        })
+    }
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = event => {
         let { value, name } = event.target
@@ -72,7 +82,7 @@ const useForm = (initialState: FormProps, validations: RegisterProps) => {
     }
 
     const isFormValid = Object.keys(form).every(
-        label => form[label].value && !form[label].error
+        label => form[label].value != '' && !form[label].error
     )
 
     return {
