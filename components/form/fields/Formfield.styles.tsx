@@ -2,6 +2,22 @@ import styled from '@emotion/styled'
 
 import CardStyles from '@/styles/components/StyledCard'
 
+interface UploadContainerProps {
+    disableCardStyles?: boolean
+}
+export const StyledUploadContainer = styled.div<UploadContainerProps>`
+    ${props => (props.disableCardStyles ? null : CardStyles)}
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 20rem;
+
+    h4 {
+        text-align: center;
+    }
+`
+
 export const StyledFileUpload = styled.div`
     width: 100%;
     display: flex;
@@ -16,8 +32,9 @@ export const StyledFileUpload = styled.div`
         margin: auto;
         border: 6px solid #f8f8f8;
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-        height: 13rem;
-        object-fit: contain;
+        width: 14rem;
+        height: 14rem;
+        object-fit: fill;
     }
 
     input {
@@ -45,7 +62,7 @@ export const StyledFileUpload = styled.div`
         background-color: white;
         border: 1px solid transparent;
         box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
-        transition: 0.2s ease-in-out;
+        transition: var(--transition);
 
         &:hover {
             background: #f1f1f1;
@@ -54,7 +71,6 @@ export const StyledFileUpload = styled.div`
     }
 
     .fileName {
-        height: 100%;
         line-height: 24px;
         font-size: 0.9rem;
         overflow: hidden;

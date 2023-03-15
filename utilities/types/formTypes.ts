@@ -9,6 +9,11 @@ export interface stringInputType extends baseInputType {
 export interface numberInputType extends baseInputType {
     value: number | null
 }
+
+export interface arrayInputType extends baseInputType {
+    value: [] | null
+}
+
 interface validationType {
     test: (value: string) => boolean
     message: string
@@ -70,6 +75,18 @@ interface LandingFormProps {
     subtext: stringInputType
 }
 
+interface FooterProps {
+    [contactLinks: string]: stringInputType
+}
+
+interface ServiceItemsProps {
+    [pageH1: string]: stringInputType
+    pageH2: stringInputType
+    heroImage: stringInputType
+    description: stringInputType
+    offerings: any
+}
+
 export type RegisterProps =
     | RegisterValidationProps
     | LoginValidationProps
@@ -83,3 +100,5 @@ export type FormProps =
     | ForgotPasswordProps
     | CtaFormProps
     | LandingFormProps
+    | FooterProps
+    | ServiceItemsProps

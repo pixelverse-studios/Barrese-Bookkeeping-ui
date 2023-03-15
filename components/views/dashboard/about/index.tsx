@@ -4,8 +4,8 @@ import { Button } from '@mui/material'
 import { useSelector, useDispatch } from 'react-redux'
 import { useMutation } from '@apollo/client'
 
-import { EDIT_CTA } from '@/lib/gql/mutations/cms'
-import { setCallToAction } from '@/lib/redux/slices/exports'
+import { EDIT_ABOUT } from '@/lib/gql/mutations/cms'
+import { setAbout } from '@/lib/redux/slices/exports'
 import {
     showBanner,
     showTechnicalDifficultiesBanner
@@ -17,32 +17,35 @@ import {
 import { FormRow, TextField, FileUpload } from '@/components/form'
 import FormValidations from '@/utilities/validations/forms'
 import useForm from '@/utilities/hooks/useForm'
-import { StyledCtaForm, StyledCtaFields } from './StyledCTAWidget'
+import { StyledAboutForm, StyledAboutFields } from './StyledAboutWidget'
 import { StyledUploadContainer } from '@/components/form/fields/Formfield.styles'
 import { ButtonRow } from '@/components/form/Row.styles'
 
 const INITIAL_STATE = {
-    image: { value: '', error: '' },
-    heading: { value: '', error: '' },
-    description: { value: '', error: '' },
-    buttonLabel: { value: '', error: '' }
+    backgroundInfo: { value: '', error: '' },
+    role: { value: '', error: '' },
+    title: { value: '', error: '' },
+    header: { value: '', error: '' },
+    subHeader: { value: '', error: '' },
+    heroImage: { value: '', error: '' }
 }
 
 const VALIDATIONS = {
-    image: FormValidations.validAlphaNumeric,
-    heading: FormValidations.validAlphaNumericWithSpaces,
-    description: FormValidations.validAlphaNumericSpacesSpecials,
-    buttonLabel: FormValidations.validAlphaNumericWithSpaces
+    backgroundInfo: FormValidations.validAlphaNumericSpacesSpecials,
+    role: FormValidations.validAlphaNumericSpacesSpecials,
+    title: FormValidations.validAlphaNumericWithSpaces,
+    header: FormValidations.validAlphaNumericWithSpaces,
+    subHeader: FormValidations.validAlphaNumericWithSpaces,
+    heroImage: FormValidations.validAlphaNumericWithSpaces
 }
 
-const IMAGE_LABEL = 'image'
+const IMAGE_LABEL = 'heroImage'
 
-const CallToActionWidget = () => {
+const AboutWidget = () => {
     const dispatch = useDispatch()
     const { id } = useSelector((state: any) => state.cmsData)
-    const { image, heading, description, buttonLabel } = useSelector(
-        (state: any) => state.callToAction
-    )
+    const { backgroundInfo, role, title, header, subHeader, heroImage } =
+        useSelector((state: any) => state.about)
 
     const {
         form,
@@ -57,12 +60,20 @@ const CallToActionWidget = () => {
     } = useForm(INITIAL_STATE, VALIDATIONS)
 
     useEffect(() => {
-        handleImport({ image, heading, description, buttonLabel })
+        handleImport({
+            backgroundInfo,
+            role,
+            title,
+            header,
+            subHeader,
+            heroImage
+        })
     }, [])
 
     const [imgLoading, setImgLoading] = useState<boolean>(false)
 
-    const handleImageClear = () => handleNonFormEventChange(image, IMAGE_LABEL)
+    const handleImageClear = () =>
+        handleNonFormEventChange(heroImage, IMAGE_LABEL)
 
     const handleImageUpload = async ({
         base64,
@@ -70,13 +81,13 @@ const CallToActionWidget = () => {
     }: CloudinaryCreationProps) => {
         setImgLoading(true)
         try {
-            const ctaImage = await onImageUpload({
-                context: 'cta-image',
+            const heroImage = await onImageUpload({
+                context: `cta-${IMAGE_LABEL}`,
                 base64,
                 filename
             })
 
-            handleNonFormEventChange(ctaImage, IMAGE_LABEL)
+            handleNonFormEventChange(heroImage, IMAGE_LABEL)
             setImgLoading(false)
             return true
         } catch (error) {
@@ -93,8 +104,8 @@ const CallToActionWidget = () => {
         }
     }
 
-    const [editCallToAction] = useMutation(EDIT_CTA, {
-        onCompleted({ editCallToAction: data }) {
+    const [editAbout] = useMutation(EDIT_ABOUT, {
+        onCompleted({ editAbout: data }) {
             if (data.__typename === 'Errors') {
                 dispatch(
                     showBanner({
@@ -103,20 +114,18 @@ const CallToActionWidget = () => {
                     })
                 )
             } else {
-                const cta = { ...data.callToAction }
+                const newAboutData = { ...data.about }
+                delete newAboutData.__typename
 
-                delete cta.__typename
-                delete cta.successType
-
-                dispatch(setCallToAction(cta))
-
+                dispatch(setAbout(newAboutData))
                 dispatch(
                     showBanner({
-                        message: 'Call To Action has been updated!',
+                        message: 'About page has been updated.',
                         type: data.__typename
                     })
                 )
             }
+
             setFormLoading(false)
         },
         onError(err: any) {
@@ -126,62 +135,85 @@ const CallToActionWidget = () => {
         variables: {
             cmsId: id,
             input: {
-                image: form.image.value,
-                heading: form.heading.value,
-                description: form.description.value,
-                buttonLabel: form.buttonLabel.value
+                backgroundInfo: form.backgroundInfo.value,
+                role: form.role.value,
+                title: form.title.value,
+                header: form.header.value,
+                subHeader: form.subHeader.value,
+                heroImage: form.heroImage.value
             }
         }
     })
 
     return (
-        <StyledCtaForm
+        <StyledAboutForm
             onSubmit={(event: FormEvent<HTMLFormElement>) =>
-                handleFormSubmit(event, editCallToAction)
+                handleFormSubmit(event, editAbout)
             }>
             <StyledUploadContainer>
                 <FileUpload
                     loading={imgLoading}
-                    name="profilePic"
-                    id="profilePic"
+                    name="heroImage"
+                    id="heroImage"
                     onUpload={handleImageUpload}
-                    value={form.image.value}
+                    value={form.heroImage.value}
                     clearValue={handleImageClear}
                 />
+                <h4>Page Image</h4>
             </StyledUploadContainer>
-            <StyledCtaFields>
+            <StyledAboutFields>
                 <FormRow>
                     <TextField
-                        field={form.heading}
+                        field={form.role}
                         type="text"
-                        id="heading"
-                        name="heading"
+                        id="role"
+                        name="role"
+                        label="Role"
+                        onChange={handleChange}
+                        disabled={formLoading}
+                    />
+                    <TextField
+                        field={form.title}
+                        type="text"
+                        id="title"
+                        name="title"
+                        label="Title"
+                        onChange={handleChange}
+                        disabled={formLoading}
+                    />
+                </FormRow>
+                <FormRow>
+                    <TextField
+                        field={form.backgroundInfo}
+                        type="textarea"
+                        id="backgroundInfo"
+                        name="backgroundInfo"
+                        label="Background Info"
+                        onChange={handleChange}
+                        disabled={formLoading}
+                    />
+                </FormRow>
+                <FormRow>
+                    <TextField
+                        field={form.header}
+                        type="text"
+                        id="header"
+                        name="header"
                         label="Header"
                         onChange={handleChange}
                         disabled={formLoading}
                     />
                     <TextField
-                        field={form.buttonLabel}
+                        field={form.subHeader}
                         type="text"
-                        id="buttonLabel"
-                        name="buttonLabel"
-                        label="Button Label"
+                        id="subHeader"
+                        name="subHeader"
+                        label="Sub Header"
                         onChange={handleChange}
                         disabled={formLoading}
                     />
                 </FormRow>
-                <FormRow>
-                    <TextField
-                        field={form.description}
-                        type="textarea"
-                        id="description"
-                        name="description"
-                        label="Description"
-                        onChange={handleChange}
-                        disabled={formLoading}
-                    />
-                </FormRow>
-            </StyledCtaFields>
+            </StyledAboutFields>
             <ButtonRow>
                 <LoadingButton
                     type="submit"
@@ -195,8 +227,8 @@ const CallToActionWidget = () => {
                     Reset
                 </Button>
             </ButtonRow>
-        </StyledCtaForm>
+        </StyledAboutForm>
     )
 }
 
-export default CallToActionWidget
+export default AboutWidget
