@@ -11,6 +11,7 @@ export const StyledDashboardPage = styled.section`
         display: grid;
         grid-template-rows: 6rem 1fr;
         grid-gap: 1rem 0;
+        overflow: auto;
 
         .dashboardContent {
             max-width: var(--max-content-width);
