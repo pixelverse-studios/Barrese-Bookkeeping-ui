@@ -25,7 +25,8 @@ import {
     setFooter,
     setLanding,
     setNewsletterRecords,
-    setNewsletterUsers
+    setNewsletterUsers,
+    setServices
 } from '@/lib/redux/slices/exports'
 import { showBanner } from '@/lib/redux/slices/banner'
 import DashboardPage from './dashboard'
@@ -98,8 +99,16 @@ const PageWrapper = ({ children }: { children: any }) => {
             delete cms.__typename
             delete cms.successType
 
-            const { DASHBOARD, ABOUT, CTA, FAQS, FOOTER, LANDING, NEWSLETTER } =
-                CMS_LABELS
+            const {
+                DASHBOARD,
+                ABOUT,
+                CTA,
+                FAQS,
+                FOOTER,
+                LANDING,
+                NEWSLETTER,
+                SERVICES
+            } = CMS_LABELS
             for (const [key, value] of Object.entries(cms) as any) {
                 switch (key) {
                     case DASHBOARD:
@@ -120,6 +129,9 @@ const PageWrapper = ({ children }: { children: any }) => {
                         break
                     case LANDING:
                         dispatch(setLanding(value))
+                        break
+                    case SERVICES:
+                        dispatch(setServices(value))
                         break
                     case NEWSLETTER:
                         dispatch(setNewsletterRecords(value.records))

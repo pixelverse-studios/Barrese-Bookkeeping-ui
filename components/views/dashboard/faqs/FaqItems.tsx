@@ -9,12 +9,11 @@ import { StyledFaqItems } from './StyledFAQsWidget'
 const FaqItems = () => {
     const { id } = useSelector((state: any) => state.cmsData)
     const { qAndA } = useSelector((state: any) => state.faqs)
+    const [items, setItems] = useState<any>([])
 
     useEffect(() => {
         setItems(qAndA)
     }, [qAndA])
-
-    const [items, setItems] = useState<any>([])
 
     const handleAddNewItem = () => {
         const itemsCopy = [...items]

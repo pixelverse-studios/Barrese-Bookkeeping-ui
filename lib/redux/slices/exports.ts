@@ -5,6 +5,7 @@ import { setDashboardRoutes } from './dashboard'
 import { setFaqs } from './faqs'
 import { setFooter } from './footer'
 import { setLanding } from './landing'
+import { setServices } from './services'
 import { setNewsletterRecords } from './newsletterRecords'
 import { setNewsletterUsers } from './newsletterUsers'
 
@@ -17,6 +18,7 @@ export {
     setFaqs,
     setFooter,
     setLanding,
+    setServices,
     setNewsletterRecords,
     setNewsletterUsers
 }

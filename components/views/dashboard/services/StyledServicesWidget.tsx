@@ -1,13 +1,13 @@
 import styled from '@emotion/styled'
 import CardStyles from '@/styles/components/StyledCard'
 
-export const StyledFaqsContainer = styled.section`
+export const StyledServicesContainer = styled.section`
     display: flex;
     flex-direction: column;
     gap: 1rem;
 `
 
-export const StyledFaqsContentForm = styled.form`
+export const StyledServicesContentForm = styled.form`
     ${CardStyles}
 
     display: flex;
@@ -28,7 +28,7 @@ export const StyledFaqsContentForm = styled.form`
     }
 `
 
-export const StyledFaqItems = styled.section`
+export const StyledServiceOfferings = styled.section`
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -45,22 +45,30 @@ export const StyledFaqItems = styled.section`
 
     .items {
         display: grid;
-        grid-template-columns: repeat(3, minmax(6rem, 1fr));
+        grid-template-columns: repeat(3, 1fr);
         grid-gap: 1rem;
 
-        @media screen and (max-width: 1200px) {
+        @media screen and (max-width: 1400px) {
             grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media screen and (max-width: 1000px) {
+            grid-template-columns: repeat(1, 1fr);
         }
     }
 `
 
-export const StyledFaqItem = styled.div`
+export const StyledServiceOffering = styled.div`
     ${CardStyles}
 
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    .serviceOfferingIconFile {
+        margin: auto;
+    }
 
     .buttons {
         .submit {
@@ -85,6 +93,44 @@ export const StyledFaqItem = styled.div`
         .loader {
             height: 1.8rem !important;
             width: 1.8rem !important;
+        }
+    }
+`
+
+export const StyledOfferingBullet = styled.div`
+    .newBulletRow {
+        display: grid;
+        grid-template-columns: 1fr 4rem;
+        grid-gap: 1rem;
+        padding: 8px 0;
+
+        button {
+            position: relative;
+            top: 0.8rem;
+
+            svg {
+                color: var(--success-font);
+            }
+            &:disabled {
+                svg {
+                    color: gray;
+                }
+            }
+        }
+    }
+
+    .bulletsContainer {
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 0 1rem;
+
+        li {
+            border-bottom: 2px solid lightgray;
+        }
+
+        button svg {
+            color: var(--error-font);
         }
     }
 `
