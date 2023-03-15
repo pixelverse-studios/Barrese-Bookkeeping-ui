@@ -45,6 +45,11 @@ const validPassword = {
         'Password is required, and should include at least 1 lowercase & uppercase letter, 1 special character, 1 number, and be minimum 8 characters long.'
 }
 
+const validArrayData = {
+    test: (value: any) => value?.length > 0,
+    message: 'Field must have at least 1 item.'
+}
+
 const FormValidations = {
     validEmail,
     validAlphaString,
@@ -52,6 +57,7 @@ const FormValidations = {
     validAlphaNumericWithSpaces,
     validAlphaNumericSpacesSpecials,
     validPassword,
-    validFloat
+    validFloat,
+    validArrayData
 }
 export default FormValidations

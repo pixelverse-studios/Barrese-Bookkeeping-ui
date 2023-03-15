@@ -8,6 +8,7 @@ import about from './slices/about'
 import faqs from './slices/faqs'
 import footer from './slices/footer'
 import landing from './slices/landing'
+import services from './slices/services'
 import newsletterRecords from './slices/newsletterRecords'
 import newsletterUsers from './slices/newsletterUsers'
 
@@ -23,7 +24,8 @@ export const store = configureStore({
         footer,
         landing,
         newsletterRecords,
-        newsletterUsers
+        newsletterUsers,
+        services
     }
 })
 

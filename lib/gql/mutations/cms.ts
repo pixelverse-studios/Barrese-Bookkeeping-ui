@@ -195,3 +195,134 @@ export const DELETE_FAQ_ITEM = gql`
         }
     }
 `
+
+export const EDIT_SERVICE_CONTENT = gql`
+    mutation editServiceContent(
+        $cmsId: ID!
+        $input: InputServiceContentFields
+    ) {
+        editServiceContent(cmsID: $cmsId, input: $input) {
+            ... on CmsFields {
+                services {
+                    pageH1
+                    pageH2
+                    description
+                    heroImage
+                    offerings {
+                        _id
+                        icon
+                        title
+                        description
+                        bullets
+                    }
+                }
+            }
+            ... on Errors {
+                type
+                message
+                errors {
+                    field
+                    message
+                }
+            }
+        }
+    }
+`
+
+export const CREATE_SERVICE_OFFERING = gql`
+    mutation createServiceOffering($cmsId: ID!, $input: InputServiceOfferings) {
+        createServiceOffering(cmsID: $cmsId, input: $input) {
+            ... on CmsFields {
+                services {
+                    pageH1
+                    pageH2
+                    description
+                    heroImage
+                    offerings {
+                        _id
+                        icon
+                        title
+                        description
+                        bullets
+                    }
+                }
+            }
+            ... on Errors {
+                type
+                message
+                errors {
+                    field
+                    message
+                }
+            }
+        }
+    }
+`
+
+export const EDIT_SERVICE_OFFERINGS = gql`
+    mutation editServiceOfferings(
+        $offeringId: ID!
+        $cmsId: ID!
+        $input: InputServiceOfferings
+    ) {
+        editServiceOffering(
+            offeringID: $offeringId
+            cmsID: $cmsId
+            input: $input
+        ) {
+            ... on CmsFields {
+                services {
+                    pageH1
+                    pageH2
+                    description
+                    heroImage
+                    offerings {
+                        _id
+                        icon
+                        title
+                        description
+                        bullets
+                    }
+                }
+            }
+            ... on Errors {
+                type
+                message
+                errors {
+                    field
+                    message
+                }
+            }
+        }
+    }
+`
+
+export const DELETE_SERVICE_OFFERING = gql`
+    mutation deleteServiceOffering($offeringId: ID!, $cmsId: ID!) {
+        deleteServiceOffering(offeringID: $offeringId, cmsID: $cmsId) {
+            ... on CmsFields {
+                services {
+                    pageH1
+                    pageH2
+                    description
+                    heroImage
+                    offerings {
+                        _id
+                        icon
+                        title
+                        description
+                        bullets
+                    }
+                }
+            }
+            ... on Errors {
+                type
+                message
+                errors {
+                    field
+                    message
+                }
+            }
+        }
+    }
+`

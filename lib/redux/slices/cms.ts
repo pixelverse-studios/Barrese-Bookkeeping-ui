@@ -7,7 +7,8 @@ export const CMS_LABELS = {
     FAQS: 'faqs',
     FOOTER: 'footer',
     LANDING: 'landing',
-    NEWSLETTER: 'newsletter'
+    NEWSLETTER: 'newsletter',
+    SERVICES: 'services'
 }
 
 export const intialCmsState = {
