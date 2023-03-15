@@ -87,3 +87,111 @@ export const EDIT_ABOUT = gql`
         }
     }
 `
+
+export const EDIT_FAQ_CONTENT = gql`
+    mutation editFaqContent($cmsId: ID!, $input: InputFAQContent) {
+        editFaqContent(cmsID: $cmsId, input: $input) {
+            ... on CmsFields {
+                faqs {
+                    pageH1
+                    pageH2
+                    heroImage
+                    qAndA {
+                        _id
+                        question
+                        answer
+                    }
+                }
+            }
+            ... on Errors {
+                type
+                message
+                errors {
+                    field
+                    message
+                }
+            }
+        }
+    }
+`
+
+export const EDIT_FAQ_ITEM = gql`
+    mutation editFaqItem($faqId: ID!, $cmsId: ID!, $input: InputFAQFields) {
+        editFaqItem(faqID: $faqId, cmsID: $cmsId, input: $input) {
+            ... on CmsFields {
+                faqs {
+                    pageH1
+                    pageH2
+                    heroImage
+                    qAndA {
+                        _id
+                        question
+                        answer
+                    }
+                }
+            }
+            ... on Errors {
+                type
+                message
+                errors {
+                    field
+                    message
+                }
+            }
+        }
+    }
+`
+
+export const CREATE_FAQ_ITEM = gql`
+    mutation createFaqItem($cmsId: ID!, $input: InputFAQFields) {
+        createFaqItem(cmsID: $cmsId, input: $input) {
+            ... on CmsFields {
+                faqs {
+                    pageH1
+                    pageH2
+                    heroImage
+                    qAndA {
+                        _id
+                        question
+                        answer
+                    }
+                }
+            }
+            ... on Errors {
+                type
+                message
+                errors {
+                    field
+                    message
+                }
+            }
+        }
+    }
+`
+
+export const DELETE_FAQ_ITEM = gql`
+    mutation deleteFaqItem($faqId: ID!, $cmsId: ID!) {
+        deleteFaqItem(faqID: $faqId, cmsID: $cmsId) {
+            ... on CmsFields {
+                faqs {
+                    pageH1
+                    pageH2
+                    heroImage
+                    qAndA {
+                        _id
+                        question
+                        answer
+                    }
+                }
+            }
+            ... on Errors {
+                type
+                message
+                errors {
+                    field
+                    message
+                }
+            }
+        }
+    }
+`
