@@ -14,6 +14,7 @@ export const StyledHeroImage = styled.div<Props>`
             `}
             no-repeat center center/cover;
     background-blend-mode: saturation;
+
     .overlay {
         background-color: var(--Secondary-opaque-color);
         height: 30vh;
