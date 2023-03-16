@@ -108,7 +108,10 @@ export const StyledFooterField = styled.div`
         border-radius: 5px;
     }
 
-    .email svg,
+    .email svg {
+        color: var(--Primary-brand-color);
+    }
+
     .newIcon svg {
         color: gray;
     }
