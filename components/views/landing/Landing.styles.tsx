@@ -14,8 +14,10 @@ export const StyledLanding = styled.section<LandingPageTypes>`
         height: 100vh;
         width: 100vw;
         background: ${props => `url(${props.backgroundImg})`};
-        background-size: cover;
         background-blend-mode: saturation;
+        background-position: right;
+        background-repeat: no-repeat;
+        background-size: cover;
         margin: 0;
 
         .overlay {
@@ -84,27 +86,31 @@ export const StyledLanding = styled.section<LandingPageTypes>`
                 h2 {
                     font-size: 3rem;
                 }
-
-                @media only screen and (max-width: 750px) {
-                    h1 {
-                        font-size: 2.5rem;
-                    }
-
-                    h2 {
-                        font-size: 2rem;
-                    }
-                }
             }
 
             .subtitle-container {
                 display: flex;
                 flex-direction: column;
                 padding: 1rem 0rem;
+            }
+        }
 
-                @media only screen and (max-width: 750px) {
-                    h3 {
-                        font-size: 1rem;
-                    }
+        @media only screen and (max-width: 750px) {
+            background-position: center;
+
+            .title-container {
+                h1 {
+                    font-size: 2.5rem;
+                }
+
+                h2 {
+                    font-size: 2rem;
+                }
+            }
+
+            .subtitle-container {
+                h3 {
+                    font-size: 1rem;
                 }
             }
         }

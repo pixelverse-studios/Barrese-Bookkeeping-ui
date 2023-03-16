@@ -9,6 +9,8 @@ const ServicesPage = () => {
     const { pageH1, pageH2, description, offerings } = useSelector(
         (state: any) => state.services
     )
+    const { buttonLabel } = useSelector((state: any) => state.callToAction)
+
     return (
         <StyledPageContainer>
             <HeroImage url="https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80" />
@@ -43,7 +45,7 @@ const ServicesPage = () => {
                                             )}
                                         </ul>
                                         <Button
-                                            label="Book lala"
+                                            label={buttonLabel}
                                             route="/contact"
                                         />
                                     </div>
