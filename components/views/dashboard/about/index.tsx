@@ -33,10 +33,10 @@ const INITIAL_STATE = {
 const VALIDATIONS = {
     backgroundInfo: FormValidations.validAlphaNumericSpacesSpecials,
     role: FormValidations.validAlphaNumericSpacesSpecials,
-    title: FormValidations.validAlphaNumericWithSpaces,
-    header: FormValidations.validAlphaNumericWithSpaces,
-    subHeader: FormValidations.validAlphaNumericWithSpaces,
-    heroImage: FormValidations.validAlphaNumericWithSpaces
+    title: FormValidations.validAlphaNumericSpacesSpecials,
+    header: FormValidations.validAlphaNumericSpacesSpecials,
+    subHeader: FormValidations.validAlphaNumericSpacesSpecials,
+    heroImage: FormValidations.validAlphaNumericSpacesSpecials
 }
 
 const IMAGE_LABEL = 'heroImage'
