@@ -117,7 +117,6 @@ const DesktopNav = () => {
                 <div className="navContent">
                     <img
                         className="logo"
-                        // src={LogoWhite.src}
                         src={LogoWhiteNoBg.src}
                         alt="Barrese Bookkeeping"
                         onClick={() => {
@@ -139,7 +138,6 @@ const DesktopNav = () => {
             <div className="navContent">
                 <img
                     className="logo"
-                    // src={Logo.src}
                     src={Logo.src}
                     alt="Barrese Bookkeeping"
                     onClick={() => {

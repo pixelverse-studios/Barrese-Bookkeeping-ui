@@ -34,6 +34,7 @@ export const StyledNav = styled.nav`
             column-gap: 1rem;
             align-items: flex-end;
             font-size: 1.3rem;
+
             .navLinks {
                 display: inline-block;
                 position: relative;
@@ -44,6 +45,7 @@ export const StyledNav = styled.nav`
                         cursor: pointer;
                     }
                 }
+
                 a,
                 a:hover {
                     color: var(--Primary-brand-color);
@@ -65,9 +67,7 @@ export const StyledNav = styled.nav`
                 width: 100%;
                 background: var(--Primary-brand-color);
             }
-        }
-        li {
-            list-style-type: none;
+
             .activeLink {
                 color: var(--Primary-brand-color);
             }
@@ -79,6 +79,9 @@ export const StyledNav = styled.nav`
                 width: 100%;
                 background: var(--Primary-brand-color);
             }
+        }
+        li {
+            list-style-type: none;
         }
     }
 `
