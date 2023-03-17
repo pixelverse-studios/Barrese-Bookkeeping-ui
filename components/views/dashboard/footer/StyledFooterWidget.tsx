@@ -76,10 +76,34 @@ export const StyledFooterField = styled.div`
                 margin-right: 1rem;
             }
 
+            & > div:nth-of-type(2) {
+                width: 20rem;
+            }
+
             .selectIcon {
                 .MuiSelect-select {
                     padding: 0.8rem;
                     padding-right: 24px;
+                }
+            }
+        }
+        @media screen and (max-width: 1000px) {
+            align-items: flex-start;
+
+            .inputs {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                & > div {
+                    margin-right: unset;
+                }
+
+                & > div:nth-of-type(1) {
+                    width: 5rem;
+                }
+                & > div:nth-of-type(2) {
+                    width: 15rem;
                 }
             }
         }

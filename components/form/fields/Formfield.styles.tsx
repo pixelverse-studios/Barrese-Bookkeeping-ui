@@ -16,6 +16,10 @@ export const StyledUploadContainer = styled.div<UploadContainerProps>`
     h4 {
         text-align: center;
     }
+
+    @media screen and (max-width: 1000px) {
+        margin: auto;
+    }
 `
 
 export const StyledFileUpload = styled.div`

@@ -96,11 +96,12 @@ const Modal = ({ question, answer, _id, open, setOpen, cmsID }: ModalProps) => {
                 <DialogTitle>Confirm Delete of</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        <span>Question</span>
+                        <span>Question: </span>
                         {question}
                     </DialogContentText>
+                    <br />
                     <DialogContentText>
-                        <span>Answer</span>
+                        <span>Answer: </span>
                         {answer}
                     </DialogContentText>
                 </DialogContent>
