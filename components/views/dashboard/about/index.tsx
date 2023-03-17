@@ -36,7 +36,7 @@ const VALIDATIONS = {
     title: FormValidations.validAlphaNumericSpacesSpecials,
     header: FormValidations.validAlphaNumericSpacesSpecials,
     subHeader: FormValidations.validAlphaNumericSpacesSpecials,
-    heroImage: FormValidations.validAlphaNumericSpacesSpecials
+    heroImage: FormValidations.validImage
 }
 
 const IMAGE_LABEL = 'heroImage'

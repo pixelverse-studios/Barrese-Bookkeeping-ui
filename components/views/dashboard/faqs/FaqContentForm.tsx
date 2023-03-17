@@ -29,7 +29,7 @@ const INITIAL_STATE = {
 const VALIDATIONS = {
     pageH1: FormValidations.validAlphaNumericSpacesSpecials,
     pageH2: FormValidations.validAlphaNumericSpacesSpecials,
-    heroImage: FormValidations.validAlphaNumericSpacesSpecials
+    heroImage: FormValidations.validImage
 }
 const IMAGE_LABEL = 'heroImage'
 

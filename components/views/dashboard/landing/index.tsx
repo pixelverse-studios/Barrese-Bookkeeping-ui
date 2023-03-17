@@ -32,7 +32,7 @@ const INITIAL_STATE = {
 }
 
 const VALIDATIONS = {
-    heroImage: FormValidations.validAlphaNumeric,
+    heroImage: FormValidations.validImage,
     heroBannerH1: FormValidations.validAlphaNumericSpacesSpecials,
     heroBannerH2: FormValidations.validAlphaNumericSpacesSpecials,
     subtext: FormValidations.validAlphaNumericSpacesSpecials
