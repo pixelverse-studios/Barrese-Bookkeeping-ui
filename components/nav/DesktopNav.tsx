@@ -108,30 +108,7 @@ const DesktopNav = () => {
     const { email } = useSelector((state: any) => state.user.profile)
     const isLoggedIn = Boolean(email)
     const handleLogout = useLogout()
-
     const scrollPosition = useScrollPosition()
-
-    // if (scrollPosition < NAV_TRANSITION_POINT) {
-    //     return (
-    //         <TransparantStyledNav>
-    //             <div className="navContent">
-    //                 <img
-    //                     className="logo"
-    //                     src={LogoWhiteNoBg.src}
-    //                     alt="Barrese Bookkeeping"
-    //                     onClick={() => {
-    //                         router.push('/')
-    //                     }}
-    //                 />
-    //                 {renderNavItems({
-    //                     currentPage,
-    //                     isLoggedIn,
-    //                     logout: handleLogout
-    //                 })}
-    //             </div>
-    //         </TransparantStyledNav>
-    //     )
-    // }
 
     return (
         <>
