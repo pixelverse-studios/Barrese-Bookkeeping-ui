@@ -22,6 +22,10 @@ export const StyledDashboardPage = styled.section`
             width: 100% #000;
         }
     }
+
+    @media only screen and (max-width: 1000px) {
+        grid-template-columns: 1fr;
+    }
 `
 
 export const StyledDashboardSideNav = styled.nav`
