@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const StyledGearsLoader = styled.div`
-    height: 300px;
+    height: 100%;
     position: relative;
     animation: start 2s forwards;
 
@@ -129,16 +129,21 @@ export const StyledFullPageLoader = styled.section`
     z-index: 10;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.85);
+    height: 100%;
+    width: 100%;
 `
 
 export const StyledPartialLoader = styled.section`
     position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 10;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.85);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
     height: 25vh;
     width: 25vw;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.85);
     border-radius: 1.5rem;
+    transition: 3s ease-in-out;
 `

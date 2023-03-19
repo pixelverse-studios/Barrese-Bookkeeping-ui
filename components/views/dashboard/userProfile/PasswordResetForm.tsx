@@ -14,6 +14,7 @@ import { setProfile } from '@/lib/redux/slices/user'
 import { PW_VALIDATIONS, INITIAL_PW_STATE } from '../../auth/ResetPassword'
 import useForm from '@/utilities/hooks/useForm'
 import { TextField, FormRow } from '@/components/form'
+import { PartialLoader } from '@/components/loader'
 import { StyledPasswordResetForm } from './StyledUserProfile.styles'
 
 const PasswordResetForm = () => {
@@ -129,6 +130,7 @@ const PasswordResetForm = () => {
                     Reset
                 </Button>
             </FormRow>
+            <PartialLoader show={formLoading} />
         </StyledPasswordResetForm>
     )
 }

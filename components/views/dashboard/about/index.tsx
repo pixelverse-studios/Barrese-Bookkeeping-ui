@@ -20,6 +20,7 @@ import useForm from '@/utilities/hooks/useForm'
 import { StyledAboutForm, StyledAboutFields } from './StyledAboutWidget'
 import { StyledUploadContainer } from '@/components/form/fields/Formfield.styles'
 import { ButtonRow } from '@/components/form/Row.styles'
+import { PartialLoader } from '@/components/loader'
 
 const INITIAL_STATE = {
     backgroundInfo: { value: '', error: '' },
@@ -227,6 +228,7 @@ const AboutWidget = () => {
                     Reset
                 </Button>
             </ButtonRow>
+            <PartialLoader show={formLoading} />
         </StyledAboutForm>
     )
 }

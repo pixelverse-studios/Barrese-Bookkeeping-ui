@@ -14,9 +14,10 @@ import {
     onImageUpload,
     CloudinaryCreationProps
 } from '@/utilities/fileConversion'
-import { FormRow, TextField, FileUpload } from '@/components/form'
+import { TextField, FileUpload } from '@/components/form'
 import FormValidations from '@/utilities/validations/forms'
 import useForm from '@/utilities/hooks/useForm'
+import { PartialLoader } from '@/components/loader'
 import {
     StyledLandingWidgtForm,
     StyledLandingFields
@@ -196,6 +197,7 @@ const Landing = () => {
                     Reset
                 </Button>
             </ButtonRow>
+            <PartialLoader show={formLoading} />
         </StyledLandingWidgtForm>
     )
 }

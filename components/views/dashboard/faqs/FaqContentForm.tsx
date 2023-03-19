@@ -20,6 +20,7 @@ import useForm from '@/utilities/hooks/useForm'
 import { StyledUploadContainer } from '@/components/form/fields/Formfield.styles'
 import { ButtonRow } from '@/components/form/Row.styles'
 import { StyledFaqsContentForm } from './StyledFAQsWidget'
+import { PartialLoader } from '@/components/loader'
 
 const INITIAL_STATE = {
     pageH1: { value: '', error: '' },
@@ -185,6 +186,7 @@ const FaqContentForm = () => {
                     Reset
                 </Button>
             </ButtonRow>
+            <PartialLoader show={formLoading} />
         </StyledFaqsContentForm>
     )
 }

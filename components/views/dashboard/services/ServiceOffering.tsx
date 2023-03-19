@@ -33,6 +33,7 @@ import useForm from '@/utilities/hooks/useForm'
 import ServiceOfferingBullets from './ServiceOfferingBullets'
 import { FormRow, TextField, FileUpload } from '@/components/form'
 import { StyledUploadContainer } from '@/components/form/fields/Formfield.styles'
+import { PartialLoader } from '@/components/loader'
 import { StyledServiceOffering, StyledModal } from './StyledServicesWidget'
 
 interface FaqItemProps {
@@ -366,6 +367,7 @@ const ServiceOffering = ({
                 _id={_id}
                 cmsID={cmsID}
             />
+            <PartialLoader show={formLoading} />
         </StyledServiceOffering>
     )
 }

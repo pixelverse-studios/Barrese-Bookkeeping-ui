@@ -18,6 +18,7 @@ import {
     showTechnicalDifficultiesBanner
 } from '@/lib/redux/slices/banner'
 import FooterField from './FooterField'
+import { PartialLoader } from '@/components/loader'
 import { StyledFooterForm, StyledFooterFields } from './StyledFooterWidget'
 import { ButtonRow } from '@/components/form/Row.styles'
 
@@ -213,6 +214,7 @@ const FooterWidget = () => {
                     Submit
                 </LoadingButton>
             </ButtonRow>
+            <PartialLoader show={formLoading} />
         </StyledFooterForm>
     )
 }

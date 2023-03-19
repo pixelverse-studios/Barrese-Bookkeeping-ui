@@ -20,6 +20,7 @@ import useForm from '@/utilities/hooks/useForm'
 import { StyledCtaForm, StyledCtaFields } from './StyledCTAWidget'
 import { StyledUploadContainer } from '@/components/form/fields/Formfield.styles'
 import { ButtonRow } from '@/components/form/Row.styles'
+import { PartialLoader } from '@/components/loader'
 
 const INITIAL_STATE = {
     image: { value: '', error: '' },
@@ -195,6 +196,7 @@ const CallToActionWidget = () => {
                     Reset
                 </Button>
             </ButtonRow>
+            <PartialLoader show={formLoading} />
         </StyledCtaForm>
     )
 }
