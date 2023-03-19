@@ -40,7 +40,7 @@ const VALIDATIONS = {
 
 const Landing = () => {
     const dispatch = useDispatch()
-    const { id } = useSelector((state: any) => state.cmsData)
+    const { id } = useSelector((state: any) => state.cms)
     const { heroImage, heroBannerH1, heroBannerH2, subtext } = useSelector(
         (state: any) => state.landing
     )

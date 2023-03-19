@@ -17,7 +17,7 @@ export const intialCmsState = {
 }
 
 export const cmsSlice = createSlice({
-    name: 'cmsData',
+    name: 'cms',
     initialState: intialCmsState,
     reducers: {
         setCmsId: (state, action) => {

@@ -39,7 +39,7 @@ const IMAGE_LABEL = 'image'
 
 const CallToActionWidget = () => {
     const dispatch = useDispatch()
-    const { id } = useSelector((state: any) => state.cmsData)
+    const { id } = useSelector((state: any) => state.cms)
     const { image, heading, description, buttonLabel } = useSelector(
         (state: any) => state.callToAction
     )

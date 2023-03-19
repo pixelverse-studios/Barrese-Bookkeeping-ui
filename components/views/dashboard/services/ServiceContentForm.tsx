@@ -37,7 +37,7 @@ const IMAGE_LABEL = 'heroImage'
 
 const ServiceContentForm = () => {
     const dispatch = useDispatch()
-    const { id } = useSelector((state: any) => state.cmsData)
+    const { id } = useSelector((state: any) => state.cms)
     const { pageH1, pageH2, heroImage, description, offerings } = useSelector(
         (state: any) => state.services
     )

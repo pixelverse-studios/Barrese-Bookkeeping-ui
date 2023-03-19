@@ -43,7 +43,7 @@ const IMAGE_LABEL = 'heroImage'
 
 const AboutWidget = () => {
     const dispatch = useDispatch()
-    const { id } = useSelector((state: any) => state.cmsData)
+    const { id } = useSelector((state: any) => state.cms)
     const { backgroundInfo, role, title, header, subHeader, heroImage } =
         useSelector((state: any) => state.about)
 

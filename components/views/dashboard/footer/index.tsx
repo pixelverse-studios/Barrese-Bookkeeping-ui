@@ -35,7 +35,7 @@ const newContactType = {
 
 const FooterWidget = () => {
     const dispatch = useDispatch()
-    const { id } = useSelector((state: any) => state.cmsData)
+    const { id } = useSelector((state: any) => state.cms)
     const { contactLinks } = useSelector((state: any) => state.footer)
 
     const [formLoading, setFormLoading] = useState<boolean>(false)

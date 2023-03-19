@@ -22,7 +22,7 @@ import {
 const UserProfile = () => {
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(false)
-    const { id } = useSelector((state: any) => state?.cmsData)
+    const { id } = useSelector((state: any) => state?.cms)
     const { profilePic } = useSelector((state: any) => state.about)
     const {
         profile: { email, firstName, lastName }
