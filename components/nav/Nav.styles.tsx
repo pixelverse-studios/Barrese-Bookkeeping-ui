@@ -13,6 +13,18 @@ export const StyledNav = styled.nav`
     z-index: 9999;
     box-shadow: rgb(0 0 0 / 12%) 0 1px 3px;
 
+    &.show {
+        transition: var(--nav-transition-duration) ease-out;
+        opacity: 1;
+        z-index: 9;
+    }
+
+    &.hide {
+        transition: var(--nav-transition-duration) ease-in;
+        opacity: 0;
+        z-index: -1;
+    }
+
     .navContent {
         display: flex;
         column-gap: 1rem;
@@ -98,7 +110,18 @@ export const TransparantStyledNav = styled.nav`
     top: 0;
     left: 0;
     z-index: 9999;
-    transition: var(--transition);
+
+    &.show {
+        transition: var(--nav-transition-duration) ease-out;
+        opacity: 1;
+        z-index: 9;
+    }
+
+    &.hide {
+        transition: var(--nav-transition-duration) ease-in;
+        opacity: 0;
+        z-index: -1;
+    }
 
     .navContent {
         display: flex;

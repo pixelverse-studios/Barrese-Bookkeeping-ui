@@ -32,6 +32,7 @@
     --success-font: #3a9e1cf2;
 
     --transition: 0.25s ease-in-out;
+    --nav-transition-duration: opacity 0.5s;
 }
 
 @font-face {

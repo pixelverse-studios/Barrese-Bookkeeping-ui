@@ -111,9 +111,34 @@ const DesktopNav = () => {
 
     const scrollPosition = useScrollPosition()
 
-    if (scrollPosition < NAV_TRANSITION_POINT) {
-        return (
-            <TransparantStyledNav>
+    // if (scrollPosition < NAV_TRANSITION_POINT) {
+    //     return (
+    //         <TransparantStyledNav>
+    //             <div className="navContent">
+    //                 <img
+    //                     className="logo"
+    //                     src={LogoWhiteNoBg.src}
+    //                     alt="Barrese Bookkeeping"
+    //                     onClick={() => {
+    //                         router.push('/')
+    //                     }}
+    //                 />
+    //                 {renderNavItems({
+    //                     currentPage,
+    //                     isLoggedIn,
+    //                     logout: handleLogout
+    //                 })}
+    //             </div>
+    //         </TransparantStyledNav>
+    //     )
+    // }
+
+    return (
+        <>
+            <TransparantStyledNav
+                className={
+                    scrollPosition < NAV_TRANSITION_POINT ? 'show' : 'hide'
+                }>
                 <div className="navContent">
                     <img
                         className="logo"
@@ -130,27 +155,27 @@ const DesktopNav = () => {
                     })}
                 </div>
             </TransparantStyledNav>
-        )
-    }
-
-    return (
-        <StyledNav>
-            <div className="navContent">
-                <img
-                    className="logo"
-                    src={Logo.src}
-                    alt="Barrese Bookkeeping"
-                    onClick={() => {
-                        router.push('/')
-                    }}
-                />
-                {renderNavItems({
-                    currentPage,
-                    isLoggedIn,
-                    logout: handleLogout
-                })}
-            </div>
-        </StyledNav>
+            <StyledNav
+                className={
+                    scrollPosition >= NAV_TRANSITION_POINT ? 'show' : 'hide'
+                }>
+                <div className="navContent">
+                    <img
+                        className="logo"
+                        src={Logo.src}
+                        alt="Barrese Bookkeeping"
+                        onClick={() => {
+                            router.push('/')
+                        }}
+                    />
+                    {renderNavItems({
+                        currentPage,
+                        isLoggedIn,
+                        logout: handleLogout
+                    })}
+                </div>
+            </StyledNav>
+        </>
     )
 }
 
