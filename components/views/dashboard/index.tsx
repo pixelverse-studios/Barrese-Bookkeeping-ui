@@ -14,6 +14,7 @@ import {
     StyledDashboardSideNav,
     StyledDashboardHeader
 } from './StyledDashboardComponents.styles'
+import { FullPageLoader } from '@/components/loader'
 import LogoWhiteNoBg from '@/assets/images/BarreseBookkeeping-white-nobg.svg'
 
 const DashboardPage = ({ children }: { children: any }) => {
@@ -31,7 +32,7 @@ const DashboardPage = ({ children }: { children: any }) => {
     const currentPage = router.pathname
 
     if (!profilePic) {
-        return <span>...loading</span>
+        return <FullPageLoader />
     }
 
     const pageHeader =

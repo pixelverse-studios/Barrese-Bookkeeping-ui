@@ -33,10 +33,10 @@ const INITIAL_STATE = {
 }
 
 const VALIDATIONS = {
-    heroImage: FormValidations.validImage,
-    heroBannerH1: FormValidations.validAlphaNumericSpacesSpecials,
-    heroBannerH2: FormValidations.validAlphaNumericSpacesSpecials,
-    subtext: FormValidations.validAlphaNumericSpacesSpecials
+    heroImage: FormValidations.yolo,
+    heroBannerH1: FormValidations.yolo,
+    heroBannerH2: FormValidations.yolo,
+    subtext: FormValidations.yolo
 }
 
 const Landing = () => {

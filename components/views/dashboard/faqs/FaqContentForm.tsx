@@ -28,9 +28,9 @@ const INITIAL_STATE = {
     heroImage: { value: '', error: '' }
 }
 const VALIDATIONS = {
-    pageH1: FormValidations.validAlphaNumericSpacesSpecials,
-    pageH2: FormValidations.validAlphaNumericSpacesSpecials,
-    heroImage: FormValidations.validImage
+    pageH1: FormValidations.yolo,
+    pageH2: FormValidations.yolo,
+    heroImage: FormValidations.yolo
 }
 const IMAGE_LABEL = 'heroImage'
 

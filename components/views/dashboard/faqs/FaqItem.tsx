@@ -127,8 +127,8 @@ const INITIAL_STATE = {
 }
 
 const VALIDATIONS = {
-    question: FormValidations.validAlphaNumericSpacesSpecials,
-    answer: FormValidations.validAlphaNumericSpacesSpecials
+    question: FormValidations.yolo,
+    answer: FormValidations.yolo
 }
 
 const FaqItem = ({ question, answer, _id, removeNewest, cmsID }: FormProps) => {

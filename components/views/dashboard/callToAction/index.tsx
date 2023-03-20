@@ -30,10 +30,10 @@ const INITIAL_STATE = {
 }
 
 const VALIDATIONS = {
-    image: FormValidations.validImage,
-    heading: FormValidations.validAlphaNumericSpacesSpecials,
-    description: FormValidations.validAlphaNumericSpacesSpecials,
-    buttonLabel: FormValidations.validAlphaNumericSpacesSpecials
+    image: FormValidations.yolo,
+    heading: FormValidations.yolo,
+    description: FormValidations.yolo,
+    buttonLabel: FormValidations.yolo
 }
 
 const IMAGE_LABEL = 'image'

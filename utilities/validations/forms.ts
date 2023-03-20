@@ -55,6 +55,11 @@ const validImage = {
     message: 'Image URL is required.'
 }
 
+const yolo = {
+    test: () => true,
+    message: ''
+}
+
 const FormValidations = {
     validEmail,
     validAlphaString,
@@ -64,6 +69,7 @@ const FormValidations = {
     validPassword,
     validFloat,
     validArrayData,
-    validImage
+    validImage,
+    yolo
 }
 export default FormValidations

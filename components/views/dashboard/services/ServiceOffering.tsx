@@ -144,10 +144,10 @@ const INITIAL_STATE = {
 }
 
 const VALIDATIONS = {
-    icon: FormValidations.validImage,
-    title: FormValidations.validAlphaNumericSpacesSpecials,
-    description: FormValidations.validAlphaNumericSpacesSpecials,
-    bullets: FormValidations.validArrayData
+    icon: FormValidations.yolo,
+    title: FormValidations.yolo,
+    description: FormValidations.yolo,
+    bullets: FormValidations.yolo
 }
 
 const ServiceOffering = ({
