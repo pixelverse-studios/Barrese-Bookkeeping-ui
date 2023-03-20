@@ -47,6 +47,7 @@ export const StyledCallToAction = styled.section`
 
             .subText {
                 font-size: 1.25rem;
+                line-height: 24px;
             }
         }
 
@@ -63,19 +64,27 @@ export const StyledCallToAction = styled.section`
         }
     }
 
-    @media only screen and (max-width: 750px) {
-        .container {
-            .content {
-                text-align: center;
-                padding: 6rem 4rem;
+    @media only screen and (max-width: 1350px) {
+        .container .content {
+            text-align: center;
+            padding: 6rem 4rem;
 
-                h1 {
-                    font-size: 3rem;
-                    padding: 0 1.5rem;
-                }
-                .subText {
-                    font-size: 1rem;
-                }
+            h1 {
+                font-size: 3rem;
+                padding: 0 1.5rem;
+            }
+            .subText {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 750px) {
+        .container .content {
+            padding: 6rem 2rem;
+
+            h1 {
+                font-size: 2rem;
             }
         }
     }

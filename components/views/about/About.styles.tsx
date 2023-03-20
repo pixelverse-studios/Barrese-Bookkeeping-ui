@@ -1,65 +1,68 @@
+import ContentSpacing from '@/styles/components/StyledContentSpacing'
 import styled from '@emotion/styled'
 
 export const StyledAbout = styled.section`
-    width: var(--max-content-width);
-    padding: var(--content-padding);
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+
     h1 {
         font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.7rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 600;
     }
 
     .about {
         display: flex;
-        column-gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
         padding-top: 2rem;
+
         .about-image-title {
             display: flex;
             flex-direction: column;
+            gap: 0.7rem;
             align-items: center;
-            float: left;
-            row-gap: 0.3rem;
+
             img {
                 border-radius: 50%;
-                min-height: 15rem;
-                max-height: 25rem;
-                height: 100%;
+            }
+
+            span {
+                font-size: 1.2rem;
+                font-weight: 700;
             }
         }
 
         p {
-            display: grid;
-            place-items: center;
+            width: 50%;
+            margin: auto;
+            line-height: 24px;
+            font-size: 1.1rem;
         }
     }
+
     @media only screen and (max-width: 1350px) {
-        width: 100%;
-        padding: 0.5rem;
-        text-align: center;
-        .about {
-            display: flex;
-            flex-direction: column;
-            p {
-                text-align: center;
-            }
+        .about p {
+            width: 80%;
         }
     }
 
     @media only screen and (max-width: 750px) {
-        gap: 1rem;
-        h1 {
-            font-size: 2rem;
-        }
-        h2 {
-            font-size: 1.5rem;
-        }
-
         .about {
-            row-gap: 1rem;
+            .about-image-title img {
+                width: 65%;
+            }
 
-            img {
-                width: 100%;
+            p {
+                width: 90%;
             }
         }
     }

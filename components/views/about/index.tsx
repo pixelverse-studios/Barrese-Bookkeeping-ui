@@ -26,8 +26,8 @@ const AboutPage = () => {
                     <div className="about">
                         <div className="about-image-title">
                             <img src={profilePic} alt="" />
-                            <h3>{title}</h3>
-                            <h3>{role}</h3>
+                            <span>{title}</span>
+                            <span>{role}</span>
                         </div>
                         <p>{backgroundInfo}</p>
                     </div>
