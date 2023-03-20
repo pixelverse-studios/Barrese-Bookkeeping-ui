@@ -9,14 +9,14 @@ const StyledButton = styled.button`
     color: var(--Off-brand-color);
     font-weight: 800;
     transition: var(--transition);
+    cursor: pointer;
 
     &:hover {
         background-color: var(--Primary-accent-color);
-        border: 2px solid var(--Primary-accent-color);
+        border: 2px solid var(--Primary-brand-color);
         border-radius: 5px;
         color: var(--Primary-brand-color);
         font-weight: 800;
-        cursor: pointer;
     }
 `
 

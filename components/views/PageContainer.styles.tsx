@@ -9,10 +9,14 @@ export const StyledPageContainer = styled.section`
 
     .container {
         ${ContentSpacing}
-        padding-top: 3rem;
+        padding: 3rem 0;
 
         @media only screen and (max-width: 1350px) {
             width: 100%;
+        }
+
+        @media only screen and (max-width: 750px) {
+            padding: 3rem 1rem;
         }
     }
 `
