@@ -10,7 +10,7 @@ export const StyledFooter = styled.footer`
     align-items: center;
 
     .footer-content {
-        width: var(--max-desktop-width);
+        width: var(--max-content-width);
         padding: var(--content-padding);
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -53,7 +53,7 @@ export const StyledFooter = styled.footer`
         .footer-content {
             display: flex;
             flex-direction: column;
-            width: var(--max-desktop-width);
+            width: var(--max-content-width);
             padding: var(--content-padding);
             align-items: center;
             justify-content: center;

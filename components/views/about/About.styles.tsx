@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 
 export const StyledAbout = styled.section`
-    width: var(--max-desktop-width);
+    width: var(--max-content-width);
     padding: var(--content-padding);
     display: flex;
     flex-direction: column;

@@ -7,7 +7,7 @@ export const StyledFAQ = styled.section`
     }
 
     .accordion {
-        width: var(--max-desktop-width);
+        width: var(--max-content-width);
         padding: var(--content-padding);
         display: flex;
         flex-direction: column;

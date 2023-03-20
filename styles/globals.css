@@ -10,15 +10,15 @@
     --Secondary-accent-color: rgb(211, 199, 184);
     --Off-accent-color: #1492df;
 
-    --content-padding: 0rem 10rem;
     --nav-height: 4rem;
     --footer-height: 15rem;
     --footer-background: var(--Primary-accent-color);
     --footer-font-color: var(--Primary-brand-color);
-    --max-content-width: 1400px;
     --medium-breakpoint: 1000px;
     --mobile-breakpoint: 750px;
     --max-desktop-width: 80vw;
+    --max-content-width: 1400px;
+    --content-padding: 0rem 6rem;
 
     --card-radius: 4px;
     --card-box-shadow: 7px 7px 14px #bebebe, -7px -7px 14px #ffffff;

@@ -1,21 +1,24 @@
 import styled from '@emotion/styled'
 
 export const StyledServiceCard = styled.div`
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    row-gap: 0.75rem;
-    padding: 3rem 0rem;
-    color: var(--Primary-brand-color);
+    display: grid;
+    grid-template-rows: auto 4rem 1fr;
+    grid-gap: 1.5rem;
+    align-items: flex-start;
+    justify-items: center;
+
     img {
-        width: 15rem;
-        height: 15rem;
+        width: 80%;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
     }
 
     p {
-        max-width: 15rem;
-        padding: 1rem;
-        border-top: 2px solid var(--Secondary-accent-color);
-        border-bottom: 2px solid var(--Secondary-accent-color);
+        text-align: center;
+        line-height: 24px;
+        font-size: 1.1rem;
     }
 `

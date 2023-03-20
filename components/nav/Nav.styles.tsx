@@ -1,10 +1,12 @@
 import styled from '@emotion/styled'
+import ContentSpacing from '@/styles/components/StyledContentSpacing'
 
 export const StyledNav = styled.nav`
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 0 1rem;
     height: var(--nav-height);
     background-color: var(--Off-brand-color);
     position: fixed;
@@ -26,10 +28,10 @@ export const StyledNav = styled.nav`
     }
 
     .navContent {
+        ${ContentSpacing}
+
         display: flex;
         column-gap: 1rem;
-        padding: var(--content-padding);
-        width: var(--max-desktop-width);
         align-items: center;
         justify-content: space-between;
         align-content: center;
@@ -110,6 +112,7 @@ export const TransparantStyledNav = styled.nav`
     top: 0;
     left: 0;
     z-index: 9999;
+    padding: 0 1rem;
 
     &.show {
         transition: var(--nav-transition-duration) ease-out;
@@ -124,10 +127,9 @@ export const TransparantStyledNav = styled.nav`
     }
 
     .navContent {
+        ${ContentSpacing}
         display: flex;
         column-gap: 1rem;
-        padding: var(--content-padding);
-        width: var(--max-desktop-width);
         align-items: center;
         justify-content: space-between;
         align-content: center;
@@ -222,6 +224,7 @@ export const StyledMobileNav = styled.nav`
         transition: all 0.5s ease-out, background 1s ease-out;
         transition-delay: 0.2s;
         z-index: 2;
+
         .burgerContainer {
             position: absolute;
             right: 0;
