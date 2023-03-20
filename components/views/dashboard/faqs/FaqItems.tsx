@@ -7,7 +7,7 @@ import FaqItem from './FaqItem'
 import { StyledFaqItems } from './StyledFAQsWidget'
 
 const FaqItems = () => {
-    const { id } = useSelector((state: any) => state.cmsData)
+    const { id } = useSelector((state: any) => state.cms)
     const { qAndA } = useSelector((state: any) => state.faqs)
     const [items, setItems] = useState<any>([])
 

@@ -9,6 +9,12 @@ export const ButtonRow = styled.div`
         height: 2rem;
         width: 10rem;
     }
+
+    @media screen and (max-width: 1000px) {
+        button {
+            width: 50%;
+        }
+    }
 `
 
 const FormRow = styled.div`

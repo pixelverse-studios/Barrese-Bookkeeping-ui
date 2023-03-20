@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 export const StyledContact = styled.section`
     .content {
-        width: var(--max-desktop-width);
+        width: var(--max-content-width);
         padding: var(--content-padding);
         display: grid;
         grid-template-columns: 1fr 2fr;

@@ -20,6 +20,7 @@ import useForm from '@/utilities/hooks/useForm'
 import { StyledUploadContainer } from '@/components/form/fields/Formfield.styles'
 import { ButtonRow } from '@/components/form/Row.styles'
 import { StyledFaqsContentForm } from './StyledFAQsWidget'
+import { PartialLoader } from '@/components/loader'
 
 const INITIAL_STATE = {
     pageH1: { value: '', error: '' },
@@ -29,13 +30,13 @@ const INITIAL_STATE = {
 const VALIDATIONS = {
     pageH1: FormValidations.validAlphaNumericSpacesSpecials,
     pageH2: FormValidations.validAlphaNumericSpacesSpecials,
-    heroImage: FormValidations.validAlphaNumericSpacesSpecials
+    heroImage: FormValidations.validImage
 }
 const IMAGE_LABEL = 'heroImage'
 
 const FaqContentForm = () => {
     const dispatch = useDispatch()
-    const { id } = useSelector((state: any) => state.cmsData)
+    const { id } = useSelector((state: any) => state.cms)
     const { pageH1, pageH2, heroImage } = useSelector(
         (state: any) => state.faqs
     )
@@ -185,6 +186,7 @@ const FaqContentForm = () => {
                     Reset
                 </Button>
             </ButtonRow>
+            <PartialLoader show={formLoading} />
         </StyledFaqsContentForm>
     )
 }

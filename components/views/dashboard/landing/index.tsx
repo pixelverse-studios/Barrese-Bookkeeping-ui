@@ -14,9 +14,10 @@ import {
     onImageUpload,
     CloudinaryCreationProps
 } from '@/utilities/fileConversion'
-import { FormRow, TextField, FileUpload } from '@/components/form'
+import { TextField, FileUpload } from '@/components/form'
 import FormValidations from '@/utilities/validations/forms'
 import useForm from '@/utilities/hooks/useForm'
+import { PartialLoader } from '@/components/loader'
 import {
     StyledLandingWidgtForm,
     StyledLandingFields
@@ -32,7 +33,7 @@ const INITIAL_STATE = {
 }
 
 const VALIDATIONS = {
-    heroImage: FormValidations.validAlphaNumeric,
+    heroImage: FormValidations.validImage,
     heroBannerH1: FormValidations.validAlphaNumericSpacesSpecials,
     heroBannerH2: FormValidations.validAlphaNumericSpacesSpecials,
     subtext: FormValidations.validAlphaNumericSpacesSpecials
@@ -40,7 +41,7 @@ const VALIDATIONS = {
 
 const Landing = () => {
     const dispatch = useDispatch()
-    const { id } = useSelector((state: any) => state.cmsData)
+    const { id } = useSelector((state: any) => state.cms)
     const { heroImage, heroBannerH1, heroBannerH2, subtext } = useSelector(
         (state: any) => state.landing
     )
@@ -196,6 +197,7 @@ const Landing = () => {
                     Reset
                 </Button>
             </ButtonRow>
+            <PartialLoader show={formLoading} />
         </StyledLandingWidgtForm>
     )
 }

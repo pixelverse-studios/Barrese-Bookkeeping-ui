@@ -25,6 +25,11 @@ export const StyledFaqsContentForm = styled.form`
             gap: 1rem;
             width: 100%;
         }
+
+        @media screen and (max-width: 1000px) {
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr;
+        }
     }
 `
 
@@ -45,12 +50,8 @@ export const StyledFaqItems = styled.section`
 
     .items {
         display: grid;
-        grid-template-columns: repeat(3, minmax(6rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
         grid-gap: 1rem;
-
-        @media screen and (max-width: 1200px) {
-            grid-template-columns: repeat(2, 1fr);
-        }
     }
 `
 

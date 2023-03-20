@@ -7,7 +7,7 @@ import ServiceOffering from './ServiceOffering'
 import { StyledServiceOfferings } from './StyledServicesWidget'
 
 const ServiceItems = () => {
-    const { id } = useSelector((state: any) => state.cmsData)
+    const { id } = useSelector((state: any) => state.cms)
     const { offerings } = useSelector((state: any) => state.services)
     const [items, setItems] = useState<any>([])
 

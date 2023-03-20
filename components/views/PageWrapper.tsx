@@ -28,6 +28,7 @@ import {
     setNewsletterUsers,
     setServices
 } from '@/lib/redux/slices/exports'
+import { FullPageLoader } from '../loader'
 import { showBanner } from '@/lib/redux/slices/banner'
 import DashboardPage from './dashboard'
 import Nav from '../nav'
@@ -41,6 +42,7 @@ const PageWrapper = ({ children }: { children: any }) => {
     const router = useRouter()
     const dispatch = useDispatch()
     const { profile } = useSelector((state: any) => state.user)
+    const { loading } = useSelector((state: any) => state.cms)
 
     const basePath = router.pathname.split('/')[1]
     const isPageIncluded = (pages: string[]) => pages.includes(basePath)
@@ -142,7 +144,7 @@ const PageWrapper = ({ children }: { children: any }) => {
                 }
             }
             dispatch(setCmsId(cms._id))
-            dispatch(setCmsLoading(false))
+            // dispatch(setCmsLoading(false))
         },
         onError(err: any) {
             dispatch(
@@ -153,7 +155,7 @@ const PageWrapper = ({ children }: { children: any }) => {
                 })
             )
 
-            dispatch(setCmsLoading(false))
+            // dispatch(setCmsLoading(false))
         }
     })
 
@@ -169,6 +171,7 @@ const PageWrapper = ({ children }: { children: any }) => {
     return (
         <ThemeProvider theme={theme}>
             <StyledMain>
+                {loading ? <FullPageLoader /> : null}
                 {isOnDashboard ? (
                     <DashboardPage>{children}</DashboardPage>
                 ) : (

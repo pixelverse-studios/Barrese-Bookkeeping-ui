@@ -18,6 +18,7 @@ import {
     showTechnicalDifficultiesBanner
 } from '@/lib/redux/slices/banner'
 import FooterField from './FooterField'
+import { PartialLoader } from '@/components/loader'
 import { StyledFooterForm, StyledFooterFields } from './StyledFooterWidget'
 import { ButtonRow } from '@/components/form/Row.styles'
 
@@ -35,7 +36,7 @@ const newContactType = {
 
 const FooterWidget = () => {
     const dispatch = useDispatch()
-    const { id } = useSelector((state: any) => state.cmsData)
+    const { id } = useSelector((state: any) => state.cms)
     const { contactLinks } = useSelector((state: any) => state.footer)
 
     const [formLoading, setFormLoading] = useState<boolean>(false)
@@ -213,6 +214,7 @@ const FooterWidget = () => {
                     Submit
                 </LoadingButton>
             </ButtonRow>
+            <PartialLoader show={formLoading} />
         </StyledFooterForm>
     )
 }

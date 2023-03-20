@@ -20,6 +20,7 @@ import useForm from '@/utilities/hooks/useForm'
 import { StyledCtaForm, StyledCtaFields } from './StyledCTAWidget'
 import { StyledUploadContainer } from '@/components/form/fields/Formfield.styles'
 import { ButtonRow } from '@/components/form/Row.styles'
+import { PartialLoader } from '@/components/loader'
 
 const INITIAL_STATE = {
     image: { value: '', error: '' },
@@ -29,17 +30,17 @@ const INITIAL_STATE = {
 }
 
 const VALIDATIONS = {
-    image: FormValidations.validAlphaNumeric,
-    heading: FormValidations.validAlphaNumericWithSpaces,
+    image: FormValidations.validImage,
+    heading: FormValidations.validAlphaNumericSpacesSpecials,
     description: FormValidations.validAlphaNumericSpacesSpecials,
-    buttonLabel: FormValidations.validAlphaNumericWithSpaces
+    buttonLabel: FormValidations.validAlphaNumericSpacesSpecials
 }
 
 const IMAGE_LABEL = 'image'
 
 const CallToActionWidget = () => {
     const dispatch = useDispatch()
-    const { id } = useSelector((state: any) => state.cmsData)
+    const { id } = useSelector((state: any) => state.cms)
     const { image, heading, description, buttonLabel } = useSelector(
         (state: any) => state.callToAction
     )
@@ -195,6 +196,7 @@ const CallToActionWidget = () => {
                     Reset
                 </Button>
             </ButtonRow>
+            <PartialLoader show={formLoading} />
         </StyledCtaForm>
     )
 }

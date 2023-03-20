@@ -1,7 +1,8 @@
+import ContentSpacing from '@/styles/components/StyledContentSpacing'
 import styled from '@emotion/styled'
 
 export const StyledCallToAction = styled.section`
-    padding: 6rem 0rem;
+    padding: 6rem;
     position: relative;
     width: 100%;
     display: flex;
@@ -9,19 +10,16 @@ export const StyledCallToAction = styled.section`
     align-items: center;
     justify-content: center;
     align-content: center;
+    max-width: calc(var(--max-content-width) - var(--content-padding));
 
     .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        align-content: center;
-        width: var(--max-desktop-width);
-        padding: var(--content-padding);
+        width: 100%;
 
+        .ctaImgWrapper {
+        }
         img {
             position: absolute;
-            top: 25px;
+            top: 0;
             left: 0px;
             right: 0px;
             margin: auto;
@@ -30,29 +28,26 @@ export const StyledCallToAction = styled.section`
             border-radius: 50%;
             height: 9.375rem;
             width: 9.375rem;
-            border: 1px solid transparent;
             box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
         }
 
         .content {
-            position: relative;
             border: 3px solid var(--Secondary-accent-color);
-            width: 100%;
-            min-width: fit-content;
             padding: 6rem 0rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            align-content: center;
+            gap: 1rem;
             color: var(--Primary-brand-color);
+
             h1 {
                 font-size: 3.75rem;
             }
 
             .subText {
                 font-size: 1.25rem;
+                line-height: 24px;
             }
         }
 
@@ -69,17 +64,27 @@ export const StyledCallToAction = styled.section`
         }
     }
 
+    @media only screen and (max-width: 1350px) {
+        .container .content {
+            text-align: center;
+            padding: 6rem 4rem;
+
+            h1 {
+                font-size: 3rem;
+                padding: 0 1.5rem;
+            }
+            .subText {
+                font-size: 1rem;
+            }
+        }
+    }
+
     @media only screen and (max-width: 750px) {
-        width: 100%;
-        .container {
-            .content {
-                h1 {
-                    font-size: 3rem;
-                    padding: 0 1.5rem;
-                }
-                .subText {
-                    font-size: 1rem;
-                }
+        .container .content {
+            padding: 6rem 2rem;
+
+            h1 {
+                font-size: 2rem;
             }
         }
     }

@@ -1,10 +1,12 @@
 import styled from '@emotion/styled'
+import ContentSpacing from '@/styles/components/StyledContentSpacing'
 
 export const StyledNav = styled.nav`
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 0 1rem;
     height: var(--nav-height);
     background-color: var(--Off-brand-color);
     position: fixed;
@@ -13,11 +15,23 @@ export const StyledNav = styled.nav`
     z-index: 9999;
     box-shadow: rgb(0 0 0 / 12%) 0 1px 3px;
 
+    &.show {
+        transition: var(--nav-transition-duration) ease-out;
+        opacity: 1;
+        z-index: 9;
+    }
+
+    &.hide {
+        transition: var(--nav-transition-duration) ease-in;
+        opacity: 0;
+        z-index: -1;
+    }
+
     .navContent {
+        ${ContentSpacing}
+
         display: flex;
         column-gap: 1rem;
-        padding: var(--content-padding);
-        width: var(--max-desktop-width);
         align-items: center;
         justify-content: space-between;
         align-content: center;
@@ -34,6 +48,7 @@ export const StyledNav = styled.nav`
             column-gap: 1rem;
             align-items: flex-end;
             font-size: 1.3rem;
+
             .navLinks {
                 display: inline-block;
                 position: relative;
@@ -44,6 +59,7 @@ export const StyledNav = styled.nav`
                         cursor: pointer;
                     }
                 }
+
                 a,
                 a:hover {
                     color: var(--Primary-brand-color);
@@ -65,9 +81,7 @@ export const StyledNav = styled.nav`
                 width: 100%;
                 background: var(--Primary-brand-color);
             }
-        }
-        li {
-            list-style-type: none;
+
             .activeLink {
                 color: var(--Primary-brand-color);
             }
@@ -79,6 +93,9 @@ export const StyledNav = styled.nav`
                 width: 100%;
                 background: var(--Primary-brand-color);
             }
+        }
+        li {
+            list-style-type: none;
         }
     }
 `
@@ -95,13 +112,24 @@ export const TransparantStyledNav = styled.nav`
     top: 0;
     left: 0;
     z-index: 9999;
-    transition: var(--transition);
+    padding: 0 1rem;
+
+    &.show {
+        transition: var(--nav-transition-duration) ease-out;
+        opacity: 1;
+        z-index: 9;
+    }
+
+    &.hide {
+        transition: var(--nav-transition-duration) ease-in;
+        opacity: 0;
+        z-index: -1;
+    }
 
     .navContent {
+        ${ContentSpacing}
         display: flex;
         column-gap: 1rem;
-        padding: var(--content-padding);
-        width: var(--max-desktop-width);
         align-items: center;
         justify-content: space-between;
         align-content: center;
@@ -196,6 +224,7 @@ export const StyledMobileNav = styled.nav`
         transition: all 0.5s ease-out, background 1s ease-out;
         transition-delay: 0.2s;
         z-index: 2;
+
         .burgerContainer {
             position: absolute;
             right: 0;

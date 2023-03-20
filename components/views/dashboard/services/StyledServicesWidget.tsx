@@ -25,6 +25,11 @@ export const StyledServicesContentForm = styled.form`
             gap: 1rem;
             width: 100%;
         }
+
+        @media screen and (max-width: 1000px) {
+            grid-template-rows: 1fr 1fr;
+            grid-template-columns: 1fr;
+        }
     }
 `
 
@@ -62,9 +67,10 @@ export const StyledServiceOffering = styled.div`
     ${CardStyles}
 
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 2rem 18rem 3rem 8rem 1fr 2rem;
+    grid-gap: 1.5rem;
 
     .serviceOfferingIconFile {
         margin: auto;
@@ -131,6 +137,11 @@ export const StyledOfferingBullet = styled.div`
 
         button svg {
             color: var(--error-font);
+        }
+
+        @media screen and (max-width: 1000px) {
+            grid-template-rows: 1fr;
+            grid-template-columns: 1fr;
         }
     }
 `

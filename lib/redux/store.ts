@@ -16,7 +16,7 @@ export const store = configureStore({
     reducer: {
         user: userReducer,
         banner: bannerReducer,
-        cmsData: cmsReducer,
+        cms: cmsReducer,
         callToAction,
         dashboard,
         about,

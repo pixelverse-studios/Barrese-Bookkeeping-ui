@@ -20,6 +20,7 @@ import useForm from '@/utilities/hooks/useForm'
 import { StyledAboutForm, StyledAboutFields } from './StyledAboutWidget'
 import { StyledUploadContainer } from '@/components/form/fields/Formfield.styles'
 import { ButtonRow } from '@/components/form/Row.styles'
+import { PartialLoader } from '@/components/loader'
 
 const INITIAL_STATE = {
     backgroundInfo: { value: '', error: '' },
@@ -33,17 +34,17 @@ const INITIAL_STATE = {
 const VALIDATIONS = {
     backgroundInfo: FormValidations.validAlphaNumericSpacesSpecials,
     role: FormValidations.validAlphaNumericSpacesSpecials,
-    title: FormValidations.validAlphaNumericWithSpaces,
-    header: FormValidations.validAlphaNumericWithSpaces,
-    subHeader: FormValidations.validAlphaNumericWithSpaces,
-    heroImage: FormValidations.validAlphaNumericWithSpaces
+    title: FormValidations.validAlphaNumericSpacesSpecials,
+    header: FormValidations.validAlphaNumericSpacesSpecials,
+    subHeader: FormValidations.validAlphaNumericSpacesSpecials,
+    heroImage: FormValidations.validImage
 }
 
 const IMAGE_LABEL = 'heroImage'
 
 const AboutWidget = () => {
     const dispatch = useDispatch()
-    const { id } = useSelector((state: any) => state.cmsData)
+    const { id } = useSelector((state: any) => state.cms)
     const { backgroundInfo, role, title, header, subHeader, heroImage } =
         useSelector((state: any) => state.about)
 
@@ -227,6 +228,7 @@ const AboutWidget = () => {
                     Reset
                 </Button>
             </ButtonRow>
+            <PartialLoader show={formLoading} />
         </StyledAboutForm>
     )
 }

@@ -28,6 +28,7 @@ import FormValidations from '@/utilities/validations/forms'
 import useForm from '@/utilities/hooks/useForm'
 import { FormRow, TextField } from '@/components/form'
 import { StyledFaqItem, StyledModal } from './StyledFAQsWidget'
+import { PartialLoader } from '@/components/loader'
 
 interface FaqItemProps {
     _id?: string
@@ -93,14 +94,15 @@ const Modal = ({ question, answer, _id, open, setOpen, cmsID }: ModalProps) => {
     return (
         <Dialog open={open}>
             <StyledModal>
-                <DialogTitle>Confirm Delete of</DialogTitle>
+                <DialogTitle>Confirm Delete</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        <span>Question</span>
+                        <span>Question: </span>
                         {question}
                     </DialogContentText>
+                    <br />
                     <DialogContentText>
-                        <span>Answer</span>
+                        <span>Answer: </span>
                         {answer}
                     </DialogContentText>
                 </DialogContent>
@@ -282,6 +284,7 @@ const FaqItem = ({ question, answer, _id, removeNewest, cmsID }: FormProps) => {
                 _id={_id}
                 cmsID={cmsID}
             />
+            <PartialLoader show={formLoading} />
         </StyledFaqItem>
     )
 }

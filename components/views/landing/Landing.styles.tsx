@@ -1,3 +1,4 @@
+import ContentSpacing from '@/styles/components/StyledContentSpacing'
 import styled from '@emotion/styled'
 
 type LandingPageTypes = {
@@ -6,9 +7,11 @@ type LandingPageTypes = {
 
 export const StyledLanding = styled.section<LandingPageTypes>`
     width: 100vw;
+
     h1 {
         font-size: 6.4rem;
     }
+
     .hero {
         position: relative;
         height: 100vh;
@@ -32,7 +35,7 @@ export const StyledLanding = styled.section<LandingPageTypes>`
 
             .downArrows {
                 position: absolute;
-                bottom: 4rem;
+                bottom: 1rem;
                 height: 50px;
                 width: 50px;
                 display: grid;
@@ -60,12 +63,12 @@ export const StyledLanding = styled.section<LandingPageTypes>`
             }
 
             .overlay-text {
-                width: var(--max-desktop-width);
-                padding: var(--content-padding);
+                ${ContentSpacing}
                 padding-top: var(--nav-height);
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
+                align-items: flex-start;
 
                 button {
                     width: 10rem;
@@ -76,10 +79,11 @@ export const StyledLanding = styled.section<LandingPageTypes>`
                 display: flex;
                 flex-direction: column;
                 width: fit-content;
+                gap: 1rem;
                 border-bottom: 3px solid var(--Off-brand-color);
 
                 h1 {
-                    font-size: 5rem;
+                    font-size: 4rem;
                     color: var(--Off-brand-color);
                 }
 
@@ -118,16 +122,18 @@ export const StyledLanding = styled.section<LandingPageTypes>`
 
     .services {
         background-color: var(--Off-brand-color);
-        width: 100%;
+        padding: 3rem 0rem;
+        ${ContentSpacing}
         height: calc(100vh - var(--nav-height));
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         align-content: center;
-        padding: 3rem 0rem;
         row-gap: 1rem;
         scroll-margin-top: 2rem !important;
+        padding-top: 3rem;
+
         h1 {
             font-size: 4.5rem;
             @media only screen and (max-width: 750px) {
@@ -136,24 +142,22 @@ export const StyledLanding = styled.section<LandingPageTypes>`
         }
 
         .services-container {
-            display: flex;
-            justify-content: space-between;
-            width: var(--max-desktop-width);
-            padding: var(--content-padding);
-            padding-top: 2rem;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+            align-items: flex-start;
+            justify-items: center;
+            grid-gap: 1.5rem;
+            padding: 2rem 6rem;
         }
     }
 
     @media only screen and (max-width: 1350px) {
         .hero {
             .overlay-text {
-                display: flex;
-                flex-direction: column;
                 justify-content: center;
-                align-items: center;
                 height: 100%;
                 width: fit-content;
-                gap: 1rem;
             }
         }
         .services {
@@ -162,12 +166,6 @@ export const StyledLanding = styled.section<LandingPageTypes>`
             padding: 3rem 0rem;
             height: fit-content;
             scroll-margin-top: 7rem;
-        }
-
-        .services-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
     }
 

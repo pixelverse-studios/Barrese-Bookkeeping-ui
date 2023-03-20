@@ -108,16 +108,17 @@ const DesktopNav = () => {
     const { email } = useSelector((state: any) => state.user.profile)
     const isLoggedIn = Boolean(email)
     const handleLogout = useLogout()
-
     const scrollPosition = useScrollPosition()
 
-    if (scrollPosition < NAV_TRANSITION_POINT) {
-        return (
-            <TransparantStyledNav>
+    return (
+        <>
+            <TransparantStyledNav
+                className={
+                    scrollPosition < NAV_TRANSITION_POINT ? 'show' : 'hide'
+                }>
                 <div className="navContent">
                     <img
                         className="logo"
-                        // src={LogoWhite.src}
                         src={LogoWhiteNoBg.src}
                         alt="Barrese Bookkeeping"
                         onClick={() => {
@@ -131,28 +132,27 @@ const DesktopNav = () => {
                     })}
                 </div>
             </TransparantStyledNav>
-        )
-    }
-
-    return (
-        <StyledNav>
-            <div className="navContent">
-                <img
-                    className="logo"
-                    // src={Logo.src}
-                    src={Logo.src}
-                    alt="Barrese Bookkeeping"
-                    onClick={() => {
-                        router.push('/')
-                    }}
-                />
-                {renderNavItems({
-                    currentPage,
-                    isLoggedIn,
-                    logout: handleLogout
-                })}
-            </div>
-        </StyledNav>
+            <StyledNav
+                className={
+                    scrollPosition >= NAV_TRANSITION_POINT ? 'show' : 'hide'
+                }>
+                <div className="navContent">
+                    <img
+                        className="logo"
+                        src={Logo.src}
+                        alt="Barrese Bookkeeping"
+                        onClick={() => {
+                            router.push('/')
+                        }}
+                    />
+                    {renderNavItems({
+                        currentPage,
+                        isLoggedIn,
+                        logout: handleLogout
+                    })}
+                </div>
+            </StyledNav>
+        </>
     )
 }
 

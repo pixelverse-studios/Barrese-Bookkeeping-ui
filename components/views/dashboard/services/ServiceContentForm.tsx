@@ -17,6 +17,7 @@ import {
 import { FormRow, TextField, FileUpload } from '@/components/form'
 import FormValidations from '@/utilities/validations/forms'
 import useForm from '@/utilities/hooks/useForm'
+import { PartialLoader } from '@/components/loader'
 import { StyledUploadContainer } from '@/components/form/fields/Formfield.styles'
 import { ButtonRow } from '@/components/form/Row.styles'
 import { StyledServicesContentForm } from './StyledServicesWidget'
@@ -30,17 +31,13 @@ const INITIAL_STATE = {
 const VALIDATIONS = {
     pageH1: FormValidations.validAlphaNumericSpacesSpecials,
     pageH2: FormValidations.validAlphaNumericSpacesSpecials,
-    heroImage: FormValidations.validAlphaNumericWithSpaces,
+    heroImage: FormValidations.validImage,
     description: FormValidations.validAlphaNumericSpacesSpecials
 }
 const IMAGE_LABEL = 'heroImage'
 
 const ServiceContentForm = () => {
     const dispatch = useDispatch()
-    const { id } = useSelector((state: any) => state.cmsData)
-    const { pageH1, pageH2, heroImage, description, offerings } = useSelector(
-        (state: any) => state.services
-    )
 
     const {
         form,
@@ -53,6 +50,11 @@ const ServiceContentForm = () => {
         setFormLoading,
         handleFormSubmit
     } = useForm(INITIAL_STATE, VALIDATIONS)
+    const { id } = useSelector((state: any) => state.cms)
+    const { pageH1, pageH2, heroImage, description } = useSelector(
+        (state: any) => state.services
+    )
+
     const [imgLoading, setImgLoading] = useState<boolean>(false)
 
     useEffect(() => {
@@ -198,6 +200,7 @@ const ServiceContentForm = () => {
                     Reset
                 </Button>
             </ButtonRow>
+            <PartialLoader show={formLoading} />
         </StyledServicesContentForm>
     )
 }
