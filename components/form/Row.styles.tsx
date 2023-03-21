@@ -20,6 +20,7 @@ export const ButtonRow = styled.div`
 const FormRow = styled.div`
     display: flex;
     gap: 1rem;
+    width: 100%;
 
     & > * {
         flex: 1;

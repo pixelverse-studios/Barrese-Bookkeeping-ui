@@ -21,9 +21,10 @@ import { StyledAboutForm, StyledAboutFields } from './StyledAboutWidget'
 import { StyledUploadContainer } from '@/components/form/fields/Formfield.styles'
 import { ButtonRow } from '@/components/form/Row.styles'
 import { PartialLoader } from '@/components/loader'
+import BackgroundInfoBlock from './BackgroundInfoBlock'
 
 const INITIAL_STATE = {
-    backgroundInfo: { value: '', error: '' },
+    backgroundInfo: { value: [] as any, error: '' },
     role: { value: '', error: '' },
     title: { value: '', error: '' },
     header: { value: '', error: '' },
@@ -151,18 +152,18 @@ const AboutWidget = () => {
             onSubmit={(event: FormEvent<HTMLFormElement>) =>
                 handleFormSubmit(event, editAbout)
             }>
-            <StyledUploadContainer>
-                <FileUpload
-                    loading={imgLoading}
-                    name="heroImage"
-                    id="heroImage"
-                    onUpload={handleImageUpload}
-                    value={form.heroImage.value}
-                    clearValue={handleImageClear}
-                />
-                <h4>Page Image</h4>
-            </StyledUploadContainer>
             <StyledAboutFields>
+                <StyledUploadContainer disableCardStyles>
+                    <FileUpload
+                        loading={imgLoading}
+                        name="heroImage"
+                        id="heroImage"
+                        onUpload={handleImageUpload}
+                        value={form.heroImage.value}
+                        clearValue={handleImageClear}
+                    />
+                    <h4>Page Image</h4>
+                </StyledUploadContainer>
                 <FormRow>
                     <TextField
                         field={form.role}
@@ -173,23 +174,14 @@ const AboutWidget = () => {
                         onChange={handleChange}
                         disabled={formLoading}
                     />
+                </FormRow>
+                <FormRow>
                     <TextField
                         field={form.title}
                         type="text"
                         id="title"
                         name="title"
                         label="Title"
-                        onChange={handleChange}
-                        disabled={formLoading}
-                    />
-                </FormRow>
-                <FormRow>
-                    <TextField
-                        field={form.backgroundInfo}
-                        type="textarea"
-                        id="backgroundInfo"
-                        name="backgroundInfo"
-                        label="Background Info"
                         onChange={handleChange}
                         disabled={formLoading}
                     />
@@ -204,6 +196,8 @@ const AboutWidget = () => {
                         onChange={handleChange}
                         disabled={formLoading}
                     />
+                </FormRow>
+                <FormRow>
                     <TextField
                         field={form.subHeader}
                         type="text"
@@ -215,6 +209,11 @@ const AboutWidget = () => {
                     />
                 </FormRow>
             </StyledAboutFields>
+            <BackgroundInfoBlock
+                backgroundInfo={form.backgroundInfo.value}
+                handleChange={handleNonFormEventChange}
+                formLoading={formLoading}
+            />
             <ButtonRow>
                 <LoadingButton
                     type="submit"
