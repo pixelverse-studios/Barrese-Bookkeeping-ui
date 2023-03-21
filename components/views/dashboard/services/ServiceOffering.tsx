@@ -258,7 +258,7 @@ const ServiceOffering = ({
                     input: {
                         icon: form.icon.value,
                         title: form.title.value,
-                        description: form.descriptionvalue,
+                        description: form.description.value,
                         bullets: form.bullets.value
                     }
                 }
