@@ -7,9 +7,14 @@ import ServiceCard from '@/components/ServiceCard'
 import { StyledLanding } from './Landing.styles'
 
 const Landing = () => {
-    const { heroImage, heroBannerH1, heroBannerH2, subtext } = useSelector(
-        (state: any) => state.landing
-    )
+    const {
+        heroImage,
+        heroBannerH1,
+        heroBannerH2,
+        subtext,
+        header,
+        subHeader
+    } = useSelector((state: any) => state.landing)
     const { buttonLabel } = useSelector((state: any) => state.callToAction)
     const { offerings } = useSelector((state: any) => state.services)
 
@@ -42,8 +47,8 @@ const Landing = () => {
                 </div>
             </div>
             <div ref={serviceRef} className="services">
-                <h1>Outsourced Accounting</h1>
-                <h2>For Small Businesses</h2>
+                <h1>{header}</h1>
+                <h2>{subHeader}</h2>
                 <hr />
                 <div className="services-container">
                     {offerings?.length ? (

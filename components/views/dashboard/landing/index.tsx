@@ -23,28 +23,37 @@ import {
     StyledLandingFields
 } from './StyledLandingWidget'
 import { StyledUploadContainer } from '@/components/form/fields/Formfield.styles'
-import { ButtonRow } from '@/components/form/Row.styles'
+import FormRow, { ButtonRow } from '@/components/form/Row.styles'
 
 const INITIAL_STATE = {
     heroImage: { value: '', error: '' },
     heroBannerH1: { value: '', error: '' },
     heroBannerH2: { value: '', error: '' },
-    subtext: { value: '', error: '' }
+    subtext: { value: '', error: '' },
+    header: { value: '', error: '' },
+    subHeader: { value: '', error: '' }
 }
 
 const VALIDATIONS = {
     heroImage: FormValidations.yolo,
     heroBannerH1: FormValidations.yolo,
     heroBannerH2: FormValidations.yolo,
-    subtext: FormValidations.yolo
+    subtext: FormValidations.yolo,
+    header: FormValidations.yolo,
+    subHeader: FormValidations.yolo
 }
 
 const Landing = () => {
     const dispatch = useDispatch()
     const { id } = useSelector((state: any) => state.cms)
-    const { heroImage, heroBannerH1, heroBannerH2, subtext } = useSelector(
-        (state: any) => state.landing
-    )
+    const {
+        heroImage,
+        heroBannerH1,
+        heroBannerH2,
+        subtext,
+        header,
+        subHeader
+    } = useSelector((state: any) => state.landing)
 
     const {
         form,
@@ -59,7 +68,14 @@ const Landing = () => {
     } = useForm(INITIAL_STATE, VALIDATIONS)
 
     useEffect(() => {
-        handleImport({ heroImage, heroBannerH1, heroBannerH2, subtext })
+        handleImport({
+            heroImage,
+            heroBannerH1,
+            heroBannerH2,
+            subtext,
+            header,
+            subHeader
+        })
     }, [])
 
     const [imgLoading, setImgLoading] = useState<boolean>(false)
@@ -135,7 +151,9 @@ const Landing = () => {
                 heroImage: form.heroImage.value,
                 heroBannerH1: form.heroBannerH1.value,
                 heroBannerH2: form.heroBannerH2.value,
-                subtext: form.subtext.value
+                subtext: form.subtext.value,
+                header: form.header.value,
+                subHeader: form.subHeader.value
             }
         }
     })
@@ -156,33 +174,55 @@ const Landing = () => {
                 />
             </StyledUploadContainer>
             <StyledLandingFields>
-                <TextField
-                    field={form.heroBannerH1}
-                    type="text"
-                    id="heroBannerH1"
-                    name="heroBannerH1"
-                    label="Primary Hero Banner"
-                    onChange={handleChange}
-                    disabled={formLoading}
-                />
-                <TextField
-                    field={form.heroBannerH2}
-                    type="text"
-                    id="heroBannerH2"
-                    name="heroBannerH2"
-                    label="Secondary Hero Banner"
-                    onChange={handleChange}
-                    disabled={formLoading}
-                />
-                <TextField
-                    field={form.subtext}
-                    type="text"
-                    id="subtext"
-                    name="subtext"
-                    label="Subtext"
-                    onChange={handleChange}
-                    disabled={formLoading}
-                />
+                <FormRow>
+                    <TextField
+                        field={form.heroBannerH1}
+                        type="textarea"
+                        id="heroBannerH1"
+                        name="heroBannerH1"
+                        label="Primary Hero Banner"
+                        onChange={handleChange}
+                        disabled={formLoading}
+                    />
+                    <TextField
+                        field={form.heroBannerH2}
+                        type="textarea"
+                        id="heroBannerH2"
+                        name="heroBannerH2"
+                        label="Secondary Hero Banner"
+                        onChange={handleChange}
+                        disabled={formLoading}
+                    />
+                </FormRow>
+                <FormRow>
+                    <TextField
+                        field={form.subtext}
+                        type="text"
+                        id="subtext"
+                        name="subtext"
+                        label="Subtext"
+                        onChange={handleChange}
+                        disabled={formLoading}
+                    />
+                    <TextField
+                        field={form.header}
+                        type="text"
+                        id="header"
+                        name="header"
+                        label="Header"
+                        onChange={handleChange}
+                        disabled={formLoading}
+                    />
+                    <TextField
+                        field={form.subHeader}
+                        type="text"
+                        id="subHeader"
+                        name="subHeader"
+                        label="Sub Header"
+                        onChange={handleChange}
+                        disabled={formLoading}
+                    />
+                </FormRow>
             </StyledLandingFields>
             <ButtonRow>
                 <LoadingButton

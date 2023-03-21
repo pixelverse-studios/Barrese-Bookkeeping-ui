@@ -32,6 +32,8 @@ export const EDIT_LANDING = gql`
                     heroBannerH1
                     heroBannerH2
                     subtext
+                    header
+                    subHeader
                 }
             }
             ... on Errors {
