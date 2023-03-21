@@ -32,6 +32,8 @@ export const GET_INITIAL_CMS = gql`
                     heroBannerH1
                     heroBannerH2
                     subtext
+                    header
+                    subHeader
                 }
                 callToAction {
                     image

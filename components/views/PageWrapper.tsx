@@ -123,13 +123,13 @@ const PageWrapper = ({ children }: { children: any }) => {
                         dispatch(setCallToAction(value))
                         break
                     case FAQS:
-                        console.log(value)
                         dispatch(setFaqs(value))
                         break
                     case FOOTER:
                         dispatch(setFooter(value.contactLinks))
                         break
                     case LANDING:
+                        console.log(value)
                         dispatch(setLanding(value))
                         break
                     case SERVICES:

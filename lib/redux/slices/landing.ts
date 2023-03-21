@@ -4,7 +4,9 @@ export const initialState = {
     heroImage: '',
     heroBannerH1: '',
     heroBannerH2: '',
-    subtext: ''
+    subtext: '',
+    header: '',
+    subHeader: ''
 }
 
 export const landingSlice = createSlice({
@@ -16,6 +18,8 @@ export const landingSlice = createSlice({
             state.heroBannerH1 = payload.heroBannerH1
             state.heroBannerH2 = payload.heroBannerH2
             state.subtext = payload.subtext
+            state.header = payload.header
+            state.subHeader = payload.subHeader
         }
     }
 })
