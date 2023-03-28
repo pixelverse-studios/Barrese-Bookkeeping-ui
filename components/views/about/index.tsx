@@ -29,9 +29,13 @@ const AboutPage = () => {
                             <span>{title}</span>
                             <span>{role}</span>
                         </div>
-                        {backgroundInfo.map((item: any) => (
-                            <p key={item}>{item}</p>
-                        ))}
+                        {backgroundInfo?.length ? (
+                            backgroundInfo.map((item: any) => (
+                                <p key={item}>{item}</p>
+                            ))
+                        ) : (
+                            <div>No current background info</div>
+                        )}
                     </div>
                 </StyledAbout>
             </div>
