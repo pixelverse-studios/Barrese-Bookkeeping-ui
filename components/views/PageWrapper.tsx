@@ -129,7 +129,6 @@ const PageWrapper = ({ children }: { children: any }) => {
                         dispatch(setFooter(value.contactLinks))
                         break
                     case LANDING:
-                        console.log(value)
                         dispatch(setLanding(value))
                         break
                     case SERVICES:
