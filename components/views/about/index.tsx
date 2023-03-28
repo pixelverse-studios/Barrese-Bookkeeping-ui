@@ -29,7 +29,9 @@ const AboutPage = () => {
                             <span>{title}</span>
                             <span>{role}</span>
                         </div>
-                        <p>{backgroundInfo}</p>
+                        {backgroundInfo.map((item: any) => (
+                            <p key={item}>{item}</p>
+                        ))}
                     </div>
                 </StyledAbout>
             </div>

@@ -63,12 +63,11 @@ export const StyledLanding = styled.section<LandingPageTypes>`
             }
 
             .overlay-text {
-                ${ContentSpacing}
-                padding-top: var(--nav-height);
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
                 align-items: flex-start;
+                ${ContentSpacing}
 
                 button {
                     width: 10rem;
@@ -76,6 +75,8 @@ export const StyledLanding = styled.section<LandingPageTypes>`
             }
 
             .title-container {
+                max-width: 700px;
+                width: 100%;
                 display: flex;
                 flex-direction: column;
                 width: fit-content;
@@ -83,12 +84,13 @@ export const StyledLanding = styled.section<LandingPageTypes>`
                 border-bottom: 3px solid var(--Off-brand-color);
 
                 h1 {
-                    font-size: 4rem;
+                    font-size: 3rem;
+                    line-height: 3.5rem;
                     color: var(--Off-brand-color);
                 }
 
                 h2 {
-                    font-size: 3rem;
+                    font-size: 1.8rem;
                 }
             }
 
@@ -144,7 +146,7 @@ export const StyledLanding = styled.section<LandingPageTypes>`
         .services-container {
             width: 100%;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
             align-items: flex-start;
             justify-items: center;
             grid-gap: 1.5rem;

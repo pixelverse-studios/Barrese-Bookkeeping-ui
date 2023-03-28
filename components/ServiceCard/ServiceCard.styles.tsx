@@ -13,7 +13,10 @@ export const StyledServiceCard = styled.div`
 
     h2 {
         font-size: 1.5rem;
+        line-height: 1.5rem;
         font-weight: 700;
+        width: 80%;
+        text-align: center;
     }
 
     p {

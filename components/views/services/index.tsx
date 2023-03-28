@@ -6,14 +6,14 @@ import { StyledPageContainer } from '../PageContainer.styles'
 import { StyledServices } from './Services.styles'
 
 const ServicesPage = () => {
-    const { pageH1, pageH2, description, offerings } = useSelector(
+    const { pageH1, pageH2, description, offerings, heroImage } = useSelector(
         (state: any) => state.services
     )
     const { buttonLabel } = useSelector((state: any) => state.callToAction)
 
     return (
         <StyledPageContainer>
-            <HeroImage url="https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80" />
+            <HeroImage url={heroImage} />
             <div className="container">
                 <StyledServices>
                     <div className="services-hero">
@@ -26,10 +26,11 @@ const ServicesPage = () => {
                         {offerings?.length ? (
                             offerings.map((offering: any, index: number) => [
                                 <div className="detail-section" key={index}>
-                                    <img src={offering.icon} alt="icon" />
+                                    <div className="imgContainer">
+                                        <img src={offering.icon} alt="icon" />
+                                    </div>
                                     <div className="service-info">
                                         <h1>{offering.title}</h1>
-
                                         <span className="description">
                                             {offering.description}
                                         </span>
