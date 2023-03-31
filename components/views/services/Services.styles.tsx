@@ -23,6 +23,8 @@ export const StyledServices = styled.section`
         p {
             padding-top: 1rem;
             max-width: 50rem;
+            text-align: left;
+            line-height: 1.5rem;
         }
     }
 
@@ -34,13 +36,16 @@ export const StyledServices = styled.section`
         row-gap: 4rem;
 
         .detail-section {
-            display: flex;
-            align-items: flex-start;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: 10rem 1fr;
+            grid-gap: 2rem;
 
-            img {
-                width: 9rem;
-                height: 100%;
+            .imgContainer {
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
             }
 
             .service-info {
@@ -93,11 +98,16 @@ export const StyledServices = styled.section`
             padding: 1rem;
 
             .detail-section {
-                flex-direction: column;
-                row-gap: 1.6rem;
-                align-items: flex-start;
+                grid-template-columns: 1fr;
+                grid-template-rows: 10rem 1fr;
+                grid-gap: 1.5rem;
                 padding: 0 0 1rem 0;
                 border-bottom: 3px solid var(--Secondary-accent-color);
+
+                .imgContainer {
+                    text-align: left;
+                    width: 10rem;
+                }
 
                 .service-info {
                     border-left: 3px solid transparent;

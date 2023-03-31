@@ -63,39 +63,45 @@ export const StyledLanding = styled.section<LandingPageTypes>`
             }
 
             .overlay-text {
-                ${ContentSpacing}
-                padding-top: var(--nav-height);
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
                 align-items: flex-start;
+                ${ContentSpacing}
 
                 button {
                     width: 10rem;
                 }
-            }
 
-            .title-container {
-                display: flex;
-                flex-direction: column;
-                width: fit-content;
-                gap: 1rem;
-                border-bottom: 3px solid var(--Off-brand-color);
+                .title-container {
+                    max-width: 310px;
+                    padding: 5px 0;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    width: fit-content;
+                    gap: 1rem;
+                    border-bottom: 3px solid var(--Off-brand-color);
 
-                h1 {
-                    font-size: 4rem;
-                    color: var(--Off-brand-color);
+                    h1 {
+                        font-size: 3rem;
+                        line-height: 3.5rem;
+                        color: var(--Off-brand-color);
+                    }
                 }
 
-                h2 {
-                    font-size: 3rem;
-                }
-            }
+                .subtitle-container {
+                    max-width: 310px;
+                    display: flex;
+                    flex-direction: column;
 
-            .subtitle-container {
-                display: flex;
-                flex-direction: column;
-                padding: 1rem 0rem;
+                    h2 {
+                        margin-bottom: 1rem;
+                    }
+                    & > * {
+                        line-height: 1.5rem;
+                    }
+                }
             }
         }
 
@@ -144,7 +150,7 @@ export const StyledLanding = styled.section<LandingPageTypes>`
         .services-container {
             width: 100%;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
             align-items: flex-start;
             justify-items: center;
             grid-gap: 1.5rem;

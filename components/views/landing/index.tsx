@@ -7,7 +7,7 @@ import ServiceCard from '@/components/ServiceCard'
 import { ANIMATION_CLASSES } from '@/utilities/constants'
 import { StyledLanding } from './Landing.styles'
 
-const { base, prefix, general } = ANIMATION_CLASSES
+const { base, prefix, general, enterLeft } = ANIMATION_CLASSES
 const GENERAL_CLASS = `${prefix}${general}`
 
 const Landing = () => {
@@ -30,7 +30,7 @@ const Landing = () => {
             const { y } = serviceRef?.current?.getBoundingClientRect() as any
             const pageHeight = window.innerHeight
 
-            if (y < pageHeight) {
+            if (y + 200 < pageHeight) {
                 if (!serviceRef?.current?.classList.contains(GENERAL_CLASS)) {
                     serviceRef?.current?.classList.add(base)
                     serviceRef?.current?.classList.add(GENERAL_CLASS)
@@ -54,18 +54,18 @@ const Landing = () => {
             })
     }
 
-    const generalAnimation = `${base} ${prefix}${general}`
+    const overlayAnimation = `${base} ${prefix}${enterLeft}`
 
     return (
         <StyledLanding backgroundImg={heroImage}>
             <div className="hero">
                 <div className="overlay">
-                    <div className={`overlay-text ${generalAnimation}`}>
+                    <div className={`overlay-text ${overlayAnimation}`}>
                         <div className="title-container">
                             <h1>{heroBannerH1}</h1>
-                            <h2>{heroBannerH2}</h2>
                         </div>
                         <div className="subtitle-container">
+                            <h2>{heroBannerH2}</h2>
                             <h3>{subtext}</h3>
                         </div>
                         <Button label={buttonLabel} route="/contact" />

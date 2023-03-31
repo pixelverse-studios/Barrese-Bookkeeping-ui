@@ -20,6 +20,8 @@ export const ANIMATION_CLASSES = {
     prefix: 'animate__',
     base: 'animate__animated',
     general: 'backInUp',
-    serviceIcons: 'backInLeft',
-    serviceDescriptions: 'backInRight'
+    enterLeft: 'backInLeft',
+    enterRight: 'backInRight'
+    // serviceIcons: 'backInLeft',
+    // serviceDescriptions: 'backInRight'
 }
