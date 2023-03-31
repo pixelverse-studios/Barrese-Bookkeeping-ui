@@ -15,3 +15,15 @@ export const CLOUDINARY = {
     OVERRIDE_KEY: 'filename_override',
     PUBLIC_URL: 'https://res.cloudinary.com/ezpzcoding-cloudinary'
 }
+
+export const ANIMATION_CLASSES = {
+    prefix: 'animate__',
+    base: 'animate__animated',
+    general: 'backInUp',
+    enterLeft: 'backInLeft',
+    enterRight: 'backInRight',
+    enterTop: 'backInDown',
+    zoomIn: 'zoomIn'
+    // serviceIcons: 'backInLeft',
+    // serviceDescriptions: 'backInRight'
+}

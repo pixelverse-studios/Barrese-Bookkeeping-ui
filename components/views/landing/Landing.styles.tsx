@@ -72,32 +72,36 @@ export const StyledLanding = styled.section<LandingPageTypes>`
                 button {
                     width: 10rem;
                 }
-            }
 
-            .title-container {
-                max-width: 700px;
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                width: fit-content;
-                gap: 1rem;
-                border-bottom: 3px solid var(--Off-brand-color);
+                .title-container {
+                    max-width: 310px;
+                    padding: 5px 0;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    width: fit-content;
+                    gap: 1rem;
+                    border-bottom: 3px solid var(--Off-brand-color);
 
-                h1 {
-                    font-size: 3rem;
-                    line-height: 3.5rem;
-                    color: var(--Off-brand-color);
+                    h1 {
+                        font-size: 3rem;
+                        line-height: 3.5rem;
+                        color: var(--Off-brand-color);
+                    }
                 }
 
-                h2 {
-                    font-size: 1.8rem;
-                }
-            }
+                .subtitle-container {
+                    max-width: 310px;
+                    display: flex;
+                    flex-direction: column;
 
-            .subtitle-container {
-                display: flex;
-                flex-direction: column;
-                padding: 1rem 0rem;
+                    h2 {
+                        margin-bottom: 1rem;
+                    }
+                    & > * {
+                        line-height: 1.5rem;
+                    }
+                }
             }
         }
 
