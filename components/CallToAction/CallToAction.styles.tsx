@@ -2,7 +2,6 @@ import ContentSpacing from '@/styles/components/StyledContentSpacing'
 import styled from '@emotion/styled'
 
 export const StyledCallToAction = styled.section`
-    padding: 6rem;
     position: relative;
     width: 100%;
     display: flex;
@@ -10,7 +9,10 @@ export const StyledCallToAction = styled.section`
     align-items: center;
     justify-content: center;
     align-content: center;
-    max-width: calc(var(--max-content-width) - var(--content-padding));
+    ${ContentSpacing}
+    padding-bottom: 6rem;
+    padding-top: 6rem;
+    background-color: white;
 
     .container {
         width: 100%;

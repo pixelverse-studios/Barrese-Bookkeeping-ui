@@ -33,13 +33,53 @@
 
     --transition: 0.25s ease-in-out;
     --nav-transition-duration: opacity 0.5s;
+
+    --animate-duration: 1250ms;
+    --animate-delay: 0.9s;
 }
 
 @font-face {
     font-family: 'Gordita';
-    src: url('../assets/fonts/Gordita-Regular.otf');
+    src: url('../assets/fonts/Gordita Regular.otf');
     font-weight: 400;
     font-style: normal;
+}
+@font-face {
+    font-family: 'Gordita';
+    src: url('../assets/fonts/Gordita Medium.otf');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gordita';
+    src: url('../assets/fonts/Gordita Bold.otf');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gordita';
+    src: url('../assets/fonts/Gordita Ultra.otf');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gordita';
+    src: url('../assets/fonts/Gordita Regular.otf'),
+        url('../assets/fonts/Gordita Regular Italic.otf'),
+        url('../assets/fonts/Gordita Thin.otf'),
+        url('../assets/fonts/Gordita Thin Italic.otf'),
+        url('../assets/fonts/Gordita Light.otf'),
+        url('../assets/fonts/Gordita Light Italic.otf'),
+        url('../assets/fonts/Gordita Medium.otf'),
+        url('../assets/fonts/Gordita Medium Italic.otf'),
+        url('../assets/fonts/Gordita Bold.otf'),
+        url('../assets/fonts/Gordita Black.otf'),
+        url('../assets/fonts/Gordita Black Italic.otf'),
+        url('../assets/fonts/Gordita Ultra.otf'),
+        url('../assets/fonts/Gordita Ultra Italic.otf');
+    font-weight: 400;
+    font-style: italic;
 }
 
 @font-face {

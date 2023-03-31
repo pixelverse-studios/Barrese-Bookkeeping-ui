@@ -1,10 +1,13 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 import Button from '@/components/button'
 import ServiceCard from '@/components/ServiceCard'
-
+import { ANIMATION_CLASSES } from '@/utilities/constants'
 import { StyledLanding } from './Landing.styles'
+
+const { base, prefix, general, enterLeft } = ANIMATION_CLASSES
+const GENERAL_CLASS = `${prefix}${general}`
 
 const Landing = () => {
     const {
@@ -15,26 +18,53 @@ const Landing = () => {
         header,
         subHeader
     } = useSelector((state: any) => state.landing)
+
     const { buttonLabel } = useSelector((state: any) => state.callToAction)
     const { offerings } = useSelector((state: any) => state.services)
 
     const serviceRef = useRef<HTMLDivElement>(null)
+
+    useEffect(() => {
+        const handleAnimations = () => {
+            const { y } = serviceRef?.current?.getBoundingClientRect() as any
+            const pageHeight = window.innerHeight
+
+            if (y + 200 < pageHeight) {
+                if (!serviceRef?.current?.classList.contains(GENERAL_CLASS)) {
+                    serviceRef?.current?.classList.add(base)
+                    serviceRef?.current?.classList.add(GENERAL_CLASS)
+                }
+            }
+        }
+
+        function watchScroll() {
+            window.addEventListener('scroll', handleAnimations)
+        }
+        watchScroll()
+        return () => {
+            window.removeEventListener('scroll', handleAnimations)
+        }
+    }, [serviceRef])
+
     const scrollToService = () => {
         if (serviceRef.current)
             serviceRef.current.scrollIntoView({
                 behavior: 'smooth'
             })
     }
+
+    const overlayAnimation = `${base} ${prefix}${enterLeft}`
+
     return (
         <StyledLanding backgroundImg={heroImage}>
             <div className="hero">
                 <div className="overlay">
-                    <div className="overlay-text">
+                    <div className={`overlay-text ${overlayAnimation}`}>
                         <div className="title-container">
                             <h1>{heroBannerH1}</h1>
-                            <h2>{heroBannerH2}</h2>
                         </div>
                         <div className="subtitle-container">
+                            <h2>{heroBannerH2}</h2>
                             <h3>{subtext}</h3>
                         </div>
                         <Button label={buttonLabel} route="/contact" />
