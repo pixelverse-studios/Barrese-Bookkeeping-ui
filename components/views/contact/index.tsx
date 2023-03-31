@@ -20,7 +20,7 @@ const ContactPage = () => {
 
     return (
         <StyledPageContainer>
-            <HeroImage url="https://images.unsplash.com/photo-1554224155-3a58922a22c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1741&q=80" />
+            <HeroImage url="https://res.cloudinary.com/ezpzcoding-cloudinary/image/upload/v1680231303/barrese_bookkeeping/contact_picture_pt2byk.png" />
             <div className="container">
                 <StyledContact className={overlayAnimation}>
                     <InlineWidget url="https://calendly.com/barresebookkeeping" />
