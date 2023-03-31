@@ -1,7 +1,6 @@
 import { useRef, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
-// import useIsInViewport from '@/utilities/hooks/useIsInViewport'
 import Button from '@/components/button'
 import ServiceCard from '@/components/ServiceCard'
 import { ANIMATION_CLASSES } from '@/utilities/constants'
@@ -26,7 +25,7 @@ const Landing = () => {
     const serviceRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        const handleServiceAnimations = () => {
+        const handleAnimations = () => {
             const { y } = serviceRef?.current?.getBoundingClientRect() as any
             const pageHeight = window.innerHeight
 
@@ -39,11 +38,11 @@ const Landing = () => {
         }
 
         function watchScroll() {
-            window.addEventListener('scroll', handleServiceAnimations)
+            window.addEventListener('scroll', handleAnimations)
         }
         watchScroll()
         return () => {
-            window.removeEventListener('scroll', handleServiceAnimations)
+            window.removeEventListener('scroll', handleAnimations)
         }
     }, [serviceRef])
 

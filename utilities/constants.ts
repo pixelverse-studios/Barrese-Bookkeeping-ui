@@ -21,7 +21,9 @@ export const ANIMATION_CLASSES = {
     base: 'animate__animated',
     general: 'backInUp',
     enterLeft: 'backInLeft',
-    enterRight: 'backInRight'
+    enterRight: 'backInRight',
+    enterTop: 'backInDown',
+    zoomIn: 'zoomIn'
     // serviceIcons: 'backInLeft',
     // serviceDescriptions: 'backInRight'
 }

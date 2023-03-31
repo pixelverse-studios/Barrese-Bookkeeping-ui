@@ -12,6 +12,7 @@ export const StyledCallToAction = styled.section`
     ${ContentSpacing}
     padding-bottom: 6rem;
     padding-top: 6rem;
+    background-color: white;
 
     .container {
         width: 100%;
