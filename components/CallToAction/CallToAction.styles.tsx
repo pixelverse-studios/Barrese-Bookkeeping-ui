@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 
 export const StyledCallToAction = styled.section`
     position: relative;
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,12 +12,10 @@ export const StyledCallToAction = styled.section`
     padding-bottom: 6rem;
     padding-top: 6rem;
     background-color: white;
+    max-width: var(--max-content-width);
 
     .container {
         width: 100%;
-
-        .ctaImgWrapper {
-        }
         img {
             position: absolute;
             top: 0;
@@ -27,7 +24,6 @@ export const StyledCallToAction = styled.section`
             margin: auto;
             z-index: 1;
             outline: 10px solid white;
-            /* border-radius: 50%; */
             height: 9.375rem;
             width: 9.375rem;
             box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
@@ -67,6 +63,7 @@ export const StyledCallToAction = styled.section`
     }
 
     @media only screen and (max-width: 1350px) {
+        width: 100%;
         .container .content {
             text-align: center;
             padding: 6rem 4rem;
@@ -82,11 +79,16 @@ export const StyledCallToAction = styled.section`
     }
 
     @media only screen and (max-width: 750px) {
-        .container .content {
-            padding: 6rem 2rem;
+        padding: 2rem;
 
-            h1 {
-                font-size: 2rem;
+        .container {
+            img {
+                top: -2rem;
+            }
+            .content {
+                h1 {
+                    font-size: 2rem;
+                }
             }
         }
     }

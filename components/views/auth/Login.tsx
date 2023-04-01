@@ -82,7 +82,6 @@ const Login = () => {
     })
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-        console.log('submit')
         event.preventDefault()
         dispatch(setLoading(true))
         login()
