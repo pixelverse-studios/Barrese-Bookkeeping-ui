@@ -82,6 +82,7 @@ export const StyledLanding = styled.section<LandingPageTypes>`
                     width: fit-content;
                     gap: 1rem;
                     border-bottom: 3px solid var(--Off-brand-color);
+                    padding: 1rem 0;
 
                     h1 {
                         font-size: 3rem;
@@ -97,8 +98,9 @@ export const StyledLanding = styled.section<LandingPageTypes>`
 
                     h2 {
                         margin-bottom: 1rem;
+                        line-height: 1.7rem;
                     }
-                    & > * {
+                    p {
                         line-height: 1.5rem;
                     }
                 }

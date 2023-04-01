@@ -16,14 +16,6 @@ export const CLOUDINARY = {
     PUBLIC_URL: 'https://res.cloudinary.com/ezpzcoding-cloudinary'
 }
 
-export const ANIMATION_CLASSES = {
-    prefix: 'animate__',
-    base: 'animate__animated',
-    general: 'backInUp',
-    enterLeft: 'backInLeft',
-    enterRight: 'backInRight',
-    enterTop: 'backInDown',
-    zoomIn: 'zoomIn'
-    // serviceIcons: 'backInLeft',
-    // serviceDescriptions: 'backInRight'
-}
+export const ANIMATION_CLASS = 'animate__animated animate__zoomIn'
+export const BASE_ANIMATE = 'animate__animated'
+export const FADE_ANIMATE = 'animate__zoomIn'
