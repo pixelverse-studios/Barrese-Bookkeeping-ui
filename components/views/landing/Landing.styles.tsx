@@ -152,7 +152,8 @@ export const StyledLanding = styled.section<LandingPageTypes>`
         .services-container {
             width: 100%;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+            /* grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); */
+            grid-template-columns: 1fr 1fr 1fr;
             align-items: flex-start;
             justify-items: center;
             grid-gap: 1.5rem;
@@ -174,6 +175,17 @@ export const StyledLanding = styled.section<LandingPageTypes>`
             padding: 3rem 0rem;
             height: fit-content;
             scroll-margin-top: 7rem;
+
+            .services-container {
+                grid-template-columns: 1fr 1fr;
+                padding: 2rem;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 750px) {
+        .services .services-container {
+            grid-template-columns: 1fr;
         }
     }
 

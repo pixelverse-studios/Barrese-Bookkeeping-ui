@@ -19,4 +19,8 @@ export const StyledPageContainer = styled.section`
             padding: 3rem 1rem;
         }
     }
+
+    .contactContainer {
+        height: 80vh;
+    }
 `

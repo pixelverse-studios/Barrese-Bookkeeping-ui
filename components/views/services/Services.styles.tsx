@@ -37,14 +37,13 @@ export const StyledServices = styled.section`
 
         .detail-section {
             display: grid;
-            grid-template-columns: 10rem 1fr;
+            grid-template-columns: 12rem 1fr;
             grid-gap: 2rem;
 
             .imgContainer {
                 img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
+                    width: auto;
+                    height: 80%;
                 }
             }
 
@@ -59,7 +58,9 @@ export const StyledServices = styled.section`
 
                 h1 {
                     font-size: 2rem;
+                    line-height: 2.5rem;
                     font-weight: 600;
+                    text-align: left;
                 }
 
                 span {
@@ -99,14 +100,14 @@ export const StyledServices = styled.section`
 
             .detail-section {
                 grid-template-columns: 1fr;
-                grid-template-rows: 10rem 1fr;
+                grid-template-rows: auto 1fr;
+                align-items: center;
                 grid-gap: 1.5rem;
                 padding: 0 0 1rem 0;
                 border-bottom: 3px solid var(--Secondary-accent-color);
 
                 .imgContainer {
                     text-align: left;
-                    width: 10rem;
                 }
 
                 .service-info {
@@ -136,5 +137,11 @@ export const StyledServices = styled.section`
                 }
             }
         }
-    } ;
+    }
+
+    @media only screen and (max-width: 750px) {
+        .service-details .detail-section .imgContainer {
+            text-align: center;
+        }
+    }
 `

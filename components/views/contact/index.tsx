@@ -18,7 +18,7 @@ const ContactPage = () => {
     return (
         <StyledPageContainer>
             <HeroImage url="https://res.cloudinary.com/ezpzcoding-cloudinary/image/upload/v1680231303/barrese_bookkeeping/contact_picture_pt2byk.png" />
-            <div className="container">
+            <div className="container contactContainer">
                 <StyledContact className={ANIMATION_CLASS}>
                     <InlineWidget url="https://calendly.com/barresebookkeeping" />
                 </StyledContact>
