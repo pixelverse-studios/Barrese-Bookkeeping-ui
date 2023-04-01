@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux'
 
 import Button from '@/components/button'
 import ServiceCard from '@/components/ServiceCard'
-import { ANIMATION_CLASSES } from '@/utilities/constants'
+import {
+    ANIMATION_CLASS,
+    BASE_ANIMATE,
+    FADE_ANIMATE
+} from '@/utilities/constants'
 import { StyledLanding } from './Landing.styles'
-
-const { base, prefix, general, enterLeft } = ANIMATION_CLASSES
-const GENERAL_CLASS = `${prefix}${general}`
 
 const Landing = () => {
     const {
@@ -30,9 +31,9 @@ const Landing = () => {
             const pageHeight = window.innerHeight
 
             if (y + 200 < pageHeight) {
-                if (!serviceRef?.current?.classList.contains(GENERAL_CLASS)) {
-                    serviceRef?.current?.classList.add(base)
-                    serviceRef?.current?.classList.add(GENERAL_CLASS)
+                if (!serviceRef?.current?.classList.contains(BASE_ANIMATE)) {
+                    serviceRef?.current?.classList.add(BASE_ANIMATE)
+                    serviceRef?.current?.classList.add(FADE_ANIMATE)
                 }
             }
         }
@@ -53,13 +54,11 @@ const Landing = () => {
             })
     }
 
-    const overlayAnimation = `${base} ${prefix}${enterLeft}`
-
     return (
         <StyledLanding backgroundImg={heroImage}>
             <div className="hero">
                 <div className="overlay">
-                    <div className={`overlay-text ${overlayAnimation}`}>
+                    <div className={`overlay-text ${ANIMATION_CLASS}`}>
                         <div className="title-container">
                             <h1>{heroBannerH1}</h1>
                         </div>

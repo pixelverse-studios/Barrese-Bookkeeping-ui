@@ -1,13 +1,10 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import { ANIMATION_CLASSES } from '@/utilities/constants'
+import { ANIMATION_CLASS } from '@/utilities/constants'
 import HeroImage from '@/components/HeroHeader'
 import { StyledFAQ } from './FAQ.styles'
 import { StyledPageContainer } from '../PageContainer.styles'
-
-const { base, prefix, general } = ANIMATION_CLASSES
-const overlayAnimation = `${base} ${prefix}${general}`
 
 const FAQPage = () => {
     const { pageH1, pageH2, heroImage, qAndA } = useSelector(
@@ -22,7 +19,7 @@ const FAQPage = () => {
         <StyledPageContainer>
             <HeroImage url={heroImage} />
             <div className="container">
-                <StyledFAQ className={overlayAnimation}>
+                <StyledFAQ className={ANIMATION_CLASS}>
                     <h1>{pageH1}</h1>
                     <h2>{pageH2}</h2>
                     <hr />
