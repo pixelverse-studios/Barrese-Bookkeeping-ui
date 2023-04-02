@@ -7,6 +7,7 @@ export const StyledFAQ = styled.section`
         font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 0.7rem;
+        padding: 1rem 0;
     }
 
     h2 {

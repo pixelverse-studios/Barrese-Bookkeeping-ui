@@ -9,11 +9,13 @@ export const StyledAbout = styled.section`
 
     h1 {
         font-size: 2.5rem;
+        padding: 1rem 0;
         font-weight: 700;
         margin-bottom: 0.7rem;
     }
 
     h2 {
+        text-align: center;
         font-size: 1.8rem;
         font-weight: 600;
     }
@@ -46,6 +48,7 @@ export const StyledAbout = styled.section`
             margin: auto;
             line-height: 24px;
             font-size: 1.1rem;
+            text-align: justify;
         }
     }
 

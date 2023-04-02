@@ -46,6 +46,10 @@ export const StyledFooter = styled.footer`
                 display: flex;
                 column-gap: 1rem;
             }
+
+            .copyright {
+                line-height: 1.5rem;
+            }
         }
     }
     @media only screen and (max-width: 1350px) {
@@ -72,6 +76,7 @@ export const StyledFooter = styled.footer`
                 width: 100%;
                 display: flex;
                 justify-content: center;
+                text-align: center;
             }
         }
     }

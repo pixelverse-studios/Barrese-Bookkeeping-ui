@@ -2,14 +2,14 @@ import styled from '@emotion/styled'
 
 export const StyledServiceCard = styled.div`
     display: grid;
-    grid-template-rows: auto 4rem 1fr;
-    grid-gap: 1.5rem;
+    grid-template-rows: 10rem 4rem 1fr;
+    grid-gap: 2rem;
     justify-items: center;
     align-items: flex-start;
 
     img {
-        width: auto;
-        height: 10rem;
+        width: 8rem;
+        margin: auto;
     }
 
     h2 {

@@ -7,6 +7,8 @@ type LandingPageTypes = {
 
 export const StyledLanding = styled.section<LandingPageTypes>`
     width: 100vw;
+    display: grid;
+    grid-template-rows: 1fr auto;
 
     h1 {
         font-size: 6.4rem;
@@ -130,17 +132,14 @@ export const StyledLanding = styled.section<LandingPageTypes>`
 
     .services {
         background-color: var(--Off-brand-color);
-        padding: 3rem 0rem;
         ${ContentSpacing}
-        height: calc(100vh - var(--nav-height));
+        padding: 3rem 0rem;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
         align-content: center;
         row-gap: 1rem;
         scroll-margin-top: 2rem !important;
-        padding-top: 3rem;
 
         h1 {
             font-size: 4.5rem;
@@ -152,7 +151,6 @@ export const StyledLanding = styled.section<LandingPageTypes>`
         .services-container {
             width: 100%;
             display: grid;
-            /* grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); */
             grid-template-columns: 1fr 1fr 1fr;
             align-items: flex-start;
             justify-items: center;

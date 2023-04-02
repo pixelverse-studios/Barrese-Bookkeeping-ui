@@ -27,7 +27,9 @@ const Landing = () => {
 
     useEffect(() => {
         const handleAnimations = () => {
-            const { y } = serviceRef?.current?.getBoundingClientRect() as any
+            const rects = serviceRef?.current?.getBoundingClientRect() as any
+            if (!rects) return
+            const { y } = rects
             const pageHeight = window.innerHeight
 
             if (y + 200 < pageHeight) {

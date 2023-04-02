@@ -82,7 +82,7 @@ export const StyledNav = styled.nav`
                 background: var(--Primary-brand-color);
             }
 
-            .activeLink {
+            .activeLink a {
                 color: var(--Primary-brand-color);
             }
             .activeLink:after {
