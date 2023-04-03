@@ -35,6 +35,10 @@ export const StyledAbout = styled.section`
 
             img {
                 border-radius: 50%;
+                height: 20rem;
+                width: 20rem;
+                object-fit: cover;
+                object-position: top;
             }
 
             span {
