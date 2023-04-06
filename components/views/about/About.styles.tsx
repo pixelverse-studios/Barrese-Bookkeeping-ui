@@ -35,6 +35,10 @@ export const StyledAbout = styled.section`
 
             img {
                 border-radius: 50%;
+                height: 20rem;
+                width: 20rem;
+                object-fit: cover;
+                object-position: top;
             }
 
             span {
@@ -60,10 +64,6 @@ export const StyledAbout = styled.section`
 
     @media only screen and (max-width: 750px) {
         .about {
-            .about-image-title img {
-                width: 65%;
-            }
-
             p {
                 width: 90%;
             }
