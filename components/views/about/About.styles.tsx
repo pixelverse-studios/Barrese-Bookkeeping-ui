@@ -64,10 +64,6 @@ export const StyledAbout = styled.section`
 
     @media only screen and (max-width: 750px) {
         .about {
-            .about-image-title img {
-                width: 65%;
-            }
-
             p {
                 width: 90%;
             }
