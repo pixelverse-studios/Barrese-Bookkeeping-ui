@@ -32,7 +32,7 @@ const Landing = () => {
             const { y } = rects
             const pageHeight = window.innerHeight
 
-            if (y + 200 < pageHeight) {
+            if (y + 25 < pageHeight) {
                 if (!serviceRef?.current?.classList.contains(BASE_ANIMATE)) {
                     serviceRef?.current?.classList.add(BASE_ANIMATE)
                     serviceRef?.current?.classList.add(FADE_ANIMATE)

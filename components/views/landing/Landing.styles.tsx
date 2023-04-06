@@ -170,7 +170,7 @@ export const StyledLanding = styled.section<LandingPageTypes>`
         .services {
             width: 100%;
             text-align: center;
-            padding: 3rem 0rem;
+            padding: 4rem 0rem;
             height: fit-content;
             scroll-margin-top: 7rem;
 
