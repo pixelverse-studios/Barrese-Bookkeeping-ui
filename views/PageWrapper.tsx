@@ -28,13 +28,13 @@ import {
     setNewsletterUsers,
     setServices
 } from '@/lib/redux/slices/exports'
-import { FullPageLoader } from '../loader'
+import { FullPageLoader } from '../components/loader'
 import { showBanner } from '@/lib/redux/slices/banner'
 import DashboardPage from './dashboard'
-import Nav from '../nav'
-import CallToAction from '../CallToAction'
-import Banner from '../banner'
-import Footer from '../footer'
+import Nav from '../components/nav'
+import CallToAction from '../components/CallToAction'
+import Banner from '../components/banner'
+import Footer from '../components/footer'
 
 import { StyledMain } from './PageWrapper.styles'
 

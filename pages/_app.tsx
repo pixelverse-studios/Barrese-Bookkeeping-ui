@@ -4,7 +4,7 @@ import { Provider as ReduxProvider } from 'react-redux'
 
 import { client } from '@/lib/context/apolloProvider'
 import { store } from '@/lib/redux/store'
-import PageWrapper from '@/components/views/PageWrapper'
+import PageWrapper from '@/views/PageWrapper'
 import 'animate.css'
 import '@/styles/globals.css'
 

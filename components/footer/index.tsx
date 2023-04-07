@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { LocationOn } from '@mui/icons-material'
 
-import { footerOptions } from '../views/dashboard/footer/FooterField'
+import { footerOptions } from '../../views/dashboard/footer/FooterField'
 import Logo from '../../assets/images/BarreseBookkeeping.svg'
 import { StyledFooter } from './Footer.styles'
 
