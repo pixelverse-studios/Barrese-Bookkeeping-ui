@@ -8,15 +8,15 @@ import { LoadingButton } from '@mui/lab'
 import {
     showTechnicalDifficultiesBanner,
     showBanner
-} from '../../../lib/redux/slices/banner'
-import useForm from '../../../utilities/hooks/useForm'
-import { TextField, FormRow } from '../../form'
-import { FormProps } from '../../../utilities/types/formTypes'
-import { JWT_SECRET } from '../../../utilities/constants'
-import FormValidations from '../../../utilities/validations/forms'
-import { AppDispatch } from '../../../lib/redux/store'
-import { REGISTER } from '../../../lib/gql/mutations/users'
-import { setLoading, setProfile } from '../../../lib/redux/slices/user'
+} from '../../lib/redux/slices/banner'
+import useForm from '../../utilities/hooks/useForm'
+import { TextField, FormRow } from '../../components/form'
+import { FormProps } from '../../utilities/types/formTypes'
+import { JWT_SECRET } from '../../utilities/constants'
+import FormValidations from '../../utilities/validations/forms'
+import { AppDispatch } from '../../lib/redux/store'
+import { REGISTER } from '../../lib/gql/mutations/users'
+import { setLoading, setProfile } from '../../lib/redux/slices/user'
 import { StyledAuthPage } from './AuthPage.styles'
 
 const INITIAL_STATE = {

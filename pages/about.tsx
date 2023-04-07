@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import AboutPage from '@/components/views/about'
+import AboutPage from '@/views/about'
 
 const About: NextPage = () => {
     return <AboutPage />

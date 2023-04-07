@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import FAQPage from '@/components/views/faq'
+import FAQPage from '@/views/faq'
 
 const FAQs: NextPage = () => {
     return <FAQPage />
