@@ -1,13 +1,8 @@
 export const JWT_SECRET = 'barrese-bookkeeping-secret'
 export const PROTECTED_PAGES = ['dashboard']
 export const AUTH_PAGES = ['login', 'register', 'password']
-export const SUB_CTA_PAGES = [
-    'contact',
-    'services',
-    'login',
-    'register',
-    'password'
-]
+export const CTA_PAGES = ['', 'about', 'faqs']
+export const NAV_PAGES = ['', 'about', 'services', 'faqs', 'contact']
 export const CLOUDINARY = {
     UPLOAD_URL:
         'https://api.cloudinary.com/v1_1/ezpzcoding-cloudinary/image/upload',

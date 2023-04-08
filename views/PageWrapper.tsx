@@ -8,7 +8,8 @@ import {
     JWT_SECRET,
     PROTECTED_PAGES,
     AUTH_PAGES,
-    SUB_CTA_PAGES
+    CTA_PAGES,
+    NAV_PAGES
 } from '@/utilities/constants'
 import { decodeCachedToken } from '@/utilities/token'
 import { GET_LOGGED_IN_USER } from '@/lib/gql/queries/users'
@@ -163,9 +164,10 @@ const PageWrapper = ({ children }: { children: any }) => {
         getAllCmsContent()
     }, [])
 
-    const showCTA = !isPageIncluded(SUB_CTA_PAGES)
+    const showCTA = isPageIncluded(CTA_PAGES)
     const forceMobileNav = isPageIncluded(AUTH_PAGES)
     const isOnDashboard = isPageIncluded(['dashboard'])
+    const showNav = isPageIncluded(NAV_PAGES)
 
     return (
         <ThemeProvider theme={theme}>
@@ -175,7 +177,9 @@ const PageWrapper = ({ children }: { children: any }) => {
                     <DashboardPage>{children}</DashboardPage>
                 ) : (
                     <>
-                        <Nav forceMobileNav={forceMobileNav} />
+                        {showNav ? (
+                            <Nav forceMobileNav={forceMobileNav} />
+                        ) : null}
                         {children}
                         {showCTA ? <CallToAction /> : null}
                         <Footer />
