@@ -4,6 +4,7 @@ import { Styled404Page } from './PageNotFound.styles'
 const PageNotFound = () => {
     const router = useRouter()
     const goHome = () => router.push('/')
+    console.log('123')
     return (
         <Styled404Page>
             <div className="visual">
