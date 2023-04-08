@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { ApolloProvider } from '@apollo/client'
 import { Provider as ReduxProvider } from 'react-redux'
 
-import Logo from '@/assets/images/BarreseBookkeeping.svg'
+import Logo from '@/assets/images/B_Logo-transparent.png'
 import { client } from '@/lib/context/apolloProvider'
 import { store } from '@/lib/redux/store'
 import PageWrapper from '@/views/PageWrapper'
