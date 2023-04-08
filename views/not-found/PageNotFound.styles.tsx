@@ -106,7 +106,7 @@ export const Styled404Page = styled.section`
         align-items: center;
 
         span {
-            font-family: 'Source Code Pro', monospace;
+            /* font-family: 'Source Code Pro', monospace; */
             font-size: 5rem;
         }
 
