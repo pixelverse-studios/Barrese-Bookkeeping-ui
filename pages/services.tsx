@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import ServicesPage from '@/components/views/services'
+import ServicesPage from '@/views/services'
 
 const Services: NextPage = () => {
     return <ServicesPage />

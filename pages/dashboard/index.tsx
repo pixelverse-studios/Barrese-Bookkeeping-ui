@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import UserProfile from '@/components/views/dashboard/userProfile'
+import UserProfile from '@/views/dashboard/userProfile'
 
 const DashboardPage: NextPage = () => {
     return <UserProfile />

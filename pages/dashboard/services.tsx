@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 
-import ServicesWidget from '@/components/views/dashboard/services'
+import ServicesWidget from '@/views/dashboard/services'
 
 const DashboardServicesPage: NextPage = () => {
     return <ServicesWidget />
