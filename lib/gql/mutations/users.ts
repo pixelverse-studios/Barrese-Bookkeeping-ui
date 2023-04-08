@@ -6,7 +6,6 @@ export const LOGIN = gql`
             ... on UserSuccess {
                 _id
                 email
-                password
                 firstName
                 lastName
                 token
@@ -34,7 +33,6 @@ export const REGISTER = gql`
             ... on UserSuccess {
                 _id
                 email
-                password
                 firstName
                 lastName
                 token
@@ -52,7 +50,6 @@ export const RESET_PASSWORD = gql`
             ... on UserSuccess {
                 _id
                 email
-                password
                 firstName
                 lastName
                 token
@@ -70,7 +67,6 @@ export const UPDATED_PASSWORD = gql`
             ... on UserSuccess {
                 _id
                 email
-                password
                 firstName
                 lastName
                 token
@@ -89,7 +85,6 @@ export const SEND_PASSWORD_RESET = gql`
             ... on UserSuccess {
                 _id
                 email
-                password
                 firstName
                 lastName
                 token
