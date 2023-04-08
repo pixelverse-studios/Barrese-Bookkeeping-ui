@@ -7,6 +7,7 @@ export const Styled404Page = styled.section`
     justify-content: center;
     align-items: center;
     gap: 4rem;
+    padding: 2rem;
 
     .visual {
         @keyframes loading-left {
