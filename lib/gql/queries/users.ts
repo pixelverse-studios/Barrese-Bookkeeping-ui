@@ -6,7 +6,6 @@ export const GET_LOGGED_IN_USER = gql`
             ... on UserSuccess {
                 _id
                 email
-                password
                 firstName
                 lastName
                 token
