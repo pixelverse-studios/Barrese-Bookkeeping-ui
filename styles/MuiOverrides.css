@@ -1,4 +1,4 @@
-.MuiSvgIcon-root.instagram {
+/* .MuiSvgIcon-root.instagram {
     background: radial-gradient(
         circle at 50% 100%,
         #fdf497 0%,
@@ -33,6 +33,10 @@
 
 .MuiSvgIcon-root.twitter {
     color: #1da1f2;
+} */
+
+.contactLinkIcon {
+    color: var(--Primary-brand-color);
 }
 
 #dashboard-mobile-menu .mobileNavItem span {

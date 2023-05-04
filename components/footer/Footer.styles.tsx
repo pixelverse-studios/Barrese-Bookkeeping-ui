@@ -71,6 +71,17 @@ export const StyledFooter = styled.footer`
                 width: 100%;
                 display: flex;
                 justify-content: center;
+
+                a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    svg {
+                        height: 2rem;
+                        width: 2rem;
+                    }
+                }
             }
             .copyright {
                 width: 100%;
