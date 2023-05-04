@@ -19,38 +19,41 @@ import {
 } from '@mui/material'
 
 import { TextField } from '@/components/form'
-
 import { StyledFooterField } from './StyledFooterWidget'
 
 export const footerOptions = [
-    { icon: <Email className="email" />, value: 'Email', className: 'email' },
     {
-        icon: <Facebook className="facebook" />,
+        icon: <Email className="contactLinkIcon" />,
+        value: 'Email',
+        className: 'email'
+    },
+    {
+        icon: <Facebook className="contactLinkIcon" />,
         value: 'Facebook',
         className: 'facebook'
     },
     {
-        icon: <Instagram className="instagram" />,
+        icon: <Instagram className="contactLinkIcon" />,
         value: 'Instagram',
         className: 'instagram'
     },
     {
-        icon: <LinkedIn className="linkedin" />,
+        icon: <LinkedIn className="contactLinkIcon" />,
         value: 'LinkedIn',
         className: 'linkedin'
     },
     {
-        icon: <Reddit className="reddit" />,
+        icon: <Reddit className="contactLinkIcon" />,
         value: 'Reddit',
         className: 'reddit'
     },
     {
-        icon: <Twitter className="twitter" />,
+        icon: <Twitter className="contactLinkIcon" />,
         value: 'Twitter',
         className: 'twitter'
     },
     {
-        icon: <QuestionMark className="newIcon" />,
+        icon: <QuestionMark className="contactLinkIcon" />,
         value: 'New Icon',
         className: 'newIcon'
     }

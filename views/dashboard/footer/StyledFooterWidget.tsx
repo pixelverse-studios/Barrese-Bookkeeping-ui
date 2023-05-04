@@ -119,7 +119,7 @@ export const StyledFooterField = styled.div`
         }
     }
 
-    .instagram svg {
+    /* .instagram svg {
         background: radial-gradient(
             circle at 50% 100%,
             #fdf497 0%,
@@ -154,5 +154,5 @@ export const StyledFooterField = styled.div`
 
     .twitter svg {
         color: #1da1f2;
-    }
+    } */
 `
